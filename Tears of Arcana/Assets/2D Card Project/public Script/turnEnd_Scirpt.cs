@@ -1,0 +1,40 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class turnEnd_Scirpt : MonoBehaviour
+{
+    public ObjectSet_Script Order;
+    public bool endButton = false;
+    public bool end_turn = false;
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    private void OnMouseOver()
+    {
+        endButton = true;
+    }
+    private void OnMouseExit()
+    {
+        endButton = false;
+    }
+    private void OnMouseDown()
+    {
+        if (endButton)
+        {
+            end_turn = true;
+            Order.Order_1 = true;
+        }
+
+    }
+}

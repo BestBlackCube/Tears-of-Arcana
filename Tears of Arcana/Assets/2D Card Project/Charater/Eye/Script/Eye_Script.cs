@@ -1,0 +1,274 @@
+using System.Collections;
+using System.Collections.Generic;
+using System.Security.Cryptography;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class Eye_Script : MonoBehaviour
+{
+    public GameObject EyeFunnel_Image;
+    GameObject EyeFunnel;
+
+    public GameObject HpBar_prefab;
+    public GameObject canvas;
+
+    public Charater_namedata unitname;
+    public Charater_Status status;
+
+    RectTransform hpbar;
+
+    Animator animator;
+    BoxCollider2D box2D;
+
+    public int Card_Damage;
+    public int nowHp;
+    public int maxHp;
+    public float Dead_timer = 0f;
+    public float Attack_timer = 0f;
+
+    EnemyObjectSet_Script ObjectSet;
+    ObjectSet_Script attack_order;
+    Player_Script player;
+    CardDeckField_Script deckField;
+    CardDeck_Script deck;
+    public Card_Script card;
+    Image nowHpbar;
+
+    public bool targetEyeCard = false;    // 카드가 Eye를 선택하는지
+    public bool EyeDamage = false;        // Eye가 데미지를 받았을때
+    public bool animation_Attack = false;
+    public bool EnemyAttack = false;
+    bool Eye_cardUse = false;
+    public bool HIT_Eye = false;
+
+    public Vector3 animation_position;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        status = new Charater_Status();
+        status = status.Char_inStatus(unitname);
+
+        nowHp = status.NowHp;
+        maxHp = status.MaxHp;
+        canvas = GameObject.Find("HPCanvas");
+
+        ObjectSet = FindObjectOfType<EnemyObjectSet_Script>();
+        attack_order = FindObjectOfType<ObjectSet_Script>();
+
+        hpbar = Instantiate(HpBar_prefab, canvas.transform).GetComponent<RectTransform>();
+        animationPosition();
+
+        nowHpbar = hpbar.transform.GetChild(0).GetComponent<Image>();
+        animator = GetComponent<Animator>();
+        box2D = GetComponent<BoxCollider2D>();
+
+        player = FindObjectOfType<Player_Script>();
+        deckField = FindObjectOfType<CardDeckField_Script>();
+        deck = FindObjectOfType<CardDeck_Script>();
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        Attack_Order();
+        if(EnemyAttack) Eye_Attack();
+        if(HIT_Eye) Hit_Eye();
+
+        if (EyeFunnel == null && targetEyeCard) // 깔때기 생성
+        {
+            Vector3 Eye_offset = new Vector3(0, 3.5f, 0);
+            EyeFunnel = Instantiate(EyeFunnel_Image, Eye_offset, Quaternion.identity);
+            Funnel_Script funnel = EyeFunnel.GetComponent<Funnel_Script>();
+            funnel.target = this.transform;
+            funnel.offset = Eye_offset;
+        }
+        if(EyeFunnel == null && !targetEyeCard)
+        {
+            Destroy(EyeFunnel); // 깔때기 제거
+        }
+    }
+    void OnMouseOver()
+    {
+        Eye_cardUse = true;
+        if (targetEyeCard && deckField.Click_Card != null) deckField.Click_Card.Object_name = "Eye";
+    }
+    void OnMouseExit()
+    {
+        Eye_cardUse = false;
+        if (targetEyeCard && deckField.Click_Card != null) deckField.Click_Card.Object_name = "";
+    }
+    void OnMouseDown()
+    {
+        if(Eye_cardUse && deckField.Click_Card.Object_name == "Eye")
+        {
+            deckField.Click_Card.Card_MouseClick = false;
+            Card_Damage = deckField.Click_Card.Card_status;
+            deckField.Click_Card.CardDestroy();
+            deckField.Click_Card = null;
+            deck.CardCount = 0;
+            deckField.cardHide = false;
+            player.animation_Attack = true;
+            player.targetPlayerCard = false;
+            targetEyeCard = false;
+            HIT_Eye = true;
+        }
+    }
+    void Eye_Attack() // 공격 애니메이션 코드
+    {
+        if (animator.GetBool("EyeIdle"))
+        {
+            animator.SetBool("EyeIdle", false);
+            animator.SetBool("EyeMove", true);
+        }
+        if (animator.GetBool("EyeMove"))
+        {
+            if (transform.position.x > -5)
+            {
+                transform.position = new Vector3(transform.position.x - 15f * Time.deltaTime, transform.position.y, 0);
+            }
+            else
+            {
+                animator.SetBool("EyeMove", false);
+                animator.SetBool("EyeAttack", true);
+                player.EnemyAttack_Player = true; // !+ 플레이어 피격 애니메이션 활성화
+            }
+        }
+        if (animator.GetBool("EyeAttack"))
+        {
+            if (Attack_timer < 1.15f)
+            {
+                Attack_timer += Time.deltaTime;
+            }
+            else
+            {
+                animator.SetBool("EyeAttack", false);
+                animator.SetBool("EyeBackMove", true);
+                player.EnemyAttack_Player = false; // !+ 플레이어 피격 애니메이션 비활성화
+                player.PlayerDamage = true;        // 플레이어HP 줄이기
+                Attack_timer = 0f;
+            }
+        }
+        if (animator.GetBool("EyeBackMove"))
+        {
+            if (transform.position.x < animation_position.x)
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+                transform.position = new Vector3(transform.position.x + 15f * Time.deltaTime, transform.position.y, 0);
+            }
+            else
+            {
+                animator.SetBool("EyeBackMove", false);
+                animator.SetBool("EyeIdle", true);
+                transform.localScale = new Vector3(-1, 1, 1);
+                transform.position = animation_position;
+                animation_Attack = true;
+            }
+        }
+    }
+    void Hit_Eye() // 플레이어에게 공격 받았을때 실행 되는 애니메이션
+    {
+        nowHpbar.fillAmount = (float)nowHp / (float)maxHp;
+        if (player.PlayerAttack_Enemy)
+        {
+            animator.SetBool("EyeHit", true);
+            if (player.PlayerAttack_timer > 1f) EyeDamage = true;
+        }
+        else
+        {
+            animator.SetBool("EyeHit", false);
+        }
+
+        if (EyeDamage)
+        {
+            nowHp -= Card_Damage;
+            Card_Damage = 0;
+            EyeDamage = false;
+        }
+
+        if (nowHp <= 0f)
+        {
+            animator.SetTrigger("EyeDie");
+            if (Dead_timer < 0.3f) Dead_timer += Time.deltaTime;
+            else
+            {
+                Destroy(gameObject);
+                Destroy(hpbar.gameObject);
+            }
+        }
+    }
+    void animationPosition()
+    {
+        if (ObjectSet.Enemy_Name[0] == "Eye")
+        {
+            Vector3 HpBarPos = new Vector3(transform.position.x, transform.position.y - 3.5f, 0);
+            hpbar.position = HpBarPos;
+            animation_position = ObjectSet.Field_transform[0];
+        }
+        if (ObjectSet.Enemy_Name[1] == "Eye")
+        {
+            Vector3 HpBarPos = new Vector3(transform.position.x, transform.position.y - 5f, 0);
+            hpbar.position = HpBarPos;
+            animation_position = ObjectSet.Field_transform[1];
+        }
+        if (ObjectSet.Enemy_Name[2] == "Eye")
+        {
+            Vector3 HpBarPos = new Vector3(transform.position.x, transform.position.y - 3.5f, 0);
+            hpbar.position = HpBarPos;
+            animation_position = ObjectSet.Field_transform[2];
+        }
+        if (ObjectSet.Enemy_Name[3] == "Eye")
+        {
+            Vector3 HpBarPos = new Vector3(transform.position.x, transform.position.y - 5f, 0);
+            hpbar.position = HpBarPos;
+            animation_position = ObjectSet.Field_transform[3];
+        }
+    }
+    void Attack_Order()
+    {
+        if (ObjectSet.Enemy_Name[0] == "Eye" && attack_order.Order_1)
+        {
+            EnemyAttack = true;
+            if (animation_Attack)
+            {
+                attack_order.Order_1 = false;
+                attack_order.Order_2 = true;
+                EnemyAttack = false;
+                animation_Attack = false;
+            }
+        }
+        if (ObjectSet.Enemy_Name[1] == "Eye" && attack_order.Order_2)
+        {
+            EnemyAttack = true;
+            if (animation_Attack)
+            {
+                attack_order.Order_2 = false;
+                attack_order.Order_3 = true;
+                EnemyAttack = false;
+                animation_Attack = false;
+            }
+        }
+        if (ObjectSet.Enemy_Name[2] == "Eye" && attack_order.Order_3)
+        {
+            EnemyAttack = true;
+            if (animation_Attack)
+            {
+                attack_order.Order_3 = false;
+                attack_order.Order_4 = true;
+                EnemyAttack = false;
+                animation_Attack = false;
+            }
+        }
+        if (ObjectSet.Enemy_Name[3] == "Eye" && attack_order.Order_4)
+        {
+            EnemyAttack = true;
+            if (animation_Attack)
+            {
+                attack_order.Order_4 = false;
+                EnemyAttack = false;
+                animation_Attack = false;
+            }
+        }
+    }
+}
