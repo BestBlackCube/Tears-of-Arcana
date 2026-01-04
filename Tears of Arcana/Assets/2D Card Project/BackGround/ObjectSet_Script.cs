@@ -30,29 +30,29 @@ public class ObjectSet_Script : MonoBehaviour
         }
         if (Order)
         {
-            if (ObjectSet.Enemy_Name[0] != null && ObjectSet.Enemy_Name[1] != null && 
-                ObjectSet.Enemy_Name[2] != null && ObjectSet.Enemy_Name[3] != null)
+            if (ObjectSet.Field_inMonster[0] != null && ObjectSet.Field_inMonster[1] != null && 
+                ObjectSet.Field_inMonster[2] != null && ObjectSet.Field_inMonster[3] != null)
             {
                 Order_1 = true;
                 Order = false;
             }
 
-            if (ObjectSet.Enemy_Name[0] != null)
+            if (ObjectSet.Field_inMonster[0] != null)
             {
                 Order_1 = true;
                 Order = false;
             }
-            else if (ObjectSet.Enemy_Name[1] != null)
+            else if (ObjectSet.Field_inMonster[1] != null)
             {
                 Order_2 = true;
                 Order = false;
             }
-            else if (ObjectSet.Enemy_Name[2] != null)
+            else if (ObjectSet.Field_inMonster[2] != null)
             {
                 Order_3 = true;
                 Order = false;
             }
-            else if (ObjectSet.Enemy_Name[3] != null)
+            else if (ObjectSet.Field_inMonster[3] != null)
             {
                 Order_4 = true;
                 Order = false;

@@ -475,9 +475,9 @@ public class Skeleton_Script : MonoBehaviour
                 {
                     stun_count--;
                     attack_order.Order_1 = false;
-                    if (ObjectSet.Enemy_Name[1] != null) { attack_order.Order_2 = true; stun_countDown = false; }
-                    else if (ObjectSet.Enemy_Name[2] != null) { attack_order.Order_3 = true; stun_countDown = false; }
-                    else if (ObjectSet.Enemy_Name[3] != null) { attack_order.Order_4 = true; stun_countDown = false; }
+                    if (ObjectSet.Field_inMonster[1] != null) { attack_order.Order_2 = true; stun_countDown = false; }
+                    else if (ObjectSet.Field_inMonster[2] != null) { attack_order.Order_3 = true; stun_countDown = false; }
+                    else if (ObjectSet.Field_inMonster[3] != null) { attack_order.Order_4 = true; stun_countDown = false; }
                     else { attack_order.CardAdd = true; stun_countDown = false; }
                 }
             }
@@ -488,8 +488,8 @@ public class Skeleton_Script : MonoBehaviour
                 {
                     stun_count--;
                     attack_order.Order_2 = false;
-                    if (ObjectSet.Enemy_Name[2] != null) { attack_order.Order_3 = true; stun_countDown = false; }
-                    else if (ObjectSet.Enemy_Name[3] != null) { attack_order.Order_4 = true; stun_countDown = false; }
+                    if (ObjectSet.Field_inMonster[2] != null) { attack_order.Order_3 = true; stun_countDown = false; }
+                    else if (ObjectSet.Field_inMonster[3] != null) { attack_order.Order_4 = true; stun_countDown = false; }
                     else { attack_order.CardAdd = true; stun_countDown = false; }
                 }
             }
@@ -500,7 +500,7 @@ public class Skeleton_Script : MonoBehaviour
                 {
                     stun_count--;
                     attack_order.Order_3 = false;
-                    if (ObjectSet.Enemy_Name[3] != null) { attack_order.Order_4 = true; stun_countDown = false; }
+                    if (ObjectSet.Field_inMonster[3] != null) { attack_order.Order_4 = true; stun_countDown = false; }
                     else { attack_order.CardAdd = true; stun_countDown = false; }
                 }
             }
@@ -524,9 +524,9 @@ public class Skeleton_Script : MonoBehaviour
                 if (animation_Attack)
                 {
                     attack_order.Order_1 = false;
-                    if (ObjectSet.Enemy_Name[1] != null) attack_order.Order_2 = true;
-                    else if (ObjectSet.Enemy_Name[2] != null) attack_order.Order_3 = true;
-                    else if (ObjectSet.Enemy_Name[3] != null) attack_order.Order_4 = true;
+                    if (ObjectSet.Field_inMonster[1] != null) attack_order.Order_2 = true;
+                    else if (ObjectSet.Field_inMonster[2] != null) attack_order.Order_3 = true;
+                    else if (ObjectSet.Field_inMonster[3] != null) attack_order.Order_4 = true;
                     else attack_order.CardAdd = true;
                     EnemyAttack = false;
                     animation_Attack = false;
@@ -538,8 +538,8 @@ public class Skeleton_Script : MonoBehaviour
                 if (animation_Attack)
                 {
                     attack_order.Order_2 = false;
-                    if (ObjectSet.Enemy_Name[2] != null) attack_order.Order_3 = true;
-                    else if (ObjectSet.Enemy_Name[3] != null) attack_order.Order_4 = true;
+                    if (ObjectSet.Field_inMonster[2] != null) attack_order.Order_3 = true;
+                    else if (ObjectSet.Field_inMonster[3] != null) attack_order.Order_4 = true;
                     else attack_order.CardAdd = true;
                     EnemyAttack = false;
                     animation_Attack = false;
@@ -551,7 +551,7 @@ public class Skeleton_Script : MonoBehaviour
                 if (animation_Attack)
                 {
                     attack_order.Order_3 = false;
-                    if (ObjectSet.Enemy_Name[3] != null) attack_order.Order_4 = true;
+                    if (ObjectSet.Field_inMonster[3] != null) attack_order.Order_4 = true;
                     else attack_order.CardAdd = true;
                     EnemyAttack = false;
                     animation_Attack = false;

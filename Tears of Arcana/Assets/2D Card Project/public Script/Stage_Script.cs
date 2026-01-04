@@ -26,6 +26,7 @@ public class Stage_Script : MonoBehaviour
         {
             if(stage_timer < 2f)
             {
+                TextChange();
                 stage_timer += Time.deltaTime;
                 Color stageColor = stageImage.color;
                 stageColor.a = Mathf.Lerp(0.0f, 1.0f, stage_timer / 2f);
@@ -54,6 +55,33 @@ public class Stage_Script : MonoBehaviour
                     }
                 }
             }
+        }
+    }
+    void TextChange()
+    {
+        int Count = PlayerPrefs.GetInt("Stage");
+        switch (Count)
+        {
+            case 1:
+                Stage_Text.text = "스테이지 1";
+                break;
+            case 2:
+                Stage_Text.text = "스테이지 2";
+                break;
+            case 3:
+                Stage_Text.text = "스테이지 3";
+                break;
+            case 4:
+                Stage_Text.text = "스테이지 4";
+                break;
+            case 5:
+                Stage_Text.text = "스테이지 5";
+                break;
+
+
+
+            default:
+                break;
         }
     }
 }

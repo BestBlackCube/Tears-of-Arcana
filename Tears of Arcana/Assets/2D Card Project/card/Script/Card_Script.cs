@@ -202,7 +202,7 @@ public class Card_Script : MonoBehaviour
             if (ObjectSet.Enemy_Name[0] == "Skeleton" || ObjectSet.Enemy_Name[1] == "Skeleton" ||
             ObjectSet.Enemy_Name[2] == "Skeleton" || ObjectSet.Enemy_Name[3] == "Skeleton")
             {
-                if (ObjectSet.Enemy_Name[0] == "Skeleton")
+                if (ObjectSet.Field_inMonster[0] != null && ObjectSet.Enemy_Name[0] == "Skeleton")
                 {
                     ObjectSet.Field_inMonster[0].GetComponent<Skeleton_Script>().Arrow = true;
                     ObjectSet.Field_inMonster[0].GetComponent<Skeleton_Script>().Guide = true;
@@ -210,7 +210,7 @@ public class Card_Script : MonoBehaviour
                     if (!ObjectSet.Field_inMonster[0].GetComponent<Skeleton_Script>().HIT_Enemy)
                     ObjectSet.Field_inMonster[0].GetComponent<Skeleton_Script>().HIT_Enemy = true;
                 }
-                if (ObjectSet.Enemy_Name[1] == "Skeleton")
+                if (ObjectSet.Field_inMonster[1] != null && ObjectSet.Enemy_Name[1] == "Skeleton")
                 {
                     ObjectSet.Field_inMonster[1].GetComponent<Skeleton_Script>().Arrow = true;
                     ObjectSet.Field_inMonster[1].GetComponent<Skeleton_Script>().Guide = true;
@@ -218,7 +218,7 @@ public class Card_Script : MonoBehaviour
                     if (!ObjectSet.Field_inMonster[1].GetComponent<Skeleton_Script>().HIT_Enemy)
                     ObjectSet.Field_inMonster[1].GetComponent<Skeleton_Script>().HIT_Enemy = true;
                 }
-                if (ObjectSet.Enemy_Name[2] == "Skeleton")
+                if (ObjectSet.Field_inMonster[2] != null && ObjectSet.Enemy_Name[2] == "Skeleton")
                 {
                     ObjectSet.Field_inMonster[2].GetComponent<Skeleton_Script>().Arrow = true;
                     ObjectSet.Field_inMonster[2].GetComponent<Skeleton_Script>().Guide = true;
@@ -226,7 +226,7 @@ public class Card_Script : MonoBehaviour
                     if (!ObjectSet.Field_inMonster[2].GetComponent<Skeleton_Script>().HIT_Enemy)
                     ObjectSet.Field_inMonster[2].GetComponent<Skeleton_Script>().HIT_Enemy = true;
                 }
-                if (ObjectSet.Enemy_Name[3] == "Skeleton") 
+                if (ObjectSet.Field_inMonster[3] != null && ObjectSet.Enemy_Name[3] == "Skeleton") 
                 { 
                     ObjectSet.Field_inMonster[3].GetComponent<Skeleton_Script>().Arrow = true; 
                     ObjectSet.Field_inMonster[3].GetComponent<Skeleton_Script>().Guide = true; 
@@ -238,7 +238,7 @@ public class Card_Script : MonoBehaviour
             if (ObjectSet.Enemy_Name[0] == "Eye" || ObjectSet.Enemy_Name[1] == "Eye" ||
                 ObjectSet.Enemy_Name[2] == "Eye" || ObjectSet.Enemy_Name[3] == "Eye")
             {
-                if (ObjectSet.Enemy_Name[0] == "Eye")
+                if (ObjectSet.Field_inMonster[0] != null && ObjectSet.Enemy_Name[0] == "Eye")
                 {
                     ObjectSet.Field_inMonster[0].GetComponent<Eye_Script>().Arrow = true;
                     ObjectSet.Field_inMonster[0].GetComponent<Eye_Script>().Guide = true;
@@ -246,7 +246,7 @@ public class Card_Script : MonoBehaviour
                     if (!ObjectSet.Field_inMonster[0].GetComponent<Eye_Script>().HIT_Enemy)
                     ObjectSet.Field_inMonster[0].GetComponent<Eye_Script>().HIT_Enemy = true;
                 }
-                if (ObjectSet.Enemy_Name[1] == "Eye")
+                if (ObjectSet.Field_inMonster[1] != null && ObjectSet.Enemy_Name[1] == "Eye")
                 {
                     ObjectSet.Field_inMonster[1].GetComponent<Eye_Script>().Arrow = true;
                     ObjectSet.Field_inMonster[1].GetComponent<Eye_Script>().Guide = true;
@@ -254,7 +254,7 @@ public class Card_Script : MonoBehaviour
                     if (!ObjectSet.Field_inMonster[1].GetComponent<Eye_Script>().HIT_Enemy)
                     ObjectSet.Field_inMonster[1].GetComponent<Eye_Script>().HIT_Enemy = true;
                 }
-                if (ObjectSet.Enemy_Name[2] == "Eye")
+                if (ObjectSet.Field_inMonster[2] != null && ObjectSet.Enemy_Name[2] == "Eye")
                 {
                     ObjectSet.Field_inMonster[2].GetComponent<Eye_Script>().Arrow = true;
                     ObjectSet.Field_inMonster[2].GetComponent<Eye_Script>().Guide = true;
@@ -262,7 +262,7 @@ public class Card_Script : MonoBehaviour
                     if (!ObjectSet.Field_inMonster[2].GetComponent<Eye_Script>().HIT_Enemy)
                     ObjectSet.Field_inMonster[2].GetComponent<Eye_Script>().HIT_Enemy = true;
                 }
-                if (ObjectSet.Enemy_Name[3] == "Eye")
+                if (ObjectSet.Field_inMonster[3] != null && ObjectSet.Enemy_Name[3] == "Eye")
                 {
                     ObjectSet.Field_inMonster[3].GetComponent<Eye_Script>().Arrow = true;
                     ObjectSet.Field_inMonster[3].GetComponent<Eye_Script>().Guide = true;
@@ -274,7 +274,7 @@ public class Card_Script : MonoBehaviour
             if (ObjectSet.Enemy_Name[0] == "Goblin" || ObjectSet.Enemy_Name[1] == "Goblin" ||
                 ObjectSet.Enemy_Name[2] == "Goblin" || ObjectSet.Enemy_Name[3] == "Goblin")
             {
-                if (ObjectSet.Enemy_Name[0] == "Goblin")
+                if (ObjectSet.Field_inMonster[0] != null && ObjectSet.Enemy_Name[0] == "Goblin")
                 {
                     ObjectSet.Field_inMonster[0].GetComponent<Goblin_Script>().Arrow = true;
                     ObjectSet.Field_inMonster[0].GetComponent<Goblin_Script>().Guide = true;
@@ -282,7 +282,7 @@ public class Card_Script : MonoBehaviour
                     if (!ObjectSet.Field_inMonster[0].GetComponent<Goblin_Script>().HIT_Enemy)
                          ObjectSet.Field_inMonster[0].GetComponent<Goblin_Script>().HIT_Enemy = true;
                 }
-                if (ObjectSet.Enemy_Name[1] == "Goblin")
+                if (ObjectSet.Field_inMonster[1] != null && ObjectSet.Enemy_Name[1] == "Goblin")
                 {
                     ObjectSet.Field_inMonster[1].GetComponent<Goblin_Script>().Arrow = true;
                     ObjectSet.Field_inMonster[1].GetComponent<Goblin_Script>().Guide = true;
@@ -290,7 +290,7 @@ public class Card_Script : MonoBehaviour
                     if (!ObjectSet.Field_inMonster[1].GetComponent<Goblin_Script>().HIT_Enemy)
                          ObjectSet.Field_inMonster[1].GetComponent<Goblin_Script>().HIT_Enemy = true;
                 }
-                if (ObjectSet.Enemy_Name[2] == "Goblin")
+                if (ObjectSet.Field_inMonster[2] != null && ObjectSet.Enemy_Name[2] == "Goblin")
                 {
                     ObjectSet.Field_inMonster[2].GetComponent<Goblin_Script>().Arrow = true;
                     ObjectSet.Field_inMonster[2].GetComponent<Goblin_Script>().Guide = true;
@@ -298,7 +298,7 @@ public class Card_Script : MonoBehaviour
                     if (!ObjectSet.Field_inMonster[2].GetComponent<Goblin_Script>().HIT_Enemy)
                          ObjectSet.Field_inMonster[2].GetComponent<Goblin_Script>().HIT_Enemy = true;
                 }
-                if (ObjectSet.Enemy_Name[3] == "Goblin")
+                if (ObjectSet.Field_inMonster[3] != null && ObjectSet.Enemy_Name[3] == "Goblin")
                 {
                     ObjectSet.Field_inMonster[3].GetComponent<Goblin_Script>().Arrow = true;
                     ObjectSet.Field_inMonster[3].GetComponent<Goblin_Script>().Guide = true;
@@ -310,7 +310,7 @@ public class Card_Script : MonoBehaviour
             if (ObjectSet.Enemy_Name[0] == "Mushroom" || ObjectSet.Enemy_Name[1] == "Mushroom" ||
                 ObjectSet.Enemy_Name[2] == "Mushroom" || ObjectSet.Enemy_Name[3] == "Mushroom")
             {
-                if (ObjectSet.Enemy_Name[0] == "Mushroom")
+                if (ObjectSet.Field_inMonster[0] != null && ObjectSet.Enemy_Name[0] == "Mushroom")
                 {
                     ObjectSet.Field_inMonster[0].GetComponent<Mushroom_Script>().Arrow = true;
                     ObjectSet.Field_inMonster[0].GetComponent<Mushroom_Script>().Guide = true;
@@ -318,7 +318,7 @@ public class Card_Script : MonoBehaviour
                     if (!ObjectSet.Field_inMonster[0].GetComponent<Mushroom_Script>().HIT_Enemy)
                         ObjectSet.Field_inMonster[0].GetComponent<Mushroom_Script>().HIT_Enemy = true;
                 }
-                if (ObjectSet.Enemy_Name[1] == "Mushroom")
+                if (ObjectSet.Field_inMonster[1] != null && ObjectSet.Enemy_Name[1] == "Mushroom")
                 {
                     ObjectSet.Field_inMonster[1].GetComponent<Mushroom_Script>().Arrow = true;
                     ObjectSet.Field_inMonster[1].GetComponent<Mushroom_Script>().Guide = true;
@@ -326,7 +326,7 @@ public class Card_Script : MonoBehaviour
                     if (!ObjectSet.Field_inMonster[1].GetComponent<Mushroom_Script>().HIT_Enemy)
                         ObjectSet.Field_inMonster[1].GetComponent<Mushroom_Script>().HIT_Enemy = true;
                 }
-                if (ObjectSet.Enemy_Name[2] == "Mushroom")
+                if (ObjectSet.Field_inMonster[2] != null && ObjectSet.Enemy_Name[2] == "Mushroom")
                 {
                     ObjectSet.Field_inMonster[2].GetComponent<Mushroom_Script>().Arrow = true;
                     ObjectSet.Field_inMonster[2].GetComponent<Mushroom_Script>().Guide = true;
@@ -334,7 +334,7 @@ public class Card_Script : MonoBehaviour
                     if (!ObjectSet.Field_inMonster[2].GetComponent<Mushroom_Script>().HIT_Enemy)
                         ObjectSet.Field_inMonster[2].GetComponent<Mushroom_Script>().HIT_Enemy = true;
                 }
-                if (ObjectSet.Enemy_Name[3] == "Mushroom")
+                if (ObjectSet.Field_inMonster[3] != null && ObjectSet.Enemy_Name[3] == "Mushroom")
                 {
                     ObjectSet.Field_inMonster[3].GetComponent<Mushroom_Script>().Arrow = true;
                     ObjectSet.Field_inMonster[3].GetComponent<Mushroom_Script>().Guide = true;
@@ -349,7 +349,7 @@ public class Card_Script : MonoBehaviour
             if (ObjectSet.Enemy_Name[0] == "Skeleton" || ObjectSet.Enemy_Name[1] == "Skeleton" ||
                 ObjectSet.Enemy_Name[2] == "Skeleton" || ObjectSet.Enemy_Name[3] == "Skeleton")
             {
-                if (ObjectSet.Enemy_Name[0] == "Skeleton")
+                if (ObjectSet.Field_inMonster[0] != null && ObjectSet.Enemy_Name[0] == "Skeleton")
                 {
                     ObjectSet.Field_inMonster[0].GetComponent<Skeleton_Script>().Arrow = false;
                     ObjectSet.Field_inMonster[0].GetComponent<Skeleton_Script>().Guide = false;
@@ -357,7 +357,7 @@ public class Card_Script : MonoBehaviour
                     if (ObjectSet.Field_inMonster[0].GetComponent<Skeleton_Script>().HIT_Enemy)
                         ObjectSet.Field_inMonster[0].GetComponent<Skeleton_Script>().HIT_Enemy = false;
                 }
-                if (ObjectSet.Enemy_Name[1] == "Skeleton")
+                if (ObjectSet.Field_inMonster[1] != null && ObjectSet.Enemy_Name[1] == "Skeleton")
                 {
                     ObjectSet.Field_inMonster[1].GetComponent<Skeleton_Script>().Arrow = false;
                     ObjectSet.Field_inMonster[1].GetComponent<Skeleton_Script>().Guide = false;
@@ -365,7 +365,7 @@ public class Card_Script : MonoBehaviour
                     if (ObjectSet.Field_inMonster[1].GetComponent<Skeleton_Script>().HIT_Enemy)
                         ObjectSet.Field_inMonster[1].GetComponent<Skeleton_Script>().HIT_Enemy = false;
                 }
-                if (ObjectSet.Enemy_Name[2] == "Skeleton")
+                if (ObjectSet.Field_inMonster[2] != null && ObjectSet.Enemy_Name[2] == "Skeleton")
                 {
                     ObjectSet.Field_inMonster[2].GetComponent<Skeleton_Script>().Arrow = false;
                     ObjectSet.Field_inMonster[2].GetComponent<Skeleton_Script>().Guide = false;
@@ -373,7 +373,7 @@ public class Card_Script : MonoBehaviour
                     if (ObjectSet.Field_inMonster[2].GetComponent<Skeleton_Script>().HIT_Enemy)
                         ObjectSet.Field_inMonster[2].GetComponent<Skeleton_Script>().HIT_Enemy = false;
                 }
-                if (ObjectSet.Enemy_Name[3] == "Skeleton")
+                if (ObjectSet.Field_inMonster[3] != null && ObjectSet.Enemy_Name[3] == "Skeleton")
                 {
                     ObjectSet.Field_inMonster[3].GetComponent<Skeleton_Script>().Arrow = false;
                     ObjectSet.Field_inMonster[3].GetComponent<Skeleton_Script>().Guide = false;
@@ -385,7 +385,7 @@ public class Card_Script : MonoBehaviour
             if (ObjectSet.Enemy_Name[0] == "Eye" || ObjectSet.Enemy_Name[1] == "Eye" ||
                 ObjectSet.Enemy_Name[2] == "Eye" || ObjectSet.Enemy_Name[3] == "Eye")
             {
-                if (ObjectSet.Enemy_Name[0] == "Eye")
+                if (ObjectSet.Field_inMonster[0] != null && ObjectSet.Enemy_Name[0] == "Eye")
                 {
                     ObjectSet.Field_inMonster[0].GetComponent<Eye_Script>().Arrow = false;
                     ObjectSet.Field_inMonster[0].GetComponent<Eye_Script>().Guide = false;
@@ -393,7 +393,7 @@ public class Card_Script : MonoBehaviour
                     if(ObjectSet.Field_inMonster[0].GetComponent<Eye_Script>().HIT_Enemy)
                        ObjectSet.Field_inMonster[0].GetComponent<Eye_Script>().HIT_Enemy = false;
                 }
-                if (ObjectSet.Enemy_Name[1] == "Eye")
+                if (ObjectSet.Field_inMonster[1] != null && ObjectSet.Enemy_Name[1] == "Eye")
                 {
                     ObjectSet.Field_inMonster[1].GetComponent<Eye_Script>().Arrow = false;
                     ObjectSet.Field_inMonster[1].GetComponent<Eye_Script>().Guide = false;
@@ -401,7 +401,7 @@ public class Card_Script : MonoBehaviour
                     if(ObjectSet.Field_inMonster[1].GetComponent<Eye_Script>().HIT_Enemy)
                        ObjectSet.Field_inMonster[1].GetComponent<Eye_Script>().HIT_Enemy = false;
                 }
-                if (ObjectSet.Enemy_Name[2] == "Eye")
+                if (ObjectSet.Field_inMonster[2] != null && ObjectSet.Enemy_Name[2] == "Eye")
                 {
                     ObjectSet.Field_inMonster[2].GetComponent<Eye_Script>().Arrow = false;
                     ObjectSet.Field_inMonster[2].GetComponent<Eye_Script>().Guide = false;
@@ -409,7 +409,7 @@ public class Card_Script : MonoBehaviour
                     if(ObjectSet.Field_inMonster[2].GetComponent<Eye_Script>().HIT_Enemy)
                        ObjectSet.Field_inMonster[2].GetComponent<Eye_Script>().HIT_Enemy = false;
                 }
-                if (ObjectSet.Enemy_Name[3] == "Eye")
+                if (ObjectSet.Field_inMonster[3] != null && ObjectSet.Enemy_Name[3] == "Eye")
                 {
                     ObjectSet.Field_inMonster[3].GetComponent<Eye_Script>().Arrow = false;
                     ObjectSet.Field_inMonster[3].GetComponent<Eye_Script>().Guide = false;
@@ -421,7 +421,7 @@ public class Card_Script : MonoBehaviour
             if (ObjectSet.Enemy_Name[0] == "Goblin" || ObjectSet.Enemy_Name[1] == "Goblin" ||
                 ObjectSet.Enemy_Name[2] == "Goblin" || ObjectSet.Enemy_Name[3] == "Goblin")
             {
-                if (ObjectSet.Enemy_Name[0] == "Goblin")
+                if (ObjectSet.Field_inMonster[0] != null && ObjectSet.Enemy_Name[0] == "Goblin")
                 {
                     ObjectSet.Field_inMonster[0].GetComponent<Goblin_Script>().Arrow = false;
                     ObjectSet.Field_inMonster[0].GetComponent<Goblin_Script>().Guide = false;
@@ -429,7 +429,7 @@ public class Card_Script : MonoBehaviour
                     if(ObjectSet.Field_inMonster[0].GetComponent<Goblin_Script>().HIT_Enemy)
                        ObjectSet.Field_inMonster[0].GetComponent<Goblin_Script>().HIT_Enemy = false;
                 }
-                if (ObjectSet.Enemy_Name[1] == "Goblin")
+                if (ObjectSet.Field_inMonster[1] != null && ObjectSet.Enemy_Name[1] == "Goblin")
                 {
                     ObjectSet.Field_inMonster[1].GetComponent<Goblin_Script>().Arrow = false;
                     ObjectSet.Field_inMonster[1].GetComponent<Goblin_Script>().Guide = false;
@@ -437,7 +437,7 @@ public class Card_Script : MonoBehaviour
                     if(ObjectSet.Field_inMonster[1].GetComponent<Goblin_Script>().HIT_Enemy)
                        ObjectSet.Field_inMonster[1].GetComponent<Goblin_Script>().HIT_Enemy = false;
                 }
-                if (ObjectSet.Enemy_Name[2] == "Goblin")
+                if (ObjectSet.Field_inMonster[2] != null && ObjectSet.Enemy_Name[2] == "Goblin")
                 {
                     ObjectSet.Field_inMonster[2].GetComponent<Goblin_Script>().Arrow = false;
                     ObjectSet.Field_inMonster[2].GetComponent<Goblin_Script>().Guide = false;
@@ -445,7 +445,7 @@ public class Card_Script : MonoBehaviour
                     if(ObjectSet.Field_inMonster[2].GetComponent<Goblin_Script>().HIT_Enemy)
                        ObjectSet.Field_inMonster[2].GetComponent<Goblin_Script>().HIT_Enemy = false;
                 }
-                if (ObjectSet.Enemy_Name[3] == "Goblin")
+                if (ObjectSet.Field_inMonster[3] != null && ObjectSet.Enemy_Name[3] == "Goblin")
                 {
                     ObjectSet.Field_inMonster[3].GetComponent<Goblin_Script>().Arrow = false;
                     ObjectSet.Field_inMonster[3].GetComponent<Goblin_Script>().Guide = false;
@@ -457,7 +457,7 @@ public class Card_Script : MonoBehaviour
             if (ObjectSet.Enemy_Name[0] == "Mushroom" || ObjectSet.Enemy_Name[1] == "Mushroom" ||
                 ObjectSet.Enemy_Name[2] == "Mushroom" || ObjectSet.Enemy_Name[3] == "Mushroom")
             {
-                if (ObjectSet.Enemy_Name[0] == "Mushroom")
+                if (ObjectSet.Field_inMonster[0] != null && ObjectSet.Enemy_Name[0] == "Mushroom")
                 {
                     ObjectSet.Field_inMonster[0].GetComponent<Mushroom_Script>().Arrow = false;
                     ObjectSet.Field_inMonster[0].GetComponent<Mushroom_Script>().Guide = false;
@@ -465,7 +465,7 @@ public class Card_Script : MonoBehaviour
                     if(ObjectSet.Field_inMonster[0].GetComponent<Mushroom_Script>().HIT_Enemy)
                        ObjectSet.Field_inMonster[0].GetComponent<Mushroom_Script>().HIT_Enemy = false;
                 }
-                if (ObjectSet.Enemy_Name[1] == "Mushroom")
+                if (ObjectSet.Field_inMonster[1] != null && ObjectSet.Enemy_Name[1] == "Mushroom")
                 {
                     ObjectSet.Field_inMonster[1].GetComponent<Mushroom_Script>().Arrow = false;
                     ObjectSet.Field_inMonster[1].GetComponent<Mushroom_Script>().Guide = false;
@@ -473,7 +473,7 @@ public class Card_Script : MonoBehaviour
                     if(ObjectSet.Field_inMonster[1].GetComponent<Mushroom_Script>().HIT_Enemy)
                        ObjectSet.Field_inMonster[1].GetComponent<Mushroom_Script>().HIT_Enemy = false;
                 }
-                if (ObjectSet.Enemy_Name[2] == "Mushroom")
+                if (ObjectSet.Field_inMonster[2] != null && ObjectSet.Enemy_Name[2] == "Mushroom")
                 {
                     ObjectSet.Field_inMonster[2].GetComponent<Mushroom_Script>().Arrow = false;
                     ObjectSet.Field_inMonster[2].GetComponent<Mushroom_Script>().Guide = false;
@@ -481,7 +481,7 @@ public class Card_Script : MonoBehaviour
                     if(ObjectSet.Field_inMonster[2].GetComponent<Mushroom_Script>().HIT_Enemy)
                        ObjectSet.Field_inMonster[2].GetComponent<Mushroom_Script>().HIT_Enemy = false;
                 }
-                if (ObjectSet.Enemy_Name[3] == "Mushroom")
+                if (ObjectSet.Field_inMonster[3] != null && ObjectSet.Enemy_Name[3] == "Mushroom")
                 {
                     ObjectSet.Field_inMonster[3].GetComponent<Mushroom_Script>().Arrow = false;
                     ObjectSet.Field_inMonster[3].GetComponent<Mushroom_Script>().Guide = false;
@@ -499,7 +499,7 @@ public class Card_Script : MonoBehaviour
             if (ObjectSet.Enemy_Name[0] == "Skeleton" || ObjectSet.Enemy_Name[1] == "Skeleton" ||
             ObjectSet.Enemy_Name[2] == "Skeleton" || ObjectSet.Enemy_Name[3] == "Skeleton")
             {
-                if (ObjectSet.Enemy_Name[0] == "Skeleton")
+                if (ObjectSet.Field_inMonster[0] != null && ObjectSet.Enemy_Name[0] == "Skeleton")
                 {
                     ObjectSet.Field_inMonster[0].GetComponent<Skeleton_Script>().Arrow = true;
                     ObjectSet.Field_inMonster[0].GetComponent<Skeleton_Script>().Guide = true;
@@ -508,7 +508,7 @@ public class Card_Script : MonoBehaviour
                     if (!ObjectSet.Field_inMonster[0].GetComponent<Skeleton_Script>().HIT_Enemy)
                         ObjectSet.Field_inMonster[0].GetComponent<Skeleton_Script>().HIT_Enemy = true;
                 }
-                if (ObjectSet.Enemy_Name[1] == "Skeleton")
+                if (ObjectSet.Field_inMonster[1] != null && ObjectSet.Enemy_Name[1] == "Skeleton")
                 {
                     ObjectSet.Field_inMonster[1].GetComponent<Skeleton_Script>().Arrow = true;
                     ObjectSet.Field_inMonster[1].GetComponent<Skeleton_Script>().Guide = true;
@@ -517,7 +517,7 @@ public class Card_Script : MonoBehaviour
                     if (!ObjectSet.Field_inMonster[1].GetComponent<Skeleton_Script>().HIT_Enemy)
                         ObjectSet.Field_inMonster[1].GetComponent<Skeleton_Script>().HIT_Enemy = true;
                 }
-                if (ObjectSet.Enemy_Name[2] == "Skeleton")
+                if (ObjectSet.Field_inMonster[2] != null && ObjectSet.Enemy_Name[2] == "Skeleton")
                 {
                     ObjectSet.Field_inMonster[2].GetComponent<Skeleton_Script>().Arrow = true;
                     ObjectSet.Field_inMonster[2].GetComponent<Skeleton_Script>().Guide = true;
@@ -526,7 +526,7 @@ public class Card_Script : MonoBehaviour
                     if (!ObjectSet.Field_inMonster[2].GetComponent<Skeleton_Script>().HIT_Enemy)
                         ObjectSet.Field_inMonster[2].GetComponent<Skeleton_Script>().HIT_Enemy = true;
                 }
-                if (ObjectSet.Enemy_Name[3] == "Skeleton")
+                if (ObjectSet.Field_inMonster[3] != null && ObjectSet.Enemy_Name[3] == "Skeleton")
                 {
                     ObjectSet.Field_inMonster[3].GetComponent<Skeleton_Script>().Arrow = true;
                     ObjectSet.Field_inMonster[3].GetComponent<Skeleton_Script>().Guide = true;
@@ -539,7 +539,7 @@ public class Card_Script : MonoBehaviour
             if (ObjectSet.Enemy_Name[0] == "Eye" || ObjectSet.Enemy_Name[1] == "Eye" ||
                 ObjectSet.Enemy_Name[2] == "Eye" || ObjectSet.Enemy_Name[3] == "Eye")
             {
-                if (ObjectSet.Enemy_Name[0] == "Eye")
+                if (ObjectSet.Field_inMonster[0] != null && ObjectSet.Enemy_Name[0] == "Eye")
                 {
                     ObjectSet.Field_inMonster[0].GetComponent<Eye_Script>().Arrow = true;
                     ObjectSet.Field_inMonster[0].GetComponent<Eye_Script>().Guide = true;
@@ -548,7 +548,7 @@ public class Card_Script : MonoBehaviour
                     if (!ObjectSet.Field_inMonster[0].GetComponent<Eye_Script>().HIT_Enemy)
                         ObjectSet.Field_inMonster[0].GetComponent<Eye_Script>().HIT_Enemy = true;
                 }
-                if (ObjectSet.Enemy_Name[1] == "Eye")
+                if (ObjectSet.Field_inMonster[1] != null && ObjectSet.Enemy_Name[1] == "Eye")
                 {
                     ObjectSet.Field_inMonster[1].GetComponent<Eye_Script>().Arrow = true;
                     ObjectSet.Field_inMonster[1].GetComponent<Eye_Script>().Guide = true;
@@ -557,7 +557,7 @@ public class Card_Script : MonoBehaviour
                     if (!ObjectSet.Field_inMonster[1].GetComponent<Eye_Script>().HIT_Enemy)
                         ObjectSet.Field_inMonster[1].GetComponent<Eye_Script>().HIT_Enemy = true;
                 }
-                if (ObjectSet.Enemy_Name[2] == "Eye")
+                if (ObjectSet.Field_inMonster[2] != null && ObjectSet.Enemy_Name[2] == "Eye")
                 {
                     ObjectSet.Field_inMonster[2].GetComponent<Eye_Script>().Arrow = true;
                     ObjectSet.Field_inMonster[2].GetComponent<Eye_Script>().Guide = true;
@@ -566,7 +566,7 @@ public class Card_Script : MonoBehaviour
                     if (!ObjectSet.Field_inMonster[2].GetComponent<Eye_Script>().HIT_Enemy)
                         ObjectSet.Field_inMonster[2].GetComponent<Eye_Script>().HIT_Enemy = true;
                 }
-                if (ObjectSet.Enemy_Name[3] == "Eye")
+                if (ObjectSet.Field_inMonster[3] != null && ObjectSet.Enemy_Name[3] == "Eye")
                 {
                     ObjectSet.Field_inMonster[3].GetComponent<Eye_Script>().Arrow = true;
                     ObjectSet.Field_inMonster[3].GetComponent<Eye_Script>().Guide = true;
@@ -579,7 +579,7 @@ public class Card_Script : MonoBehaviour
             if (ObjectSet.Enemy_Name[0] == "Goblin" || ObjectSet.Enemy_Name[1] == "Goblin" ||
                 ObjectSet.Enemy_Name[2] == "Goblin" || ObjectSet.Enemy_Name[3] == "Goblin")
             {
-                if (ObjectSet.Enemy_Name[0] == "Goblin")
+                if (ObjectSet.Field_inMonster[0] != null && ObjectSet.Enemy_Name[0] == "Goblin")
                 {
                     ObjectSet.Field_inMonster[0].GetComponent<Goblin_Script>().Arrow = true;
                     ObjectSet.Field_inMonster[0].GetComponent<Goblin_Script>().Guide = true;
@@ -588,7 +588,7 @@ public class Card_Script : MonoBehaviour
                     if(!ObjectSet.Field_inMonster[0].GetComponent<Goblin_Script>().HIT_Enemy)
                         ObjectSet.Field_inMonster[0].GetComponent<Goblin_Script>().HIT_Enemy = true;
                 }
-                if (ObjectSet.Enemy_Name[1] == "Goblin")
+                if (ObjectSet.Field_inMonster[1] != null && ObjectSet.Enemy_Name[1] == "Goblin")
                 {
                     ObjectSet.Field_inMonster[1].GetComponent<Goblin_Script>().Arrow = true;
                     ObjectSet.Field_inMonster[1].GetComponent<Goblin_Script>().Guide = true;
@@ -597,7 +597,7 @@ public class Card_Script : MonoBehaviour
                     if(!ObjectSet.Field_inMonster[1].GetComponent<Goblin_Script>().HIT_Enemy)
                         ObjectSet.Field_inMonster[1].GetComponent<Goblin_Script>().HIT_Enemy = true;
                 }
-                if (ObjectSet.Enemy_Name[2] == "Goblin")
+                if (ObjectSet.Field_inMonster[2] != null && ObjectSet.Enemy_Name[2] == "Goblin")
                 {
                     ObjectSet.Field_inMonster[2].GetComponent<Goblin_Script>().Arrow = true;
                     ObjectSet.Field_inMonster[2].GetComponent<Goblin_Script>().Guide = true;
@@ -606,7 +606,7 @@ public class Card_Script : MonoBehaviour
                     if(!ObjectSet.Field_inMonster[2].GetComponent<Goblin_Script>().HIT_Enemy)
                         ObjectSet.Field_inMonster[2].GetComponent<Goblin_Script>().HIT_Enemy = true;
                 }
-                if (ObjectSet.Enemy_Name[3] == "Goblin")
+                if (ObjectSet.Field_inMonster[3] != null && ObjectSet.Enemy_Name[3] == "Goblin")
                 {
                     ObjectSet.Field_inMonster[3].GetComponent<Goblin_Script>().Arrow = true;
                     ObjectSet.Field_inMonster[3].GetComponent<Goblin_Script>().Guide = true;
@@ -619,7 +619,7 @@ public class Card_Script : MonoBehaviour
             if (ObjectSet.Enemy_Name[0] == "Mushroom" || ObjectSet.Enemy_Name[1] == "Mushroom" ||
                 ObjectSet.Enemy_Name[2] == "Mushroom" || ObjectSet.Enemy_Name[3] == "Mushroom")
             {
-                if (ObjectSet.Enemy_Name[0] == "Mushroom")
+                if (ObjectSet.Field_inMonster[0] != null && ObjectSet.Enemy_Name[0] == "Mushroom")
                 {
                     ObjectSet.Field_inMonster[0].GetComponent<Mushroom_Script>().Arrow = true;
                     ObjectSet.Field_inMonster[0].GetComponent<Mushroom_Script>().Guide = true;
@@ -628,7 +628,7 @@ public class Card_Script : MonoBehaviour
                     if(!ObjectSet.Field_inMonster[0].GetComponent<Mushroom_Script>().HIT_Enemy)
                         ObjectSet.Field_inMonster[0].GetComponent<Mushroom_Script>().HIT_Enemy = true;
                 }
-                if (ObjectSet.Enemy_Name[1] == "Mushroom")
+                if (ObjectSet.Field_inMonster[1] != null && ObjectSet.Enemy_Name[1] == "Mushroom")
                 {
                     ObjectSet.Field_inMonster[1].GetComponent<Mushroom_Script>().Arrow = true;
                     ObjectSet.Field_inMonster[1].GetComponent<Mushroom_Script>().Guide = true;
@@ -637,7 +637,7 @@ public class Card_Script : MonoBehaviour
                     if(!ObjectSet.Field_inMonster[1].GetComponent<Mushroom_Script>().HIT_Enemy)
                         ObjectSet.Field_inMonster[1].GetComponent<Mushroom_Script>().HIT_Enemy = true;
                 }
-                if (ObjectSet.Enemy_Name[2] == "Mushroom")
+                if (ObjectSet.Field_inMonster[2] != null && ObjectSet.Enemy_Name[2] == "Mushroom")
                 {
                     ObjectSet.Field_inMonster[2].GetComponent<Mushroom_Script>().Arrow = true;
                     ObjectSet.Field_inMonster[2].GetComponent<Mushroom_Script>().Guide = true;
@@ -646,7 +646,7 @@ public class Card_Script : MonoBehaviour
                     if(!ObjectSet.Field_inMonster[2].GetComponent<Mushroom_Script>().HIT_Enemy)
                         ObjectSet.Field_inMonster[2].GetComponent<Mushroom_Script>().HIT_Enemy = true;
                 }
-                if (ObjectSet.Enemy_Name[3] == "Mushroom")
+                if (ObjectSet.Field_inMonster[3] != null && ObjectSet.Enemy_Name[3] == "Mushroom")
                 {
                     ObjectSet.Field_inMonster[3].GetComponent<Mushroom_Script>().Arrow = true;
                     ObjectSet.Field_inMonster[3].GetComponent<Mushroom_Script>().Guide = true;
@@ -662,28 +662,28 @@ public class Card_Script : MonoBehaviour
             if (ObjectSet.Enemy_Name[0] == "Skeleton" || ObjectSet.Enemy_Name[1] == "Skeleton" ||
             ObjectSet.Enemy_Name[2] == "Skeleton" || ObjectSet.Enemy_Name[3] == "Skeleton")
             {
-                if (ObjectSet.Enemy_Name[0] == "Skeleton")
+                if (ObjectSet.Field_inMonster[0] != null && ObjectSet.Enemy_Name[0] == "Skeleton")
                 {
                     ObjectSet.Field_inMonster[0].GetComponent<Skeleton_Script>().Arrow = false;
                     ObjectSet.Field_inMonster[0].GetComponent<Skeleton_Script>().Guide = false;
                     ObjectSet.Field_inMonster[0].GetComponent<Skeleton_Script>().targetCard = false;
 
                 }
-                if (ObjectSet.Enemy_Name[1] == "Skeleton")
+                if (ObjectSet.Field_inMonster[1] != null && ObjectSet.Enemy_Name[1] == "Skeleton")
                 {
                     ObjectSet.Field_inMonster[1].GetComponent<Skeleton_Script>().Arrow = false; 
                     ObjectSet.Field_inMonster[1].GetComponent<Skeleton_Script>().Guide = false; 
                     ObjectSet.Field_inMonster[1].GetComponent<Skeleton_Script>().targetCard = false;
 
                 }
-                if (ObjectSet.Enemy_Name[2] == "Skeleton")
+                if (ObjectSet.Field_inMonster[2] != null && ObjectSet.Enemy_Name[2] == "Skeleton")
                 {
                     ObjectSet.Field_inMonster[2].GetComponent<Skeleton_Script>().Arrow = false;
                     ObjectSet.Field_inMonster[2].GetComponent<Skeleton_Script>().Guide = false;
                     ObjectSet.Field_inMonster[2].GetComponent<Skeleton_Script>().targetCard = false;
 
                 }
-                if (ObjectSet.Enemy_Name[3] == "Skeleton")
+                if (ObjectSet.Field_inMonster[3] != null && ObjectSet.Enemy_Name[3] == "Skeleton")
                 {
                     ObjectSet.Field_inMonster[3].GetComponent<Skeleton_Script>().Arrow = false;
                     ObjectSet.Field_inMonster[3].GetComponent<Skeleton_Script>().Guide = false;
@@ -693,28 +693,28 @@ public class Card_Script : MonoBehaviour
             if (ObjectSet.Enemy_Name[0] == "Eye" || ObjectSet.Enemy_Name[1] == "Eye" ||
                 ObjectSet.Enemy_Name[2] == "Eye" || ObjectSet.Enemy_Name[3] == "Eye")
             {
-                if (ObjectSet.Enemy_Name[0] == "Eye")
+                if (ObjectSet.Field_inMonster[0] != null && ObjectSet.Enemy_Name[0] == "Eye")
                 {
                     ObjectSet.Field_inMonster[0].GetComponent<Eye_Script>().Arrow = false;
                     ObjectSet.Field_inMonster[0].GetComponent<Eye_Script>().Guide = false;
                     ObjectSet.Field_inMonster[0].GetComponent<Eye_Script>().targetCard = false;
 
                 }
-                if (ObjectSet.Enemy_Name[1] == "Eye")
+                if (ObjectSet.Field_inMonster[1] != null && ObjectSet.Enemy_Name[1] == "Eye")
                 {
                     ObjectSet.Field_inMonster[1].GetComponent<Eye_Script>().Arrow = false;
                     ObjectSet.Field_inMonster[1].GetComponent<Eye_Script>().Guide = false;
                     ObjectSet.Field_inMonster[1].GetComponent<Eye_Script>().targetCard = false;
 
                 }
-                if (ObjectSet.Enemy_Name[2] == "Eye")
+                if (ObjectSet.Field_inMonster[2] != null && ObjectSet.Enemy_Name[2] == "Eye")
                 {
                     ObjectSet.Field_inMonster[2].GetComponent<Eye_Script>().Arrow = false;
                     ObjectSet.Field_inMonster[2].GetComponent<Eye_Script>().Guide = false;
                     ObjectSet.Field_inMonster[2].GetComponent<Eye_Script>().targetCard = false;
 
                 }
-                if (ObjectSet.Enemy_Name[3] == "Eye")
+                if (ObjectSet.Field_inMonster[3] != null && ObjectSet.Enemy_Name[3] == "Eye")
                 {
                     ObjectSet.Field_inMonster[3].GetComponent<Eye_Script>().Arrow = false;
                     ObjectSet.Field_inMonster[3].GetComponent<Eye_Script>().Guide = false;
@@ -724,25 +724,25 @@ public class Card_Script : MonoBehaviour
             if (ObjectSet.Enemy_Name[0] == "Goblin" || ObjectSet.Enemy_Name[1] == "Goblin" ||
                 ObjectSet.Enemy_Name[2] == "Goblin" || ObjectSet.Enemy_Name[3] == "Goblin")
             {
-                if (ObjectSet.Enemy_Name[0] == "Goblin")
+                if (ObjectSet.Field_inMonster[0] != null && ObjectSet.Enemy_Name[0] == "Goblin")
                 {
                     ObjectSet.Field_inMonster[0].GetComponent<Goblin_Script>().Arrow = false;
                     ObjectSet.Field_inMonster[0].GetComponent<Goblin_Script>().Guide = false;
                     ObjectSet.Field_inMonster[0].GetComponent<Goblin_Script>().targetCard = false;
                 }
-                if (ObjectSet.Enemy_Name[1] == "Goblin")
+                if (ObjectSet.Field_inMonster[1] != null && ObjectSet.Enemy_Name[1] == "Goblin")
                 {
                     ObjectSet.Field_inMonster[1].GetComponent<Goblin_Script>().Arrow = false;
                     ObjectSet.Field_inMonster[1].GetComponent<Goblin_Script>().Guide = false;
                     ObjectSet.Field_inMonster[1].GetComponent<Goblin_Script>().targetCard = false;
                 }
-                if (ObjectSet.Enemy_Name[2] == "Goblin")
+                if (ObjectSet.Field_inMonster[2] != null && ObjectSet.Enemy_Name[2] == "Goblin")
                 {
                     ObjectSet.Field_inMonster[2].GetComponent<Goblin_Script>().Arrow = false;
                     ObjectSet.Field_inMonster[2].GetComponent<Goblin_Script>().Guide = false;
                     ObjectSet.Field_inMonster[2].GetComponent<Goblin_Script>().targetCard = false;
                 }
-                if (ObjectSet.Enemy_Name[3] == "Goblin")
+                if (ObjectSet.Field_inMonster[3] != null && ObjectSet.Enemy_Name[3] == "Goblin")
                 {
                     ObjectSet.Field_inMonster[3].GetComponent<Goblin_Script>().Arrow = false;
                     ObjectSet.Field_inMonster[3].GetComponent<Goblin_Script>().Guide = false;
@@ -752,25 +752,25 @@ public class Card_Script : MonoBehaviour
             if (ObjectSet.Enemy_Name[0] == "Mushroom" || ObjectSet.Enemy_Name[1] == "Mushroom" ||
                 ObjectSet.Enemy_Name[2] == "Mushroom" || ObjectSet.Enemy_Name[3] == "Mushroom")
             {
-                if (ObjectSet.Enemy_Name[0] == "Mushroom")
+                if (ObjectSet.Field_inMonster[0] != null && ObjectSet.Enemy_Name[0] == "Mushroom")
                 {
                     ObjectSet.Field_inMonster[0].GetComponent<Mushroom_Script>().Arrow = false;
                     ObjectSet.Field_inMonster[0].GetComponent<Mushroom_Script>().Guide = false;
                     ObjectSet.Field_inMonster[0].GetComponent<Mushroom_Script>().targetCard = false;
                 }
-                if (ObjectSet.Enemy_Name[1] == "Mushroom")
+                if (ObjectSet.Field_inMonster[1] != null && ObjectSet.Enemy_Name[1] == "Mushroom")
                 {
                     ObjectSet.Field_inMonster[1].GetComponent<Mushroom_Script>().Arrow = false;
                     ObjectSet.Field_inMonster[1].GetComponent<Mushroom_Script>().Guide = false;
                     ObjectSet.Field_inMonster[1].GetComponent<Mushroom_Script>().targetCard = false;
                 }
-                if (ObjectSet.Enemy_Name[2] == "Mushroom")
+                if (ObjectSet.Field_inMonster[2] != null && ObjectSet.Enemy_Name[2] == "Mushroom")
                 {
                     ObjectSet.Field_inMonster[2].GetComponent<Mushroom_Script>().Arrow = false;
                     ObjectSet.Field_inMonster[2].GetComponent<Mushroom_Script>().Guide = false;
                     ObjectSet.Field_inMonster[2].GetComponent<Mushroom_Script>().targetCard = false;
                 }
-                if (ObjectSet.Enemy_Name[3] == "Mushroom")
+                if (ObjectSet.Field_inMonster[3] != null && ObjectSet.Enemy_Name[3] == "Mushroom")
                 {
                     ObjectSet.Field_inMonster[3].GetComponent<Mushroom_Script>().Arrow = false;
                     ObjectSet.Field_inMonster[3].GetComponent<Mushroom_Script>().Guide = false;
