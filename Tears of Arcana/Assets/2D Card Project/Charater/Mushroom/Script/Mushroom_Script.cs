@@ -5,11 +5,7 @@ using UnityEngine.UI;
 
 public class Mushroom_Script : MonoBehaviour
 {
-    public GameObject TargetGuide_prefab;
-    GameObject targetGuide;
-    public GameObject TargetArrow_prefab;
-    GameObject targetArrow;
-
+    public bool Guide = false;
     public bool Arrow = false;
 
     public GameObject HpBar_prefab;
@@ -37,11 +33,11 @@ public class Mushroom_Script : MonoBehaviour
     Player_Script player;
     CardDeckField_Script deckField;
     CardDeck_Script deck;
-    public Card_Script card;
+    //public Card_Script card;
     Image nowHpbar;
 
-    public bool targetCard = false;    // 카드가 Eye를 선택하는지
-    public bool EnemyDamage = false;        // Eye가 데미지를 받았을때
+    public bool targetCard = false;
+    public bool EnemyDamage = false;
     public bool animation_Attack = false;
     public bool EnemyAttack = false;
     bool cardUse = false;
@@ -63,8 +59,7 @@ public class Mushroom_Script : MonoBehaviour
         ObjectSet = FindObjectOfType<EnemyObjectSet_Script>();
         attack_order = FindObjectOfType<ObjectSet_Script>();
 
-        hpbar = Instantiate(HpBar_prefab, canvas.transform).GetComponent<RectTransform>();
-        animationPosition();
+        animationPosition(1);
 
         nowHpbar = hpbar.transform.GetChild(0).GetComponent<Image>();
         animator = GetComponent<Animator>();
@@ -72,84 +67,54 @@ public class Mushroom_Script : MonoBehaviour
         player = FindObjectOfType<Player_Script>();
         deckField = FindObjectOfType<CardDeckField_Script>();
         deck = FindObjectOfType<CardDeck_Script>();
-
     }
 
     // Update is called once per frame
     void Update()
     {
         Attack_Order();
-        if (EnemyAttack) Attack();
-        if (HIT_Enemy) Hit_Enemy();
-        if (!Arrow && targetArrow != null) Destroy(targetArrow);
-        if (targetCard && Arrow && targetArrow == null)
-        {
-            Vector3 player_offset = new Vector3(transform.position.x, 6, 0);
-            targetArrow = Instantiate(TargetArrow_prefab, player_offset, Quaternion.identity);
-            TargetArrow_Script arrow = targetArrow.GetComponent<TargetArrow_Script>();
-            arrow.offset = player_offset;
-        }
+        if (EnemyAttack) Attack();  // 공격
+        if (HIT_Enemy) Hit_Enemy();    // 맞기
+        if (targetCard && !Arrow || !targetCard && !Arrow) targetArrow_inField(2);
+        if (targetCard && Arrow) targetArrow_inField(1);
     }
     void OnMouseOver()
     {
         cardUse = true;
-        if (Arrow && targetArrow != null) Arrow = false;
-        if (targetCard && deckField.Click_Card != null) deckField.Click_Card.Object_name = "Mushroom";
-
-        if (targetCard && targetGuide == null)
+        if (targetCard && deckField.Click_Card != null)
         {
-            Vector3 guide_offset = new Vector3(0, 0, 0);
-            targetGuide = Instantiate(TargetGuide_prefab, guide_offset, Quaternion.identity);
-            EnemyTargetBar_Script guide = targetGuide.GetComponent<EnemyTargetBar_Script>();
-            guide.target = this.transform;
-            switch (deckField.Click_Card.Card_name)
-            {
-                case "일반마법":
-                case "바람의창":
-                case "돌무더기":
-                case "절망의균열":
-                    guide.offset[0] = new Vector3(-1.6f, 3f, 0);
-                    guide.offset[1] = new Vector3(1.5f, 3f, 0);
-                    guide.offset[2] = new Vector3(-1.6f, -3f, 0);
-                    guide.offset[3] = new Vector3(1.5f, -3f, 0);
-                    break;
-
-                case "화염장판":
-                case "얼음안개":
-                    guide.offset[0] = new Vector3(-22.5f, 3f, 0);
-                    guide.offset[1] = new Vector3(2f, 3f, 0);
-                    guide.offset[2] = new Vector3(-22.5f, -3f, 0);
-                    guide.offset[3] = new Vector3(2f, -3f, 0);
-                    break;
-
-                default:
-                    break;
-            }
+            deckField.Click_Card.Object_name = "Mushroom";
+            Arrow = false;
         }
-        if (!targetCard && targetGuide != null) Destroy(targetGuide);
+        if (targetCard && deckField.Click_Card != null)
+        {
+            animationPosition(2);
+            Guide = false;
+        }
+        if (!targetCard && !Guide) animationPosition(3);
     }
     void OnMouseExit()
     {
         cardUse = false;
+        if (deckField.Click_Card != null && !Arrow) Arrow = true;
         if (targetCard && deckField.Click_Card != null) deckField.Click_Card.Object_name = "";
-        if (!Arrow && targetArrow == null) Arrow = true;
-        if (targetGuide != null) Destroy(targetGuide);
+        if (!Guide) animationPosition(3);
     }
     void OnMouseDown()
     {
         if (deckField.Click_Card != null)
-        if (cardUse && deckField.Click_Card.Object_name == "Mushroom")
-        {
-            deckField.Click_Card.Card_MouseClick = false;
-            deckField.Click_Card.Target_Card(false);
-            CardData_inEnemy(deckField.Click_Card.Card_name);
-            deckField.Click_Card.CardDestroy();
-            deckField.Click_Card = null;
-            player.animation_Attack = true;
-            player.targetPlayerCard = false;
-            targetCard = false;
-            HIT_Enemy = true;
-        }
+            if (cardUse && deckField.Click_Card.Object_name == "Mushroom")
+            {
+                deckField.Click_Card.Card_MouseClick = false;
+                deckField.Click_Card.Target_Card(false);
+                CardData_inEnemy(deckField.Click_Card.Card_name);
+                deckField.Click_Card.CardDestroy();
+                deckField.Click_Card = null;
+                player.animation_Attack = true;
+                player.targetPlayerCard = false;
+                targetCard = false;
+                HIT_Enemy = true;
+            }
     }
     void Attack() // 공격 애니메이션 코드
     {
@@ -173,7 +138,7 @@ public class Mushroom_Script : MonoBehaviour
         }
         if (animator.GetBool("Attack"))
         {
-            if (Attack_timer < 1.1f)
+            if (Attack_timer < 1f)
             {
                 Attack_timer += Time.deltaTime;
             }
@@ -228,7 +193,7 @@ public class Mushroom_Script : MonoBehaviour
         if (nowHp <= 0f)
         {
             animator.SetTrigger("Die");
-            if (Dead_timer < 0.6f) Dead_timer += Time.deltaTime;
+            if (Dead_timer < 0.4f) Dead_timer += Time.deltaTime;
             else
             {
                 ObjectSet.MonsterDeadCount++;
@@ -238,38 +203,259 @@ public class Mushroom_Script : MonoBehaviour
             }
         }
     }
-    void animationPosition()
+    void animationPosition(int Range)
     {
-        if (ObjectSet.Enemy_Name[0] == "Mushroom")
+        if (Range == 1)
         {
-            Vector3 HpBarPos = new Vector3(transform.position.x, transform.position.y - 3.5f, 0);
-            hpbar.position = HpBarPos;
-            animation_position = ObjectSet.Field_transform[0];
+            if (this.gameObject == ObjectSet.Field_inMonster[0] && ObjectSet.Enemy_Name[0] == "Mushroom")
+            {
+                if (hpbar == null)
+                {
+                    hpbar = Instantiate(HpBar_prefab, canvas.transform).GetComponent<RectTransform>();
+                    Vector3 HpBarPos = new Vector3(transform.position.x, transform.position.y - 3.5f, 0);
+                    hpbar.position = HpBarPos;
+                    animation_position = ObjectSet.Field_transform[0];
+                }
+            }
+            if (this.gameObject == ObjectSet.Field_inMonster[1] && ObjectSet.Enemy_Name[1] == "Mushroom")
+            {
+                if (hpbar == null)
+                {
+                    hpbar = Instantiate(HpBar_prefab, canvas.transform).GetComponent<RectTransform>();
+                    Vector3 HpBarPos = new Vector3(transform.position.x, transform.position.y - 5f, 0);
+                    hpbar.position = HpBarPos;
+                    animation_position = ObjectSet.Field_transform[1];
+                }
+            }
+            if (this.gameObject == ObjectSet.Field_inMonster[2] && ObjectSet.Enemy_Name[2] == "Mushroom")
+            {
+                if (hpbar == null)
+                {
+                    hpbar = Instantiate(HpBar_prefab, canvas.transform).GetComponent<RectTransform>();
+                    Vector3 HpBarPos = new Vector3(transform.position.x, transform.position.y - 3.5f, 0);
+                    hpbar.position = HpBarPos;
+                    animation_position = ObjectSet.Field_transform[2];
+                }
+            }
+            if (this.gameObject == ObjectSet.Field_inMonster[3] && ObjectSet.Enemy_Name[3] == "Mushroom")
+            {
+                if (hpbar == null)
+                {
+                    hpbar = Instantiate(HpBar_prefab, canvas.transform).GetComponent<RectTransform>();
+                    Vector3 HpBarPos = new Vector3(transform.position.x, transform.position.y - 5f, 0);
+                    hpbar.position = HpBarPos;
+                    animation_position = ObjectSet.Field_transform[3];
+                }
+            }
         }
-        if (ObjectSet.Enemy_Name[1] == "Mushroom")
+        if (Range == 2)
         {
-            Vector3 HpBarPos = new Vector3(transform.position.x, transform.position.y - 5f, 0);
-            hpbar.position = HpBarPos;
-            animation_position = ObjectSet.Field_transform[1];
+            Vector3 guide_offset = new Vector3(0, 0, 0);
+            if (this.gameObject == ObjectSet.Field_inMonster[0] && ObjectSet.TargetGuide[0] == null && ObjectSet.Enemy_Name[0] == "Mushroom")
+            {
+                ObjectSet.TargetGuide[0] = Instantiate(ObjectSet.TargetGuide_prefab, guide_offset, Quaternion.identity);
+                EnemyTargetBar_Script guide = ObjectSet.TargetGuide[0].GetComponent<EnemyTargetBar_Script>();
+                guide.target = ObjectSet.Field_inMonster[0].transform;
+                deckField.Click_Card.Card_transform = ObjectSet.Field_inMonster[0].transform.position;
+                deckField.Click_Card.Card_upNumber = 0;
+                switch (deckField.Click_Card.Card_name)
+                {
+                    case "일반마법":
+                    case "바람의창":
+                    case "돌무더기":
+                    case "절망의균열":
+                        guide.offset[0] = new Vector3(-1.3f, 3f, 0);
+                        guide.offset[1] = new Vector3(1.3f, 3f, 0);
+                        guide.offset[2] = new Vector3(-1.3f, -3f, 0);
+                        guide.offset[3] = new Vector3(1.3f, -3f, 0);
+                        break;
+
+                    case "화염장판":
+                    case "얼음안개":
+                        guide.offset[0] = new Vector3(-1.5f, 3f, 0);
+                        guide.offset[1] = new Vector3(23f, 3f, 0);
+                        guide.offset[2] = new Vector3(-1.5f, -3f, 0);
+                        guide.offset[3] = new Vector3(23f, -3f, 0);
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+            if (this.gameObject == ObjectSet.Field_inMonster[1] && ObjectSet.TargetGuide[1] == null && ObjectSet.Enemy_Name[1] == "Mushroom")
+            {
+                ObjectSet.TargetGuide[1] = Instantiate(ObjectSet.TargetGuide_prefab, guide_offset, Quaternion.identity);
+                EnemyTargetBar_Script guide = ObjectSet.TargetGuide[1].GetComponent<EnemyTargetBar_Script>();
+                guide.target = ObjectSet.Field_inMonster[1].transform;
+                deckField.Click_Card.Card_transform = ObjectSet.Field_inMonster[1].transform.position;
+                deckField.Click_Card.Card_upNumber = 1;
+                switch (deckField.Click_Card.Card_name)
+                {
+                    case "일반마법":
+                    case "바람의창":
+                    case "돌무더기":
+                    case "절망의균열":
+                        guide.offset[0] = new Vector3(-1.3f, 3f, 0);
+                        guide.offset[1] = new Vector3(1.3f, 3f, 0);
+                        guide.offset[2] = new Vector3(-1.3f, -3f, 0);
+                        guide.offset[3] = new Vector3(1.3f, -3f, 0);
+                        break;
+
+                    case "화염장판":
+                    case "얼음안개":
+                        guide.offset[0] = new Vector3(-8.5f, 3f, 0);
+                        guide.offset[1] = new Vector3(16f, 3f, 0);
+                        guide.offset[2] = new Vector3(-8.5f, -3f, 0);
+                        guide.offset[3] = new Vector3(16f, -3f, 0);
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+            if (this.gameObject == ObjectSet.Field_inMonster[2] && ObjectSet.TargetGuide[2] == null && ObjectSet.Enemy_Name[2] == "Mushroom")
+            {
+                ObjectSet.TargetGuide[2] = Instantiate(ObjectSet.TargetGuide_prefab, guide_offset, Quaternion.identity);
+                EnemyTargetBar_Script guide = ObjectSet.TargetGuide[2].GetComponent<EnemyTargetBar_Script>();
+                guide.target = ObjectSet.Field_inMonster[2].transform;
+                deckField.Click_Card.Card_transform = ObjectSet.Field_inMonster[2].transform.position;
+                deckField.Click_Card.Card_upNumber = 2;
+                switch (deckField.Click_Card.Card_name)
+                {
+                    case "일반마법":
+                    case "바람의창":
+                    case "돌무더기":
+                    case "절망의균열":
+                        guide.offset[0] = new Vector3(-1.3f, 3f, 0);
+                        guide.offset[1] = new Vector3(1.3f, 3f, 0);
+                        guide.offset[2] = new Vector3(-1.3f, -3f, 0);
+                        guide.offset[3] = new Vector3(1.3f, -3f, 0);
+                        break;
+
+                    case "화염장판":
+                    case "얼음안개":
+                        guide.offset[0] = new Vector3(-15.5f, 3f, 0);
+                        guide.offset[1] = new Vector3(9f, 3f, 0);
+                        guide.offset[2] = new Vector3(-15.5f, -3f, 0);
+                        guide.offset[3] = new Vector3(9f, -3f, 0);
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+            if (this.gameObject == ObjectSet.Field_inMonster[3] && ObjectSet.TargetGuide[3] == null && ObjectSet.Enemy_Name[3] == "Mushroom")
+            {
+                ObjectSet.TargetGuide[3] = Instantiate(ObjectSet.TargetGuide_prefab, guide_offset, Quaternion.identity);
+                EnemyTargetBar_Script guide = ObjectSet.TargetGuide[3].GetComponent<EnemyTargetBar_Script>();
+                guide.target = ObjectSet.Field_inMonster[3].transform;
+                deckField.Click_Card.Card_transform = ObjectSet.Field_inMonster[3].transform.position;
+                deckField.Click_Card.Card_upNumber = 3;
+                switch (deckField.Click_Card.Card_name)
+                {
+                    case "일반마법":
+                    case "바람의창":
+                    case "돌무더기":
+                    case "절망의균열":
+                        guide.offset[0] = new Vector3(-1.3f, 3f, 0);
+                        guide.offset[1] = new Vector3(1.3f, 3f, 0);
+                        guide.offset[2] = new Vector3(-1.3f, -3f, 0);
+                        guide.offset[3] = new Vector3(1.3f, -3f, 0);
+                        break;
+
+                    case "화염장판":
+                    case "얼음안개":
+                        guide.offset[0] = new Vector3(-22.5f, 3f, 0);
+                        guide.offset[1] = new Vector3(2f, 3f, 0);
+                        guide.offset[2] = new Vector3(-22.5f, -3f, 0);
+                        guide.offset[3] = new Vector3(2f, -3f, 0);
+                        break;
+
+                    default:
+                        break;
+                }
+            }
         }
-        if (ObjectSet.Enemy_Name[2] == "Mushroom")
+        if (Range == 3)
         {
-            Vector3 HpBarPos = new Vector3(transform.position.x, transform.position.y - 3.5f, 0);
-            hpbar.position = HpBarPos;
-            animation_position = ObjectSet.Field_transform[2];
+            if (this.gameObject == ObjectSet.Field_inMonster[0] && ObjectSet.TargetGuide[0] != null && ObjectSet.Enemy_Name[0] == "Mushroom")
+            {
+                Destroy(ObjectSet.TargetGuide[0]);
+            }
+            if (this.gameObject == ObjectSet.Field_inMonster[1] && ObjectSet.TargetGuide[1] != null && ObjectSet.Enemy_Name[1] == "Mushroom")
+            {
+                Destroy(ObjectSet.TargetGuide[1]);
+            }
+            if (this.gameObject == ObjectSet.Field_inMonster[2] && ObjectSet.TargetGuide[2] != null && ObjectSet.Enemy_Name[2] == "Mushroom")
+            {
+                Destroy(ObjectSet.TargetGuide[2]);
+            }
+            if (this.gameObject == ObjectSet.Field_inMonster[3] && ObjectSet.TargetGuide[3] != null && ObjectSet.Enemy_Name[3] == "Mushroom")
+            {
+                Destroy(ObjectSet.TargetGuide[3]);
+            }
+
         }
-        if (ObjectSet.Enemy_Name[3] == "Mushroom")
+    }
+    void targetArrow_inField(int Range)
+    {
+        if (Range == 1)
         {
-            Vector3 HpBarPos = new Vector3(transform.position.x, transform.position.y - 5f, 0);
-            hpbar.position = HpBarPos;
-            animation_position = ObjectSet.Field_transform[3];
+            if (this.gameObject == ObjectSet.Field_inMonster[0] && ObjectSet.TargetArrow[0] == null && ObjectSet.Enemy_Name[0] == "Mushroom")
+            {
+                Vector3 player_offset = new Vector3(animation_position.x, 6, 0);
+                ObjectSet.TargetArrow[0] = Instantiate(ObjectSet.TargetArrow_prefab, player_offset, Quaternion.identity);
+                TargetArrow_Script arrow = ObjectSet.TargetArrow[0].GetComponent<TargetArrow_Script>();
+                arrow.offset = player_offset;
+            }
+            if (this.gameObject == ObjectSet.Field_inMonster[1] && ObjectSet.TargetArrow[1] == null && ObjectSet.Enemy_Name[1] == "Mushroom")
+            {
+                Vector3 player_offset = new Vector3(animation_position.x, 6, 0);
+                ObjectSet.TargetArrow[1] = Instantiate(ObjectSet.TargetArrow_prefab, player_offset, Quaternion.identity);
+                TargetArrow_Script arrow = ObjectSet.TargetArrow[1].GetComponent<TargetArrow_Script>();
+                arrow.offset = player_offset;
+            }
+            if (this.gameObject == ObjectSet.Field_inMonster[2] && ObjectSet.TargetArrow[2] == null && ObjectSet.Enemy_Name[2] == "Mushroom")
+            {
+                Vector3 player_offset = new Vector3(animation_position.x, 6, 0);
+                ObjectSet.TargetArrow[2] = Instantiate(ObjectSet.TargetArrow_prefab, player_offset, Quaternion.identity);
+                TargetArrow_Script arrow = ObjectSet.TargetArrow[2].GetComponent<TargetArrow_Script>();
+                arrow.offset = player_offset;
+            }
+            if (this.gameObject == ObjectSet.Field_inMonster[3] && ObjectSet.TargetArrow[3] == null && ObjectSet.Enemy_Name[3] == "Mushroom")
+            {
+                Vector3 player_offset = new Vector3(animation_position.x, 6, 0);
+                ObjectSet.TargetArrow[3] = Instantiate(ObjectSet.TargetArrow_prefab, player_offset, Quaternion.identity);
+                TargetArrow_Script arrow = ObjectSet.TargetArrow[3].GetComponent<TargetArrow_Script>();
+                arrow.offset = player_offset;
+            }
+        }
+        if (Range == 2)
+        {
+            if (this.gameObject == ObjectSet.Field_inMonster[0] && ObjectSet.TargetArrow[0] != null && ObjectSet.Enemy_Name[0] == "Mushroom")
+            {
+                Destroy(ObjectSet.TargetArrow[0]);
+            }
+            if (this.gameObject == ObjectSet.Field_inMonster[1] && ObjectSet.TargetArrow[1] != null && ObjectSet.Enemy_Name[1] == "Mushroom")
+            {
+                Destroy(ObjectSet.TargetArrow[1]);
+            }
+            if (this.gameObject == ObjectSet.Field_inMonster[2] && ObjectSet.TargetArrow[2] != null && ObjectSet.Enemy_Name[2] == "Mushroom")
+            {
+                Destroy(ObjectSet.TargetArrow[2]);
+            }
+            if (this.gameObject == ObjectSet.Field_inMonster[3] && ObjectSet.TargetArrow[3] != null && ObjectSet.Enemy_Name[3] == "Mushroom")
+            {
+                Destroy(ObjectSet.TargetArrow[3]);
+            }
+
         }
     }
     void Attack_Order()
     {
         if (stun_count != 0)
         {
-            if (ObjectSet.Enemy_Name[0] == "Mushroom" && attack_order.Order_1)
+            if (this.gameObject == ObjectSet.Field_inMonster[0] && ObjectSet.Enemy_Name[0] == "Mushroom" && attack_order.Order_1)
             {
                 stun_countDown = true;
                 if (stun_countDown)
@@ -282,7 +468,7 @@ public class Mushroom_Script : MonoBehaviour
                     else { attack_order.CardAdd = true; stun_countDown = false; }
                 }
             }
-            if (ObjectSet.Enemy_Name[1] == "Mushroom" && attack_order.Order_2)
+            if (this.gameObject == ObjectSet.Field_inMonster[1] && ObjectSet.Enemy_Name[1] == "Mushroom" && attack_order.Order_2)
             {
                 stun_countDown = true;
                 if (stun_countDown)
@@ -294,7 +480,7 @@ public class Mushroom_Script : MonoBehaviour
                     else { attack_order.CardAdd = true; stun_countDown = false; }
                 }
             }
-            if (ObjectSet.Enemy_Name[2] == "Mushroom" && attack_order.Order_3)
+            if (this.gameObject == ObjectSet.Field_inMonster[2] && ObjectSet.Enemy_Name[2] == "Mushroom" && attack_order.Order_3)
             {
                 stun_countDown = true;
                 if (stun_countDown)
@@ -305,7 +491,7 @@ public class Mushroom_Script : MonoBehaviour
                     else { attack_order.CardAdd = true; stun_countDown = false; }
                 }
             }
-            if (ObjectSet.Enemy_Name[3] == "Mushroom" && attack_order.Order_4)
+            if (this.gameObject == ObjectSet.Field_inMonster[3] && ObjectSet.Enemy_Name[3] == "Mushroom" && attack_order.Order_4)
             {
                 stun_countDown = true;
                 if (stun_countDown)
@@ -319,7 +505,7 @@ public class Mushroom_Script : MonoBehaviour
         }
         else
         {
-            if (ObjectSet.Enemy_Name[0] == "Mushroom" && attack_order.Order_1)
+            if (this.gameObject == ObjectSet.Field_inMonster[0] && ObjectSet.Enemy_Name[0] == "Mushroom" && attack_order.Order_1)
             {
                 EnemyAttack = true;
                 if (animation_Attack)
@@ -333,7 +519,7 @@ public class Mushroom_Script : MonoBehaviour
                     animation_Attack = false;
                 }
             }
-            if (ObjectSet.Enemy_Name[1] == "Mushroom" && attack_order.Order_2)
+            if (this.gameObject == ObjectSet.Field_inMonster[1] && ObjectSet.Enemy_Name[1] == "Mushroom" && attack_order.Order_2)
             {
                 EnemyAttack = true;
                 if (animation_Attack)
@@ -346,7 +532,7 @@ public class Mushroom_Script : MonoBehaviour
                     animation_Attack = false;
                 }
             }
-            if (ObjectSet.Enemy_Name[2] == "Mushroom" && attack_order.Order_3)
+            if (this.gameObject == ObjectSet.Field_inMonster[2] && ObjectSet.Enemy_Name[2] == "Mushroom" && attack_order.Order_3)
             {
                 EnemyAttack = true;
                 if (animation_Attack)
@@ -358,7 +544,7 @@ public class Mushroom_Script : MonoBehaviour
                     animation_Attack = false;
                 }
             }
-            if (ObjectSet.Enemy_Name[3] == "Mushroom" && attack_order.Order_4)
+            if (this.gameObject == ObjectSet.Field_inMonster[3] && ObjectSet.Enemy_Name[3] == "Mushroom" && attack_order.Order_4)
             {
                 EnemyAttack = true;
                 if (animation_Attack)
@@ -373,10 +559,10 @@ public class Mushroom_Script : MonoBehaviour
     }
     void Enemy_NameLess()
     {
-        if (ObjectSet.Enemy_Name[0] == "Mushroom") ObjectSet.Enemy_Name[0] = null;
-        if (ObjectSet.Enemy_Name[1] == "Mushroom") ObjectSet.Enemy_Name[1] = null;
-        if (ObjectSet.Enemy_Name[2] == "Mushroom") ObjectSet.Enemy_Name[2] = null;
-        if (ObjectSet.Enemy_Name[3] == "Mushroom") ObjectSet.Enemy_Name[3] = null;
+        if (this.gameObject == ObjectSet.Field_inMonster[0] && ObjectSet.Enemy_Name[0] == "Mushroom") ObjectSet.Enemy_Name[0] = null;
+        if (this.gameObject == ObjectSet.Field_inMonster[1] && ObjectSet.Enemy_Name[1] == "Mushroom") ObjectSet.Enemy_Name[1] = null;
+        if (this.gameObject == ObjectSet.Field_inMonster[2] && ObjectSet.Enemy_Name[2] == "Mushroom") ObjectSet.Enemy_Name[2] = null;
+        if (this.gameObject == ObjectSet.Field_inMonster[3] && ObjectSet.Enemy_Name[3] == "Mushroom") ObjectSet.Enemy_Name[3] = null;
     }
     void CardData_inEnemy(string name)
     {

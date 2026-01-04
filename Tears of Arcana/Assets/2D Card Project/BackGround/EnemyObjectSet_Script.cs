@@ -78,6 +78,10 @@ public class EnemyObjectSet_Script : MonoBehaviour
         switch (stage)
         {
             case 1:
+            case 2:
+            case 3:
+            case 4:
+            case 5:
                 deckField.DeckField_nowCard++;
                 deckField.rolling = true;
                 card = Instantiate(StageCard[0], deck.transform.position, Quaternion.identity);
@@ -132,6 +136,54 @@ public class EnemyObjectSet_Script : MonoBehaviour
                 Enemy_Name[1] = "Skeleton";
                 Enemy_Name[2] = "Skeleton";
                 Enemy_Name[3] = "Skeleton";
+
+                MonsterCount = 4;
+                MonsterDeadCount = 0;
+                nullAndinput = true;
+                break;
+            case 3:
+
+                Field_inMonster[0] = Instantiate(Monster_Object[1], Field_transform[0], Quaternion.identity);
+                Field_inMonster[1] = Instantiate(Monster_Object[1], Field_transform[1], Quaternion.identity);
+                Field_inMonster[2] = Instantiate(Monster_Object[1], Field_transform[2], Quaternion.identity);
+                Field_inMonster[3] = Instantiate(Monster_Object[1], Field_transform[3], Quaternion.identity);
+
+                Enemy_Name[0] = "Eye";
+                Enemy_Name[1] = "Eye";
+                Enemy_Name[2] = "Eye";
+                Enemy_Name[3] = "Eye";
+
+                MonsterCount = 4;
+                MonsterDeadCount = 0;
+                nullAndinput = true;
+                break;
+            case 4:
+
+                Field_inMonster[0] = Instantiate(Monster_Object[2], Field_transform[0], Quaternion.identity);
+                Field_inMonster[1] = Instantiate(Monster_Object[2], Field_transform[1], Quaternion.identity);
+                Field_inMonster[2] = Instantiate(Monster_Object[2], Field_transform[2], Quaternion.identity);
+                Field_inMonster[3] = Instantiate(Monster_Object[2], Field_transform[3], Quaternion.identity);
+
+                Enemy_Name[0] = "Goblin";
+                Enemy_Name[1] = "Goblin";
+                Enemy_Name[2] = "Goblin";
+                Enemy_Name[3] = "Goblin";
+
+                MonsterCount = 4;
+                MonsterDeadCount = 0;
+                nullAndinput = true;
+                break;
+            case 5:
+
+                Field_inMonster[0] = Instantiate(Monster_Object[3], Field_transform[0], Quaternion.identity);
+                Field_inMonster[1] = Instantiate(Monster_Object[3], Field_transform[1], Quaternion.identity);
+                Field_inMonster[2] = Instantiate(Monster_Object[3], Field_transform[2], Quaternion.identity);
+                Field_inMonster[3] = Instantiate(Monster_Object[3], Field_transform[3], Quaternion.identity);
+
+                Enemy_Name[0] = "Mushroom";
+                Enemy_Name[1] = "Mushroom";
+                Enemy_Name[2] = "Mushroom";
+                Enemy_Name[3] = "Mushroom";
 
                 MonsterCount = 4;
                 MonsterDeadCount = 0;

@@ -18,7 +18,10 @@ public enum Card_namedata
     FireOfvitality,
     Quietrest,
     AbyssCrevice,
-    BrutalContract
+    BrutalContract,
+    FireArrow,
+    Lighting,
+    IceBolt
 }
 
 public class card_Name : MonoBehaviour

@@ -99,10 +99,10 @@ public class Player_Script : MonoBehaviour
         {
             if(MoveCount == 1)
             {
-                PlayerMove(25);
+                PlayerMove(27);
                 animator.SetBool("PlayerIdle", false);
                 animator.SetBool("PlayerMove", true);
-                if(transform.position.x > 25)
+                if(transform.position.x > 27)
                 {
                     if(Screen_On)
                     {
@@ -114,6 +114,7 @@ public class Player_Script : MonoBehaviour
                     else
                     {
                         transform.position = new Vector3(-25, -1, 5);
+                        Delay_timer = 0f;
                         MoveCount++;
                     }
                 }

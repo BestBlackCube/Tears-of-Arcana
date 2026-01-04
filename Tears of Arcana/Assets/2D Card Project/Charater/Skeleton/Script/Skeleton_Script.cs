@@ -34,7 +34,7 @@ public class Skeleton_Script : MonoBehaviour
     Player_Script player;
     CardDeckField_Script deckField;
     CardDeck_Script deck;
-    public Card_Script card;
+    //public Card_Script card;
     Image nowHpbar;
 
     public bool targetCard = false;
@@ -74,8 +74,8 @@ public class Skeleton_Script : MonoBehaviour
     void Update()
     {
         Attack_Order();
-        if(EnemyAttack) Attack();  // 공격
-        if(HIT_Enemy) Hit_Enemy();    // 맞기
+        if (EnemyAttack) Attack();  // 공격
+        if (HIT_Enemy) Hit_Enemy();    // 맞기
         if (targetCard && !Arrow || !targetCard && !Arrow) targetArrow_inField(2);
         if (targetCard && Arrow) targetArrow_inField(1);
     }
@@ -104,18 +104,18 @@ public class Skeleton_Script : MonoBehaviour
     void OnMouseDown()
     {
         if(deckField.Click_Card != null)
-        if (cardUse && deckField.Click_Card.Object_name == "Skeleton")
-        {
-            deckField.Click_Card.Card_MouseClick = false;
-            deckField.Click_Card.Target_Card(false);
-            CardData_inEnemy(deckField.Click_Card.Card_name);
-            deckField.Click_Card.CardDestroy();
-            deckField.Click_Card = null;
-            player.animation_Attack = true;
-            player.targetPlayerCard = false;
-            targetCard = false;
-            HIT_Enemy = true;
-        }
+            if (cardUse && deckField.Click_Card.Object_name == "Skeleton")
+            {
+                deckField.Click_Card.Card_MouseClick = false;
+                deckField.Click_Card.Target_Card(false);
+                CardData_inEnemy(deckField.Click_Card.Card_name);
+                deckField.Click_Card.CardDestroy();
+                deckField.Click_Card = null;
+                player.animation_Attack = true;
+                player.targetPlayerCard = false;
+                targetCard = false;
+                HIT_Enemy = true;
+            }
     }
     void Attack() // 공격 애니메이션 코드
     {
@@ -257,6 +257,8 @@ public class Skeleton_Script : MonoBehaviour
                 ObjectSet.TargetGuide[0] = Instantiate(ObjectSet.TargetGuide_prefab, guide_offset, Quaternion.identity);
                 EnemyTargetBar_Script guide = ObjectSet.TargetGuide[0].GetComponent<EnemyTargetBar_Script>();
                 guide.target = ObjectSet.Field_inMonster[0].transform;
+                deckField.Click_Card.Card_transform = ObjectSet.Field_inMonster[0].transform.position;
+                deckField.Click_Card.Card_upNumber = 0;
                 switch (deckField.Click_Card.Card_name)
                 {
                     case "일반마법":
@@ -286,6 +288,8 @@ public class Skeleton_Script : MonoBehaviour
                 ObjectSet.TargetGuide[1] = Instantiate(ObjectSet.TargetGuide_prefab, guide_offset, Quaternion.identity);
                 EnemyTargetBar_Script guide = ObjectSet.TargetGuide[1].GetComponent<EnemyTargetBar_Script>();
                 guide.target = ObjectSet.Field_inMonster[1].transform;
+                deckField.Click_Card.Card_transform = ObjectSet.Field_inMonster[1].transform.position;
+                deckField.Click_Card.Card_upNumber = 1;
                 switch (deckField.Click_Card.Card_name)
                 {
                     case "일반마법":
@@ -315,6 +319,8 @@ public class Skeleton_Script : MonoBehaviour
                 ObjectSet.TargetGuide[2] = Instantiate(ObjectSet.TargetGuide_prefab, guide_offset, Quaternion.identity);
                 EnemyTargetBar_Script guide = ObjectSet.TargetGuide[2].GetComponent<EnemyTargetBar_Script>();
                 guide.target = ObjectSet.Field_inMonster[2].transform;
+                deckField.Click_Card.Card_transform = ObjectSet.Field_inMonster[2].transform.position;
+                deckField.Click_Card.Card_upNumber = 2;
                 switch (deckField.Click_Card.Card_name)
                 {
                     case "일반마법":
@@ -344,6 +350,8 @@ public class Skeleton_Script : MonoBehaviour
                 ObjectSet.TargetGuide[3] = Instantiate(ObjectSet.TargetGuide_prefab, guide_offset, Quaternion.identity);
                 EnemyTargetBar_Script guide = ObjectSet.TargetGuide[3].GetComponent<EnemyTargetBar_Script>();
                 guide.target = ObjectSet.Field_inMonster[3].transform;
+                deckField.Click_Card.Card_transform = ObjectSet.Field_inMonster[3].transform.position;
+                deckField.Click_Card.Card_upNumber = 3;
                 switch (deckField.Click_Card.Card_name)
                 {
                     case "일반마법":
@@ -375,15 +383,15 @@ public class Skeleton_Script : MonoBehaviour
             {
                 Destroy(ObjectSet.TargetGuide[0]);
             }
-            if (this.gameObject == ObjectSet.Field_inMonster[1] && ObjectSet.TargetGuide[1] != null && ObjectSet.Enemy_Name[0] == "Skeleton")
+            if (this.gameObject == ObjectSet.Field_inMonster[1] && ObjectSet.TargetGuide[1] != null && ObjectSet.Enemy_Name[1] == "Skeleton")
             {
                 Destroy(ObjectSet.TargetGuide[1]);
             }
-            if (this.gameObject == ObjectSet.Field_inMonster[2] && ObjectSet.TargetGuide[2] != null && ObjectSet.Enemy_Name[0] == "Skeleton")
+            if (this.gameObject == ObjectSet.Field_inMonster[2] && ObjectSet.TargetGuide[2] != null && ObjectSet.Enemy_Name[2] == "Skeleton")
             {
                 Destroy(ObjectSet.TargetGuide[2]);
             }
-            if (this.gameObject == ObjectSet.Field_inMonster[3] && ObjectSet.TargetGuide[3] != null && ObjectSet.Enemy_Name[0] == "Skeleton")
+            if (this.gameObject == ObjectSet.Field_inMonster[3] && ObjectSet.TargetGuide[3] != null && ObjectSet.Enemy_Name[3] == "Skeleton")
             {
                 Destroy(ObjectSet.TargetGuide[3]);
             }
@@ -429,15 +437,15 @@ public class Skeleton_Script : MonoBehaviour
             {
                 Destroy(ObjectSet.TargetArrow[0]);
             }
-            if (this.gameObject == ObjectSet.Field_inMonster[1] && ObjectSet.TargetArrow[1] != null && ObjectSet.Enemy_Name[0] == "Skeleton")
+            if (this.gameObject == ObjectSet.Field_inMonster[1] && ObjectSet.TargetArrow[1] != null && ObjectSet.Enemy_Name[1] == "Skeleton")
             {
                 Destroy(ObjectSet.TargetArrow[1]);
             }
-            if (this.gameObject == ObjectSet.Field_inMonster[2] && ObjectSet.TargetArrow[2] != null && ObjectSet.Enemy_Name[0] == "Skeleton")
+            if (this.gameObject == ObjectSet.Field_inMonster[2] && ObjectSet.TargetArrow[2] != null && ObjectSet.Enemy_Name[2] == "Skeleton")
             {
                 Destroy(ObjectSet.TargetArrow[2]);
             }
-            if (this.gameObject == ObjectSet.Field_inMonster[3] && ObjectSet.TargetArrow[3] != null && ObjectSet.Enemy_Name[0] == "Skeleton")
+            if (this.gameObject == ObjectSet.Field_inMonster[3] && ObjectSet.TargetArrow[3] != null && ObjectSet.Enemy_Name[3] == "Skeleton")
             {
                 Destroy(ObjectSet.TargetArrow[3]);
             }

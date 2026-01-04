@@ -73,6 +73,15 @@ public class card_Status
             case Card_namedata.BrutalContract:
                 status = new card_Status(Card_name, "잔혹한계약", 0, 0, 0, 30, 3);
                 break;
+            case Card_namedata.FireArrow:
+                status = new card_Status(Card_name, "불화살", 0, 15, 0, 0, 0);
+                break;
+            case Card_namedata.Lighting:
+                status = new card_Status(Card_name, "전격", 0, 0, 0, 20, 2);
+                break;
+            case Card_namedata.IceBolt:
+                status = new card_Status(Card_name, "얼음볼", 0, 0, 0, 30, 3);
+                break;
             default:
                 break;
         }
