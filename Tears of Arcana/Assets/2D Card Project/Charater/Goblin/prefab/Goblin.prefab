@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6b2b11e99aa20c4895007c5ec52c876, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GoblinFunnel_Image: {fileID: 1630838741351645290, guid: a91a64c9e31c7224dbb676be8e8195a9, type: 3}
+  Funnel_Image: {fileID: 7923625607276799478, guid: 0808d759a697c514eb081135e8b42b07, type: 3}
   HpBar_prefab: {fileID: 3052410248697706107, guid: ce02e9b6d66b20749b2c7231ff2f0d1c, type: 3}
   canvas: {fileID: 0}
   unitname: 3
@@ -130,11 +130,11 @@ MonoBehaviour:
   Dead_timer: 0
   Attack_timer: 0
   card: {fileID: 0}
-  targetGoblinCard: 0
-  GoblinDamage: 0
+  targetCard: 0
+  EnemyDamage: 0
   animation_Attack: 0
   EnemyAttack: 0
-  HIT_Goblin: 0
+  HIT_Enemy: 0
   animation_position: {x: 0, y: 0, z: 0}
 --- !u!61 &-6104797658866159610
 BoxCollider2D:

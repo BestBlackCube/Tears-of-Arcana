@@ -5,16 +5,18 @@ using UnityEngine;
 
 public enum Card_namedata
 {
-    HealthPotion_card,
-    HighHealthPotion_card,
+    HealthPotion,
+    HighHealthPotion,
     Meditation,
-    Attack_card,
-    Magic_card,
-    Fire_card,
-    Water_card,
-    Wind_card,
-    Soil_card,
-    Devil_card
+    idleMagic,
+    Fire,
+    Water,
+    Wind,
+    Soil,
+    FireOfvitality,
+    Quietrest,
+    AbyssCrevice,
+    BrutalContract
 }
 
 public class card_Name : MonoBehaviour

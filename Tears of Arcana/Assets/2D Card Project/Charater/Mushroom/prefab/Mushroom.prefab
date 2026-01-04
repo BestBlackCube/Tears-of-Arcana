@@ -143,7 +143,7 @@ BoxCollider2D:
   m_Offset: {x: 0.03, y: -1.23}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0.45}
     oldSize: {x: 25, y: 25}
     newSize: {x: 1.5, y: 1.5}
     adaptiveTilingThreshold: 0.5
@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17f503bdd9069ea43b7d3a2ea50c2eda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MushroomFunnel_Image: {fileID: 1630838741351645290, guid: a91a64c9e31c7224dbb676be8e8195a9, type: 3}
+  Funnel_Image: {fileID: 1049562231929670807, guid: 87acf0e403b00b146b61014572abaf59, type: 3}
   HpBar_prefab: {fileID: 1938935385128734670, guid: 600f5edc92b27af42bfccb9c2662e2b3, type: 3}
   canvas: {fileID: 0}
   unitname: 4
@@ -175,9 +175,9 @@ MonoBehaviour:
   Dead_timer: 0
   Attack_timer: 0
   card: {fileID: 0}
-  targetMushroomCard: 0
-  MushroomDamage: 0
+  targetCard: 0
+  EnemyDamage: 0
   animation_Attack: 0
   EnemyAttack: 0
-  HIT_Mushroom: 0
+  HIT_Enemy: 0
   animation_position: {x: 0, y: 0, z: 0}

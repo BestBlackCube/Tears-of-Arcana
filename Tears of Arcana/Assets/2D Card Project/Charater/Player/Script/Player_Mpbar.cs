@@ -17,7 +17,7 @@ public class Player_Mpbar : MonoBehaviour
         player = FindObjectOfType<Player_Script>();
         playerMpbar = Instantiate(PlayerMpbar_prefab, canvas.transform).GetComponent<RectTransform>();
 
-        Vector3 HpBarPos = new Vector3(transform.position.x - 9, transform.position.y + 4.5f, 1);
+        Vector3 HpBarPos = new Vector3(transform.position.x - 21, transform.position.y + 4.5f, 1);
         playerMpbar.position = HpBarPos;
 
         nowMpbar = playerMpbar.transform.GetChild(0).GetComponent<Image>();

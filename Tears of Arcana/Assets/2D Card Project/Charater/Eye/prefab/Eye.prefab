@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5516d9890548a94488d0d8bcedfead1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EyeFunnel_Image: {fileID: 1630838741351645290, guid: a91a64c9e31c7224dbb676be8e8195a9, type: 3}
+  Funnel_Image: {fileID: 2031715818993322335, guid: d34754ceb791db3409e92e8158d5f2a1, type: 3}
   HpBar_prefab: {fileID: 9215448965330041918, guid: 8aa152ab600cada4c8c99d89fd11a4b5, type: 3}
   canvas: {fileID: 0}
   unitname: 2
@@ -174,11 +174,10 @@ MonoBehaviour:
   maxHp: 0
   Dead_timer: 0
   Attack_timer: 0
-  attack_order: {fileID: 0}
   card: {fileID: 0}
-  targetEyeCard: 0
-  EyeDamage: 0
+  targetCard: 0
+  EnemyDamage: 0
   animation_Attack: 0
   EnemyAttack: 0
-  HIT_Eye: 0
+  HIT_Enemy: 0
   animation_position: {x: 0, y: 0, z: 0}

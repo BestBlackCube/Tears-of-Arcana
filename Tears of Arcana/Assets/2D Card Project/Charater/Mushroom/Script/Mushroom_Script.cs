@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class Mushroom_Script : MonoBehaviour
 {
-    public GameObject MushroomFunnel_Image;
-    GameObject MushroomFunnel;
+    public GameObject Funnel_Image;
+    GameObject Funnel;
 
     public GameObject HpBar_prefab;
     public GameObject canvas;
@@ -32,12 +32,12 @@ public class Mushroom_Script : MonoBehaviour
     public Card_Script card;
     Image nowHpbar;
 
-    public bool targetMushroomCard = false;    // 카드가 Eye를 선택하는지
-    public bool MushroomDamage = false;        // Eye가 데미지를 받았을때
+    public bool targetCard = false;    // 카드가 Eye를 선택하는지
+    public bool EnemyDamage = false;        // Eye가 데미지를 받았을때
     public bool animation_Attack = false;
     public bool EnemyAttack = false;
-    bool Mushroom_cardUse = false;
-    public bool HIT_Mushroom = false;
+    bool cardUse = false;
+    public bool HIT_Enemy = false;
 
     public Vector3 animation_position;
 
@@ -70,56 +70,57 @@ public class Mushroom_Script : MonoBehaviour
     void Update()
     {
         Attack_Order();
-        if (EnemyAttack) Mushroom_Attack();
-        if (HIT_Mushroom) Hit_Mushroom();
+        if (EnemyAttack) Attack();
+        if (HIT_Enemy) Hit_Enemy();
 
-        if (MushroomFunnel == null && targetMushroomCard) // 깔때기 생성
+        if (Funnel == null && targetCard) // 깔때기 생성
         {
-            Vector3 Mushroom_offset = new Vector3(0, 3.5f, 0);
-            MushroomFunnel = Instantiate(MushroomFunnel_Image, Mushroom_offset, Quaternion.identity);
-            Funnel_Script funnel = MushroomFunnel.GetComponent<Funnel_Script>();
+            Vector3 offset = new Vector3(0, 3.5f, 0);
+            Funnel = Instantiate(Funnel_Image, offset, Quaternion.identity);
+            Funnel_Script funnel = Funnel.GetComponent<Funnel_Script>();
             funnel.target = this.transform;
-            funnel.offset = Mushroom_offset;
+            funnel.offset = offset;
         }
-        if (MushroomFunnel == null && !targetMushroomCard)
+        if (Funnel != null && !targetCard)
         {
-            Destroy(MushroomFunnel); // 깔때기 제거
+            Destroy(Funnel); // 깔때기 제거
         }
     }
     void OnMouseOver()
     {
-        Mushroom_cardUse = true;
-        if (targetMushroomCard && deckField.Click_Card != null) deckField.Click_Card.Object_name = "Mushroom";
+        cardUse = true;
+        if (targetCard && deckField.Click_Card != null) deckField.Click_Card.Object_name = "Mushroom";
     }
     void OnMouseExit()
     {
-        Mushroom_cardUse = false;
-        if (targetMushroomCard && deckField.Click_Card != null) deckField.Click_Card.Object_name = "";
+        cardUse = false;
+        if (targetCard && deckField.Click_Card != null) deckField.Click_Card.Object_name = "";
     }
     void OnMouseDown()
     {
-        if (Mushroom_cardUse && deckField.Click_Card.Object_name == "Mushroom")
+        if (cardUse && deckField.Click_Card.Object_name == "Mushroom")
         {
             deckField.Click_Card.Card_MouseClick = false;
-            Card_Damage = deckField.Click_Card.Card_status;
+            deckField.Click_Card.Target_Card(false);
+            CardData_inEnemy(deckField.Click_Card.Card_name);
             deckField.Click_Card.CardDestroy();
             deckField.Click_Card = null;
             deck.CardCount = 0;
             deckField.cardHide = false;
             player.animation_Attack = true;
             player.targetPlayerCard = false;
-            targetMushroomCard = false;
-            HIT_Mushroom = true;
+            targetCard = false;
+            HIT_Enemy = true;
         }
     }
-    void Mushroom_Attack() // 공격 애니메이션 코드
+    void Attack() // 공격 애니메이션 코드
     {
-        if (animator.GetBool("MushroomIdle"))
+        if (animator.GetBool("Idle"))
         {
-            animator.SetBool("MushroomIdle", false);
-            animator.SetBool("MushroomMove", true);
+            animator.SetBool("Idle", false);
+            animator.SetBool("Move", true);
         }
-        if (animator.GetBool("MushroomMove"))
+        if (animator.GetBool("Move"))
         {
             if (transform.position.x > -10)
             {
@@ -127,27 +128,27 @@ public class Mushroom_Script : MonoBehaviour
             }
             else
             {
-                animator.SetBool("MushroomMove", false);
-                animator.SetBool("MushroomAttack", true);
+                animator.SetBool("Move", false);
+                animator.SetBool("Attack", true);
                 player.EnemyAttack_Player = true; // !+ 플레이어 피격 애니메이션 활성화
             }
         }
-        if (animator.GetBool("MushroomAttack"))
+        if (animator.GetBool("Attack"))
         {
-            if (Attack_timer < 0.9f)
+            if (Attack_timer < 1.1f)
             {
                 Attack_timer += Time.deltaTime;
             }
             else
             {
-                animator.SetBool("MushroomAttack", false);
-                animator.SetBool("MushroomBackMove", true);
+                animator.SetBool("Attack", false);
+                animator.SetBool("BackMove", true);
                 player.EnemyAttack_Player = false; // !+ 플레이어 피격 애니메이션 비활성화
                 player.PlayerDamage = true;        // 플레이어HP 줄이기
                 Attack_timer = 0f;
             }
         }
-        if (animator.GetBool("MushroomBackMove"))
+        if (animator.GetBool("BackMove"))
         {
             if (transform.position.x < animation_position.x)
             {
@@ -156,40 +157,41 @@ public class Mushroom_Script : MonoBehaviour
             }
             else
             {
-                animator.SetBool("MushroomBackMove", false);
-                animator.SetBool("MushroomIdle", true);
+                animator.SetBool("BackMove", false);
+                animator.SetBool("Idle", true);
                 transform.localScale = new Vector3(-1, 1, 1);
                 transform.position = animation_position;
                 animation_Attack = true;
             }
         }
     }
-    void Hit_Mushroom() // 플레이어에게 공격 받았을때 실행 되는 애니메이션
+    void Hit_Enemy() // 플레이어에게 공격 받았을때 실행 되는 애니메이션
     {
         nowHpbar.fillAmount = (float)nowHp / (float)maxHp;
         if (player.PlayerAttack_Enemy)
         {
-            animator.SetBool("MushroomHit", true);
-            if (player.PlayerAttack_timer > 1f) MushroomDamage = true;
+            animator.SetBool("Hit", true);
+            if (player.PlayerAttack_timer > 1f) EnemyDamage = true;
         }
         else
         {
-            animator.SetBool("MushroomHit", false);
+            animator.SetBool("Hit", false);
         }
 
-        if (MushroomDamage)
+        if (EnemyDamage)
         {
             nowHp -= Card_Damage;
             Card_Damage = 0;
-            MushroomDamage = false;
+            EnemyDamage = false;
         }
 
         if (nowHp <= 0f)
         {
-            animator.SetTrigger("MushroomDie");
-            if (Dead_timer < 1f) Dead_timer += Time.deltaTime;
+            animator.SetTrigger("Die");
+            if (Dead_timer < 0.6f) Dead_timer += Time.deltaTime;
             else
             {
+                Enemy_NameLess();
                 Destroy(gameObject);
                 Destroy(hpbar.gameObject);
             }
@@ -230,7 +232,9 @@ public class Mushroom_Script : MonoBehaviour
             if (animation_Attack)
             {
                 attack_order.Order_1 = false;
-                attack_order.Order_2 = true;
+                if (ObjectSet.Enemy_Name[1] != null) attack_order.Order_2 = true;
+                else if (ObjectSet.Enemy_Name[2] != null) attack_order.Order_3 = true;
+                else if (ObjectSet.Enemy_Name[3] != null) attack_order.Order_4 = true;
                 EnemyAttack = false;
                 animation_Attack = false;
             }
@@ -241,7 +245,8 @@ public class Mushroom_Script : MonoBehaviour
             if (animation_Attack)
             {
                 attack_order.Order_2 = false;
-                attack_order.Order_3 = true;
+                if (ObjectSet.Enemy_Name[2] != null) attack_order.Order_3 = true;
+                else if (ObjectSet.Enemy_Name[3] != null) attack_order.Order_4 = true;
                 EnemyAttack = false;
                 animation_Attack = false;
             }
@@ -263,10 +268,50 @@ public class Mushroom_Script : MonoBehaviour
             if (animation_Attack)
             {
                 attack_order.Order_4 = false;
-                ObjectSet.CardAdd = true;
+                attack_order.CardAdd = true;
                 EnemyAttack = false;
                 animation_Attack = false;
             }
+        }
+    }
+    void Enemy_NameLess()
+    {
+        if (ObjectSet.Enemy_Name[0] == "Mushroom") ObjectSet.Enemy_Name[0] = null;
+        if (ObjectSet.Enemy_Name[1] == "Mushroom") ObjectSet.Enemy_Name[1] = null;
+        if (ObjectSet.Enemy_Name[2] == "Mushroom") ObjectSet.Enemy_Name[2] = null;
+        if (ObjectSet.Enemy_Name[3] == "Mushroom") ObjectSet.Enemy_Name[3] = null;
+    }
+    void CardData_inEnemy(string name)
+    {
+        switch (name)
+        {
+            case "일반마법":
+                Card_Damage = deckField.Click_Card.single_damage;
+                player.nowMp += deckField.Click_Card.mana;
+                break;
+            case "화염장판":
+                Card_Damage = deckField.Click_Card.multiple_damage;
+                player.nowMp += deckField.Click_Card.mana;
+                break;
+            case "얼음안개":
+                Card_Damage = deckField.Click_Card.multiple_damage;
+                player.nowMp += deckField.Click_Card.mana;
+                break;
+            case "바람의창":
+                Card_Damage = deckField.Click_Card.single_damage;
+                player.nowMp += deckField.Click_Card.mana;
+                break;
+            case "돌무더기":
+                Card_Damage = deckField.Click_Card.single_damage;
+                player.nowMp += deckField.Click_Card.mana;
+                break;
+            case "절망의균열":
+                //Card_Damage = deckField.Click_Card.count;
+                //player.nowMp += deckField.Click_Card.mana;
+                break;
+
+            default:
+                break;
         }
     }
 }

@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class Goblin_Script : MonoBehaviour
 {
-    public GameObject GoblinFunnel_Image;
-    GameObject GoblinFunnel;
+    public GameObject Funnel_Image;
+    GameObject Funnel;
 
     public GameObject HpBar_prefab;
     public GameObject canvas;
@@ -32,12 +32,12 @@ public class Goblin_Script : MonoBehaviour
     public Card_Script card;
     Image nowHpbar;
 
-    public bool targetGoblinCard = false;
-    public bool GoblinDamage = false;
+    public bool targetCard = false;
+    public bool EnemyDamage = false;
     public bool animation_Attack = false;
     public bool EnemyAttack = false;
-    bool Goblin_cardUse = false;
-    public bool HIT_Goblin = false;
+    bool cardUse = false;
+    public bool HIT_Enemy = false;
 
     public Vector3 animation_position;
 
@@ -68,56 +68,57 @@ public class Goblin_Script : MonoBehaviour
     void Update()
     {
         Attack_Order();
-        if (EnemyAttack) Goblin_Attack();
-        if (HIT_Goblin) Hit_Goblin();
+        if (EnemyAttack) Attack();
+        if (HIT_Enemy) Hit_Enemy();
 
-        if(GoblinFunnel == null && targetGoblinCard)
+        if(Funnel == null && targetCard)
         {
-            Vector3 Goblin_offset = new Vector3(0, 3.5f, 0);
-            GoblinFunnel = Instantiate(GoblinFunnel_Image, Goblin_offset, Quaternion.identity);
-            Funnel_Script funnel = GoblinFunnel.GetComponent<Funnel_Script>();
+            Vector3 offset = new Vector3(0, 3.5f, 0);
+            Funnel = Instantiate(Funnel_Image, offset, Quaternion.identity);
+            Funnel_Script funnel = Funnel.GetComponent<Funnel_Script>();
             funnel.target = this.transform;
-            funnel.offset = Goblin_offset;
+            funnel.offset = offset;
         }
-        if(GoblinFunnel == null && !targetGoblinCard)
+        if(Funnel != null && !targetCard)
         {
-            Destroy(GoblinFunnel);
+            Destroy(Funnel);
         }
     }
     void OnMouseOver()
     {
-        Goblin_cardUse = true;
-        if (targetGoblinCard && deckField.Click_Card != null) deckField.Click_Card.Object_name = "Goblin";
+        cardUse = true;
+        if (targetCard && deckField.Click_Card != null) deckField.Click_Card.Object_name = "Goblin";
     }
     void OnMouseExit()
     {
-        Goblin_cardUse = false;
-        if (targetGoblinCard && deckField.Click_Card != null) deckField.Click_Card.Object_name = "";
+        cardUse = false;
+        if (targetCard && deckField.Click_Card != null) deckField.Click_Card.Object_name = "";
     }
     void OnMouseDown()
     {
-        if(Goblin_cardUse && deckField.Click_Card.Object_name == "Goblin")
+        if(cardUse && deckField.Click_Card.Object_name == "Goblin")
         {
             deckField.Click_Card.Card_MouseClick = false;
-            Card_Damage = deckField.Click_Card.Card_status;
+            deckField.Click_Card.Target_Card(false);
+            CardData_inEnemy(deckField.Click_Card.Card_name);
             deckField.Click_Card.CardDestroy();
             deckField.Click_Card = null;
             deck.CardCount = 0;
             deckField.cardHide = false;
             player.animation_Attack = true;
             player.targetPlayerCard = false;
-            targetGoblinCard = false;
-            HIT_Goblin = true;
+            targetCard = false;
+            HIT_Enemy = true;
         }
     }
-    void Goblin_Attack()
+    void Attack()
     {
-        if (animator.GetBool("GoblinIdle"))
+        if (animator.GetBool("Idle"))
         {
-            animator.SetBool("GoblinIdle", false);
-            animator.SetBool("GoblinMove", true);
+            animator.SetBool("Idle", false);
+            animator.SetBool("Move", true);
         }
-        if (animator.GetBool("GoblinMove"))
+        if (animator.GetBool("Move"))
         {
             if (transform.position.x > -10)
             {
@@ -125,12 +126,12 @@ public class Goblin_Script : MonoBehaviour
             }
             else
             {
-                animator.SetBool("GoblinMove", false);
-                animator.SetBool("GoblinAttack", true);
+                animator.SetBool("Move", false);
+                animator.SetBool("Attack", true);
                 player.EnemyAttack_Player = true; // !+ 플레이어 피격 애니메이션 활성화
             }
         }
-        if (animator.GetBool("GoblinAttack"))
+        if (animator.GetBool("Attack"))
         {
             if (Attack_timer < 1.15f)
             {
@@ -138,14 +139,14 @@ public class Goblin_Script : MonoBehaviour
             }
             else
             {
-                animator.SetBool("GoblinAttack", false);
-                animator.SetBool("GoblinBackMove", true);
+                animator.SetBool("Attack", false);
+                animator.SetBool("BackMove", true);
                 player.EnemyAttack_Player = false; // !+ 플레이어 피격 애니메이션 비활성화
                 player.PlayerDamage = true;        // 플레이어HP 줄이기
                 Attack_timer = 0f;
             }
         }
-        if (animator.GetBool("GoblinBackMove"))
+        if (animator.GetBool("BackMove"))
         {
             if (transform.position.x < animation_position.x)
             {
@@ -154,40 +155,41 @@ public class Goblin_Script : MonoBehaviour
             }
             else
             {
-                animator.SetBool("GoblinBackMove", false);
-                animator.SetBool("GoblinIdle", true);
+                animator.SetBool("BackMove", false);
+                animator.SetBool("Idle", true);
                 transform.localScale = new Vector3(-1, 1, 1);
                 transform.position = animation_position;
                 animation_Attack = true;
             }
         }
     }
-    void Hit_Goblin()
+    void Hit_Enemy()
     {
         nowHpbar.fillAmount = (float)nowHp / (float)maxHp;
         if (player.PlayerAttack_Enemy)
         {
-            animator.SetBool("GoblinHit", true);
-            if (player.PlayerAttack_timer > 1f) GoblinDamage = true;
+            animator.SetBool("Hit", true);
+            if (player.PlayerAttack_timer > 1f) EnemyDamage = true;
         }
         else
         {
-            animator.SetBool("GoblinHit", false);
+            animator.SetBool("Hit", false);
         }
 
-        if (GoblinDamage)
+        if (EnemyDamage)
         {
             nowHp -= Card_Damage;
             Card_Damage = 0;
-            GoblinDamage = false;
+            EnemyDamage = false;
         }
 
         if (nowHp <= 0f)
         {
-            animator.SetTrigger("GoblinDie");
+            animator.SetTrigger("Die");
             if (Dead_timer < 0.5f) Dead_timer += Time.deltaTime;
             else
             {
+                Enemy_NameLess();
                 Destroy(gameObject);
                 Destroy(hpbar.gameObject);
             }
@@ -228,7 +230,9 @@ public class Goblin_Script : MonoBehaviour
             if(animation_Attack)
             {
                 attack_order.Order_1 = false;
-                attack_order.Order_2 = true;
+                if (ObjectSet.Enemy_Name[1] != null) attack_order.Order_2 = true;
+                else if (ObjectSet.Enemy_Name[2] != null) attack_order.Order_3 = true;
+                else if (ObjectSet.Enemy_Name[3] != null) attack_order.Order_4 = true;
                 EnemyAttack = false;
                 animation_Attack = false;
             }
@@ -239,7 +243,8 @@ public class Goblin_Script : MonoBehaviour
             if (animation_Attack)
             {
                 attack_order.Order_2 = false;
-                attack_order.Order_3 = true;
+                if (ObjectSet.Enemy_Name[2] != null) attack_order.Order_3 = true;
+                else if (ObjectSet.Enemy_Name[3] != null) attack_order.Order_4 = true;
                 EnemyAttack = false;
                 animation_Attack = false;
             }
@@ -261,10 +266,50 @@ public class Goblin_Script : MonoBehaviour
             if (animation_Attack)
             {
                 attack_order.Order_4 = false;
-                ObjectSet.CardAdd = true;
+                attack_order.CardAdd = true;
                 EnemyAttack = false;
                 animation_Attack = false;
             }
+        }
+    }
+    void Enemy_NameLess()
+    {
+        if (ObjectSet.Enemy_Name[0] == "Goblin") ObjectSet.Enemy_Name[0] = null;
+        if (ObjectSet.Enemy_Name[1] == "Goblin") ObjectSet.Enemy_Name[1] = null;
+        if (ObjectSet.Enemy_Name[2] == "Goblin") ObjectSet.Enemy_Name[2] = null;
+        if (ObjectSet.Enemy_Name[3] == "Goblin") ObjectSet.Enemy_Name[3] = null;
+    }
+    void CardData_inEnemy(string name)
+    {
+        switch (name)
+        {
+            case "일반마법":
+                Card_Damage = deckField.Click_Card.single_damage;
+                player.nowMp += deckField.Click_Card.mana;
+                break;
+            case "화염장판":
+                Card_Damage = deckField.Click_Card.multiple_damage;
+                player.nowMp += deckField.Click_Card.mana;
+                break;
+            case "얼음안개":
+                Card_Damage = deckField.Click_Card.multiple_damage;
+                player.nowMp += deckField.Click_Card.mana;
+                break;
+            case "바람의창":
+                Card_Damage = deckField.Click_Card.single_damage;
+                player.nowMp += deckField.Click_Card.mana;
+                break;
+            case "돌무더기":
+                Card_Damage = deckField.Click_Card.single_damage;
+                player.nowMp += deckField.Click_Card.mana;
+                break;
+            case "절망의균열":
+                //Card_Damage = deckField.Click_Card.count;
+                //player.nowMp += deckField.Click_Card.mana;
+                break;
+
+            default:
+                break;
         }
     }
 }

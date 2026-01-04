@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class turnEnd_Script : MonoBehaviour
 {
     public ObjectSet_Script Order;
+    public EnemyObjectSet_Script ObjectSet;
     public bool endButton = false;
     public bool end_turn = false;
     // Start is called before the first frame update
@@ -35,7 +36,7 @@ public class turnEnd_Script : MonoBehaviour
     {
         if (endButton)
         {
-            Order.Order_1 = true;
+            Order.Order = true;
             gameObject.SetActive(false);
         }
     }

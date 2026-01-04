@@ -39,6 +39,7 @@ public class Player_Script : MonoBehaviour
     bool Full_hit = false;
     bool Half_hit = false;
 
+
     public float PlayerAttack_timer = 0f;
     public float PlayerDead_timer = 0f;
 
@@ -67,9 +68,10 @@ public class Player_Script : MonoBehaviour
     void Update()
     {
         HIT_percent();
+        if (animation_Attack) Player_AttackStart();
 
         if (PlayerFunnel != null && !targetPlayerCard) Destroy(PlayerFunnel);
-        if(PlayerFunnel == null)
+        if (PlayerFunnel == null)
         {
             if (targetPlayerCard) // 카드를 클릭했는지 감지 -> 대상으로 변경 할 예정
             {
@@ -80,55 +82,6 @@ public class Player_Script : MonoBehaviour
                 funnel.offset = player_offset; // 오브젝트에 더할값
             }
         }
-        if(animation_Attack)
-        {
-            if(animator.GetBool("PlayerIdle"))
-            {
-                animator.SetBool("PlayerIdle", false);
-                animator.SetBool("PlayerMove", true);
-            }
-            if(animator.GetBool("PlayerMove"))
-            {
-                if (transform.position.x < -10)
-                { transform.position = new Vector3(transform.position.x + 15f * Time.deltaTime, transform.position.y, 0); }
-                else
-                { 
-                    animator.SetBool("PlayerMove", false);
-                    animator.SetBool("PlayerAttack", true);
-                    PlayerAttack_Enemy = true; // !+ 적캐릭터 피격 활성화
-                }
-            }
-            if(animator.GetBool("PlayerAttack"))
-            {
-                if(PlayerAttack_timer < 1f)
-                {
-                    PlayerAttack_timer += Time.deltaTime;
-                }
-                else
-                {
-                    animator.SetBool("PlayerAttack", false);
-                    animator.SetBool("PlayerBackMove", true);
-                    PlayerAttack_Enemy = false; // !+ 적캐릭터 패격 비활성화
-                    PlayerAttack_timer = 0f;
-                }
-            }
-            if(animator.GetBool("PlayerBackMove"))
-            {
-                if(transform.position.x > -15)
-                {
-                    transform.localScale = new Vector3(-1, 1, 1);
-                    transform.position = new Vector3(transform.position.x - 15f * Time.deltaTime, transform.position.y, 0); 
-                }
-                else
-                {
-                    animator.SetBool("PlayerBackMove", false);
-                    animator.SetBool("PlayerIdle", true);
-                    transform.localScale = new Vector3(1, 1, 1);
-                    transform.position = new Vector3(-15, -1, 0);
-                    animation_Attack = false;
-                }
-            }
-        }
     }
 
     private void OnMouseOver() // 마우스커서가 오브젝트에 있는지 감지하는 이벤트
@@ -136,8 +89,7 @@ public class Player_Script : MonoBehaviour
         Player_cardUse = true;
         if (targetPlayerCard)
         {
-            Card_ScriptCheck(true);
-            card.Object_name = "Player";
+            deckField.Click_Card.Object_name = "Player";
         }
     }
     private void OnMouseExit() // 마우스커서가 오브젝트 없는지 감지하는 이벤트
@@ -145,29 +97,21 @@ public class Player_Script : MonoBehaviour
         Player_cardUse = false;
         if (targetPlayerCard)
         {
-            card.Object_name = "";
+            deckField.Click_Card.Object_name = "";
         }
     }
     private void OnMouseDown() // 마우스커서가 오브젝트에서 클릭을 했는지 감지하는 이벤트
     {
-        if (Player_cardUse)
+        if (Player_cardUse && deckField.Click_Card.Object_name == "Player")
         {
-            card.CardDestroy();
-            card = null;
+            deckField.Click_Card.Card_MouseClick = false;
+            deckField.Click_Card.Target_Card(false);
+            CardName_inStatus(deckField.Click_Card.Card_name);
+            deckField.Click_Card.CardDestroy();
+            deckField.Click_Card = null;
             deck.CardCount--;
             deckField.cardHide = false;
             targetPlayerCard = false;
-        }
-    }
-    void Card_ScriptCheck(bool isinside) // 클릭한 카드 찾기
-    {
-        if(isinside)
-        {
-            for(int i = 0; i < deckField.Card_inField.Length; i++)
-            {
-                card = deckField.Card_inField_Script[i]; // 스크립트 대입
-                if (card.Card_MouseClick) break; // 대입한 스크립트에 마우스클릭이 켜져있으면 정지
-            }
         }
     }
 
@@ -182,7 +126,7 @@ public class Player_Script : MonoBehaviour
                 if (EnemyAttack_Player) animator.SetBool("PlayerHit", true);
                 PlayerDamage = true;
                 Full_hit = true;
-                
+
             }
             if (Defence_percent <= Percent && Percent < Hit_percent) // 기본값 1보다 크거나 같을경우 그리고 3보다 작을경우 1~2 : 20%
             {
@@ -204,7 +148,7 @@ public class Player_Script : MonoBehaviour
             Percent = -1;
             if (animator.GetBool("PlayerHit")) animator.SetBool("PlayerHit", false);
             if (animator.GetBool("PlayerDefence")) animator.SetBool("PlayerDefence", false);
-            if(Avoid)
+            if (Avoid)
             {
                 transform.localScale = new Vector3(1, 1, 1);
                 if (transform.position.x <= -15)
@@ -220,11 +164,93 @@ public class Player_Script : MonoBehaviour
             }
             if (PlayerDamage)
             {
-                if(Full_hit) { nowHp -= 10; Full_hit = false; } // 전체 데미지
-                if(Half_hit) {  nowHp -= 5; Half_hit = false; } // 전체 데미지의 반절
+                if (Full_hit) { nowHp -= 10; Full_hit = false; } // 전체 데미지
+                if (Half_hit) { nowHp -= 5; Half_hit = false; } // 전체 데미지의 반절
                 if (nowHp <= 0f) animator.SetTrigger("PlayerDie");
                 PlayerDamage = false;
             }
+        }
+    }
+    void Player_AttackStart()
+    {
+        if (animator.GetBool("PlayerIdle"))
+        {
+            animator.SetBool("PlayerIdle", false);
+            animator.SetBool("PlayerMove", true);
+        }
+        if (animator.GetBool("PlayerMove"))
+        {
+            if (transform.position.x < -10)
+            { transform.position = new Vector3(transform.position.x + 15f * Time.deltaTime, transform.position.y, 0); }
+            else
+            {
+                animator.SetBool("PlayerMove", false);
+                animator.SetBool("PlayerAttack", true);
+                PlayerAttack_Enemy = true; // !+ 적캐릭터 피격 활성화
+            }
+        }
+        if (animator.GetBool("PlayerAttack"))
+        {
+            if (PlayerAttack_timer < 1f)
+            {
+                PlayerAttack_timer += Time.deltaTime;
+            }
+            else
+            {
+                animator.SetBool("PlayerAttack", false);
+                animator.SetBool("PlayerBackMove", true);
+                PlayerAttack_Enemy = false; // !+ 적캐릭터 패격 비활성화
+                PlayerAttack_timer = 0f;
+            }
+        }
+        if (animator.GetBool("PlayerBackMove"))
+        {
+            if (transform.position.x > -15)
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+                transform.position = new Vector3(transform.position.x - 15f * Time.deltaTime, transform.position.y, 0);
+            }
+            else
+            {
+                animator.SetBool("PlayerBackMove", false);
+                animator.SetBool("PlayerIdle", true);
+                transform.localScale = new Vector3(1, 1, 1);
+                transform.position = new Vector3(-15, -1, 0);
+                animation_Attack = false;
+            }
+        }
+    }
+    void CardName_inStatus(string name)
+    {
+        switch(name)
+        {
+            case "하급회복물약":
+                nowHp += deckField.Click_Card.health;
+                if (nowHp > 100) nowHp = 100;
+                break;
+            case "상급회복물약":
+                nowHp += deckField.Click_Card.health;
+                if (nowHp > 100) nowHp = 100;
+                break;
+            case "명상":
+                nowHp += deckField.Click_Card.health;
+                if (nowHp > 100) nowHp = 100;
+                break;
+            case "생명의잔불":
+                nowHp += deckField.Click_Card.health;
+                if (nowHp <= 0f) animator.SetTrigger("PlayerDie");
+                //deckField.Click_Card.count;
+                break;
+            case "고요한안식":
+                nowHp += deckField.Click_Card.health;
+                if (nowHp > 100) nowHp = 100;
+                break;
+            case "잔혹한계약":
+                nowHp += deckField.Click_Card.health;
+                break;
+
+            default:
+                break;
         }
     }
 }

@@ -6,6 +6,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
+using System;
 
 public class CardDeckField_Script : MonoBehaviour
 {
@@ -31,7 +32,6 @@ public class CardDeckField_Script : MonoBehaviour
     public Quaternion end = Quaternion.Euler(0, 360, 0);
 
     bool turn = false;
-    Card_Script checkCard;
     float space = 3.5f;
 
     Vector3 basePosition = new Vector3(-1, -8.25f, 0);
@@ -78,12 +78,6 @@ public class CardDeckField_Script : MonoBehaviour
                 if (Card_inField[i] != null) // 카드가 생성이 되었을 때
                 {
                     Card_inField[i].transform.position = Vector3.Lerp(Card_inField[i].transform.position, targetPosition[i], 2.5f * Time.deltaTime); // 적용
-                    if (Card_inField_Script[i] != null)
-                    {
-                        checkCard = Card_inField_Script[i];
-                        checkCard.Card_name = CardCode[i];
-                        checkCard.Card_status = CardStatus[i];
-                    }
                 }
             }
             if (DeckField_nowCard > 0) // 카드가 필드에 있을 경우

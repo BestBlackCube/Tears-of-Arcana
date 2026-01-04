@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43b2292b6f9fb974b8c5436400406303, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerFunnel_Image: {fileID: 1630838741351645290, guid: a91a64c9e31c7224dbb676be8e8195a9, type: 3}
+  PlayerFunnel_Image: {fileID: 7599568487309025307, guid: 401c00d9296d0d9478d9f5e0b716155b, type: 3}
   unitname: 0
   nowHp: 0
   maxHp: 0
