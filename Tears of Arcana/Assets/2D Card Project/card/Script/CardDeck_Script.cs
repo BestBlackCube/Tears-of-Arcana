@@ -55,12 +55,12 @@ public class CardDeck_Script : MonoBehaviour
     }
     /*
      
-    Ä«µå, ½ºÅ×ÀÌÅÍ½º, ÀÌ¹ÌÁö ¹è¿­
-    0. ÇÏ±ŞÈ¸º¹Æ÷¼Ç 1. »ó±ŞÈ¸º¹Æ÷¼Ç 2. ¸í»ó
+    ì¹´ë“œ, ìŠ¤í…Œì´í„°ìŠ¤, ì´ë¯¸ì§€ ë°°ì—´
+    0. í•˜ê¸‰íšŒë³µí¬ì…˜ 1. ìƒê¸‰íšŒë³µí¬ì…˜ 2. ëª…ìƒ
 
-    3. ±âº»¸¶¹ı 4. È­¿°ÀåÆÇ 5. ¾óÀ½ ¾È°³ 6. ¹Ù¶÷ÀÇÃ¢ 7. µ¹¹«´õ±â
+    3. ê¸°ë³¸ë§ˆë²• 4. í™”ì—¼ì¥íŒ 5. ì–¼ìŒ ì•ˆê°œ 6. ë°”ëŒì˜ì°½ 7. ëŒë¬´ë”ê¸°
 
-    8. »ı¸íÀÇÀÜºÒ 9. °í¿äÇÑ¾È½Ä 10. Àı¸ÁÀÇ±Õ¿­ 11. ÀÜÈ¤ÇÑ°è¾à
+    8. ìƒëª…ì˜ì”ë¶ˆ 9. ê³ ìš”í•œì•ˆì‹ 10. ì ˆë§ì˜ê· ì—´ 11. ì”í˜¹í•œê³„ì•½
      
      */
     // Update is called once per frame
@@ -69,75 +69,75 @@ public class CardDeck_Script : MonoBehaviour
         if(Cardinput)
         {
             if(CardCount == 5) CardCount = 0;
-            if (deckField.DeckField_nowCard < 5) // ÃÖ´ë 5°³±îÁö Á¦ÇÑÇÏ´Â Á¶°Ç¹®
+            if (deckField.DeckField_nowCard < 5) // ìµœëŒ€ 5ê°œê¹Œì§€ ì œí•œí•˜ëŠ” ì¡°ê±´ë¬¸
             {
-                if (Cardinput_timer < 1.2f) Cardinput_timer += Time.deltaTime; // 1.2ÃÊ ¸¶´Ù Ä«µå°¡ »ı¼º
+                if (Cardinput_timer < 1.2f) Cardinput_timer += Time.deltaTime; // 1.2ì´ˆ ë§ˆë‹¤ ì¹´ë“œê°€ ìƒì„±
                 else
                 {
-                    int number = Random.Range(4, 6); // Å×½ºÆ®¿ë ÄÚµå
+                    int number = Random.Range(4, 6); // í…ŒìŠ¤íŠ¸ìš© ì½”ë“œ
                     if (number == 1)
                     {
-                        Card_Data = Instantiate(CardData[0], this.transform.position, Quaternion.identity); // º¹Á¦ÇÑ ¿ÀºêÁ§Æ®
-                        Public_Card_inputData("ÇÏ±ŞÈ¸º¹¹°¾à");
+                        Card_Data = Instantiate(CardData[0], this.transform.position, Quaternion.identity); // ë³µì œí•œ ì˜¤ë¸Œì íŠ¸
+                        Public_Card_inputData("í•˜ê¸‰íšŒë³µë¬¼ì•½");
                     }
                     if (number == 2)
                     {
-                        Card_Data = Instantiate(CardData[1], this.transform.position, Quaternion.identity); // º¹Á¦ÇÑ ¿ÀºêÁ§Æ®
-                        Public_Card_inputData("»ó±ŞÈ¸º¹¹°¾à");
+                        Card_Data = Instantiate(CardData[1], this.transform.position, Quaternion.identity); // ë³µì œí•œ ì˜¤ë¸Œì íŠ¸
+                        Public_Card_inputData("ìƒê¸‰íšŒë³µë¬¼ì•½");
                     }
                     if (number == 3)
                     {
-                        Card_Data = Instantiate(CardData[2], this.transform.position, Quaternion.identity); // º¹Á¦ÇÑ ¿ÀºêÁ§Æ®
-                        Public_Card_inputData("¸í»ó");
+                        Card_Data = Instantiate(CardData[2], this.transform.position, Quaternion.identity); // ë³µì œí•œ ì˜¤ë¸Œì íŠ¸
+                        Public_Card_inputData("ëª…ìƒ");
                     }
                     if (number == 4)
                     {
-                        Card_Data = Instantiate(CardData[3], this.transform.position, Quaternion.identity); // º¹Á¦ÇÑ ¿ÀºêÁ§Æ®
-                        Public_Card_inputData("ÀÏ¹İ¸¶¹ı");
+                        Card_Data = Instantiate(CardData[3], this.transform.position, Quaternion.identity); // ë³µì œí•œ ì˜¤ë¸Œì íŠ¸
+                        Public_Card_inputData("ì¼ë°˜ë§ˆë²•");
                     }
                     if (number == 5)
                     {
-                        Card_Data = Instantiate(CardData[4], this.transform.position, Quaternion.identity); // º¹Á¦ÇÑ ¿ÀºêÁ§Æ®
-                        Public_Card_inputData("È­¿°ÀåÆÇ");
+                        Card_Data = Instantiate(CardData[4], this.transform.position, Quaternion.identity); // ë³µì œí•œ ì˜¤ë¸Œì íŠ¸
+                        Public_Card_inputData("í™”ì—¼ì¥íŒ");
                     }
                     if (number == 6)
                     {
-                        Card_Data = Instantiate(CardData[5], this.transform.position, Quaternion.identity); // º¹Á¦ÇÑ ¿ÀºêÁ§Æ®
-                        Public_Card_inputData("¾óÀ½¾È°³");
+                        Card_Data = Instantiate(CardData[5], this.transform.position, Quaternion.identity); // ë³µì œí•œ ì˜¤ë¸Œì íŠ¸
+                        Public_Card_inputData("ì–¼ìŒì•ˆê°œ");
                     }
                     if (number == 7)
                     {
-                        Card_Data = Instantiate(CardData[6], this.transform.position, Quaternion.identity); // º¹Á¦ÇÑ ¿ÀºêÁ§Æ®
-                        Public_Card_inputData("¹Ù¶÷ÀÇÃ¢");
+                        Card_Data = Instantiate(CardData[6], this.transform.position, Quaternion.identity); // ë³µì œí•œ ì˜¤ë¸Œì íŠ¸
+                        Public_Card_inputData("ë°”ëŒì˜ì°½");
                     }
                     if (number == 8)
                     {
-                        Card_Data = Instantiate(CardData[7], this.transform.position, Quaternion.identity); // º¹Á¦ÇÑ ¿ÀºêÁ§Æ®
-                        Public_Card_inputData("µ¹¹«´õ±â");
+                        Card_Data = Instantiate(CardData[7], this.transform.position, Quaternion.identity); // ë³µì œí•œ ì˜¤ë¸Œì íŠ¸
+                        Public_Card_inputData("ëŒë¬´ë”ê¸°");
                     }
                     if (number == 9)
                     {
-                        Card_Data = Instantiate(CardData[8], this.transform.position, Quaternion.identity); // º¹Á¦ÇÑ ¿ÀºêÁ§Æ®
-                        Public_Card_inputData("»ı¸íÀÇÀÜºÒ");
+                        Card_Data = Instantiate(CardData[8], this.transform.position, Quaternion.identity); // ë³µì œí•œ ì˜¤ë¸Œì íŠ¸
+                        Public_Card_inputData("ìƒëª…ì˜ì”ë¶ˆ");
                     }
                     if (number == 10)
                     {
-                        Card_Data = Instantiate(CardData[9], this.transform.position, Quaternion.identity); // º¹Á¦ÇÑ ¿ÀºêÁ§Æ®
-                        Public_Card_inputData("°í¿äÇÑ¾È½Ä");
+                        Card_Data = Instantiate(CardData[9], this.transform.position, Quaternion.identity); // ë³µì œí•œ ì˜¤ë¸Œì íŠ¸
+                        Public_Card_inputData("ê³ ìš”í•œì•ˆì‹");
                     }
                     if (number == 11)
                     {
-                        Card_Data = Instantiate(CardData[10], this.transform.position, Quaternion.identity); // º¹Á¦ÇÑ ¿ÀºêÁ§Æ®
-                        Public_Card_inputData("Àı¸ÁÀÇ±Õ¿­");
+                        Card_Data = Instantiate(CardData[10], this.transform.position, Quaternion.identity); // ë³µì œí•œ ì˜¤ë¸Œì íŠ¸
+                        Public_Card_inputData("ì ˆë§ì˜ê· ì—´");
                     }
                     if (number == 12)
                     {
-                        Card_Data = Instantiate(CardData[11], this.transform.position, Quaternion.identity); // º¹Á¦ÇÑ ¾Ç¸¶Ä«µå ¿ÀºêÁ§Æ®
-                        Public_Card_inputData("ÀÜÈ¤ÇÑ°è¾à");
+                        Card_Data = Instantiate(CardData[11], this.transform.position, Quaternion.identity); // ë³µì œí•œ ì•…ë§ˆì¹´ë“œ ì˜¤ë¸Œì íŠ¸
+                        Public_Card_inputData("ì”í˜¹í•œê³„ì•½");
                     }
                     deckField.rolling = true;
-                    CardCount++; // »ÌÀ»¼ö ÀÖ´Â Ä«µå ÀÎµ¦½º Áõ°¡
-                    deckField.DeckField_nowCard++; // ÀÎµ¦½º Áõ°¡
+                    CardCount++; // ë½‘ì„ìˆ˜ ìˆëŠ” ì¹´ë“œ ì¸ë±ìŠ¤ ì¦ê°€
+                    deckField.DeckField_nowCard++; // ì¸ë±ìŠ¤ ì¦ê°€
                     Cardinput_timer = 0f;
                 }
             }
@@ -149,12 +149,12 @@ public class CardDeck_Script : MonoBehaviour
     }
     void Public_Card_inputData(string CardName)
     {
-        deckField.Card_inField[CardCount] = Card_Data; // ¿ÀºêÁ§Æ®¸¦ ÇØ´ç Ä«µåÇÊµå ¹è¿­¿¡ ´ëÀÔ
+        deckField.Card_inField[CardCount] = Card_Data; // ì˜¤ë¸Œì íŠ¸ë¥¼ í•´ë‹¹ ì¹´ë“œí•„ë“œ ë°°ì—´ì— ëŒ€ì…
         deckField.Card_inField_Script[CardCount] = Card_Data.GetComponent<Card_Script>();
         deckField.Card_inField_Script[CardCount].Card_Number = CardCount;
         switch(CardName)
         {
-            case "ÇÏ±ŞÈ¸º¹¹°¾à":
+            case "í•˜ê¸‰íšŒë³µë¬¼ì•½":
                 deckField.CardCode[CardCount] = Idle_healthPotionCard_status.InputName;
                 deckField.CardStatus[CardCount] = Idle_healthPotionCard_status.Health;
                 deckField.CardImage[CardCount] = CardSprite[0];
@@ -166,7 +166,7 @@ public class CardDeck_Script : MonoBehaviour
                 deckField.Card_inField_Script[CardCount].mana = Idle_healthPotionCard_status.Mana;
                 deckField.Card_inField_Script[CardCount].count = Idle_healthPotionCard_status.Count;
                 break;
-            case "»ó±ŞÈ¸º¹¹°¾à":
+            case "ìƒê¸‰íšŒë³µë¬¼ì•½":
                 deckField.CardCode[CardCount] = High_healthPotionCard_status.InputName;
                 deckField.CardStatus[CardCount] = High_healthPotionCard_status.Health;
                 deckField.CardImage[CardCount] = CardSprite[1];
@@ -178,7 +178,7 @@ public class CardDeck_Script : MonoBehaviour
                 deckField.Card_inField_Script[CardCount].mana = High_healthPotionCard_status.Mana;
                 deckField.Card_inField_Script[CardCount].count = High_healthPotionCard_status.Count;
                 break;
-            case "¸í»ó":
+            case "ëª…ìƒ":
                 deckField.CardCode[CardCount] = MeditationCard_status.InputName;
                 deckField.CardStatus[CardCount] = MeditationCard_status.Health;
                 deckField.CardImage[CardCount] = CardSprite[2];
@@ -190,7 +190,7 @@ public class CardDeck_Script : MonoBehaviour
                 deckField.Card_inField_Script[CardCount].mana = MeditationCard_status.Mana;
                 deckField.Card_inField_Script[CardCount].count = MeditationCard_status.Count;
                 break;
-            case "ÀÏ¹İ¸¶¹ı":
+            case "ì¼ë°˜ë§ˆë²•":
                 deckField.CardCode[CardCount] = MagicCard_status.InputName;
                 deckField.CardStatus[CardCount] = MagicCard_status.Single_Damage;
                 deckField.CardImage[CardCount] = CardSprite[3];
@@ -202,7 +202,7 @@ public class CardDeck_Script : MonoBehaviour
                 deckField.Card_inField_Script[CardCount].mana = MagicCard_status.Mana;
                 deckField.Card_inField_Script[CardCount].count = MagicCard_status.Count;
                 break;
-            case "È­¿°ÀåÆÇ":
+            case "í™”ì—¼ì¥íŒ":
                 deckField.CardCode[CardCount] = FireCard_status.InputName;
                 deckField.CardStatus[CardCount] = FireCard_status.Multiple_Damage;
                 deckField.CardImage[CardCount] = CardSprite[4];
@@ -214,7 +214,7 @@ public class CardDeck_Script : MonoBehaviour
                 deckField.Card_inField_Script[CardCount].mana = FireCard_status.Mana;
                 deckField.Card_inField_Script[CardCount].count = FireCard_status.Count;
                 break;
-            case "¾óÀ½¾È°³":
+            case "ì–¼ìŒì•ˆê°œ":
                 deckField.CardCode[CardCount] = WaterCard_status.InputName;
                 deckField.CardStatus[CardCount] = WaterCard_status.Multiple_Damage;
                 deckField.CardImage[CardCount] = CardSprite[5];
@@ -226,7 +226,7 @@ public class CardDeck_Script : MonoBehaviour
                 deckField.Card_inField_Script[CardCount].mana = WaterCard_status.Mana;
                 deckField.Card_inField_Script[CardCount].count = WaterCard_status.Count;
                 break;
-            case "¹Ù¶÷ÀÇÃ¢":
+            case "ë°”ëŒì˜ì°½":
                 deckField.CardCode[CardCount] = WindCard_status.InputName;
                 deckField.CardStatus[CardCount] = WindCard_status.Single_Damage;
                 deckField.CardImage[CardCount] = CardSprite[6];
@@ -238,7 +238,7 @@ public class CardDeck_Script : MonoBehaviour
                 deckField.Card_inField_Script[CardCount].mana = WindCard_status.Mana;
                 deckField.Card_inField_Script[CardCount].count = WindCard_status.Count;
                 break;
-            case "µ¹¹«´õ±â":
+            case "ëŒë¬´ë”ê¸°":
                 deckField.CardCode[CardCount] = SoilCard_status.InputName;
                 deckField.CardStatus[CardCount] = SoilCard_status.Single_Damage;
                 deckField.CardImage[CardCount] = CardSprite[7];
@@ -250,7 +250,7 @@ public class CardDeck_Script : MonoBehaviour
                 deckField.Card_inField_Script[CardCount].mana = SoilCard_status.Mana;
                 deckField.Card_inField_Script[CardCount].count = SoilCard_status.Count;
                 break;
-            case "»ı¸íÀÇÀÜºÒ":
+            case "ìƒëª…ì˜ì”ë¶ˆ":
                 deckField.CardCode[CardCount] = FireOfvitalityCard_status.InputName;
                 deckField.CardStatus[CardCount] = FireOfvitalityCard_status.Count;
                 deckField.CardImage[CardCount] = CardSprite[8];
@@ -262,7 +262,7 @@ public class CardDeck_Script : MonoBehaviour
                 deckField.Card_inField_Script[CardCount].mana = FireOfvitalityCard_status.Mana;
                 deckField.Card_inField_Script[CardCount].count = FireOfvitalityCard_status.Count;
                 break;
-            case "°í¿äÇÑ¾È½Ä":
+            case "ê³ ìš”í•œì•ˆì‹":
                 deckField.CardCode[CardCount] = QuietrestCard_status.InputName;
                 deckField.CardStatus[CardCount] = QuietrestCard_status.Health;
                 deckField.CardImage[CardCount] = CardSprite[9];
@@ -274,7 +274,7 @@ public class CardDeck_Script : MonoBehaviour
                 deckField.Card_inField_Script[CardCount].mana = QuietrestCard_status.Mana;
                 deckField.Card_inField_Script[CardCount].count = QuietrestCard_status.Count;
                 break;
-            case "Àı¸ÁÀÇ±Õ¿­":
+            case "ì ˆë§ì˜ê· ì—´":
                 deckField.CardCode[CardCount] = AbyssCreviceCard_status.InputName;
                 deckField.CardStatus[CardCount] = AbyssCreviceCard_status.Single_Damage;
                 deckField.CardImage[CardCount] = CardSprite[10];
@@ -286,7 +286,7 @@ public class CardDeck_Script : MonoBehaviour
                 deckField.Card_inField_Script[CardCount].mana = AbyssCreviceCard_status.Mana;
                 deckField.Card_inField_Script[CardCount].count = AbyssCreviceCard_status.Count;
                 break;
-            case "ÀÜÈ¤ÇÑ°è¾à":
+            case "ì”í˜¹í•œê³„ì•½":
                 deckField.CardCode[CardCount] = BrutalContractCard_status.InputName;
                 deckField.CardStatus[CardCount] = BrutalContractCard_status.Single_Damage;
                 deckField.CardImage[CardCount] = CardSprite[11];

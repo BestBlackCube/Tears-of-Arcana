@@ -34,19 +34,19 @@ public class Charater_Status
         switch(name)
         {
             case Charater_namedata.Player:
-                status = new Charater_Status(Charater_name, "ÇÃ·¹ÀÌ¾î", 100, 100, 0, 0);
+                status = new Charater_Status(Charater_name, "í”Œë ˆì´ì–´", 100, 100, 0, 0);
                 break;
             case Charater_namedata.Skeleton:
-                status = new Charater_Status(Charater_name, "½ºÄÌ·¹Åæ", 70, 0, 0, 10);
+                status = new Charater_Status(Charater_name, "ìŠ¤ì¼ˆë ˆí†¤", 70, 0, 0, 10);
                 break;
             case Charater_namedata.Eye:
-                status = new Charater_Status(Charater_name, "´«±«¹°", 30, 0, 0, 10);
+                status = new Charater_Status(Charater_name, "ëˆˆê´´ë¬¼", 30, 0, 0, 10);
                 break;
             case Charater_namedata.Goblin:
-                status = new Charater_Status(Charater_name, "°íºí¸°", 50, 0, 0, 10);
+                status = new Charater_Status(Charater_name, "ê³ ë¸”ë¦°", 50, 0, 0, 10);
                 break;
             case Charater_namedata.Mushroom:
-                status = new Charater_Status(Charater_name, "¹ö¼¸±«¹°", 120, 0, 0, 10);
+                status = new Charater_Status(Charater_name, "ë²„ì„¯ê´´ë¬¼", 120, 0, 0, 10);
                 break;
 
             default:

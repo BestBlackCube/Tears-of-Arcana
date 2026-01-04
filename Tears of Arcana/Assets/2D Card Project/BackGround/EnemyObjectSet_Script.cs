@@ -15,6 +15,9 @@ public class EnemyObjectSet_Script : MonoBehaviour
     public GameObject[] Field_inMonster;
     public GameObject TargetArrow_prefab;
     public GameObject[] TargetArrow;
+    public GameObject TargetGuide_prefab;
+    public GameObject[] TargetGuide;
+
 
     public string[] Enemy_Name;
     public bool NextStage = false;
@@ -79,8 +82,8 @@ public class EnemyObjectSet_Script : MonoBehaviour
                 deckField.rolling = true;
                 card = Instantiate(StageCard[0], deck.transform.position, Quaternion.identity);
                 deckField.Card_inField_Script[0] = card.GetComponent<Card_Script>();
-                deckField.CardCode[0] = "´ÙÀ½À¸·Î";
-                deckField.Card_inField_Script[0].Card_name = "´ÙÀ½À¸·Î";
+                deckField.CardCode[0] = "ë‹¤ìŒìœ¼ë¡œ";
+                deckField.Card_inField_Script[0].Card_name = "ë‹¤ìŒìœ¼ë¡œ";
                 deckField.Card_inField_Script[0].Card_Number = 0;
                 deckField.Card_inField[0] = card;
                 break;

@@ -1416,6 +1416,12 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  TargetGuide_prefab: {fileID: 7523107729534839450, guid: a27c55b15618c0d4c8560fbc26db3251, type: 3}
+  TargetGuide:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   Enemy_Name:
   - 
   - 

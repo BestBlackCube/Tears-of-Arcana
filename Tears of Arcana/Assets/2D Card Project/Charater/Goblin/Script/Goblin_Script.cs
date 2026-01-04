@@ -103,18 +103,18 @@ public class Goblin_Script : MonoBehaviour
             guide.target = this.transform;
             switch (deckField.Click_Card.Card_name)
             {
-                case "ÀÏ¹İ¸¶¹ı":
-                case "¹Ù¶÷ÀÇÃ¢":
-                case "µ¹¹«´õ±â":
-                case "Àı¸ÁÀÇ±Õ¿­":
+                case "ì¼ë°˜ë§ˆë²•":
+                case "ë°”ëŒì˜ì°½":
+                case "ëŒë¬´ë”ê¸°":
+                case "ì ˆë§ì˜ê· ì—´":
                     guide.offset[0] = new Vector3(-1.3f, 1.5f, 0);
                     guide.offset[1] = new Vector3(0.7f, 1.5f, 0);
                     guide.offset[2] = new Vector3(-1.3f, -2.5f, 0);
                     guide.offset[3] = new Vector3(0.7f, -2.5f, 0);
                     break;
 
-                case "È­¿°ÀåÆÇ":
-                case "¾óÀ½¾È°³":
+                case "í™”ì—¼ì¥íŒ":
+                case "ì–¼ìŒì•ˆê°œ":
                     guide.offset[0] = new Vector3(-15.5f, 3f, 0);
                     guide.offset[1] = new Vector3(9f, 3f, 0);
                     guide.offset[2] = new Vector3(-15.5f, -3f, 0);
@@ -167,7 +167,7 @@ public class Goblin_Script : MonoBehaviour
             {
                 animator.SetBool("Move", false);
                 animator.SetBool("Attack", true);
-                player.EnemyAttack_Player = true; // !+ ÇÃ·¹ÀÌ¾î ÇÇ°İ ¾Ö´Ï¸ŞÀÌ¼Ç È°¼ºÈ­
+                player.EnemyAttack_Player = true; // !+ í”Œë ˆì´ì–´ í”¼ê²© ì• ë‹ˆë©”ì´ì…˜ í™œì„±í™”
             }
         }
         if (animator.GetBool("Attack"))
@@ -180,9 +180,9 @@ public class Goblin_Script : MonoBehaviour
             {
                 animator.SetBool("Attack", false);
                 animator.SetBool("BackMove", true);
-                player.EnemyAttack_Player = false; // !+ ÇÃ·¹ÀÌ¾î ÇÇ°İ ¾Ö´Ï¸ŞÀÌ¼Ç ºñÈ°¼ºÈ­
+                player.EnemyAttack_Player = false; // !+ í”Œë ˆì´ì–´ í”¼ê²© ì• ë‹ˆë©”ì´ì…˜ ë¹„í™œì„±í™”
                 player.HitDamage = Dmg;
-                player.PlayerDamage = true;        // ÇÃ·¹ÀÌ¾îHP ÁÙÀÌ±â
+                player.PlayerDamage = true;        // í”Œë ˆì´ì–´HP ì¤„ì´ê¸°
                 Attack_timer = 0f;
             }
         }
@@ -381,27 +381,27 @@ public class Goblin_Script : MonoBehaviour
     {
         switch (name)
         {
-            case "ÀÏ¹İ¸¶¹ı":
+            case "ì¼ë°˜ë§ˆë²•":
                 Card_Damage = deckField.Click_Card.single_damage;
                 player.nowMp += deckField.Click_Card.mana;
                 break;
-            case "È­¿°ÀåÆÇ":
+            case "í™”ì—¼ì¥íŒ":
                 Card_Damage = deckField.Click_Card.multiple_damage;
                 player.nowMp += deckField.Click_Card.mana;
                 break;
-            case "¾óÀ½¾È°³":
+            case "ì–¼ìŒì•ˆê°œ":
                 Card_Damage = deckField.Click_Card.multiple_damage;
                 player.nowMp += deckField.Click_Card.mana;
                 break;
-            case "¹Ù¶÷ÀÇÃ¢":
+            case "ë°”ëŒì˜ì°½":
                 Card_Damage = deckField.Click_Card.single_damage;
                 player.nowMp += deckField.Click_Card.mana;
                 break;
-            case "µ¹¹«´õ±â":
+            case "ëŒë¬´ë”ê¸°":
                 Card_Damage = deckField.Click_Card.single_damage;
                 player.nowMp += deckField.Click_Card.mana;
                 break;
-            case "Àı¸ÁÀÇ±Õ¿­":
+            case "ì ˆë§ì˜ê· ì—´":
                 stun_count += deckField.Click_Card.count;
                 player.nowMp += deckField.Click_Card.mana;
                 break;

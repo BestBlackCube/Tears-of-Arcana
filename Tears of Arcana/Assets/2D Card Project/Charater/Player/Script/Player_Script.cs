@@ -31,14 +31,14 @@ public class Player_Script : MonoBehaviour
     public int maxMp;
     public int HitDamage;
 
-    public int Hit_percent = 30;     // ÇØ´ç°ªÀ» ÃßÈÄ ¾ÆÀÌÅÛÀ¸·Î º¯°æµÊ
+    public int Hit_percent = 30;     // í•´ë‹¹ê°’ì„ ì¶”í›„ ì•„ì´í…œìœ¼ë¡œ ë³€ê²½ë¨
     public int Defence_percent = 10; // <-
     public int Avoid_percent = 0;   // <-
 
     public int item_Top;
     public int item_Bottom;
 
-    float Percent = -1; // -1À» ÇÏ´ÂÀÌÀ¯´Â ÇØ´ç °ªÀÌ 1ÃÊµ¿¾È 1~10ÀÇ ³­¼ö°¡ 100¹ø ÀÌ»ó ¹İº¹µÇ±â¶§¹®¿¡ 100% È®·ü¼ºÀ¸·Î º¼¼ö ¾ø¾î ÃÊ±â°ªÀ» -1 ÁöÁ¤
+    float Percent = -1; // -1ì„ í•˜ëŠ”ì´ìœ ëŠ” í•´ë‹¹ ê°’ì´ 1ì´ˆë™ì•ˆ 1~10ì˜ ë‚œìˆ˜ê°€ 100ë²ˆ ì´ìƒ ë°˜ë³µë˜ê¸°ë•Œë¬¸ì— 100% í™•ë¥ ì„±ìœ¼ë¡œ ë³¼ìˆ˜ ì—†ì–´ ì´ˆê¸°ê°’ì„ -1 ì§€ì •
 
     public bool PlayerDamage = false;
     public bool targetPlayerCard = false;
@@ -136,7 +136,7 @@ public class Player_Script : MonoBehaviour
     {
         if (transform.position.x < Range) transform.position = new Vector3(transform.position.x + 15f * Time.deltaTime, -1, 5);
     }
-    private void OnMouseOver() // ¸¶¿ì½ºÄ¿¼­°¡ ¿ÀºêÁ§Æ®¿¡ ÀÖ´ÂÁö °¨ÁöÇÏ´Â ÀÌº¥Æ®
+    private void OnMouseOver() // ë§ˆìš°ìŠ¤ì»¤ì„œê°€ ì˜¤ë¸Œì íŠ¸ì— ìˆëŠ”ì§€ ê°ì§€í•˜ëŠ” ì´ë²¤íŠ¸
     {
         Player_cardUse = true;
         if (Arrow && targetArrow != null) Arrow = false;
@@ -145,9 +145,9 @@ public class Player_Script : MonoBehaviour
         if (targetPlayerCard && targetGuide == null)
         {
             Vector3 player_offset = new Vector3(transform.position.x, 6, 0);
-            targetGuide = Instantiate(PlayerTarget_prefab, player_offset, Quaternion.identity); // ÇØ´ç ¿ÀºêÁ§Æ®ÀÇ º¹Á¦º»À» »ı¼º
-            EnemyTargetBar_Script guide = targetGuide.GetComponent<EnemyTargetBar_Script>(); // º¹Á¦º»¿¡ ½ºÅ©¸³Æ®ÆÄÀÏ ´ëÀÔÇÏ±â
-            guide.target = this.transform; // º¹Á¦µÈ ¿ÀºêÁ§Æ®ÀÇ À§Ä¡
+            targetGuide = Instantiate(PlayerTarget_prefab, player_offset, Quaternion.identity); // í•´ë‹¹ ì˜¤ë¸Œì íŠ¸ì˜ ë³µì œë³¸ì„ ìƒì„±
+            EnemyTargetBar_Script guide = targetGuide.GetComponent<EnemyTargetBar_Script>(); // ë³µì œë³¸ì— ìŠ¤í¬ë¦½íŠ¸íŒŒì¼ ëŒ€ì…í•˜ê¸°
+            guide.target = this.transform; // ë³µì œëœ ì˜¤ë¸Œì íŠ¸ì˜ ìœ„ì¹˜
             guide.offset[0] = new Vector3(-1.3f, 5f, 0);
             guide.offset[1] = new Vector3(0.7f, 5f, 0);
             guide.offset[2] = new Vector3(-1.3f, 0f, 0);
@@ -155,14 +155,14 @@ public class Player_Script : MonoBehaviour
         }
 
     }
-    private void OnMouseExit() // ¸¶¿ì½ºÄ¿¼­°¡ ¿ÀºêÁ§Æ® ¾ø´ÂÁö °¨ÁöÇÏ´Â ÀÌº¥Æ®
+    private void OnMouseExit() // ë§ˆìš°ìŠ¤ì»¤ì„œê°€ ì˜¤ë¸Œì íŠ¸ ì—†ëŠ”ì§€ ê°ì§€í•˜ëŠ” ì´ë²¤íŠ¸
     {
         Player_cardUse = false;
         if (targetPlayerCard) deckField.Click_Card.Object_name = "";
         if (!Arrow && targetArrow == null) Arrow = true;
         if (targetGuide != null) Destroy(targetGuide);
     }
-    private void OnMouseDown() // ¸¶¿ì½ºÄ¿¼­°¡ ¿ÀºêÁ§Æ®¿¡¼­ Å¬¸¯À» Çß´ÂÁö °¨ÁöÇÏ´Â ÀÌº¥Æ®
+    private void OnMouseDown() // ë§ˆìš°ìŠ¤ì»¤ì„œê°€ ì˜¤ë¸Œì íŠ¸ì—ì„œ í´ë¦­ì„ í–ˆëŠ”ì§€ ê°ì§€í•˜ëŠ” ì´ë²¤íŠ¸
     {
         if(deckField.Click_Card != null)
         if (Player_cardUse && deckField.Click_Card.Object_name == "Player")
@@ -178,24 +178,24 @@ public class Player_Script : MonoBehaviour
     }
     void HIT_percent()
     {
-        if (EnemyAttack_Player) // <- ÇØ´ç ºÒ¸°À» 1ÃÊ°£ Áö¼ÓÀÌ±â ¶§¹®ÀÌ ¹ØÀÇ ÄÚµå°¡ 100¹ø ÀÌ»óÀº ½ÇÇàµÈ´Ù
+        if (EnemyAttack_Player) // <- í•´ë‹¹ ë¶ˆë¦°ì„ 1ì´ˆê°„ ì§€ì†ì´ê¸° ë•Œë¬¸ì´ ë°‘ì˜ ì½”ë“œê°€ 100ë²ˆ ì´ìƒì€ ì‹¤í–‰ëœë‹¤
         {
-            if (Percent == -1) Percent = Random.Range(0, 101); // <- °ø°İ È®·üÀº ±âº» È¸ÇÇ 10% : ¸·±â 20% : ¸Â±â 70% 
+            if (Percent == -1) Percent = Random.Range(0, 101); // <- ê³µê²© í™•ë¥ ì€ ê¸°ë³¸ íšŒí”¼ 10% : ë§‰ê¸° 20% : ë§ê¸° 70% 
 
-            if (Hit_percent <= Percent) // È®·üÀÌ 30º¸´Ù Å©°Å³ª °°À» °æ¿ì 3~10 : 70%
+            if (Hit_percent <= Percent) // í™•ë¥ ì´ 30ë³´ë‹¤ í¬ê±°ë‚˜ ê°™ì„ ê²½ìš° 3~10 : 70%
             {
                 if (EnemyAttack_Player) animator.SetBool("PlayerHit", true);
                 PlayerDamage = true;
                 Full_hit = true;
 
             }
-            if (Defence_percent <= Percent && Percent < Hit_percent) // ±âº»°ª 10º¸´Ù Å©°Å³ª °°À»°æ¿ì ±×¸®°í 30º¸´Ù ÀÛÀ»°æ¿ì 10~20 : 20%
+            if (Defence_percent <= Percent && Percent < Hit_percent) // ê¸°ë³¸ê°’ 10ë³´ë‹¤ í¬ê±°ë‚˜ ê°™ì„ê²½ìš° ê·¸ë¦¬ê³  30ë³´ë‹¤ ì‘ì„ê²½ìš° 10~20 : 20%
             {
                 if (EnemyAttack_Player) animator.SetBool("PlayerDefence", true);
                 PlayerDamage = true;
                 Half_hit = true;
             }
-            if (Avoid_percent <= Percent && Percent < Defence_percent) // ±âº»°ª 0º¸´Ù Å©°Å³ª °°À» °æ¿ì ±×¸®°í 10º¸´Ù ÀÛÀ»°æ¿ì 0 : 10%
+            if (Avoid_percent <= Percent && Percent < Defence_percent) // ê¸°ë³¸ê°’ 0ë³´ë‹¤ í¬ê±°ë‚˜ ê°™ì„ ê²½ìš° ê·¸ë¦¬ê³  10ë³´ë‹¤ ì‘ì„ê²½ìš° 0 : 10%
             {
 
                 if (EnemyAttack_Player) animator.SetBool("PlayerAvoid", true);
@@ -225,8 +225,8 @@ public class Player_Script : MonoBehaviour
             }
             if (PlayerDamage)
             {
-                if (Full_hit) { nowHp -= HitDamage; Full_hit = false; } // ÀüÃ¼ µ¥¹ÌÁö
-                if (Half_hit) { nowHp -= HitDamage; Half_hit = false; } // ÀüÃ¼ µ¥¹ÌÁöÀÇ ¹İÀı
+                if (Full_hit) { nowHp -= HitDamage; Full_hit = false; } // ì „ì²´ ë°ë¯¸ì§€
+                if (Half_hit) { nowHp -= HitDamage; Half_hit = false; } // ì „ì²´ ë°ë¯¸ì§€ì˜ ë°˜ì ˆ
                 if (nowHp <= 0f) animator.SetTrigger("PlayerDie");
                 HitDamage = 0;
                 PlayerDamage = false;
@@ -248,7 +248,7 @@ public class Player_Script : MonoBehaviour
             {
                 animator.SetBool("PlayerMove", false);
                 animator.SetBool("PlayerAttack", true);
-                PlayerAttack_Enemy = true; // !+ ÀûÄ³¸¯ÅÍ ÇÇ°İ È°¼ºÈ­
+                PlayerAttack_Enemy = true; // !+ ì ìºë¦­í„° í”¼ê²© í™œì„±í™”
             }
         }
         if (animator.GetBool("PlayerAttack"))
@@ -261,7 +261,7 @@ public class Player_Script : MonoBehaviour
             {
                 animator.SetBool("PlayerAttack", false);
                 animator.SetBool("PlayerBackMove", true);
-                PlayerAttack_Enemy = false; // !+ ÀûÄ³¸¯ÅÍ ÆĞ°İ ºñÈ°¼ºÈ­
+                PlayerAttack_Enemy = false; // !+ ì ìºë¦­í„° íŒ¨ê²© ë¹„í™œì„±í™”
                 PlayerAttack_timer = 0f;
             }
         }
@@ -286,36 +286,36 @@ public class Player_Script : MonoBehaviour
     {
         switch(name)
         {
-            case "´ÙÀ½À¸·Î":
+            case "ë‹¤ìŒìœ¼ë¡œ":
                 Screen_On = true;
                 Move = true;
                 MoveCount++;
                 break;
-            case "ÀÌÀüÀ¸·Î":
+            case "ì´ì „ìœ¼ë¡œ":
                 break;
-            case "ÇÏ±ŞÈ¸º¹¹°¾à":
+            case "í•˜ê¸‰íšŒë³µë¬¼ì•½":
                 nowHp += deckField.Click_Card.health;
                 if (nowHp > 100) nowHp = 100;
                 break;
-            case "»ó±ŞÈ¸º¹¹°¾à":
+            case "ìƒê¸‰íšŒë³µë¬¼ì•½":
                 nowHp += deckField.Click_Card.health;
                 if (nowHp > 100) nowHp = 100;
                 break;
-            case "¸í»ó":
+            case "ëª…ìƒ":
                 nowHp += deckField.Click_Card.health;
                 nowMp += deckField.Click_Card.mana;
                 if (nowHp > 100) nowHp = 100;
                 break;
-            case "»ı¸íÀÇÀÜºÒ":
+            case "ìƒëª…ì˜ì”ë¶ˆ":
                 nowHp += deckField.Click_Card.health;
                 if (nowHp <= 0f) animator.SetTrigger("PlayerDie");
                 //deckField.Click_Card.count;
                 break;
-            case "°í¿äÇÑ¾È½Ä":
+            case "ê³ ìš”í•œì•ˆì‹":
                 nowHp += deckField.Click_Card.health;
                 if (nowHp > 100) nowHp = 100;
                 break;
-            case "ÀÜÈ¤ÇÑ°è¾à":
+            case "ì”í˜¹í•œê³„ì•½":
                 nowHp += deckField.Click_Card.health;
                 break;
 

@@ -40,8 +40,8 @@ public class Mushroom_Script : MonoBehaviour
     public Card_Script card;
     Image nowHpbar;
 
-    public bool targetCard = false;    // Ä«µå°¡ Eye¸¦ ¼±ÅÃÇÏ´ÂÁö
-    public bool EnemyDamage = false;        // Eye°¡ µ¥¹ÌÁö¸¦ ¹Ş¾ÒÀ»¶§
+    public bool targetCard = false;    // ì¹´ë“œê°€ Eyeë¥¼ ì„ íƒí•˜ëŠ”ì§€
+    public bool EnemyDamage = false;        // Eyeê°€ ë°ë¯¸ì§€ë¥¼ ë°›ì•˜ì„ë•Œ
     public bool animation_Attack = false;
     public bool EnemyAttack = false;
     bool cardUse = false;
@@ -104,18 +104,18 @@ public class Mushroom_Script : MonoBehaviour
             guide.target = this.transform;
             switch (deckField.Click_Card.Card_name)
             {
-                case "ÀÏ¹İ¸¶¹ı":
-                case "¹Ù¶÷ÀÇÃ¢":
-                case "µ¹¹«´õ±â":
-                case "Àı¸ÁÀÇ±Õ¿­":
+                case "ì¼ë°˜ë§ˆë²•":
+                case "ë°”ëŒì˜ì°½":
+                case "ëŒë¬´ë”ê¸°":
+                case "ì ˆë§ì˜ê· ì—´":
                     guide.offset[0] = new Vector3(-1.6f, 3f, 0);
                     guide.offset[1] = new Vector3(1.5f, 3f, 0);
                     guide.offset[2] = new Vector3(-1.6f, -3f, 0);
                     guide.offset[3] = new Vector3(1.5f, -3f, 0);
                     break;
 
-                case "È­¿°ÀåÆÇ":
-                case "¾óÀ½¾È°³":
+                case "í™”ì—¼ì¥íŒ":
+                case "ì–¼ìŒì•ˆê°œ":
                     guide.offset[0] = new Vector3(-22.5f, 3f, 0);
                     guide.offset[1] = new Vector3(2f, 3f, 0);
                     guide.offset[2] = new Vector3(-22.5f, -3f, 0);
@@ -151,7 +151,7 @@ public class Mushroom_Script : MonoBehaviour
             HIT_Enemy = true;
         }
     }
-    void Attack() // °ø°İ ¾Ö´Ï¸ŞÀÌ¼Ç ÄÚµå
+    void Attack() // ê³µê²© ì• ë‹ˆë©”ì´ì…˜ ì½”ë“œ
     {
         if (animator.GetBool("Idle"))
         {
@@ -168,7 +168,7 @@ public class Mushroom_Script : MonoBehaviour
             {
                 animator.SetBool("Move", false);
                 animator.SetBool("Attack", true);
-                player.EnemyAttack_Player = true; // !+ ÇÃ·¹ÀÌ¾î ÇÇ°İ ¾Ö´Ï¸ŞÀÌ¼Ç È°¼ºÈ­
+                player.EnemyAttack_Player = true; // !+ í”Œë ˆì´ì–´ í”¼ê²© ì• ë‹ˆë©”ì´ì…˜ í™œì„±í™”
             }
         }
         if (animator.GetBool("Attack"))
@@ -181,9 +181,9 @@ public class Mushroom_Script : MonoBehaviour
             {
                 animator.SetBool("Attack", false);
                 animator.SetBool("BackMove", true);
-                player.EnemyAttack_Player = false; // !+ ÇÃ·¹ÀÌ¾î ÇÇ°İ ¾Ö´Ï¸ŞÀÌ¼Ç ºñÈ°¼ºÈ­
+                player.EnemyAttack_Player = false; // !+ í”Œë ˆì´ì–´ í”¼ê²© ì• ë‹ˆë©”ì´ì…˜ ë¹„í™œì„±í™”
                 player.HitDamage = Dmg;
-                player.PlayerDamage = true;        // ÇÃ·¹ÀÌ¾îHP ÁÙÀÌ±â
+                player.PlayerDamage = true;        // í”Œë ˆì´ì–´HP ì¤„ì´ê¸°
                 Attack_timer = 0f;
             }
         }
@@ -204,7 +204,7 @@ public class Mushroom_Script : MonoBehaviour
             }
         }
     }
-    void Hit_Enemy() // ÇÃ·¹ÀÌ¾î¿¡°Ô °ø°İ ¹Ş¾ÒÀ»¶§ ½ÇÇà µÇ´Â ¾Ö´Ï¸ŞÀÌ¼Ç
+    void Hit_Enemy() // í”Œë ˆì´ì–´ì—ê²Œ ê³µê²© ë°›ì•˜ì„ë•Œ ì‹¤í–‰ ë˜ëŠ” ì• ë‹ˆë©”ì´ì…˜
     {
         nowHpbar.fillAmount = (float)nowHp / (float)maxHp;
         if (player.PlayerAttack_Enemy)
@@ -382,27 +382,27 @@ public class Mushroom_Script : MonoBehaviour
     {
         switch (name)
         {
-            case "ÀÏ¹İ¸¶¹ı":
+            case "ì¼ë°˜ë§ˆë²•":
                 Card_Damage = deckField.Click_Card.single_damage;
                 player.nowMp += deckField.Click_Card.mana;
                 break;
-            case "È­¿°ÀåÆÇ":
+            case "í™”ì—¼ì¥íŒ":
                 Card_Damage = deckField.Click_Card.multiple_damage;
                 player.nowMp += deckField.Click_Card.mana;
                 break;
-            case "¾óÀ½¾È°³":
+            case "ì–¼ìŒì•ˆê°œ":
                 Card_Damage = deckField.Click_Card.multiple_damage;
                 player.nowMp += deckField.Click_Card.mana;
                 break;
-            case "¹Ù¶÷ÀÇÃ¢":
+            case "ë°”ëŒì˜ì°½":
                 Card_Damage = deckField.Click_Card.single_damage;
                 player.nowMp += deckField.Click_Card.mana;
                 break;
-            case "µ¹¹«´õ±â":
+            case "ëŒë¬´ë”ê¸°":
                 Card_Damage = deckField.Click_Card.single_damage;
                 player.nowMp += deckField.Click_Card.mana;
                 break;
-            case "Àı¸ÁÀÇ±Õ¿­":
+            case "ì ˆë§ì˜ê· ì—´":
                 stun_count += deckField.Click_Card.count;
                 player.nowMp += deckField.Click_Card.mana;
                 break;

@@ -10,10 +10,10 @@ public class Card_Script : MonoBehaviour
 {
     /*
      
-    vector3 mouseposition = input.mouseposition; //¸¶¿ì½º ÁÂÇ¥°ª °¡Á®¿À±â
-    vector3 mouseworldposition = camera.main.screentoworldpoint(input.mouseposition); // ½ºÅ©¸° ÁÂÇ¥¸¦ ¿ùµå ÁÂÇ¥·Î º¯È¯ÇÏ±â
+    vector3 mouseposition = input.mouseposition; //ë§ˆìš°ìŠ¤ ì¢Œí‘œê°’ ê°€ì ¸ì˜¤ê¸°
+    vector3 mouseworldposition = camera.main.screentoworldpoint(input.mouseposition); // ìŠ¤í¬ë¦° ì¢Œí‘œë¥¼ ì›”ë“œ ì¢Œí‘œë¡œ ë³€í™˜í•˜ê¸°
     vector3 mouseworldposition = camera.main.screentoworldpoint(new vector3(input.mouseposition.x, input.mouseposition.y, 0));
-     //2D°ÔÀÓ¿¡¼­ÀÇ ¸¶¿ì½º ÁÂÇ¥ »ç¿ë ¿¹½Ã
+     //2Dê²Œì„ì—ì„œì˜ ë§ˆìš°ìŠ¤ ì¢Œí‘œ ì‚¬ìš© ì˜ˆì‹œ
 
      */
     Player_Script player;
@@ -65,23 +65,23 @@ public class Card_Script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(1) && Card_MouseClick) // ¸¶¿ì½º ¿ìÅ¬¸¯°ú ¸¶¿ì½º¿ŞÅ¬¸¯ÀÌ ÀÛµ¿À» Çß´ÂÁö °¨ÁöÇÏ´Â Á¶°Ç¹®
+        if(Input.GetMouseButtonDown(1) && Card_MouseClick) // ë§ˆìš°ìŠ¤ ìš°í´ë¦­ê³¼ ë§ˆìš°ìŠ¤ì™¼í´ë¦­ì´ ì‘ë™ì„ í–ˆëŠ”ì§€ ê°ì§€í•˜ëŠ” ì¡°ê±´ë¬¸
         {
-            Card_MouseClick = false;         // ¸¶¿ì½º ¿ŞÅ¬¸¯ °¨Áö ÇØÁ¦
+            Card_MouseClick = false;         // ë§ˆìš°ìŠ¤ ì™¼í´ë¦­ ê°ì§€ í•´ì œ
             Target_Card(Card_MouseClick);
-            Box2D_Create = true;             // ÆÄ±«ÇÑ ¹Ú½ºÄİ¶óÀÌ´õ ´Ù½Ã »ı¼º
-            deckField.cardMove_Rock = false; // ÇÊµå¿¡ ÀÖ´Â Ä«µå ¿òÁ÷ÀÓÀ» ¸ØÃß´Â ÄÚµå ÇØÁ¦
-            deckField.cardHide = false;      // Ä«µå¹è¿­ ¼û±â±â ÇØÁ¦
-            Card_noHide = false;             // Ä«µå¹è¿­ ¼û±â±â ¸·±â ÇØÁ¦ 
-            Object_name = "";                // ÀÌ¸§ ÃÊ±âÈ­
+            Box2D_Create = true;             // íŒŒê´´í•œ ë°•ìŠ¤ì½œë¼ì´ë” ë‹¤ì‹œ ìƒì„±
+            deckField.cardMove_Rock = false; // í•„ë“œì— ìˆëŠ” ì¹´ë“œ ì›€ì§ì„ì„ ë©ˆì¶”ëŠ” ì½”ë“œ í•´ì œ
+            deckField.cardHide = false;      // ì¹´ë“œë°°ì—´ ìˆ¨ê¸°ê¸° í•´ì œ
+            Card_noHide = false;             // ì¹´ë“œë°°ì—´ ìˆ¨ê¸°ê¸° ë§‰ê¸° í•´ì œ 
+            Object_name = "";                // ì´ë¦„ ì´ˆê¸°í™”
             deckField.Click_Card = null;
         }
-        if (Card_MouseClick) // ¿ŞÅ¬¸¯À» Çß´ÂÁö °¨ÁöÇÏ´Â Á¶°Ç¹®
+        if (Card_MouseClick) // ì™¼í´ë¦­ì„ í–ˆëŠ”ì§€ ê°ì§€í•˜ëŠ” ì¡°ê±´ë¬¸
         {
-            Destroy(box2D);  // ¹Ú½ºÄİ¶óÀÌ´õ ÆÄ±«
-            Object_inName(); // Ä«µå ÀÌ¸§¿¡ µû¶ó ¿ÀºêÁ§Æ® ÀÌµ¿
+            Destroy(box2D);  // ë°•ìŠ¤ì½œë¼ì´ë” íŒŒê´´
+            Object_inName(); // ì¹´ë“œ ì´ë¦„ì— ë”°ë¼ ì˜¤ë¸Œì íŠ¸ ì´ë™
         }
-        else // ¿ŞÅ¬¸¯À» ¾ÈÇßÀ» °æ¿ì
+        else // ì™¼í´ë¦­ì„ ì•ˆí–ˆì„ ê²½ìš°
         {
             if (box2D == null && Box2D_Create)
             {
@@ -93,65 +93,65 @@ public class Card_Script : MonoBehaviour
     }
     public void CardDestroy()
     {
-        deckField.deckField_Null(Card_Number); // ¹è¿­¿¡ ÀÖ´Â µ¥ÀÌÅÍ Áö¿ì±â
-        deckField.cardMove_Rock = false;       // Ä«µå¸¦ µé¾úÀ»¶§ ÇÊµå¿¡ÀÖ´Â Ä«µåÀÇ ¿òÁ÷ÀÓÀ» ¸ØÃß´Â ÄÚµå ÇØÁ¦
-        deckField.DeckField_nowCard--;         // ÇÊµå¿¡ÀÖ´Â Ä«µå¼ö 1Â÷°¨
-        Destroy(this.gameObject);              // ¿ÀºêÁ§Æ® ÆÄ±«
+        deckField.deckField_Null(Card_Number); // ë°°ì—´ì— ìˆëŠ” ë°ì´í„° ì§€ìš°ê¸°
+        deckField.cardMove_Rock = false;       // ì¹´ë“œë¥¼ ë“¤ì—ˆì„ë•Œ í•„ë“œì—ìˆëŠ” ì¹´ë“œì˜ ì›€ì§ì„ì„ ë©ˆì¶”ëŠ” ì½”ë“œ í•´ì œ
+        deckField.DeckField_nowCard--;         // í•„ë“œì—ìˆëŠ” ì¹´ë“œìˆ˜ 1ì°¨ê°
+        Destroy(this.gameObject);              // ì˜¤ë¸Œì íŠ¸ íŒŒê´´
     }
 
-    private void OnMouseOver() // ¸¶¿ì½º Ä¿¼­°¡ ÇØ´ç ¿ÀºêÁ§Æ®ÀÇ BoxCollider2D ¾È¿¡ ÀÖ´ÂÁö È®ÀÎÇÏ´Â ÀÌº¥Æ®
+    private void OnMouseOver() // ë§ˆìš°ìŠ¤ ì»¤ì„œê°€ í•´ë‹¹ ì˜¤ë¸Œì íŠ¸ì˜ BoxCollider2D ì•ˆì— ìˆëŠ”ì§€ í™•ì¸í•˜ëŠ” ì´ë²¤íŠ¸
     {
-        if(Card_timer > 2f) CardScale(true); // 1ÃÊ ÀÌ»ó ÇØ´ç ¿ÀºêÁ§Æ®¿¡ ¸¶¿ì½º Ä¿¼­°¡ ÀÖÀ» °æ¿ì
+        if(Card_timer > 2f) CardScale(true); // 1ì´ˆ ì´ìƒ í•´ë‹¹ ì˜¤ë¸Œì íŠ¸ì— ë§ˆìš°ìŠ¤ ì»¤ì„œê°€ ìˆì„ ê²½ìš°
     }
-    private void OnMouseExit() // ¸¶¿ì½º Ä¿¼­°¡ ÇØ´ç ¿ÀºêÁ§Æ®ÀÇ BoxCollider2D ¹ÛÀ¸·Î ³ª°¬´ÂÁö È®ÀÎÇÏ´Â ÀÌº¥Æ®
+    private void OnMouseExit() // ë§ˆìš°ìŠ¤ ì»¤ì„œê°€ í•´ë‹¹ ì˜¤ë¸Œì íŠ¸ì˜ BoxCollider2D ë°–ìœ¼ë¡œ ë‚˜ê°”ëŠ”ì§€ í™•ì¸í•˜ëŠ” ì´ë²¤íŠ¸
     {
-        CardScale(false); // Å©±â ÁÙÀÌ±â
-        Mouse_insideCard_timer = 0f; // Å¸ÀÌ¸Ó ÃÊ±âÈ­
+        CardScale(false); // í¬ê¸° ì¤„ì´ê¸°
+        Mouse_insideCard_timer = 0f; // íƒ€ì´ë¨¸ ì´ˆê¸°í™”
     }
-    private void OnMouseDown() // ¸¶¿ì½º Ä¿¼­°¡ ÇØ´ç ¿ÀºêÁ§Æ®ÀÇ BoxCollider2D ¾È¿¡¼­ ¿Ş Å¬¸¯À» Çß´ÂÁö È®ÀÎÇÏ´Â ÀÌº¥Æ®
+    private void OnMouseDown() // ë§ˆìš°ìŠ¤ ì»¤ì„œê°€ í•´ë‹¹ ì˜¤ë¸Œì íŠ¸ì˜ BoxCollider2D ì•ˆì—ì„œ ì™¼ í´ë¦­ì„ í–ˆëŠ”ì§€ í™•ì¸í•˜ëŠ” ì´ë²¤íŠ¸
     {
         if(!Card_MouseClick)
         {
-            Card_MouseClick = true;         // Ä«µå ¼±ÅÃ
-            Card_noHide = true;             // ¼±ÅÃÇÑ Ä«µå´Â ¼û±âÁö ¸øÇÏ°Ô ¸·±â
-            deckField.cardMove_Rock = true; // Ä«µå ¿òÁ÷ÀÓ ¸ØÃß±â
-            deckField.cardHide = true;      // Ä«µå ¼û±â±â
+            Card_MouseClick = true;         // ì¹´ë“œ ì„ íƒ
+            Card_noHide = true;             // ì„ íƒí•œ ì¹´ë“œëŠ” ìˆ¨ê¸°ì§€ ëª»í•˜ê²Œ ë§‰ê¸°
+            deckField.cardMove_Rock = true; // ì¹´ë“œ ì›€ì§ì„ ë©ˆì¶”ê¸°
+            deckField.cardHide = true;      // ì¹´ë“œ ìˆ¨ê¸°ê¸°
             deckField.Click_Card = this.gameObject.GetComponent<Card_Script>();
             Target_Card(Card_MouseClick);
         }
     }
-    void CardScale(bool Active) // Ä«µå¿¡ ¸¶¿ì½º Ä¿¼­¸¦ ¿Ã·ÈÀ» °æ¿ì
+    void CardScale(bool Active) // ì¹´ë“œì— ë§ˆìš°ìŠ¤ ì»¤ì„œë¥¼ ì˜¬ë ¸ì„ ê²½ìš°
     {
-        if(Active) transform.localScale = new Vector3(1.5f, 1.5f, 1); // Å©±â Å°¿ì±â
-        else transform.localScale = new Vector3(1, 1, 1); // ±âº» Å©±â
+        if(Active) transform.localScale = new Vector3(1.5f, 1.5f, 1); // í¬ê¸° í‚¤ìš°ê¸°
+        else transform.localScale = new Vector3(1, 1, 1); // ê¸°ë³¸ í¬ê¸°
     }
-    public void Target_Card(bool Click) // »ç¿ë °¡´ÉÇÑ Ä³¸¯ÅÍ
+    public void Target_Card(bool Click) // ì‚¬ìš© ê°€ëŠ¥í•œ ìºë¦­í„°
     {
         if(Click)
         {
             switch (Card_name)
             {
-                case "´ÙÀ½À¸·Î":
-                case "ÀÌÀüÀ¸·Î":
-                case "ÇÏ±ŞÈ¸º¹¹°¾à":
-                case "»ó±ŞÈ¸º¹¹°¾à":
-                case "¸í»ó":
-                case "»ı¸íÀÇÀÜºÒ":
-                case "°í¿äÇÑ¾È½Ä":
-                case "ÀÜÈ¤ÇÑ°è¾à":
+                case "ë‹¤ìŒìœ¼ë¡œ":
+                case "ì´ì „ìœ¼ë¡œ":
+                case "í•˜ê¸‰íšŒë³µë¬¼ì•½":
+                case "ìƒê¸‰íšŒë³µë¬¼ì•½":
+                case "ëª…ìƒ":
+                case "ìƒëª…ì˜ì”ë¶ˆ":
+                case "ê³ ìš”í•œì•ˆì‹":
+                case "ì”í˜¹í•œê³„ì•½":
                     player.targetPlayerCard = true;
                     if (!player.Arrow) player.Arrow = true;
                     break;
 
-                case "ÀÏ¹İ¸¶¹ı":
-                case "¹Ù¶÷ÀÇÃ¢":
-                case "µ¹¹«´õ±â":
-                case "Àı¸ÁÀÇ±Õ¿­":
+                case "ì¼ë°˜ë§ˆë²•":
+                case "ë°”ëŒì˜ì°½":
+                case "ëŒë¬´ë”ê¸°":
+                case "ì ˆë§ì˜ê· ì—´":
                     EnemysingleTarget(true);
                     break;
 
-                case "È­¿°ÀåÆÇ":
-                case "¾óÀ½¾È°³":
+                case "í™”ì—¼ì¥íŒ":
+                case "ì–¼ìŒì•ˆê°œ":
                     EnemymultipleTarget(true);
                     break;
 
@@ -163,27 +163,27 @@ public class Card_Script : MonoBehaviour
         {
             switch (Card_name)
             {
-                case "´ÙÀ½À¸·Î":
-                case "ÀÌÀüÀ¸·Î":
-                case "ÇÏ±ŞÈ¸º¹¹°¾à":
-                case "»ó±ŞÈ¸º¹¹°¾à":
-                case "¸í»ó":
-                case "»ı¸íÀÇÀÜºÒ":
-                case "°í¿äÇÑ¾È½Ä":
-                case "ÀÜÈ¤ÇÑ°è¾à":
+                case "ë‹¤ìŒìœ¼ë¡œ":
+                case "ì´ì „ìœ¼ë¡œ":
+                case "í•˜ê¸‰íšŒë³µë¬¼ì•½":
+                case "ìƒê¸‰íšŒë³µë¬¼ì•½":
+                case "ëª…ìƒ":
+                case "ìƒëª…ì˜ì”ë¶ˆ":
+                case "ê³ ìš”í•œì•ˆì‹":
+                case "ì”í˜¹í•œê³„ì•½":
                     player.targetPlayerCard = false;
                     if(player.Arrow) player.Arrow = false;
                     break;
 
-                case "ÀÏ¹İ¸¶¹ı":
-                case "¹Ù¶÷ÀÇÃ¢":
-                case "µ¹¹«´õ±â":
-                case "Àı¸ÁÀÇ±Õ¿­":
+                case "ì¼ë°˜ë§ˆë²•":
+                case "ë°”ëŒì˜ì°½":
+                case "ëŒë¬´ë”ê¸°":
+                case "ì ˆë§ì˜ê· ì—´":
                     EnemysingleTarget(false);
                     break;
 
-                case "È­¿°ÀåÆÇ":
-                case "¾óÀ½¾È°³":
+                case "í™”ì—¼ì¥íŒ":
+                case "ì–¼ìŒì•ˆê°œ":
                     EnemymultipleTarget(false);
                     break;
 
@@ -203,29 +203,33 @@ public class Card_Script : MonoBehaviour
                 if (ObjectSet.Enemy_Name[0] == "Skeleton")
                 {
                     ObjectSet.Field_inMonster[0].GetComponent<Skeleton_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[0].GetComponent<Skeleton_Script>().Guide = true;
                     ObjectSet.Field_inMonster[0].GetComponent<Skeleton_Script>().targetCard = true;
-                    if (ObjectSet.Field_inMonster[0].GetComponent<Skeleton_Script>().HIT_Enemy)
-                    ObjectSet.Field_inMonster[0].GetComponent<Skeleton_Script>().HIT_Enemy = false;
+                    if (!ObjectSet.Field_inMonster[0].GetComponent<Skeleton_Script>().HIT_Enemy)
+                    ObjectSet.Field_inMonster[0].GetComponent<Skeleton_Script>().HIT_Enemy = true;
                 }
                 if (ObjectSet.Enemy_Name[1] == "Skeleton")
                 {
                     ObjectSet.Field_inMonster[1].GetComponent<Skeleton_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[1].GetComponent<Skeleton_Script>().Guide = true;
                     ObjectSet.Field_inMonster[1].GetComponent<Skeleton_Script>().targetCard = true;
-                    if (ObjectSet.Field_inMonster[1].GetComponent<Skeleton_Script>().HIT_Enemy)
-                    ObjectSet.Field_inMonster[1].GetComponent<Skeleton_Script>().HIT_Enemy = false;
+                    if (!ObjectSet.Field_inMonster[1].GetComponent<Skeleton_Script>().HIT_Enemy)
+                    ObjectSet.Field_inMonster[1].GetComponent<Skeleton_Script>().HIT_Enemy = true;
                 }
                 if (ObjectSet.Enemy_Name[2] == "Skeleton")
                 {
                     ObjectSet.Field_inMonster[2].GetComponent<Skeleton_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[2].GetComponent<Skeleton_Script>().Guide = true;
                     ObjectSet.Field_inMonster[2].GetComponent<Skeleton_Script>().targetCard = true;
-                    if (ObjectSet.Field_inMonster[2].GetComponent<Skeleton_Script>().HIT_Enemy)
+                    if (!ObjectSet.Field_inMonster[2].GetComponent<Skeleton_Script>().HIT_Enemy)
                     ObjectSet.Field_inMonster[2].GetComponent<Skeleton_Script>().HIT_Enemy = true;
                 }
                 if (ObjectSet.Enemy_Name[3] == "Skeleton") 
                 { 
                     ObjectSet.Field_inMonster[3].GetComponent<Skeleton_Script>().Arrow = true; 
+                    ObjectSet.Field_inMonster[3].GetComponent<Skeleton_Script>().Guide = true; 
                     ObjectSet.Field_inMonster[3].GetComponent<Skeleton_Script>().targetCard = true; 
-                    if (ObjectSet.Field_inMonster[3].GetComponent<Skeleton_Script>().HIT_Enemy) 
+                    if (!ObjectSet.Field_inMonster[3].GetComponent<Skeleton_Script>().HIT_Enemy) 
                     ObjectSet.Field_inMonster[3].GetComponent<Skeleton_Script>().HIT_Enemy = true; 
                 }
             }
@@ -259,26 +263,34 @@ public class Card_Script : MonoBehaviour
                 if (ObjectSet.Enemy_Name[0] == "Skeleton")
                 {
                     ObjectSet.Field_inMonster[0].GetComponent<Skeleton_Script>().Arrow = false;
-                    if (ObjectSet.Field_inMonster[0].GetComponent<Skeleton_Script>().targetCard)
+                    ObjectSet.Field_inMonster[0].GetComponent<Skeleton_Script>().Guide = false;
                     ObjectSet.Field_inMonster[0].GetComponent<Skeleton_Script>().targetCard = false;
+                    if (ObjectSet.Field_inMonster[0].GetComponent<Skeleton_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[0].GetComponent<Skeleton_Script>().HIT_Enemy = false;
                 }
                 if (ObjectSet.Enemy_Name[1] == "Skeleton")
                 {
                     ObjectSet.Field_inMonster[1].GetComponent<Skeleton_Script>().Arrow = false;
-                    if (ObjectSet.Field_inMonster[1].GetComponent<Skeleton_Script>().targetCard)
+                    ObjectSet.Field_inMonster[1].GetComponent<Skeleton_Script>().Guide = false;
                     ObjectSet.Field_inMonster[1].GetComponent<Skeleton_Script>().targetCard = false;
+                    if (ObjectSet.Field_inMonster[1].GetComponent<Skeleton_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[1].GetComponent<Skeleton_Script>().HIT_Enemy = false;
                 }
                 if (ObjectSet.Enemy_Name[2] == "Skeleton")
                 {
                     ObjectSet.Field_inMonster[2].GetComponent<Skeleton_Script>().Arrow = false;
-                    if (ObjectSet.Field_inMonster[2].GetComponent<Skeleton_Script>().targetCard)
+                    ObjectSet.Field_inMonster[2].GetComponent<Skeleton_Script>().Guide = false;
                     ObjectSet.Field_inMonster[2].GetComponent<Skeleton_Script>().targetCard = false;
+                    if (ObjectSet.Field_inMonster[2].GetComponent<Skeleton_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[2].GetComponent<Skeleton_Script>().HIT_Enemy = false;
                 }
                 if (ObjectSet.Enemy_Name[3] == "Skeleton")
                 {
                     ObjectSet.Field_inMonster[3].GetComponent<Skeleton_Script>().Arrow = false;
-                    if (ObjectSet.Field_inMonster[3].GetComponent<Skeleton_Script>().targetCard)
+                    ObjectSet.Field_inMonster[3].GetComponent<Skeleton_Script>().Guide = false;
                     ObjectSet.Field_inMonster[3].GetComponent<Skeleton_Script>().targetCard = false;
+                    if (ObjectSet.Field_inMonster[3].GetComponent<Skeleton_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[3].GetComponent<Skeleton_Script>().HIT_Enemy = false;
                 }
             }
             if (ObjectSet.Enemy_Name[0] == "Eye" || ObjectSet.Enemy_Name[1] == "Eye" ||
@@ -311,33 +323,37 @@ public class Card_Script : MonoBehaviour
                 if (ObjectSet.Enemy_Name[0] == "Skeleton")
                 {
                     ObjectSet.Field_inMonster[0].GetComponent<Skeleton_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[0].GetComponent<Skeleton_Script>().Guide = true;
                     ObjectSet.Field_inMonster[0].GetComponent<Skeleton_Script>().targetCard = true;
                     ObjectSet.Field_inMonster[0].GetComponent<Skeleton_Script>().Card_Damage = deckField.Click_Card.multiple_damage;
-                    if (ObjectSet.Field_inMonster[0].GetComponent<Skeleton_Script>().HIT_Enemy)
-                        ObjectSet.Field_inMonster[0].GetComponent<Skeleton_Script>().HIT_Enemy = false;
+                    if (!ObjectSet.Field_inMonster[0].GetComponent<Skeleton_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[0].GetComponent<Skeleton_Script>().HIT_Enemy = true;
                 }
                 if (ObjectSet.Enemy_Name[1] == "Skeleton")
                 {
                     ObjectSet.Field_inMonster[1].GetComponent<Skeleton_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[1].GetComponent<Skeleton_Script>().Guide = true;
                     ObjectSet.Field_inMonster[1].GetComponent<Skeleton_Script>().targetCard = true;
                     ObjectSet.Field_inMonster[1].GetComponent<Skeleton_Script>().Card_Damage = deckField.Click_Card.multiple_damage;
-                    if (ObjectSet.Field_inMonster[1].GetComponent<Skeleton_Script>().HIT_Enemy)
-                        ObjectSet.Field_inMonster[1].GetComponent<Skeleton_Script>().HIT_Enemy = false;
+                    if (!ObjectSet.Field_inMonster[1].GetComponent<Skeleton_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[1].GetComponent<Skeleton_Script>().HIT_Enemy = true;
                 }
                 if (ObjectSet.Enemy_Name[2] == "Skeleton")
                 {
                     ObjectSet.Field_inMonster[2].GetComponent<Skeleton_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[2].GetComponent<Skeleton_Script>().Guide = true;
                     ObjectSet.Field_inMonster[2].GetComponent<Skeleton_Script>().targetCard = true;
                     ObjectSet.Field_inMonster[2].GetComponent<Skeleton_Script>().Card_Damage = deckField.Click_Card.multiple_damage;
-                    if (ObjectSet.Field_inMonster[2].GetComponent<Skeleton_Script>().HIT_Enemy)
+                    if (!ObjectSet.Field_inMonster[2].GetComponent<Skeleton_Script>().HIT_Enemy)
                         ObjectSet.Field_inMonster[2].GetComponent<Skeleton_Script>().HIT_Enemy = true;
                 }
                 if (ObjectSet.Enemy_Name[3] == "Skeleton")
                 {
                     ObjectSet.Field_inMonster[3].GetComponent<Skeleton_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[3].GetComponent<Skeleton_Script>().Guide = true;
                     ObjectSet.Field_inMonster[3].GetComponent<Skeleton_Script>().targetCard = true;
                     ObjectSet.Field_inMonster[3].GetComponent<Skeleton_Script>().Card_Damage = deckField.Click_Card.multiple_damage;
-                    if (ObjectSet.Field_inMonster[3].GetComponent<Skeleton_Script>().HIT_Enemy)
+                    if (!ObjectSet.Field_inMonster[3].GetComponent<Skeleton_Script>().HIT_Enemy)
                         ObjectSet.Field_inMonster[3].GetComponent<Skeleton_Script>().HIT_Enemy = true;
                 }
             }
@@ -374,26 +390,29 @@ public class Card_Script : MonoBehaviour
                 if (ObjectSet.Enemy_Name[0] == "Skeleton")
                 {
                     ObjectSet.Field_inMonster[0].GetComponent<Skeleton_Script>().Arrow = false;
-                    if (ObjectSet.Field_inMonster[0].GetComponent<Skeleton_Script>().targetCard)
-                        ObjectSet.Field_inMonster[0].GetComponent<Skeleton_Script>().targetCard = false;
+                    ObjectSet.Field_inMonster[0].GetComponent<Skeleton_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[0].GetComponent<Skeleton_Script>().targetCard = false;
+
                 }
                 if (ObjectSet.Enemy_Name[1] == "Skeleton")
                 {
-                    ObjectSet.Field_inMonster[1].GetComponent<Skeleton_Script>().Arrow = false;
-                    if (ObjectSet.Field_inMonster[1].GetComponent<Skeleton_Script>().targetCard)
-                        ObjectSet.Field_inMonster[1].GetComponent<Skeleton_Script>().targetCard = false;
+                    ObjectSet.Field_inMonster[1].GetComponent<Skeleton_Script>().Arrow = false; 
+                    ObjectSet.Field_inMonster[1].GetComponent<Skeleton_Script>().Guide = false; 
+                    ObjectSet.Field_inMonster[1].GetComponent<Skeleton_Script>().targetCard = false;
+
                 }
                 if (ObjectSet.Enemy_Name[2] == "Skeleton")
                 {
                     ObjectSet.Field_inMonster[2].GetComponent<Skeleton_Script>().Arrow = false;
-                    if (ObjectSet.Field_inMonster[2].GetComponent<Skeleton_Script>().targetCard)
-                        ObjectSet.Field_inMonster[2].GetComponent<Skeleton_Script>().targetCard = false;
+                    ObjectSet.Field_inMonster[2].GetComponent<Skeleton_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[2].GetComponent<Skeleton_Script>().targetCard = false;
+
                 }
                 if (ObjectSet.Enemy_Name[3] == "Skeleton")
                 {
                     ObjectSet.Field_inMonster[3].GetComponent<Skeleton_Script>().Arrow = false;
-                    if (ObjectSet.Field_inMonster[3].GetComponent<Skeleton_Script>().targetCard)
-                        ObjectSet.Field_inMonster[3].GetComponent<Skeleton_Script>().targetCard = false;
+                    ObjectSet.Field_inMonster[3].GetComponent<Skeleton_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[3].GetComponent<Skeleton_Script>().targetCard = false;
                 }
             }
             if (ObjectSet.Enemy_Name[0] == "Eye" || ObjectSet.Enemy_Name[1] == "Eye" ||
@@ -419,27 +438,27 @@ public class Card_Script : MonoBehaviour
 
     }
 
-    void Object_inName() // Ä«µå¸¦ µé°í ¸¶¿ì½ºÄ¿¼­¸¦ Ä³¸¯ÅÍ¿¡ °¡Á®°¬À»¶§ ÇØ´ç ÀÌ¸§Àº ¹«¾ùÀÎ°¡?
+    void Object_inName() // ì¹´ë“œë¥¼ ë“¤ê³  ë§ˆìš°ìŠ¤ì»¤ì„œë¥¼ ìºë¦­í„°ì— ê°€ì ¸ê°”ì„ë•Œ í•´ë‹¹ ì´ë¦„ì€ ë¬´ì—‡ì¸ê°€?
     {
         switch (Object_name)
         {
-            case "Player": // ÇÃ·¹ÀÌ¾î ÀÏ °æ¿ì
+            case "Player": // í”Œë ˆì´ì–´ ì¼ ê²½ìš°
                 Vector3 playerPosition = new Vector3(player.transform.position.x, player.transform.position.y + 10, 0);
                 transform.position = Vector3.Lerp(transform.position, playerPosition, 5 * Time.deltaTime);
                 break;
-            case "Skeleton": // ½ºÄÌ·¹Åæ ÀÏ °æ¿ì
+            case "Skeleton": // ìŠ¤ì¼ˆë ˆí†¤ ì¼ ê²½ìš°
                 switch (Card_name)
                 {
-                    case "ÀÏ¹İ¸¶¹ı":
-                    case "¹Ù¶÷ÀÇÃ¢":
-                    case "µ¹¹«´õ±â":
-                    case "Àı¸ÁÀÇ±Õ¿­":
+                    case "ì¼ë°˜ë§ˆë²•":
+                    case "ë°”ëŒì˜ì°½":
+                    case "ëŒë¬´ë”ê¸°":
+                    case "ì ˆë§ì˜ê· ì—´":
                         Vector3 skeletonSinglePositon = new Vector3(skeleton.transform.position.x, skeleton.transform.position.y + 6.5f, 0);
                         transform.position = Vector3.Lerp(transform.position, skeletonSinglePositon, 5 * Time.deltaTime);
                         break;
 
-                    case "È­¿°ÀåÆÇ":
-                    case "¾óÀ½¾È°³":
+                    case "í™”ì—¼ì¥íŒ":
+                    case "ì–¼ìŒì•ˆê°œ":
                         Vector3 skeletonMultiplePositon = new Vector3(skeleton.transform.position.x + 10.5f, skeleton.transform.position.y + 7f, 0);
                         transform.position = Vector3.Lerp(transform.position, skeletonMultiplePositon, 5 * Time.deltaTime);
                         break;
@@ -450,16 +469,16 @@ public class Card_Script : MonoBehaviour
             case "Eye":
                 switch (Card_name)
                 {
-                    case "ÀÏ¹İ¸¶¹ı":
-                    case "¹Ù¶÷ÀÇÃ¢":
-                    case "µ¹¹«´õ±â":
-                    case "Àı¸ÁÀÇ±Õ¿­":
+                    case "ì¼ë°˜ë§ˆë²•":
+                    case "ë°”ëŒì˜ì°½":
+                    case "ëŒë¬´ë”ê¸°":
+                    case "ì ˆë§ì˜ê· ì—´":
                         Vector3 eyeSinglePosition = new Vector3(eye.transform.position.x, eye.transform.position.y + 5.5f, 0);
                         transform.position = Vector3.Lerp(transform.position, eyeSinglePosition, 5 * Time.deltaTime);
                         break;
 
-                    case "È­¿°ÀåÆÇ":
-                    case "¾óÀ½¾È°³":
+                    case "í™”ì—¼ì¥íŒ":
+                    case "ì–¼ìŒì•ˆê°œ":
                         Vector3 eyeMultiplePosition = new Vector3(eye.transform.position.x + 3.5f, eye.transform.position.y + 7f, 0);
                         transform.position = Vector3.Lerp(transform.position, eyeMultiplePosition, 5 * Time.deltaTime);
                         break;
@@ -470,16 +489,16 @@ public class Card_Script : MonoBehaviour
             case "Goblin":
                 switch (Card_name)
                 {
-                    case "ÀÏ¹İ¸¶¹ı":
-                    case "¹Ù¶÷ÀÇÃ¢":
-                    case "µ¹¹«´õ±â":
-                    case "Àı¸ÁÀÇ±Õ¿­":
+                    case "ì¼ë°˜ë§ˆë²•":
+                    case "ë°”ëŒì˜ì°½":
+                    case "ëŒë¬´ë”ê¸°":
+                    case "ì ˆë§ì˜ê· ì—´":
                         Vector3 GoblinSinglePosition = new Vector3(goblin.transform.position.x, goblin.transform.position.y + 5.5f, 0);
                         transform.position = Vector3.Lerp(transform.position, GoblinSinglePosition, 5 * Time.deltaTime);
                         break;
 
-                    case "È­¿°ÀåÆÇ":
-                    case "¾óÀ½¾È°³":
+                    case "í™”ì—¼ì¥íŒ":
+                    case "ì–¼ìŒì•ˆê°œ":
                         Vector3 GoblinMultiplePosition = new Vector3(goblin.transform.position.x - 3.5f, goblin.transform.position.y + 7f, 0);
                         transform.position = Vector3.Lerp(transform.position, GoblinMultiplePosition, 5 * Time.deltaTime);
                         break;
@@ -490,16 +509,16 @@ public class Card_Script : MonoBehaviour
             case "Mushroom":
                 switch (Card_name)
                 {
-                    case "ÀÏ¹İ¸¶¹ı":
-                    case "¹Ù¶÷ÀÇÃ¢":
-                    case "µ¹¹«´õ±â":
-                    case "Àı¸ÁÀÇ±Õ¿­":
+                    case "ì¼ë°˜ë§ˆë²•":
+                    case "ë°”ëŒì˜ì°½":
+                    case "ëŒë¬´ë”ê¸°":
+                    case "ì ˆë§ì˜ê· ì—´":
                         Vector3 MushroomSinglePosition = new Vector3(mushroom.transform.position.x, mushroom.transform.position.y + 7f, 0);
                         transform.position = Vector3.Lerp(transform.position, MushroomSinglePosition, 5 * Time.deltaTime);
                         break;
 
-                    case "È­¿°ÀåÆÇ":
-                    case "¾óÀ½¾È°³":
+                    case "í™”ì—¼ì¥íŒ":
+                    case "ì–¼ìŒì•ˆê°œ":
                         Vector3 MushroomMultiplePosition = new Vector3(mushroom.transform.position.x - 10.5f, mushroom.transform.position.y + 7f, 0);
                         transform.position = Vector3.Lerp(transform.position, MushroomMultiplePosition, 5 * Time.deltaTime);
                         break;
@@ -507,7 +526,7 @@ public class Card_Script : MonoBehaviour
                         break;
                 }
                 break;
-            default: // ±×¿Ü
+            default: // ê·¸ì™¸
                 Vector3 worldPosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10);
                 Vector3 mousePosition = Camera.main.ScreenToWorldPoint(worldPosition);
                 transform.position = Vector3.Lerp(transform.position, mousePosition, 10 * Time.deltaTime);

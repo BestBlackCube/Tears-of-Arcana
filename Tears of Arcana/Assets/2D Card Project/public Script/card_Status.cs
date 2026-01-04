@@ -32,46 +32,46 @@ public class card_Status
         switch(name)
         {
             case Card_namedata.Next:
-                status = new card_Status(Card_name, "´ÙÀ½À¸·Î", 0, 0, 0, 0, 0);
+                status = new card_Status(Card_name, "ë‹¤ìŒìœ¼ë¡œ", 0, 0, 0, 0, 0);
                 break;
             case Card_namedata.Return:
-                status = new card_Status(Card_name, "ÀÌÀüÀ¸·Î", 0, 0, 0, 0, 0);
+                status = new card_Status(Card_name, "ì´ì „ìœ¼ë¡œ", 0, 0, 0, 0, 0);
                 break;
             case Card_namedata.HealthPotion:
-                status = new card_Status(Card_name, "ÇÏ±ŞÈ¸º¹¹°¾à", 0, 0, 10, 0, 0);
+                status = new card_Status(Card_name, "í•˜ê¸‰íšŒë³µë¬¼ì•½", 0, 0, 10, 0, 0);
                 break;
             case Card_namedata.HighHealthPotion:
-                status = new card_Status(Card_name, "»ó±ŞÈ¸º¹¹°¾à", 0, 0, 30, 0, 0);
+                status = new card_Status(Card_name, "ìƒê¸‰íšŒë³µë¬¼ì•½", 0, 0, 30, 0, 0);
                 break;
             case Card_namedata.Meditation:
-                status = new card_Status(Card_name, "¸í»ó", 0, 0, 60, 10, 0);
+                status = new card_Status(Card_name, "ëª…ìƒ", 0, 0, 60, 10, 0);
                 break;
             case Card_namedata.idleMagic:
-                status = new card_Status(Card_name, "ÀÏ¹İ¸¶¹ı", 20, 0, 0, 5, 0);
+                status = new card_Status(Card_name, "ì¼ë°˜ë§ˆë²•", 20, 0, 0, 5, 0);
                 break;
             case Card_namedata.Fire:
-                status = new card_Status(Card_name, "È­¿°ÀåÆÇ", 0, 200, 0, 10, 0);
+                status = new card_Status(Card_name, "í™”ì—¼ì¥íŒ", 0, 200, 0, 10, 0);
                 break;
             case Card_namedata.Water:
-                status = new card_Status(Card_name, "¾óÀ½¾È°³", 0, 20, 0, 10, 0);
+                status = new card_Status(Card_name, "ì–¼ìŒì•ˆê°œ", 0, 20, 0, 10, 0);
                 break;
             case Card_namedata.Wind:
-                status = new card_Status(Card_name, "¹Ù¶÷ÀÇÃ¢", 20, 0, 0, 5, 0);
+                status = new card_Status(Card_name, "ë°”ëŒì˜ì°½", 20, 0, 0, 5, 0);
                 break;
             case Card_namedata.Soil:
-                status = new card_Status(Card_name, "µ¹¹«´õ±â", 10, 0, 0, 5, 0);
+                status = new card_Status(Card_name, "ëŒë¬´ë”ê¸°", 10, 0, 0, 5, 0);
                 break;
             case Card_namedata.FireOfvitality:
-                status = new card_Status(Card_name, "»ı¸íÀÇÀÜºÒ", 0, 0, -20, 0, 2);
+                status = new card_Status(Card_name, "ìƒëª…ì˜ì”ë¶ˆ", 0, 0, -20, 0, 2);
                 break;
             case Card_namedata.Quietrest:
-                status = new card_Status(Card_name, "°í¿äÇÑ¾È½Ä", 0, 0, 100, 0, 0);
+                status = new card_Status(Card_name, "ê³ ìš”í•œì•ˆì‹", 0, 0, 100, 0, 0);
                 break;
             case Card_namedata.AbyssCrevice:
-                status = new card_Status(Card_name, "Àı¸ÁÀÇ±Õ¿­", 0, 0, 0, 20, 2);
+                status = new card_Status(Card_name, "ì ˆë§ì˜ê· ì—´", 0, 0, 0, 20, 2);
                 break;
             case Card_namedata.BrutalContract:
-                status = new card_Status(Card_name, "ÀÜÈ¤ÇÑ°è¾à", 0, 0, 0, 30, 3);
+                status = new card_Status(Card_name, "ì”í˜¹í•œê³„ì•½", 0, 0, 0, 30, 3);
                 break;
             default:
                 break;

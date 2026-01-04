@@ -43,9 +43,9 @@ public class CardDeckField_Script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (cardHide) // Ä«µå ¼û±â±â
+        if (cardHide) // ì¹´ë“œ ìˆ¨ê¸°ê¸°
         {
-            for (int i = 0; i < Card_inField.Length; i++) // ¹è¿­¿¡ µç ¸ğµç Ä«µå¸¦ È­¸é ¹ÛÀ¸·Î ÀÌµ¿½ÃÅ²´Ù
+            for (int i = 0; i < Card_inField.Length; i++) // ë°°ì—´ì— ë“  ëª¨ë“  ì¹´ë“œë¥¼ í™”ë©´ ë°–ìœ¼ë¡œ ì´ë™ì‹œí‚¨ë‹¤
             {
                 if (Card_inField_Script[i] != null && !Card_inField_Script[i].Card_noHide)
                 {
@@ -56,19 +56,19 @@ public class CardDeckField_Script : MonoBehaviour
         }
         else
         {
-            Card_newPosition(); // Ä«µå À§Ä¡ Á¶Á¤ ½ÇÇà
+            Card_newPosition(); // ì¹´ë“œ ìœ„ì¹˜ ì¡°ì • ì‹¤í–‰
         }
 
-        if (!cardMove_Rock) // Ä«µå¸¦ ¿òÁ÷ÀÌÁö ¾Ê°Ô ¸·´Â Á¶°Ç¹®
+        if (!cardMove_Rock) // ì¹´ë“œë¥¼ ì›€ì§ì´ì§€ ì•Šê²Œ ë§‰ëŠ” ì¡°ê±´ë¬¸
         {
             for (int i = 0; i < DeckField_nowCard; i++)
             {
-                if (Card_inField[i] != null) // Ä«µå°¡ »ı¼ºÀÌ µÇ¾úÀ» ¶§
+                if (Card_inField[i] != null) // ì¹´ë“œê°€ ìƒì„±ì´ ë˜ì—ˆì„ ë•Œ
                 {
-                    Card_inField[i].transform.position = Vector3.Lerp(Card_inField[i].transform.position, targetPosition[i], 2.5f * Time.deltaTime); // Àû¿ë
+                    Card_inField[i].transform.position = Vector3.Lerp(Card_inField[i].transform.position, targetPosition[i], 2.5f * Time.deltaTime); // ì ìš©
                 }
             }
-            if (DeckField_nowCard > 0) // Ä«µå°¡ ÇÊµå¿¡ ÀÖÀ» °æ¿ì
+            if (DeckField_nowCard > 0) // ì¹´ë“œê°€ í•„ë“œì— ìˆì„ ê²½ìš°
             {
                 if (rolling)
                 {
@@ -85,32 +85,32 @@ public class CardDeckField_Script : MonoBehaviour
             }
         }
     }
-    void Card_newPosition() // Ä«µå°£ÀÇ °Å¸®
+    void Card_newPosition() // ì¹´ë“œê°„ì˜ ê±°ë¦¬
     {
-        int count = DeckField_nowCard; // Ä«µå ¹è¿­ÀÇ Å©±â
-        if (count == 0) return; // Ä«µå°¡ Á¸ÀçÇÏÁö ¾Ê´Ù¸é ½ÇÇàÀ» ¸ØÃã
+        int count = DeckField_nowCard; // ì¹´ë“œ ë°°ì—´ì˜ í¬ê¸°
+        if (count == 0) return; // ì¹´ë“œê°€ ì¡´ì¬í•˜ì§€ ì•Šë‹¤ë©´ ì‹¤í–‰ì„ ë©ˆì¶¤
         targetPosition = new Vector3[count];
 
-        for (int i = 0, index = 0; i < count; i++) // ÇöÀç Ä«µåÇÊµå¿¡ ÀÖ´Â ¹è¿­ÀÇ Å©±â¸¸Å­ ¹İº¹
+        for (int i = 0, index = 0; i < count; i++) // í˜„ì¬ ì¹´ë“œí•„ë“œì— ìˆëŠ” ë°°ì—´ì˜ í¬ê¸°ë§Œí¼ ë°˜ë³µ
         {
-            if (Card_inField[i] != null) // ¿ÀºêÁ§Æ®°¡ ÀÖÀ» °æ¿ì
+            if (Card_inField[i] != null) // ì˜¤ë¸Œì íŠ¸ê°€ ìˆì„ ê²½ìš°
             {
-                float offset = (index - (count - 1) / 2f) * space; // Ä«µåÀÇ À§Ä¡ = [¹İº¹ÀÎµ¦½º] - [Ä«µåÇÊµå ¹è¿­ Å©±â] / 2 * [Ä«µå°£ÀÇ °Å¸®]
-                targetPosition[i] = basePosition + new Vector3(offset, 0, 0); // x°ª ´ëÀÔ
-                index++; // ¹İº¹ ÀÎµ¦½º
+                float offset = (index - (count - 1) / 2f) * space; // ì¹´ë“œì˜ ìœ„ì¹˜ = [ë°˜ë³µì¸ë±ìŠ¤] - [ì¹´ë“œí•„ë“œ ë°°ì—´ í¬ê¸°] / 2 * [ì¹´ë“œê°„ì˜ ê±°ë¦¬]
+                targetPosition[i] = basePosition + new Vector3(offset, 0, 0); // xê°’ ëŒ€ì…
+                index++; // ë°˜ë³µ ì¸ë±ìŠ¤
             }
         }
         Card_inputCardName();
     }
-    public void deckField_Null(int i) // Missing »óÅÂ¸¦ None»óÅÂ·Î ¹Ù²Ù±â
+    public void deckField_Null(int i) // Missing ìƒíƒœë¥¼ Noneìƒíƒœë¡œ ë°”ê¾¸ê¸°
     {
-        Card_inField[i] = null; // Ä«µå¸¦ ÆÄ±«ÇÏ¸é None»óÅÂ°¡ ¾Æ´Ñ missing»óÅÂÀÌ¹Ç·Î None»óÅÂ·Î ÃÊ±âÈ­
+        Card_inField[i] = null; // ì¹´ë“œë¥¼ íŒŒê´´í•˜ë©´ Noneìƒíƒœê°€ ì•„ë‹Œ missingìƒíƒœì´ë¯€ë¡œ Noneìƒíƒœë¡œ ì´ˆê¸°í™”
         Card_inField_Script[i] = null; // <-
         CardCode[i] = null;
         CardStatus[i] = 0;
         New_deckField();
     }
-    void New_deckField() // ºó ¹è¿­ Ã¤¿ì±â
+    void New_deckField() // ë¹ˆ ë°°ì—´ ì±„ìš°ê¸°
     {
         for (int i = 0; i < Card_inField.Length; i++)
         {
@@ -120,18 +120,18 @@ public class CardDeckField_Script : MonoBehaviour
                 {
                     if (Card_inField[j] != null)
                     {
-                        Card_inField[i] = Card_inField[j]; // ¿ÀºêÁ§Æ®
+                        Card_inField[i] = Card_inField[j]; // ì˜¤ë¸Œì íŠ¸
                         Card_inField[j] = null;
 
-                        Card_inField_Script[i] = Card_inField_Script[j]; // ½ºÅ©¸³Æ®
+                        Card_inField_Script[i] = Card_inField_Script[j]; // ìŠ¤í¬ë¦½íŠ¸
                         Card_inField_Script[j] = null;
 
-                        Card_inField_Script[i].Card_Number -= 1; // ½ºÅ©¸³Æ®¿¡ ÀÖ´Â Ä«µå ¹øÈ£
+                        Card_inField_Script[i].Card_Number -= 1; // ìŠ¤í¬ë¦½íŠ¸ì— ìˆëŠ” ì¹´ë“œ ë²ˆí˜¸
 
-                        CardCode[i] = CardCode[j]; // Ä«µå ÀÌ¸§
+                        CardCode[i] = CardCode[j]; // ì¹´ë“œ ì´ë¦„
                         CardCode[j] = null;
 
-                        CardStatus[i] = CardStatus[j]; // Ä«µå ½ºÅİ
+                        CardStatus[i] = CardStatus[j]; // ì¹´ë“œ ìŠ¤í…Ÿ
                         CardStatus[j] = 0;
                         break;
                     }
@@ -140,7 +140,7 @@ public class CardDeckField_Script : MonoBehaviour
         }
         Card_inputCardName();
     }
-    void Card_inputCardName() // Ä«µå¿¡ ÀÖ´Â TMPÀÇ ÁÖ¼Ò °ª
+    void Card_inputCardName() // ì¹´ë“œì— ìˆëŠ” TMPì˜ ì£¼ì†Œ ê°’
     {
         for (int i = 0; i < DeckField_nowCard; i++)
         {
