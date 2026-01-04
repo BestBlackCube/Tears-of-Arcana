@@ -1,3 +1,73 @@
+# Tears-of-Acrana 게임 개발 2.4.6v
+## 기능 설명
+카드 선택시 카드 범위 뿐만 아니라 이 카드가 어떤 캐릭터에 사용이 가능한지 표시하는 UI 추가
+스테이지 카드 사용시 플레이어 캐릭터가 다음 장소로 이동하는 애니메이션 추가
+
+## 카드
+- ### [타겟팅 UI](https://github.com/BestBlackCube/Tears-of-Arcana/blob/eb286ea75a960dd175eab4df45cbcd8ceb4a6281/Tears%20of%20Arcana/Assets/2D%20Card%20Project/card/Script/Card_Script.cs#L128-L196)
+    - 카드 클릭시 적 캐릭터의 Arrow값이 변동 되어 UI가 활성화/비활성화 된다.
+- ### [다음 스테이지](https://github.com/BestBlackCube/Tears-of-Arcana/blob/eb286ea75a960dd175eab4df45cbcd8ceb4a6281/Tears%20of%20Arcana/Assets/2D%20Card%20Project/BackGround/EnemyObjectSet_Script.cs#L35-L51)
+    - 적 캐릭터를 전부 처치시 한개 이상 카드를 갖고있다면 [deckField_null](https://github.com/BestBlackCube/Tears-of-Arcana/blob/eb286ea75a960dd175eab4df45cbcd8ceb4a6281/Tears%20of%20Arcana/Assets/2D%20Card%20Project/BackGround/EnemyObjectSet_Script.cs#L70-L82)함수로 초기화 후 [다음 스테이지 카드가  
+    지급된다](https://github.com/BestBlackCube/Tears-of-Arcana/blob/eb286ea75a960dd175eab4df45cbcd8ceb4a6281/Tears%20of%20Arcana/Assets/2D%20Card%20Project/BackGround/EnemyObjectSet_Script.cs#L52-L69).  
+    [지급된 카드를 사용](https://github.com/BestBlackCube/Tears-of-Arcana/blob/eb286ea75a960dd175eab4df45cbcd8ceb4a6281/Tears%20of%20Arcana/Assets/2D%20Card%20Project/Charater/Player/Script/Player_Script.cs#L230-L236)시 다음 스테이지로 넘어가는 애니메이션 후 다음 스테이지가 시작된다.
+
+## 버그 수정
+- ### 2.4.6v
+    - ⚠️중복 적캐릭터 소환시 중첩되어 1번 캐릭터가 주로 잡히고 2-4 캐릭터는 더미로 바뀜
+    - ✅플레이어 카드가 남아 있는 상태로 다음 스테이지 카드가 나오지 않음
+    - ✅카드를 남긴 상태로 적 캐릭터 전부 처치 시 플레이어 카드 초기화가 안됨
+    - ✅카드 사용시 적 캐릭터에게 마우스 커서 올려놓은 상태로 적 캐릭터가 죽을 시 타겟팅 UI가 남아있음
+    - ⚠️카드 하나 선택 후 빠르게 다른 카드 선택 시 중복 선택이 가능 (변경점 카드 사라지는 속도 증가)  
+    🔸🔸🔸🔸
+- ### 1.2.5v
+    - ⚠️플레이어 카드가 남아 있는 상태로 다음 스테이지 카드가 나오지 않음  
+    🔸
+    - ⚠️카드를 남긴 상태로 적 캐릭터 전부 처치 시 플레이어 카드 초기화가 안됨  
+    🔸 
+    - ⚠️카드 사용시 적 캐릭터에게 마우스 커서 올려놓은 상태로 적 캐릭터가 죽을 시 타겟팅 UI가 남아있음  
+    🔸🔸🔸
+    - ⚠️카드 하나 선택 후 빠르게 다른 카드 선택 시 중복 선택이 가능  
+    🔸🔸🔸
+- ### 1.2.4v
+    - ⚠️플레이어 카드가 남아 있는 상태로 다음 스테이지 카드가 나오지 않음
+    - ⚠️카드를 남긴 상태로 적 캐릭터 전부 처치 시 플레이어 카드 초기화가 안됨
+    - ✅다음 스테이지 넘어 갈시 적 공격 무한 호출
+    - ⚠️카드 사용시 적 캐릭터에게 마우스 커서 올려놓은 상태로 적 캐릭터가 죽을 시 타겟팅 UI가 남아있음  
+    🔸🔸
+    - ⚠️카드 하나 선택 후 빠르게 다른 카드 선택 시 중복 선택이 가능  
+    🔸🔸
+- ### 1.2.3v
+    - ⚠️카드를 남긴 상태로 적 캐릭터 전부 처치 시 플레이어 카드 초기화가 안됨  
+    🔸
+    - ⚠️카드 사용시 적 캐릭터에게 마우스 커서 올려놓은 상태로 적 캐릭터가 죽을 시 타겟팅 UI가 남아있음 (미해결)  
+    🔸 
+    - ✅카드 사용후 밑에서 다음 카드를 연속으로 사용하면 적 캐릭터의 애니메이션 무한 호출
+    - ⚠️카드 하나 선택 후 빠르게 다른 카드 선택 시 중복 선택이 가능  
+    🔸
+- ### 1.2.2v 
+    - ⚠️카드 사용시 적 캐릭터에게 마우스 커서 올려놓은 상태로 적 캐릭터가 죽을 시 타겟팅 UI가 남아있음
+    - ✅턴 종료시 4번 적 캐릭터가 없을 시 플레이어 카드가 미지급됨
+    - ✅적 캐릭터 전부 처치 시 다음 스테이지로 넘어가지 않음
+    - ⚠️카드 사용후 밑에서 다음 카드를 연속으로 사용하면 적 캐릭터의 애니메이션 무한 호출
+    - ⚠️카드 하나 선택 후 빠르게 다른 카드 선택 시 중복 선택이 가능
+- ### 1.1.1v 
+    - ✅적 캐릭터가 없을 경우 플레이어에게 턴이 넘어가지 않음
+    - ✅카드 선택시 일부 캐릭터 UI on/off 안됨
+    - ✅카드 사용후 on/off 안됨
+    - ✅카드 하나 선택 후 빠르게 다른 카드 선택 시 중복 선택이 가능
+- ### 1.0.0v
+    - ✅강제로 턴 종료시 다음 턴의 카드 생성 안됨
+
+## 버전 표기법 (Semantic Versioning)
+```
+[주 버전].[부 버전].[수 버전]
+   0   .   0   .   0
+
+- 주 버전: 하위 호환성이 깨지는 변경
+- 부 버전: 하위 호환성 유지하며 기능 추가
+- 수 버전: 하위 호환성 유지하며 버그 수정
+```
+
 # Tears-of-Acrana 게임 개발 2.3.5v
 ## 기능 설명
 기존 공격 카드를 단일과 범위 카드를 나누어 카드의 특성과 종류를 늘림  
