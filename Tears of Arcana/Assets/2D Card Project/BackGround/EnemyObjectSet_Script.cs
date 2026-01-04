@@ -7,11 +7,17 @@ using UnityEngine;
 public class EnemyObjectSet_Script : MonoBehaviour
 {
     public CardDeck_Script deck;
+    public CardDeckField_Script deckField;
+    public GameObject[] StageCard;
+    GameObject card;
     public GameObject[] Monster_Object;
     public GameObject[] Field_inMonster;
     public string[] Enemy_Name;
     public bool NextStage = false;
+    public bool StageCardInput = false;
     public int StageCount = 0;
+    public int MonsterCount = 0;
+    public int MonsterDeadCount = 0;
 
     public Vector3[] Field_transform;
     // Start is called before the first frame update
@@ -28,14 +34,50 @@ public class EnemyObjectSet_Script : MonoBehaviour
     void Update()
     {
         StageCount = PlayerPrefs.GetInt("Stage");
-        if(NextStage)
+        if (NextStage)
         {
             StageChange(StageCount);
         }
-        if (Field_inMonster[0] == null && Field_inMonster[1] == null && Field_inMonster[2] == null && Field_inMonster[3] == null)
+        if (MonsterCount == MonsterDeadCount)
         {
-            PlayerPrefs.SetInt("Stage", 2);
-            NextStage = true;
+            if(StageCardInput)
+            {
+                StageCard_inField(StageCount);
+                StageCardInput = false;
+            }
+        }
+    }
+    void StageCard_inField(int stage)
+    {
+        switch (stage)
+        {
+            case 1:
+                deckField_null();
+                card = Instantiate(StageCard[0], deck.transform.position, Quaternion.identity);
+                card.GetComponent<Card_Script>().Card_name = "다음으로";
+                deckField.Card_inField[0] = card;
+                deckField.Card_inField_Script[0] = card.GetComponent<Card_Script>();
+                deckField.Card_inField_Script[0].Card_Number = 1;
+                deckField.rolling = true;
+                deckField.card_Setting = true; 
+                deckField.DeckField_nowCard++; 
+                break;
+            default:
+                break;
+        }
+    }
+    void deckField_null()
+    {
+        if(deckField.DeckField_nowCard > 0)
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                Destroy(deckField.Card_inField[i]);
+                deckField.Card_inField_Script[i] = null;
+                deckField.CardCode[i] = null;
+                deckField.CardStatus[i] = 0;
+                deckField.DeckField_nowCard--;
+            }
         }
     }
     void StageChange(int Stage)
@@ -52,6 +94,8 @@ public class EnemyObjectSet_Script : MonoBehaviour
                 Enemy_Name[1] = "Eye";
                 Enemy_Name[2] = "Goblin";
                 Enemy_Name[3] = "Mushroom";
+
+                MonsterCount = 4;
                 break;
             case 2:
                 Field_inMonster[0] = Instantiate(Monster_Object[1], Field_transform[0], Quaternion.identity);

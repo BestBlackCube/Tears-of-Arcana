@@ -109,7 +109,6 @@ public class Player_Script : MonoBehaviour
             CardName_inStatus(deckField.Click_Card.Card_name);
             deckField.Click_Card.CardDestroy();
             deckField.Click_Card = null;
-            deck.CardCount--;
             deckField.cardHide = false;
             targetPlayerCard = false;
         }

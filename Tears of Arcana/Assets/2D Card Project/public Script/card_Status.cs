@@ -31,11 +31,17 @@ public class card_Status
 
         switch(name)
         {
+            case Card_namedata.Next:
+                status = new card_Status(Card_name, "다음으로", 0, 0, 0, 0, 0);
+                break;
+            case Card_namedata.Return:
+                status = new card_Status(Card_name, "이전으로", 0, 0, 0, 0, 0);
+                break;
             case Card_namedata.HealthPotion:
-                status = new card_Status(Card_name, "하급회복포션", 0, 0, 10, 0, 0);
+                status = new card_Status(Card_name, "하급회복물약", 0, 0, 10, 0, 0);
                 break;
             case Card_namedata.HighHealthPotion:
-                status = new card_Status(Card_name, "상급회복포션", 0, 0, 30, 0, 0);
+                status = new card_Status(Card_name, "상급회복물약", 0, 0, 30, 0, 0);
                 break;
             case Card_namedata.Meditation:
                 status = new card_Status(Card_name, "명상", 0, 0, 60, 0, 0);

@@ -184,43 +184,43 @@ PrefabInstance:
       objectReference: {fileID: 1835323190112049813, guid: 9fba9873be142e844bed3af9857c6082, type: 3}
     - target: {fileID: 4042670412017841010, guid: 29a064d3daac6bc4f8870db50aefc1cf, type: 3}
       propertyPath: cardname.Array.data[0]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4042670412017841010, guid: 29a064d3daac6bc4f8870db50aefc1cf, type: 3}
-      propertyPath: cardname.Array.data[1]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4042670412017841010, guid: 29a064d3daac6bc4f8870db50aefc1cf, type: 3}
-      propertyPath: cardname.Array.data[2]
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4042670412017841010, guid: 29a064d3daac6bc4f8870db50aefc1cf, type: 3}
-      propertyPath: cardname.Array.data[3]
+      propertyPath: cardname.Array.data[1]
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4042670412017841010, guid: 29a064d3daac6bc4f8870db50aefc1cf, type: 3}
-      propertyPath: cardname.Array.data[4]
+      propertyPath: cardname.Array.data[2]
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4042670412017841010, guid: 29a064d3daac6bc4f8870db50aefc1cf, type: 3}
-      propertyPath: cardname.Array.data[5]
+      propertyPath: cardname.Array.data[3]
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4042670412017841010, guid: 29a064d3daac6bc4f8870db50aefc1cf, type: 3}
-      propertyPath: cardname.Array.data[6]
+      propertyPath: cardname.Array.data[4]
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4042670412017841010, guid: 29a064d3daac6bc4f8870db50aefc1cf, type: 3}
-      propertyPath: cardname.Array.data[7]
+      propertyPath: cardname.Array.data[5]
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4042670412017841010, guid: 29a064d3daac6bc4f8870db50aefc1cf, type: 3}
-      propertyPath: cardname.Array.data[8]
+      propertyPath: cardname.Array.data[6]
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4042670412017841010, guid: 29a064d3daac6bc4f8870db50aefc1cf, type: 3}
-      propertyPath: cardname.Array.data[9]
+      propertyPath: cardname.Array.data[7]
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4042670412017841010, guid: 29a064d3daac6bc4f8870db50aefc1cf, type: 3}
+      propertyPath: cardname.Array.data[8]
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4042670412017841010, guid: 29a064d3daac6bc4f8870db50aefc1cf, type: 3}
+      propertyPath: cardname.Array.data[9]
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 4042670412017841010, guid: 29a064d3daac6bc4f8870db50aefc1cf, type: 3}
       propertyPath: CardData.Array.data[10]
@@ -232,11 +232,11 @@ PrefabInstance:
       objectReference: {fileID: 8763420393222272967, guid: f58a2951e46a8784daf6209174912471, type: 3}
     - target: {fileID: 4042670412017841010, guid: 29a064d3daac6bc4f8870db50aefc1cf, type: 3}
       propertyPath: cardname.Array.data[10]
-      value: 10
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4042670412017841010, guid: 29a064d3daac6bc4f8870db50aefc1cf, type: 3}
       propertyPath: cardname.Array.data[11]
-      value: 11
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 4042670412017841010, guid: 29a064d3daac6bc4f8870db50aefc1cf, type: 3}
       propertyPath: CardSprite.Array.data[0]
@@ -1394,6 +1394,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deck: {fileID: 1141034316}
+  deckField: {fileID: 1812117084}
+  StageCard:
+  - {fileID: 3774833953419205779, guid: 136a153ea5ec17240a459b39fd96a14c, type: 3}
+  - {fileID: 3690570517409298422, guid: 4bffbb68afda39a4a814e18dd7d47b7a, type: 3}
   Monster_Object:
   - {fileID: 2653627544822697513, guid: 9566d10893c6b8245841e755ad115b25, type: 3}
   - {fileID: 1059204501786189995, guid: 086bd5ab680aee940b02aba6735e97ce, type: 3}
@@ -1411,6 +1415,8 @@ MonoBehaviour:
   - 
   NextStage: 0
   StageCount: 0
+  MonsterCount: 0
+  MonsterDeadCount: 0
   Field_transform:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
@@ -1550,6 +1556,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1715047091}
   m_CullTransparentMesh: 1
+--- !u!114 &1812117084 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5816069794088511687, guid: 224e4dbb35f313c4791f0afa2ae11850, type: 3}
+  m_PrefabInstance: {fileID: 8308497603542533306}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3411276165dbb1e4ea49275d469c5fe6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1995895227
 GameObject:
   m_ObjectHideFlags: 0

@@ -166,6 +166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Funnel_Image: {fileID: 2031715818993322335, guid: d34754ceb791db3409e92e8158d5f2a1, type: 3}
+  targetGuide_Image: {fileID: 8459620753264579314, guid: aa277d397646ed64d995c622219d126a, type: 3}
   HpBar_prefab: {fileID: 9215448965330041918, guid: 8aa152ab600cada4c8c99d89fd11a4b5, type: 3}
   canvas: {fileID: 0}
   unitname: 2

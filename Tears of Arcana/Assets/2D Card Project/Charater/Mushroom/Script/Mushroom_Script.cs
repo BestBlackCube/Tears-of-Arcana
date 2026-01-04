@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class Mushroom_Script : MonoBehaviour
 {
-    public GameObject Funnel_Image;
-    GameObject Funnel;
+    public GameObject targetGuide_Image;
+    GameObject targetGuide;
 
     public GameObject HpBar_prefab;
     public GameObject canvas;
@@ -72,29 +72,29 @@ public class Mushroom_Script : MonoBehaviour
         Attack_Order();
         if (EnemyAttack) Attack();
         if (HIT_Enemy) Hit_Enemy();
-
-        if (Funnel == null && targetCard) // ±ò¶§±â »ý¼º
-        {
-            Vector3 offset = new Vector3(0, 3.5f, 0);
-            Funnel = Instantiate(Funnel_Image, offset, Quaternion.identity);
-            Funnel_Script funnel = Funnel.GetComponent<Funnel_Script>();
-            funnel.target = this.transform;
-            funnel.offset = offset;
-        }
-        if (Funnel != null && !targetCard)
-        {
-            Destroy(Funnel); // ±ò¶§±â Á¦°Å
-        }
     }
     void OnMouseOver()
     {
         cardUse = true;
         if (targetCard && deckField.Click_Card != null) deckField.Click_Card.Object_name = "Mushroom";
+
+        if (targetCard && targetGuide == null)
+        {
+            Vector3 guide_offset = new Vector3(0, 0, 0);
+            targetGuide = Instantiate(targetGuide_Image, guide_offset, Quaternion.identity);
+            EnemyTargetBar_Script guide = targetGuide.GetComponent<EnemyTargetBar_Script>();
+            guide.target = this.transform;
+            guide.offset[0] = new Vector3(-1.6f, 3f, 0);
+            guide.offset[1] = new Vector3(1f, 3f, 0);
+            guide.offset[2] = new Vector3(-1.6f, -3f, 0);
+            guide.offset[3] = new Vector3(1f, -3f, 0);
+        }
     }
     void OnMouseExit()
     {
         cardUse = false;
         if (targetCard && deckField.Click_Card != null) deckField.Click_Card.Object_name = "";
+        if (targetGuide != null) Destroy(targetGuide);
     }
     void OnMouseDown()
     {
@@ -105,7 +105,6 @@ public class Mushroom_Script : MonoBehaviour
             CardData_inEnemy(deckField.Click_Card.Card_name);
             deckField.Click_Card.CardDestroy();
             deckField.Click_Card = null;
-            deck.CardCount = 0;
             deckField.cardHide = false;
             player.animation_Attack = true;
             player.targetPlayerCard = false;
@@ -191,6 +190,7 @@ public class Mushroom_Script : MonoBehaviour
             if (Dead_timer < 0.6f) Dead_timer += Time.deltaTime;
             else
             {
+                ObjectSet.MonsterDeadCount++;
                 Enemy_NameLess();
                 Destroy(gameObject);
                 Destroy(hpbar.gameObject);

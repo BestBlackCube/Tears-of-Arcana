@@ -5,6 +5,8 @@ using UnityEngine;
 
 public enum Card_namedata
 {
+    Next,
+    Return,
     HealthPotion,
     HighHealthPotion,
     Meditation,

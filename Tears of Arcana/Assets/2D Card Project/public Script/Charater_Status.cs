@@ -34,16 +34,16 @@ public class Charater_Status
                 status = new Charater_Status(Charater_name, "ÇÃ·¹ÀÌ¾î", 100, 100, 0);
                 break;
             case Charater_namedata.Skeleton:
-                status = new Charater_Status(Charater_name, "½ºÄÌ·¹Åæ", 50, 0, 0);
+                status = new Charater_Status(Charater_name, "½ºÄÌ·¹Åæ", 10, 0, 0);
                 break;
             case Charater_namedata.Eye:
-                status = new Charater_Status(Charater_name, "´«±«¹°", 30, 0, 0);
+                status = new Charater_Status(Charater_name, "´«±«¹°", 10, 0, 0);
                 break;
             case Charater_namedata.Goblin:
-                status = new Charater_Status(Charater_name, "°íºí¸°", 50, 0, 0);
+                status = new Charater_Status(Charater_name, "°íºí¸°", 10, 0, 0);
                 break;
             case Charater_namedata.Mushroom:
-                status = new Charater_Status(Charater_name, "¹ö¼¸±«¹°", 120, 0, 0);
+                status = new Charater_Status(Charater_name, "¹ö¼¸±«¹°", 10, 0, 0);
                 break;
 
             default:

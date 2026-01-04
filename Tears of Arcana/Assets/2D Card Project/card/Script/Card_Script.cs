@@ -131,10 +131,16 @@ public class Card_Script : MonoBehaviour
         {
             switch (Card_name)
             {
-                case "하급회복포션":
+                case "다음으로":
                     player.targetPlayerCard = true;
                     break;
-                case "상급회복포션":
+                case "이전으로":
+                    player.targetPlayerCard = true;
+                    break;
+                case "하급회복물약":
+                    player.targetPlayerCard = true;
+                    break;
+                case "상급회복물약":
                     player.targetPlayerCard = true;
                     break;
                 case "명상":
@@ -234,19 +240,19 @@ public class Card_Script : MonoBehaviour
                 transform.position = Vector3.Lerp(transform.position, playerPosition, 5 * Time.deltaTime);
                 break;
             case "Skeleton": // 스켈레톤 일 경우
-                Vector3 skeletonPositon = new Vector3(skeleton.transform.position.x, skeleton.transform.position.y + 7, 0);
+                Vector3 skeletonPositon = new Vector3(skeleton.transform.position.x, skeleton.transform.position.y + 6.5f, 0);
                 transform.position = Vector3.Lerp(transform.position, skeletonPositon, 5 * Time.deltaTime);
                 break;
             case "Eye":
-                Vector3 eyePosition = new Vector3(eye.transform.position.x, eye.transform.position.y + 7, 0);
+                Vector3 eyePosition = new Vector3(eye.transform.position.x, eye.transform.position.y + 5.5f, 0);
                 transform.position = Vector3.Lerp(transform.position, eyePosition, 5 * Time.deltaTime);
                 break;
             case "Goblin":
-                Vector3 GoblinPosition = new Vector3(goblin.transform.position.x, goblin.transform.position.y + 7, 0);
+                Vector3 GoblinPosition = new Vector3(goblin.transform.position.x, goblin.transform.position.y + 5.5f, 0);
                 transform.position = Vector3.Lerp(transform.position, GoblinPosition, 5 * Time.deltaTime);
                 break;
             case "Mushroom":
-                Vector3 MushroomPosition = new Vector3(mushroom.transform.position.x, mushroom.transform.position.y + 7, 0);
+                Vector3 MushroomPosition = new Vector3(mushroom.transform.position.x, mushroom.transform.position.y + 7f, 0);
                 transform.position = Vector3.Lerp(transform.position, MushroomPosition, 5 * Time.deltaTime);
                 break;
             default: // 그외
