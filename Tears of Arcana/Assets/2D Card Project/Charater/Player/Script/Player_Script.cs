@@ -7,8 +7,9 @@ using UnityEngine.UIElements;
 
 public class Player_Script : MonoBehaviour
 {
-    CardDeckField_Script deckField;
-    CardDeck_Script deck;
+    public EnemyObjectSet_Script ObjectSet;
+    public CardDeckField_Script deckField;
+    public CardDeck_Script deck;
     Card_Script card;
     Animator animator;
 
@@ -51,8 +52,6 @@ public class Player_Script : MonoBehaviour
         animator = GetComponent<Animator>();
         baseTransform = transform.position;
 
-        deckField = FindObjectOfType<CardDeckField_Script>();
-        deck = FindObjectOfType<CardDeck_Script>();
 
         status = new Charater_Status();
         status = status.Char_inStatus(unitname);
@@ -223,6 +222,15 @@ public class Player_Script : MonoBehaviour
     {
         switch(name)
         {
+            case "다음으로":
+                ObjectSet.StageCardInput = true;
+                int StageUp = PlayerPrefs.GetInt("Stage");
+                StageUp++;
+                PlayerPrefs.SetInt("Stage", StageUp);
+                ObjectSet.NextStage = true;
+                break;
+            case "이전으로":
+                break;
             case "하급회복물약":
                 nowHp += deckField.Click_Card.health;
                 if (nowHp > 100) nowHp = 100;

@@ -106,7 +106,6 @@ public class Eye_Script : MonoBehaviour
             CardData_inEnemy(deckField.Click_Card.Card_name);
             deckField.Click_Card.CardDestroy();
             deckField.Click_Card = null;
-            deckField.cardHide = false;
             player.animation_Attack = true;
             player.targetPlayerCard = false;
             targetCard = false;
@@ -180,6 +179,7 @@ public class Eye_Script : MonoBehaviour
 
         if (EnemyDamage)
         {
+            deckField.cardHide = false;
             nowHp -= Card_Damage;
             Card_Damage = 0;
             EnemyDamage = false;
@@ -236,6 +236,7 @@ public class Eye_Script : MonoBehaviour
                 if (ObjectSet.Enemy_Name[1] != null) attack_order.Order_2 = true;
                 else if (ObjectSet.Enemy_Name[2] != null) attack_order.Order_3 = true;
                 else if (ObjectSet.Enemy_Name[3] != null) attack_order.Order_4 = true;
+                else attack_order.CardAdd = true;
                 EnemyAttack = false;
                 animation_Attack = false;
             }
@@ -248,6 +249,7 @@ public class Eye_Script : MonoBehaviour
                 attack_order.Order_2 = false;
                 if (ObjectSet.Enemy_Name[2] != null) attack_order.Order_3 = true;
                 else if (ObjectSet.Enemy_Name[3] != null) attack_order.Order_4 = true;
+                else attack_order.CardAdd = true;
                 EnemyAttack = false;
                 animation_Attack = false;
             }
@@ -258,7 +260,8 @@ public class Eye_Script : MonoBehaviour
             if (animation_Attack)
             {
                 attack_order.Order_3 = false;
-                attack_order.Order_4 = true;
+                if (ObjectSet.Enemy_Name[3] != null) attack_order.Order_4 = true;
+                else attack_order.CardAdd = true;
                 EnemyAttack = false;
                 animation_Attack = false;
             }

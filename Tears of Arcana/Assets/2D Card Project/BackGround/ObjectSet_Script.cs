@@ -36,6 +36,7 @@ public class ObjectSet_Script : MonoBehaviour
                 Order_1 = true;
                 Order = false;
             }
+
             if (ObjectSet.Enemy_Name[0] != null)
             {
                 Order_1 = true;
@@ -54,6 +55,12 @@ public class ObjectSet_Script : MonoBehaviour
             else if (ObjectSet.Enemy_Name[3] != null)
             {
                 Order_4 = true;
+                Order = false;
+            }
+            else if (ObjectSet.Enemy_Name[0] == null && ObjectSet.Enemy_Name[1] == null &&
+                     ObjectSet.Enemy_Name[2] == null && ObjectSet.Enemy_Name[3] == null)
+            {
+                CardAdd = true;
                 Order = false;
             }
         }

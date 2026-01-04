@@ -23,7 +23,6 @@ public class CardDeckField_Script : MonoBehaviour
 
     public bool cardHide = false;
     public bool cardMove_Rock = false;
-    public bool card_Setting = false;
     public bool newField = false;
     public bool rolling = false;
 

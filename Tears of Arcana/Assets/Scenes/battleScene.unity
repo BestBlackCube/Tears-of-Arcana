@@ -1414,6 +1414,8 @@ MonoBehaviour:
   - 
   - 
   NextStage: 0
+  StageCardInput: 0
+  nullAndinput: 1
   StageCount: 0
   MonsterCount: 0
   MonsterDeadCount: 0
@@ -1851,6 +1853,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4104663444431250751, guid: b8f7d1d43648754448003f207c4d9974, type: 3}
+      propertyPath: deck
+      value: 
+      objectReference: {fileID: 1141034316}
+    - target: {fileID: 4104663444431250751, guid: b8f7d1d43648754448003f207c4d9974, type: 3}
+      propertyPath: ObjectSet
+      value: 
+      objectReference: {fileID: 1541582973}
+    - target: {fileID: 4104663444431250751, guid: b8f7d1d43648754448003f207c4d9974, type: 3}
+      propertyPath: deckField
+      value: 
+      objectReference: {fileID: 1812117084}
     - target: {fileID: 7092457984515693291, guid: b8f7d1d43648754448003f207c4d9974, type: 3}
       propertyPath: m_Name
       value: Player

@@ -137,7 +137,6 @@ public class CardDeck_Script : MonoBehaviour
                     }
                     deckField.rolling = true;
                     CardCount++; // 뽑을수 있는 카드 인덱스 증가
-                    deckField.card_Setting = true; // 카드 위치 셋팅 하는 코드 실행
                     deckField.DeckField_nowCard++; // 인덱스 증가
                     Cardinput_timer = 0f;
                 }
