@@ -47,8 +47,10 @@ public class Stage_Script : MonoBehaviour
                     }
                     else
                     {
+                        stage_timer = 0;
+                        stagePanel_timer = 0;
+                        delay_timer = 0;
                         blackBox = true;
-                        stageStart = false;
                     }
                 }
             }

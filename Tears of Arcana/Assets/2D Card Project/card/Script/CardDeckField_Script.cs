@@ -12,7 +12,6 @@ public class CardDeckField_Script : MonoBehaviour
 {
     public int DeckField_nowCard = 0;
 
-    public GameObject turnEnd;
 
     public Card_Script Click_Card;
     public GameObject[] Card_inField;
@@ -30,7 +29,6 @@ public class CardDeckField_Script : MonoBehaviour
     public Quaternion start = Quaternion.Euler(0, 0, 0);
     public Quaternion end = Quaternion.Euler(0, 360, 0);
 
-    bool turn = false;
     float space = 3.5f;
 
     Vector3 basePosition = new Vector3(-1, -8.25f, 0);
@@ -52,7 +50,7 @@ public class CardDeckField_Script : MonoBehaviour
                 if (Card_inField_Script[i] != null && !Card_inField_Script[i].Card_noHide)
                 {
                     if (Card_inField_Script[i].transform.position.y > -20) Card_inField_Script[i].transform.position = 
-                            new Vector3(Card_inField_Script[i].transform.position.x,Card_inField_Script[i].transform.position.y - 20f * Time.deltaTime, 0);
+                            new Vector3(Card_inField_Script[i].transform.position.x,Card_inField_Script[i].transform.position.y - 50f * Time.deltaTime, 0);
                 }
             }
         }
@@ -63,15 +61,6 @@ public class CardDeckField_Script : MonoBehaviour
 
         if (!cardMove_Rock) // 카드를 움직이지 않게 막는 조건문
         {
-            if (DeckField_nowCard == 5) turn = true;
-            if(turn)
-            {
-                if(DeckField_nowCard == 0)
-                {
-                    turnEnd.SetActive(enabled);
-                    turn = false;
-                }
-            }
             for (int i = 0; i < DeckField_nowCard; i++)
             {
                 if (Card_inField[i] != null) // 카드가 생성이 되었을 때

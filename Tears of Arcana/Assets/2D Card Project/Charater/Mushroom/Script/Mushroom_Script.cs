@@ -5,8 +5,12 @@ using UnityEngine.UI;
 
 public class Mushroom_Script : MonoBehaviour
 {
-    public GameObject targetGuide_Image;
+    public GameObject TargetGuide_prefab;
     GameObject targetGuide;
+    public GameObject TargetArrow_prefab;
+    GameObject targetArrow;
+
+    public bool Arrow = false;
 
     public GameObject HpBar_prefab;
     public GameObject canvas;
@@ -15,7 +19,6 @@ public class Mushroom_Script : MonoBehaviour
     public Charater_Status status;
 
     RectTransform hpbar;
-
     Animator animator;
 
     public int Card_Damage;
@@ -78,16 +81,25 @@ public class Mushroom_Script : MonoBehaviour
         Attack_Order();
         if (EnemyAttack) Attack();
         if (HIT_Enemy) Hit_Enemy();
+        if (!Arrow && targetArrow != null) Destroy(targetArrow);
+        if (targetCard && Arrow && targetArrow == null)
+        {
+            Vector3 player_offset = new Vector3(transform.position.x, 6, 0);
+            targetArrow = Instantiate(TargetArrow_prefab, player_offset, Quaternion.identity);
+            TargetArrow_Script arrow = targetArrow.GetComponent<TargetArrow_Script>();
+            arrow.offset = player_offset;
+        }
     }
     void OnMouseOver()
     {
         cardUse = true;
+        if (Arrow && targetArrow != null) Arrow = false;
         if (targetCard && deckField.Click_Card != null) deckField.Click_Card.Object_name = "Mushroom";
 
         if (targetCard && targetGuide == null)
         {
             Vector3 guide_offset = new Vector3(0, 0, 0);
-            targetGuide = Instantiate(targetGuide_Image, guide_offset, Quaternion.identity);
+            targetGuide = Instantiate(TargetGuide_prefab, guide_offset, Quaternion.identity);
             EnemyTargetBar_Script guide = targetGuide.GetComponent<EnemyTargetBar_Script>();
             guide.target = this.transform;
             switch (deckField.Click_Card.Card_name)
@@ -110,20 +122,22 @@ public class Mushroom_Script : MonoBehaviour
                     guide.offset[3] = new Vector3(2f, -3f, 0);
                     break;
 
-
                 default:
                     break;
             }
         }
+        if (!targetCard && targetGuide != null) Destroy(targetGuide);
     }
     void OnMouseExit()
     {
         cardUse = false;
         if (targetCard && deckField.Click_Card != null) deckField.Click_Card.Object_name = "";
+        if (!Arrow && targetArrow == null) Arrow = true;
         if (targetGuide != null) Destroy(targetGuide);
     }
     void OnMouseDown()
     {
+        if (deckField.Click_Card != null)
         if (cardUse && deckField.Click_Card.Object_name == "Mushroom")
         {
             deckField.Click_Card.Card_MouseClick = false;

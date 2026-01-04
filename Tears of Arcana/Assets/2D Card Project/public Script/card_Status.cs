@@ -50,7 +50,7 @@ public class card_Status
                 status = new card_Status(Card_name, "일반마법", 20, 0, 0, 5, 0);
                 break;
             case Card_namedata.Fire:
-                status = new card_Status(Card_name, "화염장판", 0, 20, 0, 10, 0);
+                status = new card_Status(Card_name, "화염장판", 0, 200, 0, 10, 0);
                 break;
             case Card_namedata.Water:
                 status = new card_Status(Card_name, "얼음안개", 0, 20, 0, 10, 0);

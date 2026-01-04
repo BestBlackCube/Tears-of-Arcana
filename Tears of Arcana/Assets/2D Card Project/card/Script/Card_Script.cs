@@ -140,6 +140,7 @@ public class Card_Script : MonoBehaviour
                 case "고요한안식":
                 case "잔혹한계약":
                     player.targetPlayerCard = true;
+                    if (!player.Arrow) player.Arrow = true;
                     break;
 
                 case "일반마법":
@@ -154,14 +155,12 @@ public class Card_Script : MonoBehaviour
                     EnemymultipleTarget(true);
                     break;
 
-
                 default:
                     break;
             }
         }
         else
         {
-
             switch (Card_name)
             {
                 case "다음으로":
@@ -173,6 +172,7 @@ public class Card_Script : MonoBehaviour
                 case "고요한안식":
                 case "잔혹한계약":
                     player.targetPlayerCard = false;
+                    if(player.Arrow) player.Arrow = false;
                     break;
 
                 case "일반마법":
@@ -187,7 +187,6 @@ public class Card_Script : MonoBehaviour
                     EnemymultipleTarget(false);
                     break;
 
-
                 default:
                     break;
             }
@@ -201,24 +200,53 @@ public class Card_Script : MonoBehaviour
             if (ObjectSet.Enemy_Name[0] == "Skeleton" || ObjectSet.Enemy_Name[1] == "Skeleton" ||
             ObjectSet.Enemy_Name[2] == "Skeleton" || ObjectSet.Enemy_Name[3] == "Skeleton")
             {
-                skeleton.targetCard = true;
-                if (skeleton.HIT_Enemy) skeleton.HIT_Enemy = false;
+                if (ObjectSet.Enemy_Name[0] == "Skeleton")
+                {
+                    ObjectSet.Field_inMonster[0].GetComponent<Skeleton_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[0].GetComponent<Skeleton_Script>().targetCard = true;
+                    if (ObjectSet.Field_inMonster[0].GetComponent<Skeleton_Script>().HIT_Enemy)
+                    ObjectSet.Field_inMonster[0].GetComponent<Skeleton_Script>().HIT_Enemy = false;
+                }
+                if (ObjectSet.Enemy_Name[1] == "Skeleton")
+                {
+                    ObjectSet.Field_inMonster[1].GetComponent<Skeleton_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[1].GetComponent<Skeleton_Script>().targetCard = true;
+                    if (ObjectSet.Field_inMonster[1].GetComponent<Skeleton_Script>().HIT_Enemy)
+                    ObjectSet.Field_inMonster[1].GetComponent<Skeleton_Script>().HIT_Enemy = false;
+                }
+                if (ObjectSet.Enemy_Name[2] == "Skeleton")
+                {
+                    ObjectSet.Field_inMonster[2].GetComponent<Skeleton_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[2].GetComponent<Skeleton_Script>().targetCard = true;
+                    if (ObjectSet.Field_inMonster[2].GetComponent<Skeleton_Script>().HIT_Enemy)
+                    ObjectSet.Field_inMonster[2].GetComponent<Skeleton_Script>().HIT_Enemy = true;
+                }
+                if (ObjectSet.Enemy_Name[3] == "Skeleton") 
+                { 
+                    ObjectSet.Field_inMonster[3].GetComponent<Skeleton_Script>().Arrow = true; 
+                    ObjectSet.Field_inMonster[3].GetComponent<Skeleton_Script>().targetCard = true; 
+                    if (ObjectSet.Field_inMonster[3].GetComponent<Skeleton_Script>().HIT_Enemy) 
+                    ObjectSet.Field_inMonster[3].GetComponent<Skeleton_Script>().HIT_Enemy = true; 
+                }
             }
             if (ObjectSet.Enemy_Name[0] == "Eye" || ObjectSet.Enemy_Name[1] == "Eye" ||
                 ObjectSet.Enemy_Name[2] == "Eye" || ObjectSet.Enemy_Name[3] == "Eye")
             {
+                eye.Arrow = true;
                 eye.targetCard = true;
                 if (eye.HIT_Enemy) eye.HIT_Enemy = false;
             }
             if (ObjectSet.Enemy_Name[0] == "Goblin" || ObjectSet.Enemy_Name[1] == "Goblin" ||
                 ObjectSet.Enemy_Name[2] == "Goblin" || ObjectSet.Enemy_Name[3] == "Goblin")
             {
+                goblin.Arrow = true;
                 goblin.targetCard = true;
                 if (goblin.HIT_Enemy) goblin.HIT_Enemy = false;
             }
             if (ObjectSet.Enemy_Name[0] == "Mushroom" || ObjectSet.Enemy_Name[1] == "Mushroom" ||
                 ObjectSet.Enemy_Name[2] == "Mushroom" || ObjectSet.Enemy_Name[3] == "Mushroom")
             {
+                mushroom.Arrow = true;
                 mushroom.targetCard = true;
                 if (mushroom.HIT_Enemy) mushroom.HIT_Enemy = false;
             }
@@ -228,21 +256,47 @@ public class Card_Script : MonoBehaviour
             if (ObjectSet.Enemy_Name[0] == "Skeleton" || ObjectSet.Enemy_Name[1] == "Skeleton" ||
                 ObjectSet.Enemy_Name[2] == "Skeleton" || ObjectSet.Enemy_Name[3] == "Skeleton")
             {
-                if (skeleton.targetCard) skeleton.targetCard = false;
+                if (ObjectSet.Enemy_Name[0] == "Skeleton")
+                {
+                    ObjectSet.Field_inMonster[0].GetComponent<Skeleton_Script>().Arrow = false;
+                    if (ObjectSet.Field_inMonster[0].GetComponent<Skeleton_Script>().targetCard)
+                    ObjectSet.Field_inMonster[0].GetComponent<Skeleton_Script>().targetCard = false;
+                }
+                if (ObjectSet.Enemy_Name[1] == "Skeleton")
+                {
+                    ObjectSet.Field_inMonster[1].GetComponent<Skeleton_Script>().Arrow = false;
+                    if (ObjectSet.Field_inMonster[1].GetComponent<Skeleton_Script>().targetCard)
+                    ObjectSet.Field_inMonster[1].GetComponent<Skeleton_Script>().targetCard = false;
+                }
+                if (ObjectSet.Enemy_Name[2] == "Skeleton")
+                {
+                    ObjectSet.Field_inMonster[2].GetComponent<Skeleton_Script>().Arrow = false;
+                    if (ObjectSet.Field_inMonster[2].GetComponent<Skeleton_Script>().targetCard)
+                    ObjectSet.Field_inMonster[2].GetComponent<Skeleton_Script>().targetCard = false;
+                }
+                if (ObjectSet.Enemy_Name[3] == "Skeleton")
+                {
+                    ObjectSet.Field_inMonster[3].GetComponent<Skeleton_Script>().Arrow = false;
+                    if (ObjectSet.Field_inMonster[3].GetComponent<Skeleton_Script>().targetCard)
+                    ObjectSet.Field_inMonster[3].GetComponent<Skeleton_Script>().targetCard = false;
+                }
             }
             if (ObjectSet.Enemy_Name[0] == "Eye" || ObjectSet.Enemy_Name[1] == "Eye" ||
                 ObjectSet.Enemy_Name[2] == "Eye" || ObjectSet.Enemy_Name[3] == "Eye")
             {
+                eye.Arrow = false;
                 if (eye.targetCard) eye.targetCard = false;
             }
             if (ObjectSet.Enemy_Name[0] == "Goblin" || ObjectSet.Enemy_Name[1] == "Goblin" ||
                 ObjectSet.Enemy_Name[2] == "Goblin" || ObjectSet.Enemy_Name[3] == "Goblin")
             {
+                goblin.Arrow = false;
                 if (goblin.targetCard) goblin.targetCard = false;
             }
             if (ObjectSet.Enemy_Name[0] == "Mushroom" || ObjectSet.Enemy_Name[1] == "Mushroom" ||
                 ObjectSet.Enemy_Name[2] == "Mushroom" || ObjectSet.Enemy_Name[3] == "Mushroom")
             {
+                mushroom.Arrow = false;
                 if (mushroom.targetCard) mushroom.targetCard = false;
             }
         }
@@ -254,13 +308,43 @@ public class Card_Script : MonoBehaviour
             if (ObjectSet.Enemy_Name[0] == "Skeleton" || ObjectSet.Enemy_Name[1] == "Skeleton" ||
             ObjectSet.Enemy_Name[2] == "Skeleton" || ObjectSet.Enemy_Name[3] == "Skeleton")
             {
-                skeleton.targetCard = true;
-                if (!skeleton.HIT_Enemy) skeleton.HIT_Enemy = true;
-                skeleton.Card_Damage = deckField.Click_Card.multiple_damage;
+                if (ObjectSet.Enemy_Name[0] == "Skeleton")
+                {
+                    ObjectSet.Field_inMonster[0].GetComponent<Skeleton_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[0].GetComponent<Skeleton_Script>().targetCard = true;
+                    ObjectSet.Field_inMonster[0].GetComponent<Skeleton_Script>().Card_Damage = deckField.Click_Card.multiple_damage;
+                    if (ObjectSet.Field_inMonster[0].GetComponent<Skeleton_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[0].GetComponent<Skeleton_Script>().HIT_Enemy = false;
+                }
+                if (ObjectSet.Enemy_Name[1] == "Skeleton")
+                {
+                    ObjectSet.Field_inMonster[1].GetComponent<Skeleton_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[1].GetComponent<Skeleton_Script>().targetCard = true;
+                    ObjectSet.Field_inMonster[1].GetComponent<Skeleton_Script>().Card_Damage = deckField.Click_Card.multiple_damage;
+                    if (ObjectSet.Field_inMonster[1].GetComponent<Skeleton_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[1].GetComponent<Skeleton_Script>().HIT_Enemy = false;
+                }
+                if (ObjectSet.Enemy_Name[2] == "Skeleton")
+                {
+                    ObjectSet.Field_inMonster[2].GetComponent<Skeleton_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[2].GetComponent<Skeleton_Script>().targetCard = true;
+                    ObjectSet.Field_inMonster[2].GetComponent<Skeleton_Script>().Card_Damage = deckField.Click_Card.multiple_damage;
+                    if (ObjectSet.Field_inMonster[2].GetComponent<Skeleton_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[2].GetComponent<Skeleton_Script>().HIT_Enemy = true;
+                }
+                if (ObjectSet.Enemy_Name[3] == "Skeleton")
+                {
+                    ObjectSet.Field_inMonster[3].GetComponent<Skeleton_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[3].GetComponent<Skeleton_Script>().targetCard = true;
+                    ObjectSet.Field_inMonster[3].GetComponent<Skeleton_Script>().Card_Damage = deckField.Click_Card.multiple_damage;
+                    if (ObjectSet.Field_inMonster[3].GetComponent<Skeleton_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[3].GetComponent<Skeleton_Script>().HIT_Enemy = true;
+                }
             }
             if (ObjectSet.Enemy_Name[0] == "Eye" || ObjectSet.Enemy_Name[1] == "Eye" ||
                 ObjectSet.Enemy_Name[2] == "Eye" || ObjectSet.Enemy_Name[3] == "Eye")
             {
+                eye.Arrow = true;
                 eye.targetCard = true;
                 if (!eye.HIT_Enemy) eye.HIT_Enemy = true;
                 eye.Card_Damage = deckField.Click_Card.multiple_damage;
@@ -268,6 +352,7 @@ public class Card_Script : MonoBehaviour
             if (ObjectSet.Enemy_Name[0] == "Goblin" || ObjectSet.Enemy_Name[1] == "Goblin" ||
                 ObjectSet.Enemy_Name[2] == "Goblin" || ObjectSet.Enemy_Name[3] == "Goblin")
             {
+                goblin.Arrow = true;
                 goblin.targetCard = true;
                 if (!goblin.HIT_Enemy) goblin.HIT_Enemy = true;
                 goblin.Card_Damage = deckField.Click_Card.multiple_damage;
@@ -275,6 +360,7 @@ public class Card_Script : MonoBehaviour
             if (ObjectSet.Enemy_Name[0] == "Mushroom" || ObjectSet.Enemy_Name[1] == "Mushroom" ||
                 ObjectSet.Enemy_Name[2] == "Mushroom" || ObjectSet.Enemy_Name[3] == "Mushroom")
             {
+                mushroom.Arrow = true;
                 mushroom.targetCard = true;
                 if (!mushroom.HIT_Enemy) mushroom.HIT_Enemy = true;
                 mushroom.Card_Damage = deckField.Click_Card.multiple_damage;
@@ -285,21 +371,47 @@ public class Card_Script : MonoBehaviour
             if (ObjectSet.Enemy_Name[0] == "Skeleton" || ObjectSet.Enemy_Name[1] == "Skeleton" ||
             ObjectSet.Enemy_Name[2] == "Skeleton" || ObjectSet.Enemy_Name[3] == "Skeleton")
             {
-                skeleton.targetCard = false;
+                if (ObjectSet.Enemy_Name[0] == "Skeleton")
+                {
+                    ObjectSet.Field_inMonster[0].GetComponent<Skeleton_Script>().Arrow = false;
+                    if (ObjectSet.Field_inMonster[0].GetComponent<Skeleton_Script>().targetCard)
+                        ObjectSet.Field_inMonster[0].GetComponent<Skeleton_Script>().targetCard = false;
+                }
+                if (ObjectSet.Enemy_Name[1] == "Skeleton")
+                {
+                    ObjectSet.Field_inMonster[1].GetComponent<Skeleton_Script>().Arrow = false;
+                    if (ObjectSet.Field_inMonster[1].GetComponent<Skeleton_Script>().targetCard)
+                        ObjectSet.Field_inMonster[1].GetComponent<Skeleton_Script>().targetCard = false;
+                }
+                if (ObjectSet.Enemy_Name[2] == "Skeleton")
+                {
+                    ObjectSet.Field_inMonster[2].GetComponent<Skeleton_Script>().Arrow = false;
+                    if (ObjectSet.Field_inMonster[2].GetComponent<Skeleton_Script>().targetCard)
+                        ObjectSet.Field_inMonster[2].GetComponent<Skeleton_Script>().targetCard = false;
+                }
+                if (ObjectSet.Enemy_Name[3] == "Skeleton")
+                {
+                    ObjectSet.Field_inMonster[3].GetComponent<Skeleton_Script>().Arrow = false;
+                    if (ObjectSet.Field_inMonster[3].GetComponent<Skeleton_Script>().targetCard)
+                        ObjectSet.Field_inMonster[3].GetComponent<Skeleton_Script>().targetCard = false;
+                }
             }
             if (ObjectSet.Enemy_Name[0] == "Eye" || ObjectSet.Enemy_Name[1] == "Eye" ||
                 ObjectSet.Enemy_Name[2] == "Eye" || ObjectSet.Enemy_Name[3] == "Eye")
             {
+                eye.Arrow = false;
                 eye.targetCard = false;
             }
             if (ObjectSet.Enemy_Name[0] == "Goblin" || ObjectSet.Enemy_Name[1] == "Goblin" ||
                 ObjectSet.Enemy_Name[2] == "Goblin" || ObjectSet.Enemy_Name[3] == "Goblin")
             {
+                goblin.Arrow = false;
                 goblin.targetCard = false;
             }
             if (ObjectSet.Enemy_Name[0] == "Mushroom" || ObjectSet.Enemy_Name[1] == "Mushroom" ||
                 ObjectSet.Enemy_Name[2] == "Mushroom" || ObjectSet.Enemy_Name[3] == "Mushroom")
             {
+                mushroom.Arrow = false;
                 mushroom.targetCard = false;
             }
         }

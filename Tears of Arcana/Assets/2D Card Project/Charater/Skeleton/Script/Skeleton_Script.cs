@@ -6,8 +6,10 @@ using UnityEngine.UI;
 
 public class Skeleton_Script : MonoBehaviour
 {
-    public GameObject targetGuide_Image;
+    public GameObject TargetGuide_prefab;
     GameObject targetGuide;
+
+    public bool Arrow = false;
 
     public GameObject HpBar_prefab;
     public GameObject canvas;
@@ -15,9 +17,7 @@ public class Skeleton_Script : MonoBehaviour
     public Charater_namedata unitname;
     public Charater_Status status;
 
-    
     RectTransform hpbar;
-
     Animator animator;
 
     public int Card_Damage;
@@ -62,11 +62,9 @@ public class Skeleton_Script : MonoBehaviour
         ObjectSet = FindObjectOfType<EnemyObjectSet_Script>();
         attack_order = FindObjectOfType<ObjectSet_Script>();
 
-        hpbar = Instantiate(HpBar_prefab, canvas.transform).GetComponent<RectTransform>();
-        animationPosition();
+        animationPosition(1);
 
         nowHpbar = hpbar.transform.GetChild(0).GetComponent<Image>();
-
         animator = GetComponent<Animator>();
 
         player = FindObjectOfType<Player_Script>();
@@ -80,16 +78,21 @@ public class Skeleton_Script : MonoBehaviour
         Attack_Order();
         if(EnemyAttack) Attack();  // 공격
         if(HIT_Enemy) Hit_Enemy();    // 맞기
+        if (targetCard && !Arrow || !targetCard && !Arrow) targetArrow_inField();
+        if (targetCard && Arrow) animationPosition(2);
     }
     void OnMouseOver()
     {
         cardUse = true;
-        if (targetCard && deckField.Click_Card != null) deckField.Click_Card.Object_name = "Skeleton";
-
+        if (targetCard && deckField.Click_Card != null)
+        {
+            deckField.Click_Card.Object_name = "Skeleton";
+            Arrow = false;
+        }
         if(targetCard && targetGuide == null)
         {
             Vector3 guide_offset = new Vector3(0, 0, 0);
-            targetGuide = Instantiate(targetGuide_Image, guide_offset, Quaternion.identity);
+            targetGuide = Instantiate(TargetGuide_prefab, guide_offset, Quaternion.identity);
             EnemyTargetBar_Script guide = targetGuide.GetComponent<EnemyTargetBar_Script>();
             guide.target = this.transform;
 
@@ -113,20 +116,22 @@ public class Skeleton_Script : MonoBehaviour
                     guide.offset[3] = new Vector3(23f, -3f, 0);
                     break;
 
-
                 default:
                     break;
             }
         }
+        if(!targetCard && targetGuide != null) Destroy(targetGuide);
     }
     void OnMouseExit()
     {
         cardUse = false;
+        if (deckField.Click_Card != null && !Arrow) Arrow = true;
         if (targetCard && deckField.Click_Card != null) deckField.Click_Card.Object_name = "";
-        if(targetGuide != null) Destroy(targetGuide);
+        if (targetGuide != null) Destroy(targetGuide);
     }
     void OnMouseDown()
     {
+        if(deckField.Click_Card != null)
         if (cardUse && deckField.Click_Card.Object_name == "Skeleton")
         {
             deckField.Click_Card.Card_MouseClick = false;
@@ -227,38 +232,88 @@ public class Skeleton_Script : MonoBehaviour
             }
         }
     }
-    void animationPosition()
+    void animationPosition(int Range)
     {
-        if (ObjectSet.Enemy_Name[0] == "Skeleton")
+        if(Range == 1)
         {
-            Vector3 HpBarPos = new Vector3(transform.position.x, transform.position.y - 3.5f, 0);
-            hpbar.position = HpBarPos;
-            animation_position = ObjectSet.Field_transform[0];
+            if (this.gameObject == ObjectSet.Field_inMonster[0] && ObjectSet.Enemy_Name[0] == "Skeleton")
+            {
+                if (hpbar == null)
+                {
+                    hpbar = Instantiate(HpBar_prefab, canvas.transform).GetComponent<RectTransform>();
+                    Vector3 HpBarPos = new Vector3(transform.position.x, transform.position.y - 3.5f, 0);
+                    hpbar.position = HpBarPos;
+                    animation_position = ObjectSet.Field_transform[0];
+                }
+            }
+            if (this.gameObject == ObjectSet.Field_inMonster[1] && ObjectSet.Enemy_Name[1] == "Skeleton")
+            {
+                if (hpbar == null)
+                {
+                    hpbar = Instantiate(HpBar_prefab, canvas.transform).GetComponent<RectTransform>();
+                    Vector3 HpBarPos = new Vector3(transform.position.x, transform.position.y - 5f, 0);
+                    hpbar.position = HpBarPos;
+                    animation_position = ObjectSet.Field_transform[1];
+                }
+            }
+            if (this.gameObject == ObjectSet.Field_inMonster[2] && ObjectSet.Enemy_Name[2] == "Skeleton")
+            {
+                if (hpbar == null)
+                {
+                    hpbar = Instantiate(HpBar_prefab, canvas.transform).GetComponent<RectTransform>();
+                    Vector3 HpBarPos = new Vector3(transform.position.x, transform.position.y - 3.5f, 0);
+                    hpbar.position = HpBarPos;
+                    animation_position = ObjectSet.Field_transform[2];
+                }
+            }
+            if (this.gameObject == ObjectSet.Field_inMonster[3] && ObjectSet.Enemy_Name[3] == "Skeleton")
+            {
+                if (hpbar == null)
+                {
+                    hpbar = Instantiate(HpBar_prefab, canvas.transform).GetComponent<RectTransform>();
+                    Vector3 HpBarPos = new Vector3(transform.position.x, transform.position.y - 5f, 0);
+                    hpbar.position = HpBarPos;
+                    animation_position = ObjectSet.Field_transform[3];
+                }
+            }
         }
-        if (ObjectSet.Enemy_Name[1] == "Skeleton")
+        if(Range == 2)
         {
-            Vector3 HpBarPos = new Vector3(transform.position.x, transform.position.y - 5f, 0);
-            hpbar.position = HpBarPos;
-            animation_position = ObjectSet.Field_transform[1];
-        }
-        if (ObjectSet.Enemy_Name[2] == "Skeleton`")
-        {
-            Vector3 HpBarPos = new Vector3(transform.position.x, transform.position.y - 3.5f, 0);
-            hpbar.position = HpBarPos;
-            animation_position = ObjectSet.Field_transform[2];
-        }
-        if (ObjectSet.Enemy_Name[3] == "Skeleton")
-        {
-            Vector3 HpBarPos = new Vector3(transform.position.x, transform.position.y - 5f, 0);
-            hpbar.position = HpBarPos;
-            animation_position = ObjectSet.Field_transform[3];
+            if (this.gameObject == ObjectSet.Field_inMonster[0] && ObjectSet.TargetArrow[0] == null && ObjectSet.Enemy_Name[0] == "Skeleton")
+            {
+                Vector3 player_offset = new Vector3(animation_position.x, 6, 0);
+                ObjectSet.TargetArrow[0] = Instantiate(ObjectSet.TargetArrow_prefab, player_offset, Quaternion.identity);
+                TargetArrow_Script arrow = ObjectSet.TargetArrow[0].GetComponent<TargetArrow_Script>();
+                arrow.offset = player_offset;
+            }
+            if (this.gameObject == ObjectSet.Field_inMonster[1] && ObjectSet.TargetArrow[1] == null && ObjectSet.Enemy_Name[1] == "Skeleton")
+            {
+                Vector3 player_offset = new Vector3(animation_position.x, 6, 0);
+                ObjectSet.TargetArrow[1] = Instantiate(ObjectSet.TargetArrow_prefab, player_offset, Quaternion.identity);
+                TargetArrow_Script arrow = ObjectSet.TargetArrow[1].GetComponent<TargetArrow_Script>();
+                arrow.offset = player_offset;
+            }
+            if (this.gameObject == ObjectSet.Field_inMonster[2] && ObjectSet.TargetArrow[2] == null && ObjectSet.Enemy_Name[2] == "Skeleton")
+            {
+                Vector3 player_offset = new Vector3(animation_position.x, 6, 0);
+                ObjectSet.TargetArrow[2] = Instantiate(ObjectSet.TargetArrow_prefab, player_offset, Quaternion.identity);
+                TargetArrow_Script arrow = ObjectSet.TargetArrow[2].GetComponent<TargetArrow_Script>();
+                arrow.offset = player_offset;
+            }
+            if (this.gameObject == ObjectSet.Field_inMonster[3] && ObjectSet.TargetArrow[3] == null && ObjectSet.Enemy_Name[3] == "Skeleton")
+            {
+                Vector3 player_offset = new Vector3(animation_position.x, 6, 0);
+                ObjectSet.TargetArrow[3] = Instantiate(ObjectSet.TargetArrow_prefab, player_offset, Quaternion.identity);
+                TargetArrow_Script arrow = ObjectSet.TargetArrow[3].GetComponent<TargetArrow_Script>();
+                arrow.offset = player_offset;
+            }
         }
     }
     void Attack_Order()
     {
         if(stun_count != 0)
         {
-            if (ObjectSet.Enemy_Name[0] == "Skeleton" && attack_order.Order_1)
+            if (this.gameObject == ObjectSet.Field_inMonster[0] && ObjectSet.Enemy_Name[0] == "Skeleton" && attack_order.Order_1)
             {
                 stun_countDown = true;
                 if(stun_countDown)
@@ -271,7 +326,7 @@ public class Skeleton_Script : MonoBehaviour
                     else { attack_order.CardAdd = true; stun_countDown = false; }
                 }
             }
-            if (ObjectSet.Enemy_Name[1] == "Skeleton" && attack_order.Order_2)
+            if (this.gameObject == ObjectSet.Field_inMonster[1] && ObjectSet.Enemy_Name[1] == "Skeleton" && attack_order.Order_2)
             {
                 stun_countDown = true;
                 if (stun_countDown)
@@ -283,7 +338,7 @@ public class Skeleton_Script : MonoBehaviour
                     else { attack_order.CardAdd = true; stun_countDown = false; }
                 }
             }
-            if (ObjectSet.Enemy_Name[2] == "Skeleton" && attack_order.Order_3)
+            if (this.gameObject == ObjectSet.Field_inMonster[2] && ObjectSet.Enemy_Name[2] == "Skeleton" && attack_order.Order_3)
             {
                 stun_countDown = true;
                 if (stun_countDown)
@@ -294,7 +349,7 @@ public class Skeleton_Script : MonoBehaviour
                     else { attack_order.CardAdd = true; stun_countDown = false; }
                 }
             }
-            if (ObjectSet.Enemy_Name[3] == "Skeleton" && attack_order.Order_4)
+            if (this.gameObject == ObjectSet.Field_inMonster[3] && ObjectSet.Enemy_Name[3] == "Skeleton" && attack_order.Order_4)
             {
                 stun_countDown = true;
                 if (stun_countDown)
@@ -308,7 +363,7 @@ public class Skeleton_Script : MonoBehaviour
         }
         else
         {
-            if (ObjectSet.Enemy_Name[0] == "Skeleton" && attack_order.Order_1)
+            if (this.gameObject == ObjectSet.Field_inMonster[0] && ObjectSet.Enemy_Name[0] == "Skeleton" && attack_order.Order_1)
             {
                 EnemyAttack = true;
                 if (animation_Attack)
@@ -322,7 +377,7 @@ public class Skeleton_Script : MonoBehaviour
                     animation_Attack = false;
                 }
             }
-            if (ObjectSet.Enemy_Name[1] == "Skeleton" && attack_order.Order_2)
+            if (this.gameObject == ObjectSet.Field_inMonster[1] && ObjectSet.Enemy_Name[1] == "Skeleton" && attack_order.Order_2)
             {
                 EnemyAttack = true;
                 if (animation_Attack)
@@ -335,7 +390,7 @@ public class Skeleton_Script : MonoBehaviour
                     animation_Attack = false;
                 }
             }
-            if (ObjectSet.Enemy_Name[2] == "Skeleton" && attack_order.Order_3)
+            if (this.gameObject == ObjectSet.Field_inMonster[2] && ObjectSet.Enemy_Name[2] == "Skeleton" && attack_order.Order_3)
             {
                 EnemyAttack = true;
                 if (animation_Attack)
@@ -347,7 +402,7 @@ public class Skeleton_Script : MonoBehaviour
                     animation_Attack = false;
                 }
             }
-            if (ObjectSet.Enemy_Name[3] == "Skeleton" && attack_order.Order_4)
+            if (this.gameObject == ObjectSet.Field_inMonster[3] && ObjectSet.Enemy_Name[3] == "Skeleton" && attack_order.Order_4)
             {
                 EnemyAttack = true;
                 if (animation_Attack)
@@ -360,12 +415,19 @@ public class Skeleton_Script : MonoBehaviour
             }
         }
     }
+    void targetArrow_inField()
+    {
+        if(this.gameObject == ObjectSet.Field_inMonster[0] && ObjectSet.TargetArrow[0] != null && ObjectSet.Enemy_Name[0] == "Skeleton")
+        {
+            Destroy(ObjectSet.TargetArrow[0]);
+        }
+    }
     void Enemy_NameLess()
     {
-        if (ObjectSet.Enemy_Name[0] == "Skeleton") ObjectSet.Enemy_Name[0] = null;
-        if (ObjectSet.Enemy_Name[1] == "Skeleton") ObjectSet.Enemy_Name[1] = null;
-        if (ObjectSet.Enemy_Name[2] == "Skeleton") ObjectSet.Enemy_Name[2] = null;
-        if (ObjectSet.Enemy_Name[3] == "Skeleton") ObjectSet.Enemy_Name[3] = null;
+        if (this.gameObject == ObjectSet.Field_inMonster[0] && ObjectSet.Enemy_Name[0] == "Skeleton") ObjectSet.Enemy_Name[0] = null;
+        if (this.gameObject == ObjectSet.Field_inMonster[1] && ObjectSet.Enemy_Name[1] == "Skeleton") ObjectSet.Enemy_Name[1] = null;
+        if (this.gameObject == ObjectSet.Field_inMonster[2] && ObjectSet.Enemy_Name[2] == "Skeleton") ObjectSet.Enemy_Name[2] = null;
+        if (this.gameObject == ObjectSet.Field_inMonster[3] && ObjectSet.Enemy_Name[3] == "Skeleton") ObjectSet.Enemy_Name[3] = null;
     }
     void CardData_inEnemy(string name)
     {

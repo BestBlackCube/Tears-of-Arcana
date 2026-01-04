@@ -1133,11 +1133,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deck: {fileID: 1141034316}
   stage: {fileID: 912199428}
-  enemySet: {fileID: 1541582973}
+  ObjectSet: {fileID: 1541582973}
   loading: {fileID: 354192567}
   blackScreen: {fileID: 995504179}
   Loading_timer: 0
   Screen_timer: 0
+  PlayerNext: 0
 --- !u!114 &995504179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1395,6 +1396,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deck: {fileID: 1141034316}
   deckField: {fileID: 1812117084}
+  turnEnd_prefab: {fileID: 902272108}
   StageCard:
   - {fileID: 3774833953419205779, guid: 136a153ea5ec17240a459b39fd96a14c, type: 3}
   - {fileID: 3690570517409298422, guid: 4bffbb68afda39a4a814e18dd7d47b7a, type: 3}
@@ -1404,6 +1406,12 @@ MonoBehaviour:
   - {fileID: 1620471229787752939, guid: 5a6418b619447094f83e6aa73c29dff1, type: 3}
   - {fileID: 7143446145693591927, guid: 6e21a0e6d288c2d41ae98725018785ca, type: 3}
   Field_inMonster:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  TargetArrow_prefab: {fileID: 2759452423885872548, guid: 93d97587c33dacf4e9d0dab9cde365ea, type: 3}
+  TargetArrow:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -1853,6 +1861,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3071242711528298698, guid: b8f7d1d43648754448003f207c4d9974, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4104663444431250751, guid: b8f7d1d43648754448003f207c4d9974, type: 3}
       propertyPath: deck
       value: 
@@ -1873,6 +1885,10 @@ PrefabInstance:
       propertyPath: Defence_percent
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 4104663444431250751, guid: b8f7d1d43648754448003f207c4d9974, type: 3}
+      propertyPath: BlackScreen_prefab
+      value: 
+      objectReference: {fileID: 995504174}
     - target: {fileID: 7092457984515693291, guid: b8f7d1d43648754448003f207c4d9974, type: 3}
       propertyPath: m_Name
       value: Player

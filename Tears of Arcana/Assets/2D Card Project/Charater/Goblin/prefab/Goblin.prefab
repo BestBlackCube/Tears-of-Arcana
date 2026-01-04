@@ -120,14 +120,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6b2b11e99aa20c4895007c5ec52c876, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Funnel_Image: {fileID: 7923625607276799478, guid: 0808d759a697c514eb081135e8b42b07, type: 3}
-  targetGuide_Image: {fileID: 5153726808806969693, guid: 73ddf20b2084ff5459493701d1b2cb82, type: 3}
+  TargetGuide_prefab: {fileID: 5153726808806969693, guid: 73ddf20b2084ff5459493701d1b2cb82, type: 3}
+  TargetArrow_prefab: {fileID: 7310503918717512128, guid: 24895f1e1335697469f6fa029aa98886, type: 3}
+  Arrow: 0
   HpBar_prefab: {fileID: 3052410248697706107, guid: ce02e9b6d66b20749b2c7231ff2f0d1c, type: 3}
   canvas: {fileID: 0}
   unitname: 3
   Card_Damage: 0
   nowHp: 0
   maxHp: 0
+  Dmg: 0
+  stun_count: 0
+  stun_countDown: 0
   Dead_timer: 0
   Attack_timer: 0
   card: {fileID: 0}

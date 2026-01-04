@@ -13,8 +13,14 @@ public class Player_Script : MonoBehaviour
     Card_Script card;
     Animator animator;
 
-    public GameObject PlayerFunnel_Image;
-    GameObject PlayerFunnel;
+    public GameObject BlackScreen_prefab;
+
+    public GameObject PlayerTarget_prefab;
+    GameObject targetGuide;
+    public GameObject TargetArrow_prefab;
+    GameObject targetArrow;
+
+    public bool Arrow = false;
 
     public Charater_namedata unitname;
     public Charater_Status status;
@@ -39,16 +45,22 @@ public class Player_Script : MonoBehaviour
     public bool animation_Attack = false;
     public bool PlayerAttack_Enemy = false;
     public bool EnemyAttack_Player = false;
+    
     bool Player_cardUse = false;
     bool Avoid = false;
     bool Full_hit = false;
     bool Half_hit = false;
+    bool Move = false;
+    bool Screen_On = false;
 
+    int MoveCount = 0;
 
     public float PlayerAttack_timer = 0f;
     public float PlayerDead_timer = 0f;
+    public float Delay_timer = 0f;
 
     public Vector3 baseTransform;
+
 
     // Start is called before the first frame update
     void Start()
@@ -72,39 +84,87 @@ public class Player_Script : MonoBehaviour
     {
         HIT_percent();
         if (animation_Attack) Player_AttackStart();
-
-        if (PlayerFunnel != null && !targetPlayerCard) Destroy(PlayerFunnel);
-        if (PlayerFunnel == null)
+        if (!Arrow && targetArrow != null) Destroy(targetArrow);
+        if (targetPlayerCard && Arrow && targetArrow == null)
         {
-            if (targetPlayerCard) // 카드를 클릭했는지 감지 -> 대상으로 변경 할 예정
+            Vector3 player_offset = new Vector3(transform.position.x, 6, 0);
+            targetArrow = Instantiate(TargetArrow_prefab, player_offset, Quaternion.identity);
+            TargetArrow_Script arrow = targetArrow.GetComponent<TargetArrow_Script>();
+            arrow.offset = player_offset;
+        }
+    }
+    void FixedUpdate()
+    {
+        if(Move)
+        {
+            if(MoveCount == 1)
             {
-                Vector3 player_offset = new Vector3(0, 6, 0); // 플레이어의 offset 값에 + 6을 더함
-                PlayerFunnel = Instantiate(PlayerFunnel_Image, player_offset, Quaternion.identity); // 해당 오브젝트의 복제본을 생성
-                Funnel_Script funnel = PlayerFunnel.GetComponent<Funnel_Script>(); // 복제본에 스크립트파일 대입하기
-                funnel.target = this.transform; // 복제된 오브젝트의 위치
-                funnel.offset = player_offset; // 오브젝트에 더할값
+                PlayerMove(25);
+                animator.SetBool("PlayerIdle", false);
+                animator.SetBool("PlayerMove", true);
+                if(transform.position.x > 25)
+                {
+                    if(Screen_On)
+                    {
+                        BlackScreen_prefab.SetActive(true);
+                        BlackScreen_prefab.GetComponent<BlackScreen_Script>().PlayerNext = true;
+                        Screen_On = false;
+                    }
+                    if (Delay_timer < 8) Delay_timer += Time.deltaTime;
+                    else
+                    {
+                        transform.position = new Vector3(-25, -1, 5);
+                        MoveCount++;
+                    }
+                }
+            }
+            if(MoveCount == 2)
+            {
+                PlayerMove(-15);
+                if (transform.position.x > -15) MoveCount++;
+            }
+            if(MoveCount == 3)
+            {
+                animator.SetBool("PlayerIdle", true);
+                animator.SetBool("PlayerMove", false);
+                MoveCount = 0;
+                Move = false;
             }
         }
     }
-
+    void PlayerMove(int Range)
+    {
+        if (transform.position.x < Range) transform.position = new Vector3(transform.position.x + 15f * Time.deltaTime, -1, 5);
+    }
     private void OnMouseOver() // 마우스커서가 오브젝트에 있는지 감지하는 이벤트
     {
         Player_cardUse = true;
-        if (targetPlayerCard)
+        if (Arrow && targetArrow != null) Arrow = false;
+        if (targetPlayerCard) deckField.Click_Card.Object_name = "Player";
+
+        if (targetPlayerCard && targetGuide == null)
         {
-            deckField.Click_Card.Object_name = "Player";
+            Vector3 player_offset = new Vector3(transform.position.x, 6, 0);
+            targetGuide = Instantiate(PlayerTarget_prefab, player_offset, Quaternion.identity); // 해당 오브젝트의 복제본을 생성
+            EnemyTargetBar_Script guide = targetGuide.GetComponent<EnemyTargetBar_Script>(); // 복제본에 스크립트파일 대입하기
+            guide.target = this.transform; // 복제된 오브젝트의 위치
+            guide.offset[0] = new Vector3(-1.3f, 5f, 0);
+            guide.offset[1] = new Vector3(0.7f, 5f, 0);
+            guide.offset[2] = new Vector3(-1.3f, 0f, 0);
+            guide.offset[3] = new Vector3(0.7f, 0f, 0);
         }
+
     }
     private void OnMouseExit() // 마우스커서가 오브젝트 없는지 감지하는 이벤트
     {
         Player_cardUse = false;
-        if (targetPlayerCard)
-        {
-            deckField.Click_Card.Object_name = "";
-        }
+        if (targetPlayerCard) deckField.Click_Card.Object_name = "";
+        if (!Arrow && targetArrow == null) Arrow = true;
+        if (targetGuide != null) Destroy(targetGuide);
     }
     private void OnMouseDown() // 마우스커서가 오브젝트에서 클릭을 했는지 감지하는 이벤트
     {
+        if(deckField.Click_Card != null)
         if (Player_cardUse && deckField.Click_Card.Object_name == "Player")
         {
             deckField.Click_Card.Card_MouseClick = false;
@@ -116,7 +176,6 @@ public class Player_Script : MonoBehaviour
             targetPlayerCard = false;
         }
     }
-
     void HIT_percent()
     {
         if (EnemyAttack_Player) // <- 해당 불린을 1초간 지속이기 때문이 밑의 코드가 100번 이상은 실행된다
@@ -228,11 +287,9 @@ public class Player_Script : MonoBehaviour
         switch(name)
         {
             case "다음으로":
-                ObjectSet.StageCardInput = true;
-                int StageUp = PlayerPrefs.GetInt("Stage");
-                StageUp++;
-                PlayerPrefs.SetInt("Stage", StageUp);
-                ObjectSet.NextStage = true;
+                Screen_On = true;
+                Move = true;
+                MoveCount++;
                 break;
             case "이전으로":
                 break;

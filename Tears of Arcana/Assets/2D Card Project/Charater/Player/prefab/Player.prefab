@@ -165,15 +165,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43b2292b6f9fb974b8c5436400406303, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerFunnel_Image: {fileID: 7599568487309025307, guid: 401c00d9296d0d9478d9f5e0b716155b, type: 3}
+  ObjectSet: {fileID: 0}
+  deckField: {fileID: 0}
+  deck: {fileID: 0}
+  BlackScreen_prefab: {fileID: 0}
+  PlayerTarget_prefab: {fileID: 3995674418800772722, guid: 59d10f30307a76542b94123450d455b1, type: 3}
+  TargetArrow_prefab: {fileID: 3987096337707469404, guid: b3ff725bc508aee4ab082db4ccb49c96, type: 3}
+  Arrow: 0
   unitname: 0
   nowHp: 0
   maxHp: 0
   nowMp: 0
   maxMp: 0
-  Hit_percent: 3
-  Defence_percent: 1
+  HitDamage: 0
+  Hit_percent: 30
+  Defence_percent: 10
   Avoid_percent: 0
+  item_Top: 0
+  item_Bottom: 0
   PlayerDamage: 0
   targetPlayerCard: 0
   animation_Attack: 0
