@@ -42,6 +42,9 @@ public class Charater_Status
             case Charater_namedata.Goblin:
                 status = new Charater_Status(Charater_name, "°íºí¸°", 50, 0, 0);
                 break;
+            case Charater_namedata.Mushroom:
+                status = new Charater_Status(Charater_name, "¹ö¼¸±«¹°", 120, 0, 0);
+                break;
 
             default:
                 break;

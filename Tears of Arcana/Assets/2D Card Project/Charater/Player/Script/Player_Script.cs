@@ -89,7 +89,7 @@ public class Player_Script : MonoBehaviour
             }
             if(animator.GetBool("PlayerMove"))
             {
-                if (transform.position.x < -5)
+                if (transform.position.x < -10)
                 { transform.position = new Vector3(transform.position.x + 15f * Time.deltaTime, transform.position.y, 0); }
                 else
                 { 
@@ -114,7 +114,7 @@ public class Player_Script : MonoBehaviour
             }
             if(animator.GetBool("PlayerBackMove"))
             {
-                if(transform.position.x > -10)
+                if(transform.position.x > -15)
                 {
                     transform.localScale = new Vector3(-1, 1, 1);
                     transform.position = new Vector3(transform.position.x - 15f * Time.deltaTime, transform.position.y, 0); 
@@ -124,7 +124,7 @@ public class Player_Script : MonoBehaviour
                     animator.SetBool("PlayerBackMove", false);
                     animator.SetBool("PlayerIdle", true);
                     transform.localScale = new Vector3(1, 1, 1);
-                    transform.position = new Vector3(-10, -1, 0);
+                    transform.position = new Vector3(-15, -1, 0);
                     animation_Attack = false;
                 }
             }
@@ -207,13 +207,13 @@ public class Player_Script : MonoBehaviour
             if(Avoid)
             {
                 transform.localScale = new Vector3(1, 1, 1);
-                if (transform.position.x <= -10)
+                if (transform.position.x <= -15)
                 {
                     transform.position = new Vector3(transform.position.x + 15 * Time.deltaTime, transform.position.y, 0);
                 }
                 else
                 {
-                    transform.position = new Vector3(-10, -1, 0);
+                    transform.position = new Vector3(-15, -1, 0);
                     if (animator.GetBool("PlayerAvoid")) animator.SetBool("PlayerAvoid", false);
                     Avoid = false;
                 }

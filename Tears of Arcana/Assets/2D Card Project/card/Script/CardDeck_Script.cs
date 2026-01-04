@@ -72,6 +72,7 @@ public class CardDeck_Script : MonoBehaviour
     {
         if(Cardinput)
         {
+            if(CardCount < 0) CardCount = 0;
             if (deckField.DeckField_nowCard < 5) // 최대 5개까지 제한하는 조건문
             {
                 if (Cardinput_timer < 1.2f) Cardinput_timer += Time.deltaTime; // 1.2초 마다 카드가 생성

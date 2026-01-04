@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ObjectSet_Script : MonoBehaviour
 {
-    public GameObject end_Button;
     //public float end_timer = 0f;
     CardDeckField_Script deckField;
     public bool Order_1 = false;
@@ -20,10 +19,6 @@ public class ObjectSet_Script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (end_Button.GetComponent<turnEnd_Scirpt>().end_turn)
-        {
-            end_Button.gameObject.SetActive(!enabled);
-        }
-
+        
     }
 }

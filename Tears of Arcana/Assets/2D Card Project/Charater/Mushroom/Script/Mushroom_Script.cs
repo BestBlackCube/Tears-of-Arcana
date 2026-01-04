@@ -1,13 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Eye_Script : MonoBehaviour
+public class Mushroom_Script : MonoBehaviour
 {
-    public GameObject EyeFunnel_Image;
-    GameObject EyeFunnel;
+    public GameObject MushroomFunnel_Image;
+    GameObject MushroomFunnel;
 
     public GameObject HpBar_prefab;
     public GameObject canvas;
@@ -33,12 +32,12 @@ public class Eye_Script : MonoBehaviour
     public Card_Script card;
     Image nowHpbar;
 
-    public bool targetEyeCard = false;    // 카드가 Eye를 선택하는지
-    public bool EyeDamage = false;        // Eye가 데미지를 받았을때
+    public bool targetMushroomCard = false;    // 카드가 Eye를 선택하는지
+    public bool MushroomDamage = false;        // Eye가 데미지를 받았을때
     public bool animation_Attack = false;
     public bool EnemyAttack = false;
-    bool Eye_cardUse = false;
-    public bool HIT_Eye = false;
+    bool Mushroom_cardUse = false;
+    public bool HIT_Mushroom = false;
 
     public Vector3 animation_position;
 
@@ -71,35 +70,35 @@ public class Eye_Script : MonoBehaviour
     void Update()
     {
         Attack_Order();
-        if(EnemyAttack) Eye_Attack();
-        if(HIT_Eye) Hit_Eye();
+        if (EnemyAttack) Mushroom_Attack();
+        if (HIT_Mushroom) Hit_Mushroom();
 
-        if (EyeFunnel == null && targetEyeCard) // 깔때기 생성
+        if (MushroomFunnel == null && targetMushroomCard) // 깔때기 생성
         {
-            Vector3 Eye_offset = new Vector3(0, 3.5f, 0);
-            EyeFunnel = Instantiate(EyeFunnel_Image, Eye_offset, Quaternion.identity);
-            Funnel_Script funnel = EyeFunnel.GetComponent<Funnel_Script>();
+            Vector3 Mushroom_offset = new Vector3(0, 3.5f, 0);
+            MushroomFunnel = Instantiate(MushroomFunnel_Image, Mushroom_offset, Quaternion.identity);
+            Funnel_Script funnel = MushroomFunnel.GetComponent<Funnel_Script>();
             funnel.target = this.transform;
-            funnel.offset = Eye_offset;
+            funnel.offset = Mushroom_offset;
         }
-        if(EyeFunnel == null && !targetEyeCard)
+        if (MushroomFunnel == null && !targetMushroomCard)
         {
-            Destroy(EyeFunnel); // 깔때기 제거
+            Destroy(MushroomFunnel); // 깔때기 제거
         }
     }
     void OnMouseOver()
     {
-        Eye_cardUse = true;
-        if (targetEyeCard && deckField.Click_Card != null) deckField.Click_Card.Object_name = "Eye";
+        Mushroom_cardUse = true;
+        if (targetMushroomCard && deckField.Click_Card != null) deckField.Click_Card.Object_name = "Mushroom";
     }
     void OnMouseExit()
     {
-        Eye_cardUse = false;
-        if (targetEyeCard && deckField.Click_Card != null) deckField.Click_Card.Object_name = "";
+        Mushroom_cardUse = false;
+        if (targetMushroomCard && deckField.Click_Card != null) deckField.Click_Card.Object_name = "";
     }
     void OnMouseDown()
     {
-        if(Eye_cardUse && deckField.Click_Card.Object_name == "Eye")
+        if (Mushroom_cardUse && deckField.Click_Card.Object_name == "Mushroom")
         {
             deckField.Click_Card.Card_MouseClick = false;
             Card_Damage = deckField.Click_Card.Card_status;
@@ -109,18 +108,18 @@ public class Eye_Script : MonoBehaviour
             deckField.cardHide = false;
             player.animation_Attack = true;
             player.targetPlayerCard = false;
-            targetEyeCard = false;
-            HIT_Eye = true;
+            targetMushroomCard = false;
+            HIT_Mushroom = true;
         }
     }
-    void Eye_Attack() // 공격 애니메이션 코드
+    void Mushroom_Attack() // 공격 애니메이션 코드
     {
-        if (animator.GetBool("EyeIdle"))
+        if (animator.GetBool("MushroomIdle"))
         {
-            animator.SetBool("EyeIdle", false);
-            animator.SetBool("EyeMove", true);
+            animator.SetBool("MushroomIdle", false);
+            animator.SetBool("MushroomMove", true);
         }
-        if (animator.GetBool("EyeMove"))
+        if (animator.GetBool("MushroomMove"))
         {
             if (transform.position.x > -10)
             {
@@ -128,27 +127,27 @@ public class Eye_Script : MonoBehaviour
             }
             else
             {
-                animator.SetBool("EyeMove", false);
-                animator.SetBool("EyeAttack", true);
+                animator.SetBool("MushroomMove", false);
+                animator.SetBool("MushroomAttack", true);
                 player.EnemyAttack_Player = true; // !+ 플레이어 피격 애니메이션 활성화
             }
         }
-        if (animator.GetBool("EyeAttack"))
+        if (animator.GetBool("MushroomAttack"))
         {
-            if (Attack_timer < 1f)
+            if (Attack_timer < 0.9f)
             {
                 Attack_timer += Time.deltaTime;
             }
             else
             {
-                animator.SetBool("EyeAttack", false);
-                animator.SetBool("EyeBackMove", true);
+                animator.SetBool("MushroomAttack", false);
+                animator.SetBool("MushroomBackMove", true);
                 player.EnemyAttack_Player = false; // !+ 플레이어 피격 애니메이션 비활성화
                 player.PlayerDamage = true;        // 플레이어HP 줄이기
                 Attack_timer = 0f;
             }
         }
-        if (animator.GetBool("EyeBackMove"))
+        if (animator.GetBool("MushroomBackMove"))
         {
             if (transform.position.x < animation_position.x)
             {
@@ -157,38 +156,38 @@ public class Eye_Script : MonoBehaviour
             }
             else
             {
-                animator.SetBool("EyeBackMove", false);
-                animator.SetBool("EyeIdle", true);
+                animator.SetBool("MushroomBackMove", false);
+                animator.SetBool("MushroomIdle", true);
                 transform.localScale = new Vector3(-1, 1, 1);
                 transform.position = animation_position;
                 animation_Attack = true;
             }
         }
     }
-    void Hit_Eye() // 플레이어에게 공격 받았을때 실행 되는 애니메이션
+    void Hit_Mushroom() // 플레이어에게 공격 받았을때 실행 되는 애니메이션
     {
         nowHpbar.fillAmount = (float)nowHp / (float)maxHp;
         if (player.PlayerAttack_Enemy)
         {
-            animator.SetBool("EyeHit", true);
-            if (player.PlayerAttack_timer > 1f) EyeDamage = true;
+            animator.SetBool("MushroomHit", true);
+            if (player.PlayerAttack_timer > 1f) MushroomDamage = true;
         }
         else
         {
-            animator.SetBool("EyeHit", false);
+            animator.SetBool("MushroomHit", false);
         }
 
-        if (EyeDamage)
+        if (MushroomDamage)
         {
             nowHp -= Card_Damage;
             Card_Damage = 0;
-            EyeDamage = false;
+            MushroomDamage = false;
         }
 
         if (nowHp <= 0f)
         {
-            animator.SetTrigger("EyeDie");
-            if (Dead_timer < 0.3f) Dead_timer += Time.deltaTime;
+            animator.SetTrigger("MushroomDie");
+            if (Dead_timer < 1f) Dead_timer += Time.deltaTime;
             else
             {
                 Destroy(gameObject);
@@ -198,25 +197,25 @@ public class Eye_Script : MonoBehaviour
     }
     void animationPosition()
     {
-        if (ObjectSet.Enemy_Name[0] == "Eye")
+        if (ObjectSet.Enemy_Name[0] == "Mushroom")
         {
             Vector3 HpBarPos = new Vector3(transform.position.x, transform.position.y - 3.5f, 0);
             hpbar.position = HpBarPos;
             animation_position = ObjectSet.Field_transform[0];
         }
-        if (ObjectSet.Enemy_Name[1] == "Eye")
+        if (ObjectSet.Enemy_Name[1] == "Mushroom")
         {
             Vector3 HpBarPos = new Vector3(transform.position.x, transform.position.y - 5f, 0);
             hpbar.position = HpBarPos;
             animation_position = ObjectSet.Field_transform[1];
         }
-        if (ObjectSet.Enemy_Name[2] == "Eye")
+        if (ObjectSet.Enemy_Name[2] == "Mushroom")
         {
             Vector3 HpBarPos = new Vector3(transform.position.x, transform.position.y - 3.5f, 0);
             hpbar.position = HpBarPos;
             animation_position = ObjectSet.Field_transform[2];
         }
-        if (ObjectSet.Enemy_Name[3] == "Eye")
+        if (ObjectSet.Enemy_Name[3] == "Mushroom")
         {
             Vector3 HpBarPos = new Vector3(transform.position.x, transform.position.y - 5f, 0);
             hpbar.position = HpBarPos;
@@ -225,7 +224,7 @@ public class Eye_Script : MonoBehaviour
     }
     void Attack_Order()
     {
-        if (ObjectSet.Enemy_Name[0] == "Eye" && attack_order.Order_1)
+        if (ObjectSet.Enemy_Name[0] == "Mushroom" && attack_order.Order_1)
         {
             EnemyAttack = true;
             if (animation_Attack)
@@ -236,7 +235,7 @@ public class Eye_Script : MonoBehaviour
                 animation_Attack = false;
             }
         }
-        if (ObjectSet.Enemy_Name[1] == "Eye" && attack_order.Order_2)
+        if (ObjectSet.Enemy_Name[1] == "Mushroom" && attack_order.Order_2)
         {
             EnemyAttack = true;
             if (animation_Attack)
@@ -247,7 +246,7 @@ public class Eye_Script : MonoBehaviour
                 animation_Attack = false;
             }
         }
-        if (ObjectSet.Enemy_Name[2] == "Eye" && attack_order.Order_3)
+        if (ObjectSet.Enemy_Name[2] == "Mushroom" && attack_order.Order_3)
         {
             EnemyAttack = true;
             if (animation_Attack)
@@ -258,7 +257,7 @@ public class Eye_Script : MonoBehaviour
                 animation_Attack = false;
             }
         }
-        if (ObjectSet.Enemy_Name[3] == "Eye" && attack_order.Order_4)
+        if (ObjectSet.Enemy_Name[3] == "Mushroom" && attack_order.Order_4)
         {
             EnemyAttack = true;
             if (animation_Attack)

@@ -17,7 +17,6 @@ public class Goblin_Script : MonoBehaviour
     RectTransform hpbar;
 
     Animator animator;
-    BoxCollider2D box2D;
 
     public int Card_Damage;
     public int nowHp;
@@ -59,7 +58,6 @@ public class Goblin_Script : MonoBehaviour
         animationPosition();
         nowHpbar = hpbar.transform.GetChild(0).GetComponent<Image>();
         animator = GetComponent<Animator>();
-        box2D = GetComponent<BoxCollider2D>();
 
         player = FindObjectOfType<Player_Script>();
         deckField = FindObjectOfType<CardDeckField_Script>();
@@ -121,7 +119,7 @@ public class Goblin_Script : MonoBehaviour
         }
         if (animator.GetBool("GoblinMove"))
         {
-            if (transform.position.x > -5)
+            if (transform.position.x > -10)
             {
                 transform.position = new Vector3(transform.position.x - 15f * Time.deltaTime, transform.position.y, 0);
             }
@@ -263,6 +261,7 @@ public class Goblin_Script : MonoBehaviour
             if (animation_Attack)
             {
                 attack_order.Order_4 = false;
+                ObjectSet.CardAdd = true;
                 EnemyAttack = false;
                 animation_Attack = false;
             }

@@ -7,7 +7,8 @@ public enum Charater_namedata
     Player,
     Skeleton,
     Eye,
-    Goblin
+    Goblin,
+    Mushroom
 }
 
 public class charater_Name : MonoBehaviour

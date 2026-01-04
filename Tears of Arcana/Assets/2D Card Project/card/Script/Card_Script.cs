@@ -22,6 +22,7 @@ public class Card_Script : MonoBehaviour
     Skeleton_Script skeleton;
     Eye_Script eye;
     Goblin_Script goblin;
+    Mushroom_Script mushroom;
 
     BoxCollider2D box2D;
 
@@ -45,6 +46,7 @@ public class Card_Script : MonoBehaviour
         skeleton = FindObjectOfType<Skeleton_Script>();
         eye = FindObjectOfType<Eye_Script>();
         goblin = FindObjectOfType<Goblin_Script>();
+        mushroom = FindObjectOfType<Mushroom_Script>();
 
         deckField = FindObjectOfType<CardDeckField_Script>();
         box2D = GetComponent<BoxCollider2D>();
@@ -158,6 +160,7 @@ public class Card_Script : MonoBehaviour
             if(skeleton.targetSkeletonCard) skeleton.targetSkeletonCard = false;
             if (eye.targetEyeCard) eye.targetEyeCard = false;
             if(goblin.targetGoblinCard) goblin.targetGoblinCard = false;
+            if (mushroom.targetMushroomCard) mushroom.targetMushroomCard = false;
         }
 
     }
@@ -171,6 +174,9 @@ public class Card_Script : MonoBehaviour
 
         goblin.targetGoblinCard = true;
         if(goblin.HIT_Goblin) goblin.HIT_Goblin = false;
+
+        mushroom.targetMushroomCard = true;
+        if (mushroom.HIT_Mushroom) mushroom.HIT_Mushroom = false;
     }
     void Object_inName() // 카드를 들고 마우스커서를 캐릭터에 가져갔을때 해당 이름은 무엇인가?
     {
@@ -191,6 +197,10 @@ public class Card_Script : MonoBehaviour
             case "Goblin":
                 Vector3 GoblinPosition = new Vector3(goblin.transform.position.x, goblin.transform.position.y + 7, 0);
                 transform.position = Vector3.Lerp(transform.position, GoblinPosition, 5 * Time.deltaTime);
+                break;
+            case "Mushroom":
+                Vector3 MushroomPosition = new Vector3(mushroom.transform.position.x, mushroom.transform.position.y + 7, 0);
+                transform.position = Vector3.Lerp(transform.position, MushroomPosition, 5 * Time.deltaTime);
                 break;
             default: // 그외
                 Vector3 worldPosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10);
