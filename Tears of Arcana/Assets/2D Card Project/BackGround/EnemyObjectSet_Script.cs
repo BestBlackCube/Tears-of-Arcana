@@ -113,17 +113,28 @@ public class EnemyObjectSet_Script : MonoBehaviour
         switch(Stage)
         {
             case 1:
-                Field_inMonster[0] = Instantiate(Monster_Object[0], Field_transform[0], Quaternion.identity);
-                Field_inMonster[1] = Instantiate(Monster_Object[1], Field_transform[1], Quaternion.identity);
-                Field_inMonster[2] = Instantiate(Monster_Object[2], Field_transform[2], Quaternion.identity);
-                Field_inMonster[3] = Instantiate(Monster_Object[3], Field_transform[3], Quaternion.identity);
 
-                Enemy_Name[0] = "Skeleton";
-                Enemy_Name[1] = "Eye";
-                Enemy_Name[2] = "Goblin";
-                Enemy_Name[3] = "Mushroom";
+                //Field_inMonster[0] = Instantiate(Monster_Object[0], Field_transform[0], Quaternion.identity);
+                //Field_inMonster[1] = Instantiate(Monster_Object[1], Field_transform[1], Quaternion.identity);
+                //Field_inMonster[2] = Instantiate(Monster_Object[2], Field_transform[2], Quaternion.identity);
+                //Field_inMonster[3] = Instantiate(Monster_Object[3], Field_transform[3], Quaternion.identity);
 
-                MonsterCount = 4;
+                //Enemy_Name[0] = "Skeleton";
+                //Enemy_Name[1] = "Eye";
+                //Enemy_Name[2] = "Goblin";
+                //Enemy_Name[3] = "Mushroom";
+
+                Field_inMonster[0] = Instantiate(Monster_Object[4], Field_transform[0], Quaternion.identity);
+                Field_inMonster[1] = Instantiate(Monster_Object[5], Field_transform[1], Quaternion.identity);
+                Field_inMonster[2] = Instantiate(Monster_Object[6], Field_transform[2], Quaternion.identity);
+                Field_inMonster[3] = Instantiate(Monster_Object[7], Field_transform[3], Quaternion.identity);
+
+                Enemy_Name[0] = "BlackSlime";
+                Enemy_Name[1] = "DeathBringer";
+                Enemy_Name[2] = "FireWizard";
+                Enemy_Name[3] = "Necromancer";
+
+                MonsterCount = 3;
                 break;
             case 2:
                 

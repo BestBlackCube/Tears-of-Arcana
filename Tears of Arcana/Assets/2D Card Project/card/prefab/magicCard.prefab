@@ -572,10 +572,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e22257a2521ec3a44ac43e4e93e5143b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardName: 3
   Card_MouseClick: 0
   Card_noHide: 0
   Box2D_Create: 0
+  Card_transform: {x: 0, y: 0, z: 0}
+  Card_upNumber: 0
   Card_Number: 0
   Card_name: 
   single_damage: 0

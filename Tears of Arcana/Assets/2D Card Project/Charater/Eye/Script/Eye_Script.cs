@@ -194,7 +194,7 @@ public class Eye_Script : MonoBehaviour
         if (nowHp <= 0f)
         {
             animator.SetTrigger("Die");
-            if (Dead_timer < 0.4f) Dead_timer += Time.deltaTime;
+            if (Dead_timer < 0.3f) Dead_timer += Time.deltaTime;
             else
             {
                 ObjectSet.MonsterDeadCount++;

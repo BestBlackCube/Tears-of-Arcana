@@ -324,6 +324,8 @@ MonoBehaviour:
   Card_MouseClick: 0
   Card_noHide: 0
   Box2D_Create: 0
+  Card_transform: {x: 0, y: 0, z: 0}
+  Card_upNumber: 0
   Card_Number: 0
   Card_name: 
   single_damage: 0
@@ -333,7 +335,6 @@ MonoBehaviour:
   count: 0
   Card_status: 0
   Object_name: 
-  Mouse_insideCard_timer: 0
 --- !u!61 &4853975987119514177
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -458,6 +458,8 @@ MonoBehaviour:
   Card_MouseClick: 0
   Card_noHide: 0
   Box2D_Create: 0
+  Card_transform: {x: 0, y: 0, z: 0}
+  Card_upNumber: 0
   Card_Number: 0
   Card_name: 
   single_damage: 0

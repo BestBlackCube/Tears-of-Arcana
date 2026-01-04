@@ -48,6 +48,18 @@ public class Charater_Status
             case Charater_namedata.Mushroom:
                 status = new Charater_Status(Charater_name, "버섯괴물", 120, 0, 0, 10);
                 break;
+            case Charater_namedata.BlackSlime:
+                status = new Charater_Status(Charater_name, "검은액체", 50, 0, 0, 10);
+                break;
+            case Charater_namedata.DeathBringer:
+                status = new Charater_Status(Charater_name, "죽음을가져오는자", 120, 0, 0, 20);
+                break;
+            case Charater_namedata.FireWizard:
+                status = new Charater_Status(Charater_name, "화염마법사", 70, 0, 0, 30);
+                break;
+            case Charater_namedata.Necromancer:
+                status = new Charater_Status(Charater_name, "죽음술사", 100, 0, 0, 20);
+                break;
 
             default:
                 break;

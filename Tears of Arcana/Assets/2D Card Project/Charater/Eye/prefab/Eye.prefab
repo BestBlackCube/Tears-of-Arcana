@@ -76,12 +76,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -4795363162621231457, guid: 6d7cd4f7505dc674c891ca8946cfd98b, type: 3}
+  m_Sprite: {fileID: -4795363162621231457, guid: 186f4fcf3dd909f4baa9af4dc84d8d83, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.5, y: 1.5}
+  m_Size: {x: 15, y: 15}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -124,7 +124,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 15, y: 15}
-    newSize: {x: 1.5, y: 1.5}
+    newSize: {x: 15, y: 15}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -165,8 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5516d9890548a94488d0d8bcedfead1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TargetGuide_prefab: {fileID: 8459620753264579314, guid: aa277d397646ed64d995c622219d126a, type: 3}
-  TargetArrow_prefab: {fileID: 6286850047792104127, guid: 691decf7c8b5a7345aff2d3ec6cab17e, type: 3}
+  Guide: 0
   Arrow: 0
   HpBar_prefab: {fileID: 9215448965330041918, guid: 8aa152ab600cada4c8c99d89fd11a4b5, type: 3}
   canvas: {fileID: 0}
@@ -179,7 +178,6 @@ MonoBehaviour:
   stun_countDown: 0
   Dead_timer: 0
   Attack_timer: 0
-  card: {fileID: 0}
   targetCard: 0
   EnemyDamage: 0
   animation_Attack: 0

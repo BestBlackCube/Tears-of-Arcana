@@ -50,7 +50,7 @@ public class CardDeckField_Script : MonoBehaviour
                 if (Card_inField_Script[i] != null && !Card_inField_Script[i].Card_noHide)
                 {
                     if (Card_inField_Script[i].transform.position.y > -20) Card_inField_Script[i].transform.position = 
-                            new Vector3(Card_inField_Script[i].transform.position.x,Card_inField_Script[i].transform.position.y - 50f * Time.deltaTime, 0);
+                            new Vector3(Card_inField_Script[i].transform.position.x,Card_inField_Script[i].transform.position.y - 50f * Time.deltaTime, 1);
                 }
             }
         }
@@ -96,7 +96,7 @@ public class CardDeckField_Script : MonoBehaviour
             if (Card_inField[i] != null) // 오브젝트가 있을 경우
             {
                 float offset = (index - (count - 1) / 2f) * space; // 카드의 위치 = [반복인덱스] - [카드필드 배열 크기] / 2 * [카드간의 거리]
-                targetPosition[i] = basePosition + new Vector3(offset, 0, 0); // x값 대입
+                targetPosition[i] = basePosition + new Vector3(offset, 0, 1); // x값 대입
                 index++; // 반복 인덱스
             }
         }

@@ -1455,6 +1455,10 @@ MonoBehaviour:
   - {fileID: 1059204501786189995, guid: 086bd5ab680aee940b02aba6735e97ce, type: 3}
   - {fileID: 1620471229787752939, guid: 5a6418b619447094f83e6aa73c29dff1, type: 3}
   - {fileID: 7143446145693591927, guid: 6e21a0e6d288c2d41ae98725018785ca, type: 3}
+  - {fileID: 6419234611337577061, guid: c958dcace4ed98542b55d1058e86601e, type: 3}
+  - {fileID: 4993058238316478207, guid: 08f827b1db86d3e4196160051e28247d, type: 3}
+  - {fileID: 3303108033964679129, guid: e235b19c57a93b948a7d5330fe08f095, type: 3}
+  - {fileID: 6489879925942904003, guid: 9d381e416e97ee345b01d4267ca4b9a4, type: 3}
   Field_inMonster:
   - {fileID: 0}
   - {fileID: 0}

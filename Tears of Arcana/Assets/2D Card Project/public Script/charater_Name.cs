@@ -8,7 +8,11 @@ public enum Charater_namedata
     Skeleton,
     Eye,
     Goblin,
-    Mushroom
+    Mushroom,
+    BlackSlime,
+    DeathBringer,
+    FireWizard,
+    Necromancer
 }
 
 public class charater_Name : MonoBehaviour

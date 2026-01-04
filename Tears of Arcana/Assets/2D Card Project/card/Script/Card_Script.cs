@@ -46,8 +46,7 @@ public class Card_Script : MonoBehaviour
     public int Card_status;
     public string Object_name;
 
-    public float Mouse_insideCard_timer = 0f;
-    float Card_timer = 0f;
+    float Mouse_insideCard_timer = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -91,7 +90,6 @@ public class Card_Script : MonoBehaviour
                 Box2D_Create = false;
             }
         }
-        if (Card_timer < 2f) Card_timer += Time.deltaTime;
     }
     public void CardDestroy()
     {
@@ -103,12 +101,17 @@ public class Card_Script : MonoBehaviour
 
     private void OnMouseOver() // 마우스 커서가 해당 오브젝트의 BoxCollider2D 안에 있는지 확인하는 이벤트
     {
-        if(Card_timer > 2f) CardScale(true); // 1초 이상 해당 오브젝트에 마우스 커서가 있을 경우
+        if (Mouse_insideCard_timer < 1f) Mouse_insideCard_timer += Time.deltaTime;
+        else
+        {
+            CardScale(true); // 2초 이상 해당 오브젝트에 마우스 커서가 있을 경우
+            this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y, 0);
+        }
     }
     private void OnMouseExit() // 마우스 커서가 해당 오브젝트의 BoxCollider2D 밖으로 나갔는지 확인하는 이벤트
     {
         CardScale(false); // 크기 줄이기
-        Mouse_insideCard_timer = 0f; // 타이머 초기화
+        Mouse_insideCard_timer = 0f; // 타이머 초기화\
     }
     private void OnMouseDown() // 마우스 커서가 해당 오브젝트의 BoxCollider2D 안에서 왼 클릭을 했는지 확인하는 이벤트
     {
@@ -343,6 +346,186 @@ public class Card_Script : MonoBehaviour
                         ObjectSet.Field_inMonster[3].GetComponent<Mushroom_Script>().HIT_Enemy = true;
                 }
             }
+            if (ObjectSet.Enemy_Name[0] == "BlackSlime" || ObjectSet.Enemy_Name[1] == "BlackSlime" ||
+                ObjectSet.Enemy_Name[2] == "BlackSlime" || ObjectSet.Enemy_Name[3] == "BlackSlime")
+            {
+                if (ObjectSet.Field_inMonster[0] != null && ObjectSet.Enemy_Name[0] == "BlackSlime")
+                {
+                    ObjectSet.Field_inMonster[0].GetComponent<BlackSlime_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[0].GetComponent<BlackSlime_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[0].GetComponent<BlackSlime_Script>().targetCard = true;
+                    if (!ObjectSet.Field_inMonster[0].GetComponent<BlackSlime_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[0].GetComponent<BlackSlime_Script>().HIT_Enemy = true;
+                }
+                if (ObjectSet.Field_inMonster[1] != null && ObjectSet.Enemy_Name[1] == "BlackSlime")
+                {
+                    ObjectSet.Field_inMonster[1].GetComponent<BlackSlime_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[1].GetComponent<BlackSlime_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[1].GetComponent<BlackSlime_Script>().targetCard = true;
+                    if (!ObjectSet.Field_inMonster[1].GetComponent<BlackSlime_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[1].GetComponent<BlackSlime_Script>().HIT_Enemy = true;
+                }
+                if (ObjectSet.Field_inMonster[2] != null && ObjectSet.Enemy_Name[2] == "BlackSlime")
+                {
+                    ObjectSet.Field_inMonster[2].GetComponent<BlackSlime_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[2].GetComponent<BlackSlime_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[2].GetComponent<BlackSlime_Script>().targetCard = true;
+                    if (!ObjectSet.Field_inMonster[2].GetComponent<BlackSlime_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[2].GetComponent<BlackSlime_Script>().HIT_Enemy = true;
+                }
+                if (ObjectSet.Field_inMonster[3] != null && ObjectSet.Enemy_Name[3] == "BlackSlime")
+                {
+                    ObjectSet.Field_inMonster[3].GetComponent<BlackSlime_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[3].GetComponent<BlackSlime_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[3].GetComponent<BlackSlime_Script>().targetCard = true;
+                    if (!ObjectSet.Field_inMonster[3].GetComponent<BlackSlime_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[3].GetComponent<BlackSlime_Script>().HIT_Enemy = true;
+                }
+            }
+            if (ObjectSet.Enemy_Name[0] == "DeathBringer" || ObjectSet.Enemy_Name[1] == "DeathBringer" ||
+                ObjectSet.Enemy_Name[2] == "DeathBringer" || ObjectSet.Enemy_Name[3] == "DeathBringer")
+            {
+                if (ObjectSet.Field_inMonster[0] != null && ObjectSet.Enemy_Name[0] == "DeathBringer")
+                {
+                    ObjectSet.Field_inMonster[0].GetComponent<DeathBringer_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[0].GetComponent<DeathBringer_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[0].GetComponent<DeathBringer_Script>().targetCard = true;
+                    if (!ObjectSet.Field_inMonster[0].GetComponent<DeathBringer_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[0].GetComponent<DeathBringer_Script>().HIT_Enemy = true;
+                }
+                if (ObjectSet.Field_inMonster[1] != null && ObjectSet.Enemy_Name[1] == "DeathBringer")
+                {
+                    ObjectSet.Field_inMonster[1].GetComponent<DeathBringer_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[1].GetComponent<DeathBringer_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[1].GetComponent<DeathBringer_Script>().targetCard = true;
+                    if (!ObjectSet.Field_inMonster[1].GetComponent<DeathBringer_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[1].GetComponent<DeathBringer_Script>().HIT_Enemy = true;
+                }
+                if (ObjectSet.Field_inMonster[2] != null && ObjectSet.Enemy_Name[2] == "DeathBringer")
+                {
+                    ObjectSet.Field_inMonster[2].GetComponent<DeathBringer_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[2].GetComponent<DeathBringer_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[2].GetComponent<DeathBringer_Script>().targetCard = true;
+                    if (!ObjectSet.Field_inMonster[2].GetComponent<DeathBringer_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[2].GetComponent<DeathBringer_Script>().HIT_Enemy = true;
+                }
+                if (ObjectSet.Field_inMonster[3] != null && ObjectSet.Enemy_Name[3] == "DeathBringer")
+                {
+                    ObjectSet.Field_inMonster[3].GetComponent<DeathBringer_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[3].GetComponent<DeathBringer_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[3].GetComponent<DeathBringer_Script>().targetCard = true;
+                    if (!ObjectSet.Field_inMonster[3].GetComponent<DeathBringer_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[3].GetComponent<DeathBringer_Script>().HIT_Enemy = true;
+                }
+            }
+            if (ObjectSet.Enemy_Name[0] == "FireWizard" || ObjectSet.Enemy_Name[1] == "FireWizard" ||
+                ObjectSet.Enemy_Name[2] == "FireWizard" || ObjectSet.Enemy_Name[3] == "FireWizard")
+            {
+                if (ObjectSet.Field_inMonster[0] != null && ObjectSet.Enemy_Name[0] == "FireWizard")
+                {
+                    ObjectSet.Field_inMonster[0].GetComponent<FireWizard_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[0].GetComponent<FireWizard_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[0].GetComponent<FireWizard_Script>().targetCard = true;
+                    if (!ObjectSet.Field_inMonster[0].GetComponent<FireWizard_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[0].GetComponent<FireWizard_Script>().HIT_Enemy = true;
+                }
+                if (ObjectSet.Field_inMonster[1] != null && ObjectSet.Enemy_Name[1] == "FireWizard")
+                {
+                    ObjectSet.Field_inMonster[1].GetComponent<FireWizard_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[1].GetComponent<FireWizard_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[1].GetComponent<FireWizard_Script>().targetCard = true;
+                    if (!ObjectSet.Field_inMonster[1].GetComponent<FireWizard_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[1].GetComponent<FireWizard_Script>().HIT_Enemy = true;
+                }
+                if (ObjectSet.Field_inMonster[2] != null && ObjectSet.Enemy_Name[2] == "FireWizard")
+                {
+                    ObjectSet.Field_inMonster[2].GetComponent<FireWizard_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[2].GetComponent<FireWizard_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[2].GetComponent<FireWizard_Script>().targetCard = true;
+                    if (!ObjectSet.Field_inMonster[2].GetComponent<FireWizard_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[2].GetComponent<FireWizard_Script>().HIT_Enemy = true;
+                }
+                if (ObjectSet.Field_inMonster[3] != null && ObjectSet.Enemy_Name[3] == "FireWizard")
+                {
+                    ObjectSet.Field_inMonster[3].GetComponent<FireWizard_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[3].GetComponent<FireWizard_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[3].GetComponent<FireWizard_Script>().targetCard = true;
+                    if (!ObjectSet.Field_inMonster[3].GetComponent<FireWizard_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[3].GetComponent<FireWizard_Script>().HIT_Enemy = true;
+                }
+            }
+            if (ObjectSet.Enemy_Name[0] == "Necromancer" || ObjectSet.Enemy_Name[1] == "Necromancer" ||
+                ObjectSet.Enemy_Name[2] == "Necromancer" || ObjectSet.Enemy_Name[3] == "Necromancer")
+            {
+                if (ObjectSet.Field_inMonster[0] != null && ObjectSet.Enemy_Name[0] == "Necromancer")
+                {
+                    ObjectSet.Field_inMonster[0].GetComponent<Necromancer_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[0].GetComponent<Necromancer_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[0].GetComponent<Necromancer_Script>().targetCard = true;
+                    if (!ObjectSet.Field_inMonster[0].GetComponent<Necromancer_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[0].GetComponent<Necromancer_Script>().HIT_Enemy = true;
+                }
+                if (ObjectSet.Field_inMonster[1] != null && ObjectSet.Enemy_Name[1] == "Necromancer")
+                {
+                    ObjectSet.Field_inMonster[1].GetComponent<Necromancer_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[1].GetComponent<Necromancer_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[1].GetComponent<Necromancer_Script>().targetCard = true;
+                    if (!ObjectSet.Field_inMonster[1].GetComponent<Necromancer_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[1].GetComponent<Necromancer_Script>().HIT_Enemy = true;
+                }
+                if (ObjectSet.Field_inMonster[2] != null && ObjectSet.Enemy_Name[2] == "Necromancer")
+                {
+                    ObjectSet.Field_inMonster[2].GetComponent<Necromancer_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[2].GetComponent<Necromancer_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[2].GetComponent<Necromancer_Script>().targetCard = true;
+                    if (!ObjectSet.Field_inMonster[2].GetComponent<Necromancer_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[2].GetComponent<Necromancer_Script>().HIT_Enemy = true;
+                }
+                if (ObjectSet.Field_inMonster[3] != null && ObjectSet.Enemy_Name[3] == "Necromancer")
+                {
+                    ObjectSet.Field_inMonster[3].GetComponent<Necromancer_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[3].GetComponent<Necromancer_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[3].GetComponent<Necromancer_Script>().targetCard = true;
+                    if (!ObjectSet.Field_inMonster[3].GetComponent<Necromancer_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[3].GetComponent<Necromancer_Script>().HIT_Enemy = true;
+                }
+            }
+            //if (ObjectSet.Enemy_Name[0] == "NullName" || ObjectSet.Enemy_Name[1] == "NullName" ||
+            //    ObjectSet.Enemy_Name[2] == "NullName" || ObjectSet.Enemy_Name[3] == "NullName")
+            //{
+            //    if (ObjectSet.Field_inMonster[0] != null && ObjectSet.Enemy_Name[0] == "NullName")
+            //    {
+            //        ObjectSet.Field_inMonster[0].GetComponent<Null_Script>().Arrow = true;
+            //        ObjectSet.Field_inMonster[0].GetComponent<Null_Script>().Guide = true;
+            //        ObjectSet.Field_inMonster[0].GetComponent<Null_Script>().targetCard = true;
+            //        if (!ObjectSet.Field_inMonster[0].GetComponent<Null_Script>().HIT_Enemy)
+            //            ObjectSet.Field_inMonster[0].GetComponent<Null_Script>().HIT_Enemy = true;
+            //    }
+            //    if (ObjectSet.Field_inMonster[1] != null && ObjectSet.Enemy_Name[1] == "NullName")
+            //    {
+            //        ObjectSet.Field_inMonster[1].GetComponent<Null_Script>().Arrow = true;
+            //        ObjectSet.Field_inMonster[1].GetComponent<Null_Script>().Guide = true;
+            //        ObjectSet.Field_inMonster[1].GetComponent<Null_Script>().targetCard = true;
+            //        if (!ObjectSet.Field_inMonster[1].GetComponent<Null_Script>().HIT_Enemy)
+            //            ObjectSet.Field_inMonster[1].GetComponent<Null_Script>().HIT_Enemy = true;
+            //    }
+            //    if (ObjectSet.Field_inMonster[2] != null && ObjectSet.Enemy_Name[2] == "NullName")
+            //    {
+            //        ObjectSet.Field_inMonster[2].GetComponent<Null_Script>().Arrow = true;
+            //        ObjectSet.Field_inMonster[2].GetComponent<Null_Script>().Guide = true;
+            //        ObjectSet.Field_inMonster[2].GetComponent<Null_Script>().targetCard = true;
+            //        if (!ObjectSet.Field_inMonster[2].GetComponent<Null_Script>().HIT_Enemy)
+            //            ObjectSet.Field_inMonster[2].GetComponent<Null_Script>().HIT_Enemy = true;
+            //    }
+            //    if (ObjectSet.Field_inMonster[3] != null && ObjectSet.Enemy_Name[3] == "NullName")
+            //    {
+            //        ObjectSet.Field_inMonster[3].GetComponent<Null_Script>().Arrow = true;
+            //        ObjectSet.Field_inMonster[3].GetComponent<Null_Script>().Guide = true;
+            //        ObjectSet.Field_inMonster[3].GetComponent<Null_Script>().targetCard = true;
+            //        if (!ObjectSet.Field_inMonster[3].GetComponent<Null_Script>().HIT_Enemy)
+            //            ObjectSet.Field_inMonster[3].GetComponent<Null_Script>().HIT_Enemy = true;
+            //    }
+            //}
         }
         else
         {
@@ -490,6 +673,186 @@ public class Card_Script : MonoBehaviour
                        ObjectSet.Field_inMonster[3].GetComponent<Mushroom_Script>().HIT_Enemy = false;
                 }
             }
+            if (ObjectSet.Enemy_Name[0] == "BlackSlime" || ObjectSet.Enemy_Name[1] == "BlackSlime" ||
+                ObjectSet.Enemy_Name[2] == "BlackSlime" || ObjectSet.Enemy_Name[3] == "BlackSlime")
+            {
+                if (ObjectSet.Field_inMonster[0] != null && ObjectSet.Enemy_Name[0] == "BlackSlime")
+                {
+                    ObjectSet.Field_inMonster[0].GetComponent<BlackSlime_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[0].GetComponent<BlackSlime_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[0].GetComponent<BlackSlime_Script>().targetCard = false;
+                    if (ObjectSet.Field_inMonster[0].GetComponent<BlackSlime_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[0].GetComponent<BlackSlime_Script>().HIT_Enemy = false;
+                }
+                if (ObjectSet.Field_inMonster[1] != null && ObjectSet.Enemy_Name[1] == "BlackSlime")
+                {
+                    ObjectSet.Field_inMonster[1].GetComponent<BlackSlime_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[1].GetComponent<BlackSlime_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[1].GetComponent<BlackSlime_Script>().targetCard = false;
+                    if (ObjectSet.Field_inMonster[1].GetComponent<BlackSlime_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[1].GetComponent<BlackSlime_Script>().HIT_Enemy = false;
+                }
+                if (ObjectSet.Field_inMonster[2] != null && ObjectSet.Enemy_Name[2] == "BlackSlime")
+                {
+                    ObjectSet.Field_inMonster[2].GetComponent<BlackSlime_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[2].GetComponent<BlackSlime_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[2].GetComponent<BlackSlime_Script>().targetCard = false;
+                    if (ObjectSet.Field_inMonster[2].GetComponent<BlackSlime_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[2].GetComponent<BlackSlime_Script>().HIT_Enemy = false;
+                }
+                if (ObjectSet.Field_inMonster[3] != null && ObjectSet.Enemy_Name[3] == "BlackSlime")
+                {
+                    ObjectSet.Field_inMonster[3].GetComponent<BlackSlime_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[3].GetComponent<BlackSlime_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[3].GetComponent<BlackSlime_Script>().targetCard = false;
+                    if (ObjectSet.Field_inMonster[3].GetComponent<BlackSlime_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[3].GetComponent<BlackSlime_Script>().HIT_Enemy = false;
+                }
+            }
+            if (ObjectSet.Enemy_Name[0] == "DeathBringer" || ObjectSet.Enemy_Name[1] == "DeathBringer" ||
+                ObjectSet.Enemy_Name[2] == "DeathBringer" || ObjectSet.Enemy_Name[3] == "DeathBringer")
+            {
+                if (ObjectSet.Field_inMonster[0] != null && ObjectSet.Enemy_Name[0] == "DeathBringer")
+                {
+                    ObjectSet.Field_inMonster[0].GetComponent<DeathBringer_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[0].GetComponent<DeathBringer_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[0].GetComponent<DeathBringer_Script>().targetCard = false;
+                    if (ObjectSet.Field_inMonster[0].GetComponent<DeathBringer_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[0].GetComponent<DeathBringer_Script>().HIT_Enemy = false;
+                }
+                if (ObjectSet.Field_inMonster[1] != null && ObjectSet.Enemy_Name[1] == "DeathBringer")
+                {
+                    ObjectSet.Field_inMonster[1].GetComponent<DeathBringer_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[1].GetComponent<DeathBringer_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[1].GetComponent<DeathBringer_Script>().targetCard = false;
+                    if (ObjectSet.Field_inMonster[1].GetComponent<DeathBringer_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[1].GetComponent<DeathBringer_Script>().HIT_Enemy = false;
+                }
+                if (ObjectSet.Field_inMonster[2] != null && ObjectSet.Enemy_Name[2] == "DeathBringer")
+                {
+                    ObjectSet.Field_inMonster[2].GetComponent<DeathBringer_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[2].GetComponent<DeathBringer_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[2].GetComponent<DeathBringer_Script>().targetCard = false;
+                    if (ObjectSet.Field_inMonster[2].GetComponent<DeathBringer_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[2].GetComponent<DeathBringer_Script>().HIT_Enemy = false;
+                }
+                if (ObjectSet.Field_inMonster[3] != null && ObjectSet.Enemy_Name[3] == "DeathBringer")
+                {
+                    ObjectSet.Field_inMonster[3].GetComponent<DeathBringer_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[3].GetComponent<DeathBringer_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[3].GetComponent<DeathBringer_Script>().targetCard = false;
+                    if (ObjectSet.Field_inMonster[3].GetComponent<DeathBringer_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[3].GetComponent<DeathBringer_Script>().HIT_Enemy = false;
+                }
+            }
+            if (ObjectSet.Enemy_Name[0] == "FireWizard" || ObjectSet.Enemy_Name[1] == "FireWizard" ||
+                ObjectSet.Enemy_Name[2] == "FireWizard" || ObjectSet.Enemy_Name[3] == "FireWizard")
+            {
+                if (ObjectSet.Field_inMonster[0] != null && ObjectSet.Enemy_Name[0] == "FireWizard")
+                {
+                    ObjectSet.Field_inMonster[0].GetComponent<FireWizard_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[0].GetComponent<FireWizard_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[0].GetComponent<FireWizard_Script>().targetCard = false;
+                    if (ObjectSet.Field_inMonster[0].GetComponent<FireWizard_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[0].GetComponent<FireWizard_Script>().HIT_Enemy = false;
+                }
+                if (ObjectSet.Field_inMonster[1] != null && ObjectSet.Enemy_Name[1] == "FireWizard")
+                {
+                    ObjectSet.Field_inMonster[1].GetComponent<FireWizard_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[1].GetComponent<FireWizard_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[1].GetComponent<FireWizard_Script>().targetCard = false;
+                    if (ObjectSet.Field_inMonster[1].GetComponent<FireWizard_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[1].GetComponent<FireWizard_Script>().HIT_Enemy = false;
+                }
+                if (ObjectSet.Field_inMonster[2] != null && ObjectSet.Enemy_Name[2] == "FireWizard")
+                {
+                    ObjectSet.Field_inMonster[2].GetComponent<FireWizard_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[2].GetComponent<FireWizard_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[2].GetComponent<FireWizard_Script>().targetCard = false;
+                    if (ObjectSet.Field_inMonster[2].GetComponent<FireWizard_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[2].GetComponent<FireWizard_Script>().HIT_Enemy = false;
+                }
+                if (ObjectSet.Field_inMonster[3] != null && ObjectSet.Enemy_Name[3] == "FireWizard")
+                {
+                    ObjectSet.Field_inMonster[3].GetComponent<FireWizard_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[3].GetComponent<FireWizard_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[3].GetComponent<FireWizard_Script>().targetCard = false;  
+                    if (ObjectSet.Field_inMonster[3].GetComponent<FireWizard_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[3].GetComponent<FireWizard_Script>().HIT_Enemy = false;
+                }
+            }
+            if (ObjectSet.Enemy_Name[0] == "Necromancer" || ObjectSet.Enemy_Name[1] == "Necromancer" ||
+                ObjectSet.Enemy_Name[2] == "Necromancer" || ObjectSet.Enemy_Name[3] == "Necromancer")
+            {
+                if (ObjectSet.Field_inMonster[0] != null && ObjectSet.Enemy_Name[0] == "Necromancer")
+                {
+                    ObjectSet.Field_inMonster[0].GetComponent<Necromancer_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[0].GetComponent<Necromancer_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[0].GetComponent<Necromancer_Script>().targetCard = false;
+                    if (ObjectSet.Field_inMonster[0].GetComponent<Necromancer_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[0].GetComponent<Necromancer_Script>().HIT_Enemy = false;
+                }
+                if (ObjectSet.Field_inMonster[1] != null && ObjectSet.Enemy_Name[1] == "Necromancer")
+                {
+                    ObjectSet.Field_inMonster[1].GetComponent<Necromancer_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[1].GetComponent<Necromancer_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[1].GetComponent<Necromancer_Script>().targetCard = false;
+                    if (ObjectSet.Field_inMonster[1].GetComponent<Necromancer_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[1].GetComponent<Necromancer_Script>().HIT_Enemy = false;
+                }
+                if (ObjectSet.Field_inMonster[2] != null && ObjectSet.Enemy_Name[2] == "Necromancer")
+                {
+                    ObjectSet.Field_inMonster[2].GetComponent<Necromancer_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[2].GetComponent<Necromancer_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[2].GetComponent<Necromancer_Script>().targetCard = false;
+                    if (ObjectSet.Field_inMonster[2].GetComponent<Necromancer_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[2].GetComponent<Necromancer_Script>().HIT_Enemy = false;
+                }
+                if (ObjectSet.Field_inMonster[3] != null && ObjectSet.Enemy_Name[3] == "Necromancer")
+                {
+                    ObjectSet.Field_inMonster[3].GetComponent<Necromancer_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[3].GetComponent<Necromancer_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[3].GetComponent<Necromancer_Script>().targetCard = false;
+                    if (ObjectSet.Field_inMonster[3].GetComponent<Necromancer_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[3].GetComponent<Necromancer_Script>().HIT_Enemy = false;
+                }
+            }
+            //if (ObjectSet.Enemy_Name[0] == "NullName" || ObjectSet.Enemy_Name[1] == "NullName" ||
+            //    ObjectSet.Enemy_Name[2] == "NullName" || ObjectSet.Enemy_Name[3] == "NullName")
+            //{
+            //    if (ObjectSet.Field_inMonster[0] != null && ObjectSet.Enemy_Name[0] == "NullName")
+            //    {
+            //        ObjectSet.Field_inMonster[0].GetComponent<Null_Script>().Arrow = false;
+            //        ObjectSet.Field_inMonster[0].GetComponent<Null_Script>().Guide = false;
+            //        ObjectSet.Field_inMonster[0].GetComponent<Null_Script>().targetCard = false;
+            //        if (ObjectSet.Field_inMonster[0].GetComponent<Null_Script>().HIT_Enemy)
+            //            ObjectSet.Field_inMonster[0].GetComponent<Null_Script>().HIT_Enemy = false;
+            //    }
+            //    if (ObjectSet.Field_inMonster[1] != null && ObjectSet.Enemy_Name[1] == "NullName")
+            //    {
+            //        ObjectSet.Field_inMonster[1].GetComponent<Null_Script>().Arrow = false;
+            //        ObjectSet.Field_inMonster[1].GetComponent<Null_Script>().Guide = false;
+            //        ObjectSet.Field_inMonster[1].GetComponent<Null_Script>().targetCard = false;
+            //        if (ObjectSet.Field_inMonster[1].GetComponent<Null_Script>().HIT_Enemy)
+            //            ObjectSet.Field_inMonster[1].GetComponent<Null_Script>().HIT_Enemy = false;
+            //    }
+            //    if (ObjectSet.Field_inMonster[2] != null && ObjectSet.Enemy_Name[2] == "NullName")
+            //    {
+            //        ObjectSet.Field_inMonster[2].GetComponent<Null_Script>().Arrow = false;
+            //        ObjectSet.Field_inMonster[2].GetComponent<Null_Script>().Guide = false;
+            //        ObjectSet.Field_inMonster[2].GetComponent<Null_Script>().targetCard = false;
+            //        if (ObjectSet.Field_inMonster[2].GetComponent<Null_Script>().HIT_Enemy)
+            //            ObjectSet.Field_inMonster[2].GetComponent<Null_Script>().HIT_Enemy = false;
+            //    }
+            //    if (ObjectSet.Field_inMonster[3] != null && ObjectSet.Enemy_Name[3] == "NullName")
+            //    {
+            //        ObjectSet.Field_inMonster[3].GetComponent<Null_Script>().Arrow = false;
+            //        ObjectSet.Field_inMonster[3].GetComponent<Null_Script>().Guide = false;
+            //        ObjectSet.Field_inMonster[3].GetComponent<Null_Script>().targetCard = false;
+            //        if (ObjectSet.Field_inMonster[3].GetComponent<Null_Script>().HIT_Enemy)
+            //            ObjectSet.Field_inMonster[3].GetComponent<Null_Script>().HIT_Enemy = false;
+            //    }
+            //}
         }
     }
     void EnemymultipleTarget(bool TF)
@@ -656,6 +1019,169 @@ public class Card_Script : MonoBehaviour
                         ObjectSet.Field_inMonster[3].GetComponent<Mushroom_Script>().HIT_Enemy = true;
                 }
             }
+            if (ObjectSet.Enemy_Name[0] == "BlackSlime" || ObjectSet.Enemy_Name[1] == "BlackSlime" ||
+                ObjectSet.Enemy_Name[2] == "BlackSlime" || ObjectSet.Enemy_Name[3] == "BlackSlime")
+            {
+                if (ObjectSet.Field_inMonster[0] != null && ObjectSet.Enemy_Name[0] == "BlackSlime")
+                {
+                    ObjectSet.Field_inMonster[0].GetComponent<BlackSlime_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[0].GetComponent<BlackSlime_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[0].GetComponent<BlackSlime_Script>().targetCard = true;
+                    ObjectSet.Field_inMonster[0].GetComponent<BlackSlime_Script>().Card_Damage = deckField.Click_Card.multiple_damage;
+                    if (!ObjectSet.Field_inMonster[0].GetComponent<BlackSlime_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[0].GetComponent<BlackSlime_Script>().HIT_Enemy = true;
+                }
+                if (ObjectSet.Field_inMonster[1] != null && ObjectSet.Enemy_Name[1] == "BlackSlime")
+                {
+                    ObjectSet.Field_inMonster[1].GetComponent<BlackSlime_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[1].GetComponent<BlackSlime_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[1].GetComponent<BlackSlime_Script>().targetCard = true;
+                    ObjectSet.Field_inMonster[1].GetComponent<BlackSlime_Script>().Card_Damage = deckField.Click_Card.multiple_damage;
+                    if (!ObjectSet.Field_inMonster[1].GetComponent<BlackSlime_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[1].GetComponent<BlackSlime_Script>().HIT_Enemy = true;
+                }
+                if (ObjectSet.Field_inMonster[2] != null && ObjectSet.Enemy_Name[2] == "BlackSlime")
+                {
+                    ObjectSet.Field_inMonster[2].GetComponent<BlackSlime_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[2].GetComponent<BlackSlime_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[2].GetComponent<BlackSlime_Script>().targetCard = true;
+                    ObjectSet.Field_inMonster[2].GetComponent<BlackSlime_Script>().Card_Damage = deckField.Click_Card.multiple_damage;
+                    if (!ObjectSet.Field_inMonster[2].GetComponent<BlackSlime_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[2].GetComponent<BlackSlime_Script>().HIT_Enemy = true;
+                }
+                if (ObjectSet.Field_inMonster[3] != null && ObjectSet.Enemy_Name[3] == "BlackSlime")
+                {
+                    ObjectSet.Field_inMonster[3].GetComponent<BlackSlime_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[3].GetComponent<BlackSlime_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[3].GetComponent<BlackSlime_Script>().targetCard = true;
+                    ObjectSet.Field_inMonster[3].GetComponent<BlackSlime_Script>().Card_Damage = deckField.Click_Card.multiple_damage;
+                    if (!ObjectSet.Field_inMonster[3].GetComponent<BlackSlime_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[3].GetComponent<BlackSlime_Script>().HIT_Enemy = true;
+                }
+            }
+            if (ObjectSet.Enemy_Name[0] == "DeathBringer" || ObjectSet.Enemy_Name[1] == "DeathBringer" ||
+                ObjectSet.Enemy_Name[2] == "DeathBringer" || ObjectSet.Enemy_Name[3] == "DeathBringer")
+            {
+                if (ObjectSet.Field_inMonster[0] != null && ObjectSet.Enemy_Name[0] == "DeathBringer")
+                {
+                    ObjectSet.Field_inMonster[0].GetComponent<DeathBringer_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[0].GetComponent<DeathBringer_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[0].GetComponent<DeathBringer_Script>().targetCard = true;
+                    ObjectSet.Field_inMonster[0].GetComponent<DeathBringer_Script>().Card_Damage = deckField.Click_Card.multiple_damage;
+                    if (!ObjectSet.Field_inMonster[0].GetComponent<DeathBringer_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[0].GetComponent<DeathBringer_Script>().HIT_Enemy = true;
+
+                }
+                if (ObjectSet.Field_inMonster[1] != null && ObjectSet.Enemy_Name[1] == "DeathBringer")
+                {
+                    ObjectSet.Field_inMonster[1].GetComponent<DeathBringer_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[1].GetComponent<DeathBringer_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[1].GetComponent<DeathBringer_Script>().targetCard = true;
+                    ObjectSet.Field_inMonster[1].GetComponent<DeathBringer_Script>().Card_Damage = deckField.Click_Card.multiple_damage;
+                    if (!ObjectSet.Field_inMonster[1].GetComponent<DeathBringer_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[1].GetComponent<DeathBringer_Script>().HIT_Enemy = true;
+                }
+                if (ObjectSet.Field_inMonster[2] != null && ObjectSet.Enemy_Name[2] == "DeathBringer")
+                {
+                    ObjectSet.Field_inMonster[2].GetComponent<DeathBringer_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[2].GetComponent<DeathBringer_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[2].GetComponent<DeathBringer_Script>().targetCard = true;
+                    ObjectSet.Field_inMonster[2].GetComponent<DeathBringer_Script>().Card_Damage = deckField.Click_Card.multiple_damage;
+                    if (!ObjectSet.Field_inMonster[2].GetComponent<DeathBringer_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[2].GetComponent<DeathBringer_Script>().HIT_Enemy = true;
+                }
+                if (ObjectSet.Field_inMonster[3] != null && ObjectSet.Enemy_Name[3] == "DeathBringer")
+                {
+                    ObjectSet.Field_inMonster[3].GetComponent<DeathBringer_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[3].GetComponent<DeathBringer_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[3].GetComponent<DeathBringer_Script>().targetCard = true;
+                    ObjectSet.Field_inMonster[3].GetComponent<DeathBringer_Script>().Card_Damage = deckField.Click_Card.multiple_damage;
+                    if (!ObjectSet.Field_inMonster[3].GetComponent<DeathBringer_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[3].GetComponent<DeathBringer_Script>().HIT_Enemy = true;
+                }
+            }
+            if (ObjectSet.Enemy_Name[0] == "FireWizard" || ObjectSet.Enemy_Name[1] == "FireWizard" ||
+                ObjectSet.Enemy_Name[2] == "FireWizard" || ObjectSet.Enemy_Name[3] == "FireWizard")
+            {
+                if (ObjectSet.Field_inMonster[0] != null && ObjectSet.Enemy_Name[0] == "FireWizard")
+                {
+                    ObjectSet.Field_inMonster[0].GetComponent<FireWizard_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[0].GetComponent<FireWizard_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[0].GetComponent<FireWizard_Script>().targetCard = true;
+                    ObjectSet.Field_inMonster[0].GetComponent<FireWizard_Script>().Card_Damage = deckField.Click_Card.multiple_damage;
+                    if (!ObjectSet.Field_inMonster[0].GetComponent<FireWizard_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[0].GetComponent<FireWizard_Script>().HIT_Enemy = true;
+
+                }
+                if (ObjectSet.Field_inMonster[1] != null && ObjectSet.Enemy_Name[1] == "FireWizard")
+                {
+                    ObjectSet.Field_inMonster[1].GetComponent<FireWizard_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[1].GetComponent<FireWizard_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[1].GetComponent<FireWizard_Script>().targetCard = true;
+                    ObjectSet.Field_inMonster[1].GetComponent<FireWizard_Script>().Card_Damage = deckField.Click_Card.multiple_damage;
+                    if (!ObjectSet.Field_inMonster[1].GetComponent<FireWizard_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[1].GetComponent<FireWizard_Script>().HIT_Enemy = true;
+                }
+                if (ObjectSet.Field_inMonster[2] != null && ObjectSet.Enemy_Name[2] == "FireWizard")
+                {
+                    ObjectSet.Field_inMonster[2].GetComponent<FireWizard_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[2].GetComponent<FireWizard_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[2].GetComponent<FireWizard_Script>().targetCard = true;
+                    ObjectSet.Field_inMonster[2].GetComponent<FireWizard_Script>().Card_Damage = deckField.Click_Card.multiple_damage;
+                    if (!ObjectSet.Field_inMonster[2].GetComponent<FireWizard_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[2].GetComponent<FireWizard_Script>().HIT_Enemy = true;
+                }
+                if (ObjectSet.Field_inMonster[3] != null && ObjectSet.Enemy_Name[3] == "FireWizard")
+                {
+                    ObjectSet.Field_inMonster[3].GetComponent<FireWizard_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[3].GetComponent<FireWizard_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[3].GetComponent<FireWizard_Script>().targetCard = true;
+                    ObjectSet.Field_inMonster[3].GetComponent<FireWizard_Script>().Card_Damage = deckField.Click_Card.multiple_damage;
+                    if (!ObjectSet.Field_inMonster[3].GetComponent<FireWizard_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[3].GetComponent<FireWizard_Script>().HIT_Enemy = true;
+                }
+            }
+                    //if (ObjectSet.Enemy_Name[0] == "NullName" || ObjectSet.Enemy_Name[1] == "NullName" ||
+                    //    ObjectSet.Enemy_Name[2] == "NullName" || ObjectSet.Enemy_Name[3] == "NullName")
+                    //{
+                    //    if (ObjectSet.Field_inMonster[0] != null && ObjectSet.Enemy_Name[0] == "NullName")
+                    //    {
+                    //        ObjectSet.Field_inMonster[0].GetComponent<Null_Script>().Arrow = true;
+                    //        ObjectSet.Field_inMonster[0].GetComponent<Null_Script>().Guide = true;
+                    //        ObjectSet.Field_inMonster[0].GetComponent<Null_Script>().targetCard = true;
+                    //        ObjectSet.Field_inMonster[0].GetComponent<Null_Script>().Card_Damage = deckField.Click_Card.multiple_damage;
+                    //        if (!ObjectSet.Field_inMonster[0].GetComponent<Null_Script>().HIT_Enemy)
+                    //            ObjectSet.Field_inMonster[0].GetComponent<Null_Script>().HIT_Enemy = true;
+
+                    //    }
+                    //    if (ObjectSet.Field_inMonster[1] != null && ObjectSet.Enemy_Name[1] == "NullName")
+                    //    {
+                    //        ObjectSet.Field_inMonster[1].GetComponent<Null_Script>().Arrow = true;
+                    //        ObjectSet.Field_inMonster[1].GetComponent<Null_Script>().Guide = true;
+                    //        ObjectSet.Field_inMonster[1].GetComponent<Null_Script>().targetCard = true;
+                    //        ObjectSet.Field_inMonster[1].GetComponent<Null_Script>().Card_Damage = deckField.Click_Card.multiple_damage;
+                    //        if (!ObjectSet.Field_inMonster[1].GetComponent<Null_Script>().HIT_Enemy)
+                    //            ObjectSet.Field_inMonster[1].GetComponent<Null_Script>().HIT_Enemy = true;
+                    //    }
+                    //    if (ObjectSet.Field_inMonster[2] != null && ObjectSet.Enemy_Name[2] == "NullName")
+                    //    {
+                    //        ObjectSet.Field_inMonster[2].GetComponent<Null_Script>().Arrow = true;
+                    //        ObjectSet.Field_inMonster[2].GetComponent<Null_Script>().Guide = true;
+                    //        ObjectSet.Field_inMonster[2].GetComponent<Null_Script>().targetCard = true;
+                    //        ObjectSet.Field_inMonster[2].GetComponent<Null_Script>().Card_Damage = deckField.Click_Card.multiple_damage;
+                    //        if (!ObjectSet.Field_inMonster[2].GetComponent<Null_Script>().HIT_Enemy)
+                    //            ObjectSet.Field_inMonster[2].GetComponent<Null_Script>().HIT_Enemy = true;
+                    //    }
+                    //    if (ObjectSet.Field_inMonster[3] != null && ObjectSet.Enemy_Name[3] == "NullName")
+                    //    {
+                    //        ObjectSet.Field_inMonster[3].GetComponent<Null_Script>().Arrow = true;
+                    //        ObjectSet.Field_inMonster[3].GetComponent<Null_Script>().Guide = true;
+                    //        ObjectSet.Field_inMonster[3].GetComponent<Null_Script>().targetCard = true;
+                    //        ObjectSet.Field_inMonster[3].GetComponent<Null_Script>().Card_Damage = deckField.Click_Card.multiple_damage;
+                    //        if (!ObjectSet.Field_inMonster[3].GetComponent<Null_Script>().HIT_Enemy)
+                    //            ObjectSet.Field_inMonster[3].GetComponent<Null_Script>().HIT_Enemy = true;
+                    //    }
+                    //}
         }
         else
         {
@@ -777,6 +1303,146 @@ public class Card_Script : MonoBehaviour
                     ObjectSet.Field_inMonster[3].GetComponent<Mushroom_Script>().targetCard = false;
                 }
             }
+            if (ObjectSet.Enemy_Name[0] == "BlackSlime" || ObjectSet.Enemy_Name[1] == "BlackSlime" ||
+                ObjectSet.Enemy_Name[2] == "BlackSlime" || ObjectSet.Enemy_Name[3] == "BlackSlime")
+            {
+                if (ObjectSet.Field_inMonster[0] != null && ObjectSet.Enemy_Name[0] == "BlackSlime")
+                {
+                    ObjectSet.Field_inMonster[0].GetComponent<BlackSlime_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[0].GetComponent<BlackSlime_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[0].GetComponent<BlackSlime_Script>().targetCard = false;
+                }
+                if (ObjectSet.Field_inMonster[1] != null && ObjectSet.Enemy_Name[1] == "BlackSlime")
+                {
+                    ObjectSet.Field_inMonster[1].GetComponent<BlackSlime_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[1].GetComponent<BlackSlime_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[1].GetComponent<BlackSlime_Script>().targetCard = false;
+                }
+                if (ObjectSet.Field_inMonster[2] != null && ObjectSet.Enemy_Name[2] == "BlackSlime")
+                {
+                    ObjectSet.Field_inMonster[2].GetComponent<BlackSlime_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[2].GetComponent<BlackSlime_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[2].GetComponent<BlackSlime_Script>().targetCard = false;
+                }
+                if (ObjectSet.Field_inMonster[3] != null && ObjectSet.Enemy_Name[3] == "BlackSlime")
+                {
+                    ObjectSet.Field_inMonster[3].GetComponent<BlackSlime_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[3].GetComponent<BlackSlime_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[3].GetComponent<BlackSlime_Script>().targetCard = false;
+                }
+            }
+            if (ObjectSet.Enemy_Name[0] == "DeathBringer" || ObjectSet.Enemy_Name[1] == "DeathBringer" ||
+                ObjectSet.Enemy_Name[2] == "DeathBringer" || ObjectSet.Enemy_Name[3] == "DeathBringer")
+            {
+                if (ObjectSet.Field_inMonster[0] != null && ObjectSet.Enemy_Name[0] == "DeathBringer")
+                {
+                    ObjectSet.Field_inMonster[0].GetComponent<DeathBringer_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[0].GetComponent<DeathBringer_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[0].GetComponent<DeathBringer_Script>().targetCard = false;
+                }
+                if (ObjectSet.Field_inMonster[1] != null && ObjectSet.Enemy_Name[1] == "DeathBringer")
+                {
+                    ObjectSet.Field_inMonster[1].GetComponent<DeathBringer_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[1].GetComponent<DeathBringer_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[1].GetComponent<DeathBringer_Script>().targetCard = false;
+                }
+                if (ObjectSet.Field_inMonster[2] != null && ObjectSet.Enemy_Name[2] == "DeathBringer")
+                {
+                    ObjectSet.Field_inMonster[2].GetComponent<DeathBringer_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[2].GetComponent<DeathBringer_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[2].GetComponent<DeathBringer_Script>().targetCard = false;
+                }
+                if (ObjectSet.Field_inMonster[3] != null && ObjectSet.Enemy_Name[3] == "DeathBringer")
+                {
+                    ObjectSet.Field_inMonster[3].GetComponent<DeathBringer_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[3].GetComponent<DeathBringer_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[3].GetComponent<DeathBringer_Script>().targetCard = false;
+                }
+            }
+            if (ObjectSet.Enemy_Name[0] == "FireWizard" || ObjectSet.Enemy_Name[1] == "FireWizard" ||
+                ObjectSet.Enemy_Name[2] == "FireWizard" || ObjectSet.Enemy_Name[3] == "FireWizard")
+            {
+                if (ObjectSet.Field_inMonster[0] != null && ObjectSet.Enemy_Name[0] == "FireWizard")
+                {
+                    ObjectSet.Field_inMonster[0].GetComponent<FireWizard_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[0].GetComponent<FireWizard_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[0].GetComponent<FireWizard_Script>().targetCard = false;
+                }
+                if (ObjectSet.Field_inMonster[1] != null && ObjectSet.Enemy_Name[1] == "FireWizard")
+                {
+                    ObjectSet.Field_inMonster[1].GetComponent<FireWizard_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[1].GetComponent<FireWizard_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[1].GetComponent<FireWizard_Script>().targetCard = false;
+                }
+                if (ObjectSet.Field_inMonster[2] != null && ObjectSet.Enemy_Name[2] == "FireWizard")
+                {
+                    ObjectSet.Field_inMonster[2].GetComponent<FireWizard_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[2].GetComponent<FireWizard_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[2].GetComponent<FireWizard_Script>().targetCard = false;
+                }
+                if (ObjectSet.Field_inMonster[3] != null && ObjectSet.Enemy_Name[3] == "FireWizard")
+                {
+                    ObjectSet.Field_inMonster[3].GetComponent<FireWizard_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[3].GetComponent<FireWizard_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[3].GetComponent<FireWizard_Script>().targetCard = false;
+                }
+            }
+            if (ObjectSet.Enemy_Name[0] == "Necromancer" || ObjectSet.Enemy_Name[1] == "Necromancer" ||
+                ObjectSet.Enemy_Name[2] == "Necromancer" || ObjectSet.Enemy_Name[3] == "Necromancer")
+            {
+                if (ObjectSet.Field_inMonster[0] != null && ObjectSet.Enemy_Name[0] == "Necromancer")
+                {
+                    ObjectSet.Field_inMonster[0].GetComponent<Necromancer_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[0].GetComponent<Necromancer_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[0].GetComponent<Necromancer_Script>().targetCard = false;
+                }
+                if (ObjectSet.Field_inMonster[1] != null && ObjectSet.Enemy_Name[1] == "Necromancer")
+                {
+                    ObjectSet.Field_inMonster[1].GetComponent<Necromancer_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[1].GetComponent<Necromancer_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[1].GetComponent<Necromancer_Script>().targetCard = false;
+                }
+                if (ObjectSet.Field_inMonster[2] != null && ObjectSet.Enemy_Name[2] == "Necromancer")
+                {
+                    ObjectSet.Field_inMonster[2].GetComponent<Necromancer_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[2].GetComponent<Necromancer_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[2].GetComponent<Necromancer_Script>().targetCard = false;
+                }
+                if (ObjectSet.Field_inMonster[3] != null && ObjectSet.Enemy_Name[3] == "Necromancer")
+                {
+                    ObjectSet.Field_inMonster[3].GetComponent<Necromancer_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[3].GetComponent<Necromancer_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[3].GetComponent<Necromancer_Script>().targetCard = false;
+                }
+            }
+            //if (ObjectSet.Enemy_Name[0] == "NullName" || ObjectSet.Enemy_Name[1] == "NullName" ||
+            //    ObjectSet.Enemy_Name[2] == "NullName" || ObjectSet.Enemy_Name[3] == "NullName")
+            //{
+            //    if (ObjectSet.Field_inMonster[0] != null && ObjectSet.Enemy_Name[0] == "NullName")
+            //    {
+            //        ObjectSet.Field_inMonster[0].GetComponent<Null_Script>().Arrow = false;
+            //        ObjectSet.Field_inMonster[0].GetComponent<Null_Script>().Guide = false;
+            //        ObjectSet.Field_inMonster[0].GetComponent<Null_Script>().targetCard = false;
+            //    }
+            //    if (ObjectSet.Field_inMonster[1] != null && ObjectSet.Enemy_Name[1] == "NullName")
+            //    {
+            //        ObjectSet.Field_inMonster[1].GetComponent<Null_Script>().Arrow = false;
+            //        ObjectSet.Field_inMonster[1].GetComponent<Null_Script>().Guide = false;
+            //        ObjectSet.Field_inMonster[1].GetComponent<Null_Script>().targetCard = false;
+            //    }
+            //    if (ObjectSet.Field_inMonster[2] != null && ObjectSet.Enemy_Name[2] == "NullName")
+            //    {
+            //        ObjectSet.Field_inMonster[2].GetComponent<Null_Script>().Arrow = false;
+            //        ObjectSet.Field_inMonster[2].GetComponent<Null_Script>().Guide = false;
+            //        ObjectSet.Field_inMonster[2].GetComponent<Null_Script>().targetCard = false;
+            //    }
+            //    if (ObjectSet.Field_inMonster[3] != null && ObjectSet.Enemy_Name[3] == "NullName")
+            //    {
+            //        ObjectSet.Field_inMonster[3].GetComponent<Null_Script>().Arrow = false;
+            //        ObjectSet.Field_inMonster[3].GetComponent<Null_Script>().Guide = false;
+            //        ObjectSet.Field_inMonster[3].GetComponent<Null_Script>().targetCard = false;
+            //    }
+            //}
         }
     }
 
@@ -788,7 +1454,15 @@ public class Card_Script : MonoBehaviour
                 Vector3 playerPosition = new Vector3(player.transform.position.x, player.transform.position.y + 10, 0);
                 transform.position = Vector3.Lerp(transform.position, playerPosition, 5 * Time.deltaTime);
                 break;
-            case "Skeleton": // 스켈레톤 일 경우
+
+            case "Skeleton": // 적 캐릭터 일 경우
+            case "Eye":
+            case "Goblin":
+            case "Mushroom":
+            case "BlackSlime":
+            case "DeathBringer":
+            case "FireWizard":
+            case "Necromancer":
                 switch (Card_name)
                 {
                     case "일반마법":
@@ -827,120 +1501,7 @@ public class Card_Script : MonoBehaviour
                         break;
                 }
                 break;
-            case "Eye":
-                switch (Card_name)
-                {
-                    case "일반마법":
-                    case "바람의창":
-                    case "돌무더기":
-                    case "절망의균열":
-                        Vector3 eyeSinglePosition = new Vector3(Card_transform.x, Card_transform.y + 5.5f, 0);
-                        transform.position = Vector3.Lerp(transform.position, eyeSinglePosition, 5 * Time.deltaTime);
-                        break;
-
-                    case "화염장판":
-                    case "얼음안개":
-                        if (Card_upNumber == 0)
-                        {
-                            Vector3 eyeMultiplePositon = new Vector3(Card_transform.x + 10.5f, Card_transform.y + 7f, 0);
-                            transform.position = Vector3.Lerp(transform.position, eyeMultiplePositon, 5 * Time.deltaTime);
-                        }
-                        if (Card_upNumber == 1)
-                        {
-                            Vector3 eyeMultiplePositon = new Vector3(Card_transform.x + 3.5f, Card_transform.y + 7f, 0);
-                            transform.position = Vector3.Lerp(transform.position, eyeMultiplePositon, 5 * Time.deltaTime);
-                        }
-                        if (Card_upNumber == 2)
-                        {
-                            Vector3 eyeMultiplePositon = new Vector3(Card_transform.x - 3.5f, Card_transform.y + 7f, 0);
-                            transform.position = Vector3.Lerp(transform.position, eyeMultiplePositon, 5 * Time.deltaTime);
-                        }
-                        if (Card_upNumber == 3)
-                        {
-                            Vector3 eyeMultiplePositon = new Vector3(Card_transform.x - 10.5f, Card_transform.y + 7f, 0);
-                            transform.position = Vector3.Lerp(transform.position, eyeMultiplePositon, 5 * Time.deltaTime);
-                        }
-                        break;
-                    default:
-                        break;
-                }
-                break;
-            case "Goblin":
-                switch (Card_name)
-                {
-                    case "일반마법":
-                    case "바람의창":
-                    case "돌무더기":
-                    case "절망의균열":
-                        Vector3 goblinSinglePosition = new Vector3(Card_transform.x, Card_transform.y + 5.5f, 0);
-                        transform.position = Vector3.Lerp(transform.position, goblinSinglePosition, 5 * Time.deltaTime);
-                        break;
-
-                    case "화염장판":
-                    case "얼음안개":
-                        if (Card_upNumber == 0)
-                        {
-                            Vector3 goblinMultiplePositon = new Vector3(Card_transform.x + 10.5f, Card_transform.y + 7f, 0);
-                            transform.position = Vector3.Lerp(transform.position, goblinMultiplePositon, 5 * Time.deltaTime);
-                        }
-                        if (Card_upNumber == 1)
-                        {
-                            Vector3 goblinMultiplePositon = new Vector3(Card_transform.x + 3.5f, Card_transform.y + 7f, 0);
-                            transform.position = Vector3.Lerp(transform.position, goblinMultiplePositon, 5 * Time.deltaTime);
-                        }
-                        if (Card_upNumber == 2)
-                        {
-                            Vector3 goblinMultiplePositon = new Vector3(Card_transform.x - 3.5f, Card_transform.y + 7f, 0);
-                            transform.position = Vector3.Lerp(transform.position, goblinMultiplePositon, 5 * Time.deltaTime);
-                        }
-                        if (Card_upNumber == 3)
-                        {
-                            Vector3 goblinMultiplePositon = new Vector3(Card_transform.x - 10.5f, Card_transform.y + 7f, 0);
-                            transform.position = Vector3.Lerp(transform.position, goblinMultiplePositon, 5 * Time.deltaTime);
-                        }
-                        break;
-                    default:
-                        break;
-                }
-                break;
-            case "Mushroom":
-                switch (Card_name)
-                {
-                    case "일반마법":
-                    case "바람의창":
-                    case "돌무더기":
-                    case "절망의균열":
-                        Vector3 mushroomSinglePosition = new Vector3(Card_transform.x, Card_transform.y + 7f, 0);
-                        transform.position = Vector3.Lerp(transform.position, mushroomSinglePosition, 5 * Time.deltaTime);
-                        break;
-
-                    case "화염장판":
-                    case "얼음안개":
-                        if (Card_upNumber == 0)
-                        {
-                            Vector3 mushroonMultiplePositon = new Vector3(Card_transform.x + 10.5f, Card_transform.y + 7f, 0);
-                            transform.position = Vector3.Lerp(transform.position, mushroonMultiplePositon, 5 * Time.deltaTime);
-                        }
-                        if (Card_upNumber == 1)
-                        {
-                            Vector3 mushroonMultiplePositon = new Vector3(Card_transform.x + 3.5f, Card_transform.y + 7f, 0);
-                            transform.position = Vector3.Lerp(transform.position, mushroonMultiplePositon, 5 * Time.deltaTime);
-                        }
-                        if (Card_upNumber == 2)
-                        {
-                            Vector3 mushroonMultiplePositon = new Vector3(Card_transform.x - 3.5f, Card_transform.y + 7f, 0);
-                            transform.position = Vector3.Lerp(transform.position, mushroonMultiplePositon, 5 * Time.deltaTime);
-                        }
-                        if (Card_upNumber == 3)
-                        {
-                            Vector3 mushroonMultiplePositon = new Vector3(Card_transform.x - 10.5f, Card_transform.y + 7f, 0);
-                            transform.position = Vector3.Lerp(transform.position, mushroonMultiplePositon, 5 * Time.deltaTime);
-                        }
-                        break;
-                    default:
-                        break;
-                }
-                break;
+            
             default: // 그외
                 Vector3 worldPosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10);
                 Vector3 mousePosition = Camera.main.ScreenToWorldPoint(worldPosition);
