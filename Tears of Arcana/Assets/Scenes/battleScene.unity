@@ -1865,6 +1865,14 @@ PrefabInstance:
       propertyPath: deckField
       value: 
       objectReference: {fileID: 1812117084}
+    - target: {fileID: 4104663444431250751, guid: b8f7d1d43648754448003f207c4d9974, type: 3}
+      propertyPath: Hit_percent
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4104663444431250751, guid: b8f7d1d43648754448003f207c4d9974, type: 3}
+      propertyPath: Defence_percent
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7092457984515693291, guid: b8f7d1d43648754448003f207c4d9974, type: 3}
       propertyPath: m_Name
       value: Player

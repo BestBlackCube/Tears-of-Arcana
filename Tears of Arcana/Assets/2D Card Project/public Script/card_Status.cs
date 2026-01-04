@@ -44,7 +44,7 @@ public class card_Status
                 status = new card_Status(Card_name, "상급회복물약", 0, 0, 30, 0, 0);
                 break;
             case Card_namedata.Meditation:
-                status = new card_Status(Card_name, "명상", 0, 0, 60, 0, 0);
+                status = new card_Status(Card_name, "명상", 0, 0, 60, 10, 0);
                 break;
             case Card_namedata.idleMagic:
                 status = new card_Status(Card_name, "일반마법", 20, 0, 0, 5, 0);

@@ -116,8 +116,8 @@ public class Card_Script : MonoBehaviour
             Card_noHide = true;             // 선택한 카드는 숨기지 못하게 막기
             deckField.cardMove_Rock = true; // 카드 움직임 멈추기
             deckField.cardHide = true;      // 카드 숨기기
-            Target_Card(Card_MouseClick);
             deckField.Click_Card = this.gameObject.GetComponent<Card_Script>();
+            Target_Card(Card_MouseClick);
         }
     }
     void CardScale(bool Active) // 카드에 마우스 커서를 올렸을 경우
@@ -132,57 +132,101 @@ public class Card_Script : MonoBehaviour
             switch (Card_name)
             {
                 case "다음으로":
-                    player.targetPlayerCard = true;
-                    break;
                 case "이전으로":
-                    player.targetPlayerCard = true;
-                    break;
                 case "하급회복물약":
-                    player.targetPlayerCard = true;
-                    break;
                 case "상급회복물약":
-                    player.targetPlayerCard = true;
-                    break;
                 case "명상":
-                    player.targetPlayerCard = true;
-                    break;
-                case "일반마법":
-                    EnemyTarget();
-                    break;
-                case "화염장판":
-                    EnemyTarget();
-                    break;
-                case "얼음안개":
-                    EnemyTarget();
-                    break;
-                case "바람의창":
-                    EnemyTarget();
-                    break;
-                case "돌무더기":
-                    EnemyTarget();
-                    break;
                 case "생명의잔불":
-                    player.targetPlayerCard = true;
-                    break;
                 case "고요한안식":
-                    player.targetPlayerCard = true;
-                    break;
-                case "절망의균열":
-                    EnemyTarget();
-                    break;
                 case "잔혹한계약":
                     player.targetPlayerCard = true;
                     break;
+
+                case "일반마법":
+                case "바람의창":
+                case "돌무더기":
+                case "절망의균열":
+                    EnemysingleTarget(true);
+                    break;
+
+                case "화염장판":
+                case "얼음안개":
+                    EnemymultipleTarget(true);
+                    break;
+
+
                 default:
                     break;
             }
         }
         else
         {
-            if (player.targetPlayerCard) player.targetPlayerCard = false;
 
+            switch (Card_name)
+            {
+                case "다음으로":
+                case "이전으로":
+                case "하급회복물약":
+                case "상급회복물약":
+                case "명상":
+                case "생명의잔불":
+                case "고요한안식":
+                case "잔혹한계약":
+                    player.targetPlayerCard = false;
+                    break;
+
+                case "일반마법":
+                case "바람의창":
+                case "돌무더기":
+                case "절망의균열":
+                    EnemysingleTarget(false);
+                    break;
+
+                case "화염장판":
+                case "얼음안개":
+                    EnemymultipleTarget(false);
+                    break;
+
+
+                default:
+                    break;
+            }
+        }
+
+    }
+    void EnemysingleTarget(bool TF)
+    {
+        if(TF)
+        {
             if (ObjectSet.Enemy_Name[0] == "Skeleton" || ObjectSet.Enemy_Name[1] == "Skeleton" ||
             ObjectSet.Enemy_Name[2] == "Skeleton" || ObjectSet.Enemy_Name[3] == "Skeleton")
+            {
+                skeleton.targetCard = true;
+                if (skeleton.HIT_Enemy) skeleton.HIT_Enemy = false;
+            }
+            if (ObjectSet.Enemy_Name[0] == "Eye" || ObjectSet.Enemy_Name[1] == "Eye" ||
+                ObjectSet.Enemy_Name[2] == "Eye" || ObjectSet.Enemy_Name[3] == "Eye")
+            {
+                eye.targetCard = true;
+                if (eye.HIT_Enemy) eye.HIT_Enemy = false;
+            }
+            if (ObjectSet.Enemy_Name[0] == "Goblin" || ObjectSet.Enemy_Name[1] == "Goblin" ||
+                ObjectSet.Enemy_Name[2] == "Goblin" || ObjectSet.Enemy_Name[3] == "Goblin")
+            {
+                goblin.targetCard = true;
+                if (goblin.HIT_Enemy) goblin.HIT_Enemy = false;
+            }
+            if (ObjectSet.Enemy_Name[0] == "Mushroom" || ObjectSet.Enemy_Name[1] == "Mushroom" ||
+                ObjectSet.Enemy_Name[2] == "Mushroom" || ObjectSet.Enemy_Name[3] == "Mushroom")
+            {
+                mushroom.targetCard = true;
+                if (mushroom.HIT_Enemy) mushroom.HIT_Enemy = false;
+            }
+        }
+        else
+        {
+            if (ObjectSet.Enemy_Name[0] == "Skeleton" || ObjectSet.Enemy_Name[1] == "Skeleton" ||
+                ObjectSet.Enemy_Name[2] == "Skeleton" || ObjectSet.Enemy_Name[3] == "Skeleton")
             {
                 if (skeleton.targetCard) skeleton.targetCard = false;
             }
@@ -202,35 +246,67 @@ public class Card_Script : MonoBehaviour
                 if (mushroom.targetCard) mushroom.targetCard = false;
             }
         }
+    }
+    void EnemymultipleTarget(bool TF)
+    {
+        if(TF)
+        {
+            if (ObjectSet.Enemy_Name[0] == "Skeleton" || ObjectSet.Enemy_Name[1] == "Skeleton" ||
+            ObjectSet.Enemy_Name[2] == "Skeleton" || ObjectSet.Enemy_Name[3] == "Skeleton")
+            {
+                skeleton.targetCard = true;
+                if (!skeleton.HIT_Enemy) skeleton.HIT_Enemy = true;
+                skeleton.Card_Damage = deckField.Click_Card.multiple_damage;
+            }
+            if (ObjectSet.Enemy_Name[0] == "Eye" || ObjectSet.Enemy_Name[1] == "Eye" ||
+                ObjectSet.Enemy_Name[2] == "Eye" || ObjectSet.Enemy_Name[3] == "Eye")
+            {
+                eye.targetCard = true;
+                if (!eye.HIT_Enemy) eye.HIT_Enemy = true;
+                eye.Card_Damage = deckField.Click_Card.multiple_damage;
+            }
+            if (ObjectSet.Enemy_Name[0] == "Goblin" || ObjectSet.Enemy_Name[1] == "Goblin" ||
+                ObjectSet.Enemy_Name[2] == "Goblin" || ObjectSet.Enemy_Name[3] == "Goblin")
+            {
+                goblin.targetCard = true;
+                if (!goblin.HIT_Enemy) goblin.HIT_Enemy = true;
+                goblin.Card_Damage = deckField.Click_Card.multiple_damage;
+            }
+            if (ObjectSet.Enemy_Name[0] == "Mushroom" || ObjectSet.Enemy_Name[1] == "Mushroom" ||
+                ObjectSet.Enemy_Name[2] == "Mushroom" || ObjectSet.Enemy_Name[3] == "Mushroom")
+            {
+                mushroom.targetCard = true;
+                if (!mushroom.HIT_Enemy) mushroom.HIT_Enemy = true;
+                mushroom.Card_Damage = deckField.Click_Card.multiple_damage;
+            }
+        }
+        else
+        {
+            if (ObjectSet.Enemy_Name[0] == "Skeleton" || ObjectSet.Enemy_Name[1] == "Skeleton" ||
+            ObjectSet.Enemy_Name[2] == "Skeleton" || ObjectSet.Enemy_Name[3] == "Skeleton")
+            {
+                skeleton.targetCard = false;
+            }
+            if (ObjectSet.Enemy_Name[0] == "Eye" || ObjectSet.Enemy_Name[1] == "Eye" ||
+                ObjectSet.Enemy_Name[2] == "Eye" || ObjectSet.Enemy_Name[3] == "Eye")
+            {
+                eye.targetCard = false;
+            }
+            if (ObjectSet.Enemy_Name[0] == "Goblin" || ObjectSet.Enemy_Name[1] == "Goblin" ||
+                ObjectSet.Enemy_Name[2] == "Goblin" || ObjectSet.Enemy_Name[3] == "Goblin")
+            {
+                goblin.targetCard = false;
+            }
+            if (ObjectSet.Enemy_Name[0] == "Mushroom" || ObjectSet.Enemy_Name[1] == "Mushroom" ||
+                ObjectSet.Enemy_Name[2] == "Mushroom" || ObjectSet.Enemy_Name[3] == "Mushroom")
+            {
+                mushroom.targetCard = false;
+            }
+        }
+        
 
     }
-    void EnemyTarget()
-    {
-        if (ObjectSet.Enemy_Name[0] == "Skeleton" || ObjectSet.Enemy_Name[1] == "Skeleton" ||
-            ObjectSet.Enemy_Name[2] == "Skeleton" || ObjectSet.Enemy_Name[3] == "Skeleton")
-        {
-            skeleton.targetCard = true;
-            if (skeleton.HIT_Enemy) skeleton.HIT_Enemy = false;
-        }
-        if (ObjectSet.Enemy_Name[0] == "Eye" || ObjectSet.Enemy_Name[1] == "Eye" ||
-            ObjectSet.Enemy_Name[2] == "Eye" || ObjectSet.Enemy_Name[3] == "Eye")
-        {
-            eye.targetCard = true;
-            if (eye.HIT_Enemy) eye.HIT_Enemy = false;
-        }
-        if (ObjectSet.Enemy_Name[0] == "Goblin" || ObjectSet.Enemy_Name[1] == "Goblin" ||
-            ObjectSet.Enemy_Name[2] == "Goblin" || ObjectSet.Enemy_Name[3] == "Goblin")
-        {
-            goblin.targetCard = true;
-            if (goblin.HIT_Enemy) goblin.HIT_Enemy = false;
-        }
-        if (ObjectSet.Enemy_Name[0] == "Mushroom" || ObjectSet.Enemy_Name[1] == "Mushroom" ||
-            ObjectSet.Enemy_Name[2] == "Mushroom" || ObjectSet.Enemy_Name[3] == "Mushroom")
-        {
-            mushroom.targetCard = true;
-            if (mushroom.HIT_Enemy) mushroom.HIT_Enemy = false;
-        }
-    }
+
     void Object_inName() // 카드를 들고 마우스커서를 캐릭터에 가져갔을때 해당 이름은 무엇인가?
     {
         switch (Object_name)
@@ -240,20 +316,84 @@ public class Card_Script : MonoBehaviour
                 transform.position = Vector3.Lerp(transform.position, playerPosition, 5 * Time.deltaTime);
                 break;
             case "Skeleton": // 스켈레톤 일 경우
-                Vector3 skeletonPositon = new Vector3(skeleton.transform.position.x, skeleton.transform.position.y + 6.5f, 0);
-                transform.position = Vector3.Lerp(transform.position, skeletonPositon, 5 * Time.deltaTime);
+                switch (Card_name)
+                {
+                    case "일반마법":
+                    case "바람의창":
+                    case "돌무더기":
+                    case "절망의균열":
+                        Vector3 skeletonSinglePositon = new Vector3(skeleton.transform.position.x, skeleton.transform.position.y + 6.5f, 0);
+                        transform.position = Vector3.Lerp(transform.position, skeletonSinglePositon, 5 * Time.deltaTime);
+                        break;
+
+                    case "화염장판":
+                    case "얼음안개":
+                        Vector3 skeletonMultiplePositon = new Vector3(skeleton.transform.position.x + 10.5f, skeleton.transform.position.y + 7f, 0);
+                        transform.position = Vector3.Lerp(transform.position, skeletonMultiplePositon, 5 * Time.deltaTime);
+                        break;
+                    default:
+                        break;
+                }
                 break;
             case "Eye":
-                Vector3 eyePosition = new Vector3(eye.transform.position.x, eye.transform.position.y + 5.5f, 0);
-                transform.position = Vector3.Lerp(transform.position, eyePosition, 5 * Time.deltaTime);
+                switch (Card_name)
+                {
+                    case "일반마법":
+                    case "바람의창":
+                    case "돌무더기":
+                    case "절망의균열":
+                        Vector3 eyeSinglePosition = new Vector3(eye.transform.position.x, eye.transform.position.y + 5.5f, 0);
+                        transform.position = Vector3.Lerp(transform.position, eyeSinglePosition, 5 * Time.deltaTime);
+                        break;
+
+                    case "화염장판":
+                    case "얼음안개":
+                        Vector3 eyeMultiplePosition = new Vector3(eye.transform.position.x + 3.5f, eye.transform.position.y + 7f, 0);
+                        transform.position = Vector3.Lerp(transform.position, eyeMultiplePosition, 5 * Time.deltaTime);
+                        break;
+                    default:
+                        break;
+                }
                 break;
             case "Goblin":
-                Vector3 GoblinPosition = new Vector3(goblin.transform.position.x, goblin.transform.position.y + 5.5f, 0);
-                transform.position = Vector3.Lerp(transform.position, GoblinPosition, 5 * Time.deltaTime);
+                switch (Card_name)
+                {
+                    case "일반마법":
+                    case "바람의창":
+                    case "돌무더기":
+                    case "절망의균열":
+                        Vector3 GoblinSinglePosition = new Vector3(goblin.transform.position.x, goblin.transform.position.y + 5.5f, 0);
+                        transform.position = Vector3.Lerp(transform.position, GoblinSinglePosition, 5 * Time.deltaTime);
+                        break;
+
+                    case "화염장판":
+                    case "얼음안개":
+                        Vector3 GoblinMultiplePosition = new Vector3(goblin.transform.position.x - 3.5f, goblin.transform.position.y + 7f, 0);
+                        transform.position = Vector3.Lerp(transform.position, GoblinMultiplePosition, 5 * Time.deltaTime);
+                        break;
+                    default:
+                        break;
+                }
                 break;
             case "Mushroom":
-                Vector3 MushroomPosition = new Vector3(mushroom.transform.position.x, mushroom.transform.position.y + 7f, 0);
-                transform.position = Vector3.Lerp(transform.position, MushroomPosition, 5 * Time.deltaTime);
+                switch (Card_name)
+                {
+                    case "일반마법":
+                    case "바람의창":
+                    case "돌무더기":
+                    case "절망의균열":
+                        Vector3 MushroomSinglePosition = new Vector3(mushroom.transform.position.x, mushroom.transform.position.y + 7f, 0);
+                        transform.position = Vector3.Lerp(transform.position, MushroomSinglePosition, 5 * Time.deltaTime);
+                        break;
+
+                    case "화염장판":
+                    case "얼음안개":
+                        Vector3 MushroomMultiplePosition = new Vector3(mushroom.transform.position.x - 10.5f, mushroom.transform.position.y + 7f, 0);
+                        transform.position = Vector3.Lerp(transform.position, MushroomMultiplePosition, 5 * Time.deltaTime);
+                        break;
+                    default:
+                        break;
+                }
                 break;
             default: // 그외
                 Vector3 worldPosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10);

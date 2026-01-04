@@ -10,11 +10,13 @@ public class Charater_Status
     public int NowHp;
     public int MaxMp { get; set; }
     public int NowMp;
+
+    public int Damage { get; set; }
     public Charater_Status()
     {
 
     }
-    public Charater_Status(charater_Name Charater_name, string inputName, int maxHp, int maxMp, int nowMp)
+    public Charater_Status(charater_Name Charater_name, string inputName, int maxHp, int maxMp, int nowMp, int damage)
     {
         this.Charater_name = Charater_name;
         this.InputName = inputName;
@@ -23,6 +25,7 @@ public class Charater_Status
 
         this.MaxMp = maxMp;
         this.NowMp = nowMp;
+        this.Damage = damage;
     }
     public Charater_Status Char_inStatus(Charater_namedata name)
     {
@@ -31,19 +34,19 @@ public class Charater_Status
         switch(name)
         {
             case Charater_namedata.Player:
-                status = new Charater_Status(Charater_name, "ÇÃ·¹ÀÌ¾î", 100, 100, 0);
+                status = new Charater_Status(Charater_name, "ÇÃ·¹ÀÌ¾î", 100, 100, 0, 0);
                 break;
             case Charater_namedata.Skeleton:
-                status = new Charater_Status(Charater_name, "½ºÄÌ·¹Åæ", 10, 0, 0);
+                status = new Charater_Status(Charater_name, "½ºÄÌ·¹Åæ", 70, 0, 0, 10);
                 break;
             case Charater_namedata.Eye:
-                status = new Charater_Status(Charater_name, "´«±«¹°", 10, 0, 0);
+                status = new Charater_Status(Charater_name, "´«±«¹°", 30, 0, 0, 10);
                 break;
             case Charater_namedata.Goblin:
-                status = new Charater_Status(Charater_name, "°íºí¸°", 10, 0, 0);
+                status = new Charater_Status(Charater_name, "°íºí¸°", 50, 0, 0, 10);
                 break;
             case Charater_namedata.Mushroom:
-                status = new Charater_Status(Charater_name, "¹ö¼¸±«¹°", 10, 0, 0);
+                status = new Charater_Status(Charater_name, "¹ö¼¸±«¹°", 120, 0, 0, 10);
                 break;
 
             default:

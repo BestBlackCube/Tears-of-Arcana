@@ -21,6 +21,11 @@ public class Goblin_Script : MonoBehaviour
     public int Card_Damage;
     public int nowHp;
     public int maxHp;
+    public int Dmg;
+
+    public int stun_count;
+    public bool stun_countDown = false;
+
     public float Dead_timer = 0f;
     public float Attack_timer = 0f;
 
@@ -49,6 +54,7 @@ public class Goblin_Script : MonoBehaviour
 
         nowHp = status.NowHp;
         maxHp = status.MaxHp;
+        Dmg = status.Damage;
         canvas = GameObject.Find("HPCanvas");
 
         ObjectSet = FindObjectOfType<EnemyObjectSet_Script>();
@@ -82,10 +88,30 @@ public class Goblin_Script : MonoBehaviour
             targetGuide = Instantiate(targetGuide_Image, guide_offset, Quaternion.identity);
             EnemyTargetBar_Script guide = targetGuide.GetComponent<EnemyTargetBar_Script>();
             guide.target = this.transform;
-            guide.offset[0] = new Vector3(-1.3f, 1.5f, 0);
-            guide.offset[1] = new Vector3(0.7f, 1.5f, 0);
-            guide.offset[2] = new Vector3(-1.3f, -2.5f, 0);
-            guide.offset[3] = new Vector3(0.7f, -2.5f, 0);
+            switch (deckField.Click_Card.Card_name)
+            {
+                case "일반마법":
+                case "바람의창":
+                case "돌무더기":
+                case "절망의균열":
+                    guide.offset[0] = new Vector3(-1.3f, 1.5f, 0);
+                    guide.offset[1] = new Vector3(0.7f, 1.5f, 0);
+                    guide.offset[2] = new Vector3(-1.3f, -2.5f, 0);
+                    guide.offset[3] = new Vector3(0.7f, -2.5f, 0);
+                    break;
+
+                case "화염장판":
+                case "얼음안개":
+                    guide.offset[0] = new Vector3(-15.5f, 3f, 0);
+                    guide.offset[1] = new Vector3(9f, 3f, 0);
+                    guide.offset[2] = new Vector3(-15.5f, -3f, 0);
+                    guide.offset[3] = new Vector3(9f, -3f, 0);
+                    break;
+
+
+                default:
+                    break;
+            }
         }
     }
     void OnMouseExit()
@@ -140,6 +166,7 @@ public class Goblin_Script : MonoBehaviour
                 animator.SetBool("Attack", false);
                 animator.SetBool("BackMove", true);
                 player.EnemyAttack_Player = false; // !+ 플레이어 피격 애니메이션 비활성화
+                player.HitDamage = Dmg;
                 player.PlayerDamage = true;        // 플레이어HP 줄이기
                 Attack_timer = 0f;
             }
@@ -224,54 +251,107 @@ public class Goblin_Script : MonoBehaviour
     }
     void Attack_Order()
     {
-        if (ObjectSet.Enemy_Name[0] == "Goblin" && attack_order.Order_1)
+        if (stun_count != 0)
         {
-            EnemyAttack = true;
-            if(animation_Attack)
+            if (ObjectSet.Enemy_Name[0] == "Goblin" && attack_order.Order_1)
             {
-                attack_order.Order_1 = false;
-                if (ObjectSet.Enemy_Name[1] != null) attack_order.Order_2 = true;
-                else if (ObjectSet.Enemy_Name[2] != null) attack_order.Order_3 = true;
-                else if (ObjectSet.Enemy_Name[3] != null) attack_order.Order_4 = true;
-                else attack_order.CardAdd = true;
-                EnemyAttack = false;
-                animation_Attack = false;
+                stun_countDown = true;
+                if (stun_countDown)
+                {
+                    stun_count--;
+                    attack_order.Order_1 = false;
+                    if (ObjectSet.Enemy_Name[1] != null) { attack_order.Order_2 = true; stun_countDown = false; }
+                    else if (ObjectSet.Enemy_Name[2] != null) { attack_order.Order_3 = true; stun_countDown = false; }
+                    else if (ObjectSet.Enemy_Name[3] != null) { attack_order.Order_4 = true; stun_countDown = false; }
+                    else { attack_order.CardAdd = true; stun_countDown = false; }
+                }
+            }
+            if (ObjectSet.Enemy_Name[1] == "Goblin" && attack_order.Order_2)
+            {
+                stun_countDown = true;
+                if (stun_countDown)
+                {
+                    stun_count--;
+                    attack_order.Order_2 = false;
+                    if (ObjectSet.Enemy_Name[2] != null) { attack_order.Order_3 = true; stun_countDown = false; }
+                    else if (ObjectSet.Enemy_Name[3] != null) { attack_order.Order_4 = true; stun_countDown = false; }
+                    else { attack_order.CardAdd = true; stun_countDown = false; }
+                }
+            }
+            if (ObjectSet.Enemy_Name[2] == "Goblin" && attack_order.Order_3)
+            {
+                stun_countDown = true;
+                if (stun_countDown)
+                {
+                    stun_count--;
+                    attack_order.Order_3 = false;
+                    if (ObjectSet.Enemy_Name[3] != null) { attack_order.Order_4 = true; stun_countDown = false; }
+                    else { attack_order.CardAdd = true; stun_countDown = false; }
+                }
+            }
+            if (ObjectSet.Enemy_Name[3] == "Goblin" && attack_order.Order_4)
+            {
+                stun_countDown = true;
+                if (stun_countDown)
+                {
+                    stun_count--;
+                    attack_order.Order_4 = false;
+                    attack_order.CardAdd = true;
+                    stun_countDown = false;
+                }
             }
         }
-        if (ObjectSet.Enemy_Name[1] == "Goblin" && attack_order.Order_2)
+        else
         {
-            EnemyAttack = true;
-            if (animation_Attack)
+            if (ObjectSet.Enemy_Name[0] == "Goblin" && attack_order.Order_1)
             {
-                attack_order.Order_2 = false;
-                if (ObjectSet.Enemy_Name[2] != null) attack_order.Order_3 = true;
-                else if (ObjectSet.Enemy_Name[3] != null) attack_order.Order_4 = true;
-                else attack_order.CardAdd = true;
-                EnemyAttack = false;
-                animation_Attack = false;
+                EnemyAttack = true;
+                if (animation_Attack)
+                {
+                    attack_order.Order_1 = false;
+                    if (ObjectSet.Enemy_Name[1] != null) attack_order.Order_2 = true;
+                    else if (ObjectSet.Enemy_Name[2] != null) attack_order.Order_3 = true;
+                    else if (ObjectSet.Enemy_Name[3] != null) attack_order.Order_4 = true;
+                    else attack_order.CardAdd = true;
+                    EnemyAttack = false;
+                    animation_Attack = false;
+                }
             }
-        }
-        if (ObjectSet.Enemy_Name[2] == "Goblin" && attack_order.Order_3)
-        {
-            EnemyAttack = true;
-            if (animation_Attack)
+            if (ObjectSet.Enemy_Name[1] == "Goblin" && attack_order.Order_2)
             {
-                attack_order.Order_3 = false;
-                if (ObjectSet.Enemy_Name[3] != null) attack_order.Order_4 = true;
-                else attack_order.CardAdd = true;
-                EnemyAttack = false;
-                animation_Attack = false;
+                EnemyAttack = true;
+                if (animation_Attack)
+                {
+                    attack_order.Order_2 = false;
+                    if (ObjectSet.Enemy_Name[2] != null) attack_order.Order_3 = true;
+                    else if (ObjectSet.Enemy_Name[3] != null) attack_order.Order_4 = true;
+                    else attack_order.CardAdd = true;
+                    EnemyAttack = false;
+                    animation_Attack = false;
+                }
             }
-        }
-        if (ObjectSet.Enemy_Name[3] == "Goblin" && attack_order.Order_4)
-        {
-            EnemyAttack = true;
-            if (animation_Attack)
+            if (ObjectSet.Enemy_Name[2] == "Goblin" && attack_order.Order_3)
             {
-                attack_order.Order_4 = false;
-                attack_order.CardAdd = true;
-                EnemyAttack = false;
-                animation_Attack = false;
+                EnemyAttack = true;
+                if (animation_Attack)
+                {
+                    attack_order.Order_3 = false;
+                    if (ObjectSet.Enemy_Name[3] != null) attack_order.Order_4 = true;
+                    else attack_order.CardAdd = true;
+                    EnemyAttack = false;
+                    animation_Attack = false;
+                }
+            }
+            if (ObjectSet.Enemy_Name[3] == "Goblin" && attack_order.Order_4)
+            {
+                EnemyAttack = true;
+                if (animation_Attack)
+                {
+                    attack_order.Order_4 = false;
+                    attack_order.CardAdd = true;
+                    EnemyAttack = false;
+                    animation_Attack = false;
+                }
             }
         }
     }
@@ -307,8 +387,8 @@ public class Goblin_Script : MonoBehaviour
                 player.nowMp += deckField.Click_Card.mana;
                 break;
             case "절망의균열":
-                //Card_Damage = deckField.Click_Card.count;
-                //player.nowMp += deckField.Click_Card.mana;
+                stun_count += deckField.Click_Card.count;
+                player.nowMp += deckField.Click_Card.mana;
                 break;
 
             default:

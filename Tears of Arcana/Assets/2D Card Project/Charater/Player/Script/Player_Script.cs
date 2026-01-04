@@ -23,10 +23,14 @@ public class Player_Script : MonoBehaviour
     public int maxHp;
     public int nowMp;
     public int maxMp;
+    public int HitDamage;
 
-    public int Hit_percent = 3;     // 해당값을 추후 아이템으로 변경됨
-    public int Defence_percent = 1; // <-
+    public int Hit_percent = 30;     // 해당값을 추후 아이템으로 변경됨
+    public int Defence_percent = 10; // <-
     public int Avoid_percent = 0;   // <-
+
+    public int item_Top;
+    public int item_Bottom;
 
     float Percent = -1; // -1을 하는이유는 해당 값이 1초동안 1~10의 난수가 100번 이상 반복되기때문에 100% 확률성으로 볼수 없어 초기값을 -1 지정
 
@@ -117,22 +121,22 @@ public class Player_Script : MonoBehaviour
     {
         if (EnemyAttack_Player) // <- 해당 불린을 1초간 지속이기 때문이 밑의 코드가 100번 이상은 실행된다
         {
-            if (Percent == -1) Percent = Random.Range(0, 11); // <- 공격 확률은 기본 회피 10% : 막기 20% : 맞기 70% 
+            if (Percent == -1) Percent = Random.Range(0, 101); // <- 공격 확률은 기본 회피 10% : 막기 20% : 맞기 70% 
 
-            if (Hit_percent <= Percent) // 기본값 3보다 크거나 같을 경우 3~10 : 70%
+            if (Hit_percent <= Percent) // 확률이 30보다 크거나 같을 경우 3~10 : 70%
             {
                 if (EnemyAttack_Player) animator.SetBool("PlayerHit", true);
                 PlayerDamage = true;
                 Full_hit = true;
 
             }
-            if (Defence_percent <= Percent && Percent < Hit_percent) // 기본값 1보다 크거나 같을경우 그리고 3보다 작을경우 1~2 : 20%
+            if (Defence_percent <= Percent && Percent < Hit_percent) // 기본값 10보다 크거나 같을경우 그리고 30보다 작을경우 10~20 : 20%
             {
                 if (EnemyAttack_Player) animator.SetBool("PlayerDefence", true);
                 PlayerDamage = true;
                 Half_hit = true;
             }
-            if (Avoid_percent <= Percent && Percent < Defence_percent) // 기본값 0보다 크거나 같을 경우 그리고 1보다 작을경우 0 : 10%
+            if (Avoid_percent <= Percent && Percent < Defence_percent) // 기본값 0보다 크거나 같을 경우 그리고 10보다 작을경우 0 : 10%
             {
 
                 if (EnemyAttack_Player) animator.SetBool("PlayerAvoid", true);
@@ -162,9 +166,10 @@ public class Player_Script : MonoBehaviour
             }
             if (PlayerDamage)
             {
-                if (Full_hit) { nowHp -= 10; Full_hit = false; } // 전체 데미지
-                if (Half_hit) { nowHp -= 5; Half_hit = false; } // 전체 데미지의 반절
+                if (Full_hit) { nowHp -= HitDamage; Full_hit = false; } // 전체 데미지
+                if (Half_hit) { nowHp -= HitDamage; Half_hit = false; } // 전체 데미지의 반절
                 if (nowHp <= 0f) animator.SetTrigger("PlayerDie");
+                HitDamage = 0;
                 PlayerDamage = false;
             }
         }
@@ -241,6 +246,7 @@ public class Player_Script : MonoBehaviour
                 break;
             case "명상":
                 nowHp += deckField.Click_Card.health;
+                nowMp += deckField.Click_Card.mana;
                 if (nowHp > 100) nowHp = 100;
                 break;
             case "생명의잔불":
