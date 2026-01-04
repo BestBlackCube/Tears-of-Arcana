@@ -32,6 +32,9 @@ public class CardDeck_Script : MonoBehaviour
     public card_Status QuietrestCard_status = new card_Status();
     public card_Status AbyssCreviceCard_status = new card_Status();
     public card_Status BrutalContractCard_status = new card_Status();
+    public card_Status FireArrowCard_status = new card_Status();
+    public card_Status LightingCard_status = new card_Status();
+    public card_Status IceBoltCard_status = new card_Status();
 
     // Start is called before the first frame update
     void Start()
@@ -51,6 +54,9 @@ public class CardDeck_Script : MonoBehaviour
         QuietrestCard_status = status.Card_inStatus(cardname[9]);
         AbyssCreviceCard_status = status.Card_inStatus(cardname[10]);
         BrutalContractCard_status = status.Card_inStatus(cardname[11]);
+        FireArrowCard_status = status.Card_inStatus(cardname[12]);
+        LightingCard_status = status.Card_inStatus(cardname[13]);
+        IceBoltCard_status = status.Card_inStatus(cardname[14]);
 
     }
     /*
@@ -132,8 +138,23 @@ public class CardDeck_Script : MonoBehaviour
                     }
                     if (number == 12)
                     {
-                        Card_Data = Instantiate(CardData[11], this.transform.position, Quaternion.identity); // 복제한 악마카드 오브젝트
+                        Card_Data = Instantiate(CardData[11], this.transform.position, Quaternion.identity); // 복제한 오브젝트
                         Public_Card_inputData("잔혹한계약");
+                    }
+                    if (number == 13)
+                    {
+                        Card_Data = Instantiate(CardData[12], this.transform.position, Quaternion.identity); // 복제한 오브젝트
+                        Public_Card_inputData("불화살");
+                    }
+                    if (number == 14)
+                    {
+                        Card_Data = Instantiate(CardData[13], this.transform.position, Quaternion.identity); // 복제한 오브젝트
+                        Public_Card_inputData("전격");
+                    }
+                    if (number == 15)
+                    {
+                        Card_Data = Instantiate(CardData[14], this.transform.position, Quaternion.identity); // 복제한 오브젝트
+                        Public_Card_inputData("고드름");
                     }
                     deckField.rolling = true;
                     CardCount++; // 뽑을수 있는 카드 인덱스 증가
@@ -298,6 +319,43 @@ public class CardDeck_Script : MonoBehaviour
                 deckField.Card_inField_Script[CardCount].mana = BrutalContractCard_status.Mana;
                 deckField.Card_inField_Script[CardCount].count = BrutalContractCard_status.Count;
                 break;
+            case "불화살":
+                deckField.CardCode[CardCount] = FireArrowCard_status.InputName;
+                deckField.CardStatus[CardCount] = FireArrowCard_status.Single_Damage;
+                deckField.CardImage[CardCount] = CardSprite[12];
+
+                deckField.Card_inField_Script[CardCount].Card_name = FireArrowCard_status.InputName;
+                deckField.Card_inField_Script[CardCount].single_damage = FireArrowCard_status.Single_Damage;
+                deckField.Card_inField_Script[CardCount].multiple_damage = FireArrowCard_status.Multiple_Damage;
+                deckField.Card_inField_Script[CardCount].health = FireArrowCard_status.Health;
+                deckField.Card_inField_Script[CardCount].mana = FireArrowCard_status.Mana;
+                deckField.Card_inField_Script[CardCount].count = FireArrowCard_status.Count;
+                break;
+            case "전격":
+                deckField.CardCode[CardCount] = LightingCard_status.InputName;
+                deckField.CardStatus[CardCount] = LightingCard_status.Single_Damage;
+                deckField.CardImage[CardCount] = CardSprite[13];
+
+                deckField.Card_inField_Script[CardCount].Card_name = LightingCard_status.InputName;
+                deckField.Card_inField_Script[CardCount].single_damage = LightingCard_status.Single_Damage;
+                deckField.Card_inField_Script[CardCount].multiple_damage = LightingCard_status.Multiple_Damage;
+                deckField.Card_inField_Script[CardCount].health = LightingCard_status.Health;
+                deckField.Card_inField_Script[CardCount].mana = LightingCard_status.Mana;
+                deckField.Card_inField_Script[CardCount].count = LightingCard_status.Count;
+                break;
+            case "고드름":
+                deckField.CardCode[CardCount] = IceBoltCard_status.InputName;
+                deckField.CardStatus[CardCount] = IceBoltCard_status.Single_Damage;
+                deckField.CardImage[CardCount] = CardSprite[14];
+
+                deckField.Card_inField_Script[CardCount].Card_name = IceBoltCard_status.InputName;
+                deckField.Card_inField_Script[CardCount].single_damage = IceBoltCard_status.Single_Damage;
+                deckField.Card_inField_Script[CardCount].multiple_damage = IceBoltCard_status.Multiple_Damage;
+                deckField.Card_inField_Script[CardCount].health = IceBoltCard_status.Health;
+                deckField.Card_inField_Script[CardCount].mana = IceBoltCard_status.Mana;
+                deckField.Card_inField_Script[CardCount].count = IceBoltCard_status.Count;
+                break;
+
             default:
                 break;
         }

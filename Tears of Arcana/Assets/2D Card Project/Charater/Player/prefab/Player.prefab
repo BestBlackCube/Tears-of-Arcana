@@ -190,4 +190,5 @@ MonoBehaviour:
   EnemyAttack_Player: 0
   PlayerAttack_timer: 0
   PlayerDead_timer: 0
+  Delay_timer: 0
   baseTransform: {x: 0, y: 0, z: 0}

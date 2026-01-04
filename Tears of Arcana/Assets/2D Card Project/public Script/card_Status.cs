@@ -74,13 +74,13 @@ public class card_Status
                 status = new card_Status(Card_name, "잔혹한계약", 0, 0, 0, 30, 3);
                 break;
             case Card_namedata.FireArrow:
-                status = new card_Status(Card_name, "불화살", 0, 15, 0, 0, 0);
+                status = new card_Status(Card_name, "불화살", 0, 10, 0, 5, 0);
                 break;
             case Card_namedata.Lighting:
-                status = new card_Status(Card_name, "전격", 0, 0, 0, 20, 2);
+                status = new card_Status(Card_name, "전격", 0, 15, 0, 5, 0);
                 break;
             case Card_namedata.IceBolt:
-                status = new card_Status(Card_name, "얼음볼", 0, 0, 0, 30, 3);
+                status = new card_Status(Card_name, "고드름", 0, 10, 0, 5, 0);
                 break;
             default:
                 break;

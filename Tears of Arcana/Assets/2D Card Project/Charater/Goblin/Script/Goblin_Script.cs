@@ -264,6 +264,9 @@ public class Goblin_Script : MonoBehaviour
                     case "바람의창":
                     case "돌무더기":
                     case "절망의균열":
+                    case "불화살":
+                    case "전격":
+                    case "고드름":
                         guide.offset[0] = new Vector3(-1.3f, 1.0f, 0);
                         guide.offset[1] = new Vector3(1.3f, 1.0f, 0);
                         guide.offset[2] = new Vector3(-1.3f, -2.2f, 0);
@@ -295,6 +298,9 @@ public class Goblin_Script : MonoBehaviour
                     case "바람의창":
                     case "돌무더기":
                     case "절망의균열":
+                    case "불화살":
+                    case "전격":
+                    case "고드름":
                         guide.offset[0] = new Vector3(-1.3f, 1.0f, 0);
                         guide.offset[1] = new Vector3(1.3f, 1.0f, 0);
                         guide.offset[2] = new Vector3(-1.3f, -2.2f, 0);
@@ -326,6 +332,9 @@ public class Goblin_Script : MonoBehaviour
                     case "바람의창":
                     case "돌무더기":
                     case "절망의균열":
+                    case "불화살":
+                    case "전격":
+                    case "고드름":
                         guide.offset[0] = new Vector3(-1.3f, 1.0f, 0);
                         guide.offset[1] = new Vector3(1.3f, 1.0f, 0);
                         guide.offset[2] = new Vector3(-1.3f, -2.2f, 0);
@@ -357,6 +366,9 @@ public class Goblin_Script : MonoBehaviour
                     case "바람의창":
                     case "돌무더기":
                     case "절망의균열":
+                    case "불화살":
+                    case "전격":
+                    case "고드름":
                         guide.offset[0] = new Vector3(-1.3f, 1.0f, 0);
                         guide.offset[1] = new Vector3(1.3f, 1.0f, 0);
                         guide.offset[2] = new Vector3(-1.3f, -2.2f, 0);
@@ -590,6 +602,18 @@ public class Goblin_Script : MonoBehaviour
                 break;
             case "절망의균열":
                 stun_count += deckField.Click_Card.count;
+                player.nowMp += deckField.Click_Card.mana;
+                break;
+            case "불화살":
+                Card_Damage = deckField.Click_Card.single_damage;
+                player.nowMp += deckField.Click_Card.mana;
+                break;
+            case "전격":
+                Card_Damage = deckField.Click_Card.single_damage;
+                player.nowMp += deckField.Click_Card.mana;
+                break;
+            case "고드름":
+                Card_Damage = deckField.Click_Card.single_damage;
                 player.nowMp += deckField.Click_Card.mana;
                 break;
 
