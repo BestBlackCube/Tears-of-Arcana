@@ -55,7 +55,6 @@ public class ObjectSet_Script : MonoBehaviour
             else if (ObjectSet.Field_inMonster[3] != null)
             {
                 Order_4 = true;
-                GameObject.Find("BlackCavas").GetComponent<BlackScreen_Script>().blackScreen.gameObject.SetActive(false);
                 Order = false;
             }
             else if (ObjectSet.Enemy_Name[0] == null && ObjectSet.Enemy_Name[1] == null &&

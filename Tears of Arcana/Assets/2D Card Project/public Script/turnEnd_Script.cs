@@ -42,7 +42,7 @@ public class turnEnd_Script : MonoBehaviour
                 if(ObjectSet.deckField.Card_inField != null)
                     ObjectSet.deckField.deckField_Reset(i);
             }
-            GameObject.Find("BlackCavas").GetComponent<BlackScreen_Script>().blackScreen.gameObject.SetActive(true);
+            ObjectSet.boxBlock.SetActive(true);
             gameObject.SetActive(false);
         }
     }

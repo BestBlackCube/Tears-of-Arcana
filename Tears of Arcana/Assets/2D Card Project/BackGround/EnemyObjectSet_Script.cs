@@ -25,7 +25,7 @@ public class EnemyObjectSet_Script : MonoBehaviour
     public GameObject EnemyBossHpbar_prefab;
     public RectTransform EnemyBossHpbar;
     GameObject canvas;
-    public GameObject BlackScreen;
+    public GameObject boxBlock;
 
     [SerializeField] Sprite[] BackGround_Image;
 
@@ -45,7 +45,7 @@ public class EnemyObjectSet_Script : MonoBehaviour
     {
         canvas = GameObject.Find("HPCanvas");
         HpbarAndStun_transform();
-        PlayerPrefs.SetInt("Stage", 100);
+        PlayerPrefs.SetInt("Stage", 1);
         //if (PlayerPrefs.GetInt("Stage") == 1) PlayerPrefs.SetInt("Stage", 1);
     }
 
@@ -70,12 +70,16 @@ public class EnemyObjectSet_Script : MonoBehaviour
         }
         else
         {
-            if (deckField.DeckField_nowCard == 5) turn = true;
+            if (deckField.DeckField_nowCard == 5)
+            {
+                turn = true;
+                boxBlock.SetActive(false);
+            }
             if (turn)
             {
                 if (deckField.DeckField_nowCard == 1)
                 {
-                    turnEnd_prefab.SetActive(enabled);
+                    turnEnd_prefab.SetActive(true);
                     turn = false;
                 }
             }
@@ -150,7 +154,7 @@ public class EnemyObjectSet_Script : MonoBehaviour
                 Field_inMonster[2] = Instantiate(Monster_Object[a], Field_transform[2], Quaternion.identity);
                 Enemy_Name[2] = Monster_Object[a].name;
 
-                MonsterCount = 1;
+                MonsterCount = 4;
                 MonsterDeadCount = 0;
                 nullAndinput = true;
                 break;

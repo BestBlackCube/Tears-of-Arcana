@@ -247,6 +247,17 @@ public class Argon_Script : MonoBehaviour
     }
     void PlayerAttack()
     {
+        if (this.gameObject.GetComponent<Argon_Script>().stun_count != 0)
+        {
+            if (this.gameObject == ObjectSet.Field_inMonster[0] && ObjectSet.Enemy_Name[0] == "Argon")
+                ObjectSet.EnemyStun[0].gameObject.SetActive(true);
+            if (this.gameObject == ObjectSet.Field_inMonster[1] && ObjectSet.Enemy_Name[1] == "Argon")
+                ObjectSet.EnemyStun[1].gameObject.SetActive(true);
+            if (this.gameObject == ObjectSet.Field_inMonster[2] && ObjectSet.Enemy_Name[2] == "Argon")
+                ObjectSet.EnemyStun[2].gameObject.SetActive(true);
+            if (this.gameObject == ObjectSet.Field_inMonster[3] && ObjectSet.Enemy_Name[3] == "Argon")
+                ObjectSet.EnemyStun[3].gameObject.SetActive(true);
+        }
         player.PlayerAttack_Enemy = false;
     }
     void animationDelay()
@@ -271,8 +282,10 @@ public class Argon_Script : MonoBehaviour
                         ObjectSet.EnemyBossHpbar.gameObject.SetActive(true);
                         ObjectSet.EnemyBossHpbar.Find("Hp_bar").GetComponent<Image>().fillAmount = 1f;
                     }
-                    Vector3 HpBarPos = new Vector3(transform.position.x - 7.5f, transform.position.y - 1.5f, 0);
+                    Vector3 HpBarPos = new Vector3(transform.position.x - 7.5f, transform.position.y - 3f, 0);
                     ObjectSet.EnemyBossHpbar.position = HpBarPos;
+                    HpBarPos = new Vector3(transform.position.x, transform.position.y + 1f, 0);
+                    ObjectSet.EnemyStun[0].position = HpBarPos;
                     hpbar = ObjectSet.EnemyBossHpbar;
                     animation_position = ObjectSet.Field_transform[0];
                 }
@@ -286,8 +299,10 @@ public class Argon_Script : MonoBehaviour
                         ObjectSet.EnemyBossHpbar.gameObject.SetActive(true);
                         ObjectSet.EnemyBossHpbar.Find("Hp_bar").GetComponent<Image>().fillAmount = 1f;
                     }
-                    Vector3 HpBarPos = new Vector3(transform.position.x - 7.5f, transform.position.y - 1.5f, 0);
+                    Vector3 HpBarPos = new Vector3(transform.position.x - 7.5f, transform.position.y - 3f, 0);
                     ObjectSet.EnemyBossHpbar.position = HpBarPos;
+                    HpBarPos = new Vector3(transform.position.x, transform.position.y + 1f, 0);
+                    ObjectSet.EnemyStun[1].position = HpBarPos;
                     hpbar = ObjectSet.EnemyBossHpbar;
                     animation_position = ObjectSet.Field_transform[1];
                 }
@@ -301,8 +316,10 @@ public class Argon_Script : MonoBehaviour
                         ObjectSet.EnemyBossHpbar.gameObject.SetActive(true);
                         ObjectSet.EnemyBossHpbar.Find("Hp_bar").GetComponent<Image>().fillAmount = 1f;
                     }
-                    Vector3 HpBarPos = new Vector3(transform.position.x - 7.5f, transform.position.y - 1.5f, 0);
+                    Vector3 HpBarPos = new Vector3(transform.position.x - 7.5f, transform.position.y - 3f, 0);
                     ObjectSet.EnemyBossHpbar.position = HpBarPos;
+                    HpBarPos = new Vector3(transform.position.x, transform.position.y + 1f, 0);
+                    ObjectSet.EnemyStun[2].position = HpBarPos;
                     hpbar = ObjectSet.EnemyBossHpbar;
                     animation_position = ObjectSet.Field_transform[2];
                 }
@@ -316,8 +333,10 @@ public class Argon_Script : MonoBehaviour
                         ObjectSet.EnemyBossHpbar.gameObject.SetActive(true);
                         ObjectSet.EnemyBossHpbar.Find("Hp_bar").GetComponent<Image>().fillAmount = 1f;
                     }
-                    Vector3 HpBarPos = new Vector3(transform.position.x - 7.5f, transform.position.y - 1.5f, 0);
+                    Vector3 HpBarPos = new Vector3(transform.position.x - 7.5f, transform.position.y - 3f, 0);
                     ObjectSet.EnemyBossHpbar.position = HpBarPos;
+                    HpBarPos = new Vector3(transform.position.x, transform.position.y + 1f, 0);
+                    ObjectSet.EnemyStun[3].position = HpBarPos;
                     hpbar = ObjectSet.EnemyBossHpbar;
                     animation_position = ObjectSet.Field_transform[3];
                 }
@@ -344,18 +363,18 @@ public class Argon_Script : MonoBehaviour
                     case "불화살":
                     case "전격":
                     case "고드름":
-                        guide.offset[0] = new Vector3(-2.5f, 2f, 0);
-                        guide.offset[1] = new Vector3(2.5f, 2f, 0);
-                        guide.offset[2] = new Vector3(-2.5f, -2f, 0);
-                        guide.offset[3] = new Vector3(2.5f, -2f, 0);
+                        guide.offset[0] = new Vector3(-2.5f, 4f, 0);
+                        guide.offset[1] = new Vector3(2.5f, 4f, 0);
+                        guide.offset[2] = new Vector3(-2.5f, 0f, 0);
+                        guide.offset[3] = new Vector3(2.5f, 0f, 0);
                         break;
 
                     case "화염장판":
                     case "얼음안개":
-                        guide.offset[0] = new Vector3(-1.5f, 3f, 0);
-                        guide.offset[1] = new Vector3(23f, 3f, 0);
-                        guide.offset[2] = new Vector3(-1.5f, -3f, 0);
-                        guide.offset[3] = new Vector3(23f, -3f, 0);
+                        guide.offset[0] = new Vector3(-3f, 2.5f, 0);
+                        guide.offset[1] = new Vector3(3f, 2.5f, 0);
+                        guide.offset[2] = new Vector3(-3f, -2.5f, 0);
+                        guide.offset[3] = new Vector3(3f, -2.5f, 0);
                         break;
 
                     default:
@@ -380,10 +399,10 @@ public class Argon_Script : MonoBehaviour
                     case "불화살":
                     case "전격":
                     case "고드름":
-                        guide.offset[0] = new Vector3(-2.5f, 2f, 0);
-                        guide.offset[1] = new Vector3(2.5f, 2f, 0);
-                        guide.offset[2] = new Vector3(-2.5f, -2f, 0);
-                        guide.offset[3] = new Vector3(2.5f, -2f, 0);
+                        guide.offset[0] = new Vector3(-3f, 2.5f, 0);
+                        guide.offset[1] = new Vector3(3f, 2.5f, 0);
+                        guide.offset[2] = new Vector3(-3f, -2.5f, 0);
+                        guide.offset[3] = new Vector3(3f, -2.5f, 0);
                         break;
 
                     case "화염장판":
@@ -416,10 +435,10 @@ public class Argon_Script : MonoBehaviour
                     case "불화살":
                     case "전격":
                     case "고드름":
-                        guide.offset[0] = new Vector3(-2.5f, 2f, 0);
-                        guide.offset[1] = new Vector3(2.5f, 2f, 0);
-                        guide.offset[2] = new Vector3(-2.5f, -2f, 0);
-                        guide.offset[3] = new Vector3(2.5f, -2f, 0);
+                        guide.offset[0] = new Vector3(-3f, 2.5f, 0);
+                        guide.offset[1] = new Vector3(3f, 2.5f, 0);
+                        guide.offset[2] = new Vector3(-3f, -2.5f, 0);
+                        guide.offset[3] = new Vector3(3f, -2.5f, 0);
                         break;
 
                     case "화염장판":
@@ -452,10 +471,10 @@ public class Argon_Script : MonoBehaviour
                     case "불화살":
                     case "전격":
                     case "고드름":
-                        guide.offset[0] = new Vector3(-2.5f, 2f, 0);
-                        guide.offset[1] = new Vector3(2.5f, 2f, 0);
-                        guide.offset[2] = new Vector3(-2.5f, -2f, 0);
-                        guide.offset[3] = new Vector3(2.5f, -2f, 0);
+                        guide.offset[0] = new Vector3(-3f, 2.5f, 0);
+                        guide.offset[1] = new Vector3(3f, 2.5f, 0);
+                        guide.offset[2] = new Vector3(-3f, -2.5f, 0);
+                        guide.offset[3] = new Vector3(3f, -2.5f, 0);
                         break;
 
                     case "화염장판":
@@ -556,6 +575,7 @@ public class Argon_Script : MonoBehaviour
                 if (stun_countDown)
                 {
                     stun_count--;
+                    if (stun_count == 0) ObjectSet.EnemyStun[0].gameObject.SetActive(false);
                     attack_order.Order_1 = false;
                     if (ObjectSet.Field_inMonster[1] != null) { attack_order.Order_2 = true; stun_countDown = false; }
                     else if (ObjectSet.Field_inMonster[2] != null) { attack_order.Order_3 = true; stun_countDown = false; }
@@ -569,6 +589,7 @@ public class Argon_Script : MonoBehaviour
                 if (stun_countDown)
                 {
                     stun_count--;
+                    if (stun_count == 0) ObjectSet.EnemyStun[1].gameObject.SetActive(false);
                     attack_order.Order_2 = false;
                     if (ObjectSet.Field_inMonster[2] != null) { attack_order.Order_3 = true; stun_countDown = false; }
                     else if (ObjectSet.Field_inMonster[3] != null) { attack_order.Order_4 = true; stun_countDown = false; }
@@ -581,6 +602,7 @@ public class Argon_Script : MonoBehaviour
                 if (stun_countDown)
                 {
                     stun_count--;
+                    if (stun_count == 0) ObjectSet.EnemyStun[2].gameObject.SetActive(false);
                     attack_order.Order_3 = false;
                     if (ObjectSet.Field_inMonster[3] != null) { attack_order.Order_4 = true; stun_countDown = false; }
                     else { attack_order.CardAdd = true; stun_countDown = false; }
@@ -592,6 +614,7 @@ public class Argon_Script : MonoBehaviour
                 if (stun_countDown)
                 {
                     stun_count--;
+                    if (stun_count == 0) ObjectSet.EnemyStun[3].gameObject.SetActive(false);
                     attack_order.Order_4 = false;
                     attack_order.CardAdd = true;
                     stun_countDown = false;

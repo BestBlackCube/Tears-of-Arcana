@@ -38,6 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1261,6 +1262,7 @@ RectTransform:
   m_Children:
   - {fileID: 912199425}
   - {fileID: 995504176}
+  - {fileID: 2118121694}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2485,9 +2487,9 @@ MonoBehaviour:
   - {fileID: 5151138222220020868, guid: 4f409cfc5edc54a4fa824f07e4d46632, type: 3}
   - {fileID: 4180925989661194192, guid: 5c6dcf8ed27c25f43af79c909c3c3e7e, type: 3}
   - {fileID: 1785555678804287065, guid: e3268c8fc818b184a9515362b3a3d4c4, type: 3}
-  - {fileID: 7754256837299590090, guid: 3976f619315d12e44bd4bea29ea2e4f2, type: 3}
-  - {fileID: 7979770372586104277, guid: 3ddc4d758ca588d4f80733ed4307d645, type: 3}
-  - {fileID: 2008626370384035774, guid: 57a5f8cd6d5425f4a84157b9c7f92506, type: 3}
+  - {fileID: 7754256837299590090, guid: cb5045b24f1c1cd4e8f684bfa9845525, type: 3}
+  - {fileID: 7979770372586104277, guid: 48aa695b2b3a7344484e06a75a578889, type: 3}
+  - {fileID: 2008626370384035774, guid: d48ab27e01b86834dbd33544060374cb, type: 3}
   Field_inMonster:
   - {fileID: 0}
   - {fileID: 0}
@@ -2511,7 +2513,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  EnemyHpbar_prefab: {fileID: 206260871083471628, guid: 4455b74e64ed04b4f8cb91211f73686a, type: 3}
+  EnemyHpbar_prefab: {fileID: 206260871083471628, guid: 7cbb647b46d507341b2b38a3169696f7, type: 3}
   EnemyHpbar:
   - {fileID: 0}
   - {fileID: 0}
@@ -2519,6 +2521,7 @@ MonoBehaviour:
   - {fileID: 0}
   EnemyBossHpbar_prefab: {fileID: 206260871083471628, guid: 2ddd489768f2aea459b1945e7fb69a59, type: 3}
   EnemyBossHpbar: {fileID: 0}
+  boxBlock: {fileID: 2118121692}
   BackGround_Image:
   - {fileID: 0}
   - {fileID: 0}
@@ -2546,7 +2549,7 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
-  a: 32
+  a: 29
 --- !u!1 &1696031268
 GameObject:
   m_ObjectHideFlags: 0
@@ -3281,6 +3284,83 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &2118121692
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2118121694}
+  - component: {fileID: 2118121693}
+  m_Layer: 0
+  m_Name: BoxBlock
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!61 &2118121693
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2118121692}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 45, y: 25}
+  m_EdgeRadius: 0
+--- !u!4 &2118121694
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2118121692}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 554211423}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1714923401051164566
 PrefabInstance:
   m_ObjectHideFlags: 0

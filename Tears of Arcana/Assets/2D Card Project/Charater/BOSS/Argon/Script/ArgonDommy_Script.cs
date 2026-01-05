@@ -245,7 +245,7 @@ public class ArgonDommy_Script : MonoBehaviour
                     }
                     Vector3 HpBarPos = new Vector3(transform.position.x - 5f, transform.position.y - 3.5f, 0);
                     ObjectSet.EnemyHpbar[0].position = HpBarPos;
-                    HpBarPos = new Vector3(transform.position.x, transform.position.y + 0.5f, 0);
+                    HpBarPos = new Vector3(transform.position.x, transform.position.y + 1f, 0);
                     ObjectSet.EnemyStun[0].position = HpBarPos;
                     hpbar = ObjectSet.EnemyHpbar[0];
                     animation_position = ObjectSet.Field_transform[0];
@@ -262,7 +262,7 @@ public class ArgonDommy_Script : MonoBehaviour
                     }
                     Vector3 HpBarPos = new Vector3(transform.position.x - 5f, transform.position.y - 5f, 0);
                     ObjectSet.EnemyHpbar[1].position = HpBarPos;
-                    HpBarPos = new Vector3(transform.position.x, transform.position.y + 0.5f, 0);
+                    HpBarPos = new Vector3(transform.position.x, transform.position.y + 1f, 0);
                     ObjectSet.EnemyStun[1].position = HpBarPos;
                     hpbar = ObjectSet.EnemyHpbar[1];
                     animation_position = ObjectSet.Field_transform[1];
@@ -279,7 +279,7 @@ public class ArgonDommy_Script : MonoBehaviour
                     }
                     Vector3 HpBarPos = new Vector3(transform.position.x - 5f, transform.position.y - 3.5f, 0);
                     ObjectSet.EnemyHpbar[2].position = HpBarPos;
-                    HpBarPos = new Vector3(transform.position.x, transform.position.y + 0.5f, 0);
+                    HpBarPos = new Vector3(transform.position.x, transform.position.y + 1f, 0);
                     ObjectSet.EnemyStun[2].position = HpBarPos;
                     hpbar = ObjectSet.EnemyHpbar[2];
                     animation_position = ObjectSet.Field_transform[2];
@@ -296,7 +296,7 @@ public class ArgonDommy_Script : MonoBehaviour
                     }
                     Vector3 HpBarPos = new Vector3(transform.position.x - 5f, transform.position.y - 5f, 0);
                     ObjectSet.EnemyHpbar[3].position = HpBarPos;
-                    HpBarPos = new Vector3(transform.position.x, transform.position.y + 0.5f, 0);
+                    HpBarPos = new Vector3(transform.position.x, transform.position.y + 1f, 0);
                     ObjectSet.EnemyStun[3].position = HpBarPos;
                     hpbar = ObjectSet.EnemyHpbar[3];
                     animation_position = ObjectSet.Field_transform[3];
