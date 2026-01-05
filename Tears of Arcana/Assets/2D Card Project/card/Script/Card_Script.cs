@@ -75,6 +75,8 @@ public class Card_Script : MonoBehaviour
             deckField.cardHide = false;      // 카드배열 숨기기 해제
             Card_noHide = false;             // 카드배열 숨기기 막기 해제 
             Object_name = "";                // 이름 초기화
+            player.Skill_name = "";
+            player.Field_name = "";
             deckField.Click_Card = null;
         }
         if (Card_MouseClick) // 왼클릭을 했는지 감지하는 조건문
@@ -122,6 +124,7 @@ public class Card_Script : MonoBehaviour
             deckField.cardMove_Rock = true; // 카드 움직임 멈추기
             deckField.cardHide = true;      // 카드 숨기기
             deckField.Click_Card = this.gameObject.GetComponent<Card_Script>();
+            player.Skill_name = deckField.Click_Card.Card_name;
             Target_Card(Card_MouseClick);
         }
     }
@@ -230,12 +233,12 @@ public class Card_Script : MonoBehaviour
                     ObjectSet.Field_inMonster[2].GetComponent<Skeleton_Script>().HIT_Enemy = true;
                 }
                 if (ObjectSet.Field_inMonster[3] != null && ObjectSet.Enemy_Name[3] == "Skeleton") 
-                { 
+                {
                     ObjectSet.Field_inMonster[3].GetComponent<Skeleton_Script>().Arrow = true; 
                     ObjectSet.Field_inMonster[3].GetComponent<Skeleton_Script>().Guide = true; 
                     ObjectSet.Field_inMonster[3].GetComponent<Skeleton_Script>().targetCard = true; 
                     if (!ObjectSet.Field_inMonster[3].GetComponent<Skeleton_Script>().HIT_Enemy) 
-                    ObjectSet.Field_inMonster[3].GetComponent<Skeleton_Script>().HIT_Enemy = true; 
+                    ObjectSet.Field_inMonster[3].GetComponent<Skeleton_Script>().HIT_Enemy = true;
                 }
             }
             if (ObjectSet.Enemy_Name[0] == "Eye" || ObjectSet.Enemy_Name[1] == "Eye" ||

@@ -273,6 +273,7 @@ public class Skeleton_Script : MonoBehaviour
             Vector3 guide_offset = new Vector3(0, 0, 0);
             if (this.gameObject == ObjectSet.Field_inMonster[0] && ObjectSet.TargetGuide[0] == null && ObjectSet.Enemy_Name[0] == "Skeleton")
             {
+                player.Field_name = "Field00";
                 ObjectSet.TargetGuide[0] = Instantiate(ObjectSet.TargetGuide_prefab, guide_offset, Quaternion.identity);
                 EnemyTargetBar_Script guide = ObjectSet.TargetGuide[0].GetComponent<EnemyTargetBar_Script>();
                 guide.target = ObjectSet.Field_inMonster[0].transform;
@@ -307,6 +308,7 @@ public class Skeleton_Script : MonoBehaviour
             }
             if (this.gameObject == ObjectSet.Field_inMonster[1] && ObjectSet.TargetGuide[1] == null && ObjectSet.Enemy_Name[1] == "Skeleton")
             {
+                player.Field_name = "Field01";
                 ObjectSet.TargetGuide[1] = Instantiate(ObjectSet.TargetGuide_prefab, guide_offset, Quaternion.identity);
                 EnemyTargetBar_Script guide = ObjectSet.TargetGuide[1].GetComponent<EnemyTargetBar_Script>();
                 guide.target = ObjectSet.Field_inMonster[1].transform;
@@ -341,6 +343,7 @@ public class Skeleton_Script : MonoBehaviour
             }
             if (this.gameObject == ObjectSet.Field_inMonster[2] && ObjectSet.TargetGuide[2] == null && ObjectSet.Enemy_Name[2] == "Skeleton")
             {
+                player.Field_name = "Field02";
                 ObjectSet.TargetGuide[2] = Instantiate(ObjectSet.TargetGuide_prefab, guide_offset, Quaternion.identity);
                 EnemyTargetBar_Script guide = ObjectSet.TargetGuide[2].GetComponent<EnemyTargetBar_Script>();
                 guide.target = ObjectSet.Field_inMonster[2].transform;
@@ -375,6 +378,7 @@ public class Skeleton_Script : MonoBehaviour
             }
             if (this.gameObject == ObjectSet.Field_inMonster[3] && ObjectSet.TargetGuide[3] == null && ObjectSet.Enemy_Name[3] == "Skeleton")
             {
+                player.Field_name = "Field03";
                 ObjectSet.TargetGuide[3] = Instantiate(ObjectSet.TargetGuide_prefab, guide_offset, Quaternion.identity);
                 EnemyTargetBar_Script guide = ObjectSet.TargetGuide[3].GetComponent<EnemyTargetBar_Script>();
                 guide.target = ObjectSet.Field_inMonster[3].transform;

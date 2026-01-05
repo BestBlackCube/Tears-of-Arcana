@@ -681,7 +681,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 002ddee10139a8f4ea48269d6c85870e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackMotion_Object: []
+  AttackMotion_Object:
+  - {fileID: 386685083}
+  - {fileID: 386685083}
+  - {fileID: 386685083}
+  - {fileID: 386685083}
 --- !u!1 &496637068 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2350059292651586958, guid: 7f61726a376107945b361621370c631a, type: 3}
@@ -2163,7 +2167,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  EnemyHpbar_prefab: {fileID: 206260871083471628, guid: b3f876c26137b044b83923fbca206859, type: 3}
+  EnemyHpbar_prefab: {fileID: 206260871083471628, guid: b64e80e20b153694a82e76d0115fbf30, type: 3}
   EnemyHpbar:
   - {fileID: 0}
   - {fileID: 0}
@@ -2753,6 +2757,10 @@ PrefabInstance:
       propertyPath: BlackScreen_prefab
       value: 
       objectReference: {fileID: 995504174}
+    - target: {fileID: 4104663444431250751, guid: b8f7d1d43648754448003f207c4d9974, type: 3}
+      propertyPath: AttackMotion_Object
+      value: 
+      objectReference: {fileID: 1821296552}
     - target: {fileID: 7092457984515693291, guid: b8f7d1d43648754448003f207c4d9974, type: 3}
       propertyPath: m_Name
       value: Player

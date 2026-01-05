@@ -23,11 +23,15 @@ public class Player_Script : MonoBehaviour
     [SerializeField] GameObject itemOptionCard;
     [SerializeField] GameObject itemOption_Page;
     public GameObject BattleCard;
+    [SerializeField] GameObject AttackMotion_Object;
 
     public bool Arrow = false;
 
     public Charater_namedata unitname;
     public Charater_Status status;
+
+    public string Field_name;
+    public string Skill_name;
 
     public int nowHp;
     public int maxHp;
@@ -280,9 +284,10 @@ public class Player_Script : MonoBehaviour
             }
             else
             {
+                //AttackMotion();
                 animator.SetBool("PlayerAttack", false);
                 animator.SetBool("PlayerBackMove", true);
-                PlayerAttack_Enemy = false; // !+ 적캐릭터 패격 비활성화
+                PlayerAttack_Enemy = false; // !+ 적캐릭터 피격 비활성화
                 PlayerAttack_timer = 0f;
             }
         }
@@ -357,6 +362,62 @@ public class Player_Script : MonoBehaviour
                 itemOptionCard.GetComponent<PlayerItemOption_Script>().ObjectName = "";
                 itemOptionCard.GetComponent<PlayerItemOption_Script>().Player_target(false);
                 break;
+            default:
+                break;
+        }
+    }
+    public void AttackMotion()
+    {
+        switch(Field_name)
+        {
+            case "Field00":
+                switch (Skill_name)
+                {
+                    case "일반마법":
+                        AttackMotion_Object.GetComponent<PlayerAttackMotion_Script>().
+                            AttackMotion_Object[0].GetComponent<Animator>().SetBool("nomalMagic", true);
+                        break;
+
+                    default:
+                        break;
+                }
+                break;
+            case "Field01":
+                switch (Skill_name)
+                {
+                    case "일반마법":
+                        animator.SetBool("nomalMagic", true);
+                        break;
+
+                    default:
+                        break;
+                }
+                break;
+            case "Field02":
+                switch (Skill_name)
+                {
+                    case "일반마법":
+                        animator.SetBool("nomalMagic", true);
+                        break;
+
+                    default:
+                        break;
+                }
+                break;
+            case "Field03":
+                switch (Skill_name)
+                {
+                    case "일반마법":
+                        animator.SetBool("nomalMagic", true);
+                        break;
+
+                    default:
+                        break;
+                }
+                break;
+            case "FieldAll":
+                break;
+
             default:
                 break;
         }
