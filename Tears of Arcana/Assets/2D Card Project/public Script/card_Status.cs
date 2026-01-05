@@ -99,8 +99,14 @@ public class card_Status
             case Item_Carddata.battle:
                 status = new card_Status(Card_name, "전장으로", 0, 0, 0, 0, 0);
                 break;
-            case Item_Carddata.item:
-                status = new card_Status(Card_name, "아이템", 10, 10, 10, 10, 0);
+            case Item_Carddata.old_SpellBook:
+                status = new card_Status(Card_name, "낡은책", 10, 10, 10, 10, 0);
+                break;
+            case Item_Carddata.old_Bracelet:
+                status = new card_Status(Card_name, "낡은팔찌", 10, 10, 10, 10, 0);
+                break;
+            case Item_Carddata.old_MagicStone:
+                status = new card_Status(Card_name, "오래된마법석", 10, 10, 10, 10, 0);
                 break;
 
             default:

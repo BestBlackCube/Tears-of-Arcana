@@ -9,14 +9,17 @@ public class ItemCard_Script : MonoBehaviour
     [SerializeField] Item_Carddata itemName;
     [SerializeField] card_Status item;
     [SerializeField] ItemOption_Script itemOption;
-    [SerializeField] StatusCard_Mouse cardMouse;
     [SerializeField] Player_Script player;
 
     [SerializeField] bool Card_Use = false;
     [SerializeField] bool Battle_Use = false;
-    [SerializeField] bool Card_Active = false;
+
+    public bool Status00 = false;
+    public bool Status01 = false;
+    public bool Status02 = false;
+    public bool Card_Active = false;
     public bool Battle_Active = false;
-    [SerializeField] bool Card_transformMouse = false;
+    public bool Card_transformMouse = false;
     public string itemBoxName;
 
     public string itemname;
@@ -28,7 +31,6 @@ public class ItemCard_Script : MonoBehaviour
     void Start()
     {
         itemOption = FindObjectOfType<ItemOption_Script>();
-        cardMouse = FindObjectOfType<StatusCard_Mouse>();
         player = GameObject.Find("Player").GetComponent<Player_Script>();
 
         item = new card_Status();
@@ -45,23 +47,24 @@ public class ItemCard_Script : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1) && Battle_Active)
         {
-            this.gameObject.GetComponent<BoxCollider2D>().enabled = true;
+            for (int j = 0; j < itemOption.InField_nowitemCard.Length; j++) if (itemOption.InField_nowitemCard[j] != null)
+                    itemOption.InField_nowitemCard[j].GetComponent<BoxCollider2D>().enabled = true;
             itemBoxName = "";
             Card_transformMouse = false;
-            itemOption.item_inFieldCard = true;
             Player_target(false);
             Battle_Active = false;
         }
         if(Input.GetMouseButtonDown(1) && Card_Active)
         {
-            this.gameObject.GetComponent<BoxCollider2D>().enabled = true;
+            for (int j = 0; j < itemOption.InField_nowitemCard.Length; j++) if (itemOption.InField_nowitemCard[j] != null)
+                    itemOption.InField_nowitemCard[j].GetComponent<BoxCollider2D>().enabled = true;
             if (itemOption.ClickItem != null) itemOption.ClickItem = null;
             itemBoxName = "";
             Card_transformMouse = false;
-            itemOption.item_inFieldCard = true;
             for (int i = 0; i < 3; i++)
             {
                 itemOption.target_Field[i].SetActive(false);
+                itemOption.StatusCard_Object[i].GetComponent<BoxCollider2D>().enabled = false;
                 itemOption.StatusCard_Object[i].GetComponent<StatusCard_Mouse>().OptionCard_Set = false;
             }
             Card_Active = false;
@@ -83,27 +86,28 @@ public class ItemCard_Script : MonoBehaviour
         if(Battle_Use)
         {
             Battle_Active = true;
-            this.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            for (int j = 0; j < itemOption.InField_nowitemCard.Length; j++) if (itemOption.InField_nowitemCard[j] != null)
+                    itemOption.InField_nowitemCard[j].GetComponent<BoxCollider2D>().enabled = false;
             this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, -1);
-            itemOption.item_inFieldCard = false;
             Player_target(true);
             Card_transformMouse = true;
         }
         if(Card_Use)
         {
             Card_Active = true;
-            this.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            for (int j = 0; j < itemOption.InField_nowitemCard.Length; j++) if (itemOption.InField_nowitemCard[j] != null) 
+                    itemOption.InField_nowitemCard[j].GetComponent<BoxCollider2D>().enabled = false;
             this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, -1);
             itemOption.BoxColliderActive(true);
-            itemOption.item_inFieldCard = false;
             itemOption.ClickItem = this.gameObject.GetComponent<ItemCard_Script>();
             Card_transformMouse = true;
 
             for (int i = 0; i < 3; i++)
             {
-                itemOption.target_Field[i].SetActive(true);
+                if (!itemOption.StatusCard_Object[i].GetComponent<StatusCard_Mouse>().BoxInCard) itemOption.target_Field[i].SetActive(true);
                 itemOption.StatusCard_Object[i].GetComponent<StatusCard_Mouse>().OptionCard_Set = true;
             }
+            StatusDelete();
         }
     }
     void Card_Mouse()
@@ -114,12 +118,12 @@ public class ItemCard_Script : MonoBehaviour
             {
                 case "Player":
                     Vector3 playerPosition = new Vector3(player.transform.position.x, player.transform.position.y + 6, 0);
-                    transform.position = Vector3.Lerp(transform.position, playerPosition, 5 * Time.deltaTime);
+                    this.transform.position = Vector3.Lerp(transform.position, playerPosition, 5 * Time.deltaTime);
                     break;
                 default:
-                    Vector3 worldPosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10);
+                    Vector3 worldPosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 6);
                     Vector3 mousePosition = Camera.main.ScreenToWorldPoint(worldPosition);
-                    transform.position = Vector3.Lerp(transform.position, mousePosition, 10 * Time.deltaTime);
+                    this.transform.position = Vector3.Lerp(transform.position, mousePosition, 10 * Time.deltaTime);
                     break;
             }
         }
@@ -144,12 +148,76 @@ public class ItemCard_Script : MonoBehaviour
                     break;
 
                 default:
-                    Vector3 worldPosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 8);
+                    Vector3 worldPosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 7);
                     Vector3 mousePosition = Camera.main.ScreenToWorldPoint(worldPosition);
-                    transform.position = Vector3.Lerp(this.transform.position, mousePosition, 10 * Time.deltaTime);
+                    itemOption.ClickItem.transform.position = Vector3.Lerp(this.transform.position, mousePosition, 10 * Time.deltaTime);
                     break;
             }
         }
+    }
+    void StatusDelete()
+    {
+        if(Status00)
+        {
+            player.maxHp -= itemOption.StatusCard_Object[0].GetComponent<StatusCard_Mouse>().PlusHp;
+            player.maxMp -= itemOption.StatusCard_Object[0].GetComponent<StatusCard_Mouse>().PlusMp;
+            player.Defence_percent -= itemOption.StatusCard_Object[0].GetComponent<StatusCard_Mouse>().PlusDp;
+            player.Avoid_percent -= itemOption.StatusCard_Object[0].GetComponent<StatusCard_Mouse>().PlusAp;
+
+            itemOption.HpPlus_Persent -= itemOption.StatusCard_Object[0].GetComponent<StatusCard_Mouse>().PlusHp;
+            itemOption.MpPlus_Persent -= itemOption.StatusCard_Object[0].GetComponent<StatusCard_Mouse>().PlusMp;
+            itemOption.Defence_Persent -= itemOption.StatusCard_Object[0].GetComponent<StatusCard_Mouse>().PlusDp;
+            itemOption.Avoid_Persent -= itemOption.StatusCard_Object[0].GetComponent<StatusCard_Mouse>().PlusAp;
+
+            itemOption.StatusCard_Object[0].GetComponent<StatusCard_Mouse>().PlusHp = 0;
+            itemOption.StatusCard_Object[0].GetComponent<StatusCard_Mouse>().PlusMp = 0;
+            itemOption.StatusCard_Object[0].GetComponent<StatusCard_Mouse>().PlusDp = 0;
+            itemOption.StatusCard_Object[0].GetComponent<StatusCard_Mouse>().PlusAp = 0;
+
+            itemOption.StatusCard_Object[0].GetComponent<StatusCard_Mouse>().BoxInCard = false;
+            Status00 = false;
+        }
+        if(Status01)
+        {
+            player.maxHp -= itemOption.StatusCard_Object[1].GetComponent<StatusCard_Mouse>().PlusHp;
+            player.maxMp -= itemOption.StatusCard_Object[1].GetComponent<StatusCard_Mouse>().PlusMp;
+            player.Defence_percent -= itemOption.StatusCard_Object[1].GetComponent<StatusCard_Mouse>().PlusDp;
+            player.Avoid_percent -= itemOption.StatusCard_Object[1].GetComponent<StatusCard_Mouse>().PlusAp;
+
+            itemOption.HpPlus_Persent -= itemOption.StatusCard_Object[1].GetComponent<StatusCard_Mouse>().PlusHp;
+            itemOption.MpPlus_Persent -= itemOption.StatusCard_Object[1].GetComponent<StatusCard_Mouse>().PlusMp;
+            itemOption.Defence_Persent -= itemOption.StatusCard_Object[1].GetComponent<StatusCard_Mouse>().PlusDp;
+            itemOption.Avoid_Persent -= itemOption.StatusCard_Object[1].GetComponent<StatusCard_Mouse>().PlusAp;
+
+            itemOption.StatusCard_Object[1].GetComponent<StatusCard_Mouse>().PlusHp = 0;
+            itemOption.StatusCard_Object[1].GetComponent<StatusCard_Mouse>().PlusMp = 0;
+            itemOption.StatusCard_Object[1].GetComponent<StatusCard_Mouse>().PlusDp = 0;
+            itemOption.StatusCard_Object[1].GetComponent<StatusCard_Mouse>().PlusAp = 0;
+
+            itemOption.StatusCard_Object[1].GetComponent<StatusCard_Mouse>().BoxInCard = false;
+            Status01 = false;
+        }
+        if(Status02)
+        {
+            player.maxHp -= itemOption.StatusCard_Object[2].GetComponent<StatusCard_Mouse>().PlusHp;
+            player.maxMp -= itemOption.StatusCard_Object[2].GetComponent<StatusCard_Mouse>().PlusMp;
+            player.Defence_percent -= itemOption.StatusCard_Object[2].GetComponent<StatusCard_Mouse>().PlusDp;
+            player.Avoid_percent -= itemOption.StatusCard_Object[2].GetComponent<StatusCard_Mouse>().PlusAp;
+
+            itemOption.HpPlus_Persent -= itemOption.StatusCard_Object[2].GetComponent<StatusCard_Mouse>().PlusHp;
+            itemOption.MpPlus_Persent -= itemOption.StatusCard_Object[2].GetComponent<StatusCard_Mouse>().PlusMp;
+            itemOption.Defence_Persent -= itemOption.StatusCard_Object[2].GetComponent<StatusCard_Mouse>().PlusDp;
+            itemOption.Avoid_Persent -= itemOption.StatusCard_Object[2].GetComponent<StatusCard_Mouse>().PlusAp;
+
+            itemOption.StatusCard_Object[2].GetComponent<StatusCard_Mouse>().PlusHp = 0;
+            itemOption.StatusCard_Object[2].GetComponent<StatusCard_Mouse>().PlusMp = 0;
+            itemOption.StatusCard_Object[2].GetComponent<StatusCard_Mouse>().PlusDp = 0;
+            itemOption.StatusCard_Object[2].GetComponent<StatusCard_Mouse>().PlusAp = 0;
+
+            itemOption.StatusCard_Object[2].GetComponent<StatusCard_Mouse>().BoxInCard = false;
+            Status02 = false;
+        }
+
     }
     public void Player_target(bool Click)
     {

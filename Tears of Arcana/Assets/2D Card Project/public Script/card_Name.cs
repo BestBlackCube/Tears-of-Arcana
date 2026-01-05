@@ -28,7 +28,9 @@ public enum Item_Carddata
 { 
     itemOption,
     battle,
-    item
+    old_SpellBook,
+    old_Bracelet,
+    old_MagicStone,
 }
 
 public class card_Name : MonoBehaviour

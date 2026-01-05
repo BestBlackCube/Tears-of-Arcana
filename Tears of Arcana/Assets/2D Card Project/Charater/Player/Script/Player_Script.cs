@@ -239,7 +239,7 @@ public class Player_Script : MonoBehaviour
                 }
                 else
                 {
-                    transform.position = new Vector3(-15, -1, 5);
+                    transform.position = new Vector3(-15, 2, 5);
                     if (animator.GetBool("PlayerAvoid")) animator.SetBool("PlayerAvoid", false);
                     Avoid = false;
                 }
@@ -263,7 +263,7 @@ public class Player_Script : MonoBehaviour
         }
         if (animator.GetBool("PlayerMove"))
         {
-            if (transform.position.x < -10)
+            if (transform.position.x < -13)
             { transform.position = new Vector3(transform.position.x + 15f * Time.deltaTime, transform.position.y, 0); }
             else
             {
@@ -298,7 +298,7 @@ public class Player_Script : MonoBehaviour
                 animator.SetBool("PlayerBackMove", false);
                 animator.SetBool("PlayerIdle", true);
                 transform.localScale = new Vector3(1, 1, 1);
-                transform.position = new Vector3(-15, -1, 5);
+                transform.position = new Vector3(-15, 2, 5);
                 animation_Attack = false;
             }
         }
@@ -341,16 +341,16 @@ public class Player_Script : MonoBehaviour
                 break;
 
             case "전장으로":
-                itemOption_Page.GetComponent<ItemOption_Script>().CardFieldActive = true;
-                itemOption_Page.GetComponent<ItemOption_Script>().itemCard_ActiveAndTransform();
+                itemOption_Page.GetComponent<ItemOption_Script>().CardDeck_Active();
                 BattleCard.GetComponent<ItemCard_Script>().itemBoxName = "";
                 BattleCard.GetComponent<ItemCard_Script>().Battle_Active = false;
-                //itemOption_Page.SetActive(false);
                 itemOptionCard.gameObject.GetComponent<BoxCollider2D>().enabled = true;
+                itemOption_Page.GetComponent<ItemOption_Script>().itemCard_resetTransform();
                 break;
             case "장비설정":
                 itemOption_Page.SetActive(true);
-                itemOption_Page.GetComponent<ItemOption_Script>().CardFieldActive = true;
+                itemOption_Page.GetComponent<ItemOption_Script>().itemCard_ActiveOn();
+                itemOption_Page.GetComponent<ItemOption_Script>().CardDeck_Active();
                 itemOptionCard.transform.position = itemOptionCard.GetComponent<PlayerItemOption_Script>().baseTrasnform;
                 itemOptionCard.GetComponent<PlayerItemOption_Script>().OptionActive = false;
                 itemOptionCard.GetComponent<PlayerItemOption_Script>().OptionOn = false;
