@@ -30,8 +30,9 @@ public class PlayerItemOption_Script : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(1) && OptionActive)
         {
-            this.transform.position = Vector3.Lerp(this.transform.position, baseTrasnform, Time.deltaTime);
+            this.transform.position = baseTrasnform;
             this.gameObject.GetComponent<BoxCollider2D>().enabled = true;
+            if (ObjectName != "") ObjectName = "";
             OptionActive = false;
             OptionOn = false;
             Player_target(false);
@@ -63,7 +64,7 @@ public class PlayerItemOption_Script : MonoBehaviour
         switch(ObjectName)
         {
             case "Player":
-                Vector3 playerPosition = new Vector3(player.transform.position.x, player.transform.position.y + 10, 0);
+                Vector3 playerPosition = new Vector3(player.transform.position.x, player.transform.position.y + 6, 0);
                 transform.position = Vector3.Lerp(transform.position, playerPosition, 5 * Time.deltaTime);
                 break;
             default:
@@ -76,13 +77,7 @@ public class PlayerItemOption_Script : MonoBehaviour
 
     public void Player_target(bool Click)
     {
-        if(Click)
-        {
-            if (!player.Arrow) player.Arrow = true;
-        }
-        else
-        {
-            if (player.Arrow) player.Arrow = false;
-        }
+        if(Click) player.Arrow = true;
+        else player.Arrow = false;
     }
 }

@@ -15,6 +15,7 @@ public class ItemCard_Script : MonoBehaviour
     [SerializeField] bool Card_Use = false;
     [SerializeField] bool Battle_Use = false;
     [SerializeField] bool Card_Active = false;
+    public bool Battle_Active = false;
     [SerializeField] bool Card_transformMouse = false;
     public string itemBoxName;
 
@@ -28,7 +29,7 @@ public class ItemCard_Script : MonoBehaviour
     {
         itemOption = FindObjectOfType<ItemOption_Script>();
         cardMouse = FindObjectOfType<StatusCard_Mouse>();
-        player = FindObjectOfType<Player_Script>();
+        player = GameObject.Find("Player").GetComponent<Player_Script>();
 
         item = new card_Status();
         item = item.item_Card(itemName);
@@ -42,6 +43,15 @@ public class ItemCard_Script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetMouseButtonDown(1) && Battle_Active)
+        {
+            this.gameObject.GetComponent<BoxCollider2D>().enabled = true;
+            itemBoxName = "";
+            Card_transformMouse = false;
+            itemOption.item_inFieldCard = true;
+            Player_target(false);
+            Battle_Active = false;
+        }
         if(Input.GetMouseButtonDown(1) && Card_Active)
         {
             this.gameObject.GetComponent<BoxCollider2D>().enabled = true;
@@ -72,8 +82,11 @@ public class ItemCard_Script : MonoBehaviour
     {
         if(Battle_Use)
         {
+            Battle_Active = true;
             this.gameObject.GetComponent<BoxCollider2D>().enabled = false;
             this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, -1);
+            itemOption.item_inFieldCard = false;
+            Player_target(true);
             Card_transformMouse = true;
         }
         if(Card_Use)
@@ -95,12 +108,12 @@ public class ItemCard_Script : MonoBehaviour
     }
     void Card_Mouse()
     {
-        if(Battle_Use)
+        if(Battle_Active)
         {
             switch (itemBoxName)
             {
                 case "Player":
-                    Vector3 playerPosition = new Vector3(player.transform.position.x, player.transform.position.y + 10, 0);
+                    Vector3 playerPosition = new Vector3(player.transform.position.x, player.transform.position.y + 6, 0);
                     transform.position = Vector3.Lerp(transform.position, playerPosition, 5 * Time.deltaTime);
                     break;
                 default:
@@ -110,7 +123,7 @@ public class ItemCard_Script : MonoBehaviour
                     break;
             }
         }
-        if(Card_Use)
+        if(Card_Active)
         {
             switch (itemBoxName)
             {
@@ -136,6 +149,19 @@ public class ItemCard_Script : MonoBehaviour
                     transform.position = Vector3.Lerp(this.transform.position, mousePosition, 10 * Time.deltaTime);
                     break;
             }
+        }
+    }
+    public void Player_target(bool Click)
+    {
+        if (Click)
+        {
+            player.Arrow = true;
+            player.BattleCard = this.gameObject;
+        }
+        else
+        {
+            player.Arrow = false;
+            player.BattleCard = null;
         }
     }
 }

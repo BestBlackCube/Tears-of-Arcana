@@ -20,8 +20,9 @@ public class Player_Script : MonoBehaviour
     GameObject targetGuide;
     public GameObject TargetArrow_prefab;
     GameObject targetArrow;
-    [SerializeField] GameObject itemOption;
+    [SerializeField] GameObject itemOptionCard;
     [SerializeField] GameObject itemOption_Page;
+    public GameObject BattleCard;
 
     public bool Arrow = false;
 
@@ -89,7 +90,8 @@ public class Player_Script : MonoBehaviour
         if (animation_Attack) Player_AttackStart();
         if (!Arrow && targetArrow != null) Destroy(targetArrow);
         if (targetPlayerCard && Arrow && targetArrow == null ||
-            itemOption.GetComponent<PlayerItemOption_Script>().OptionActive && Arrow && targetArrow == null)
+            itemOptionCard.GetComponent<PlayerItemOption_Script>().OptionActive && Arrow && targetArrow == null ||
+            BattleCard != null && BattleCard.GetComponent<ItemCard_Script>().Battle_Active && Arrow && targetArrow == null)
         {
             Vector3 player_offset = new Vector3(transform.position.x, 6, 5);
             targetArrow = Instantiate(TargetArrow_prefab, player_offset, Quaternion.identity);
@@ -117,7 +119,7 @@ public class Player_Script : MonoBehaviour
                     if (Delay_timer < 8) Delay_timer += Time.deltaTime;
                     else
                     {
-                        transform.position = new Vector3(-25, -1, 5);
+                        transform.position = new Vector3(-25, 2, 5);
                         Delay_timer = 0f;
                         MoveCount++;
                     }
@@ -139,27 +141,30 @@ public class Player_Script : MonoBehaviour
     }
     void PlayerMove(int Range)
     {
-        if (transform.position.x < Range) transform.position = new Vector3(transform.position.x + 15f * Time.deltaTime, -1, 5);
+        if (transform.position.x < Range) transform.position = new Vector3(transform.position.x + 15f * Time.deltaTime, 2, 5);
     }
     private void OnMouseOver() // 마우스커서가 오브젝트에 있는지 감지하는 이벤트
     {
         Player_cardUse = true;
         if (Arrow && targetArrow != null) Arrow = false;
         if (targetPlayerCard) deckField.Click_Card.Object_name = "Player";
-        if (itemOption.GetComponent<PlayerItemOption_Script>().OptionActive)
-            itemOption.GetComponent<PlayerItemOption_Script>().ObjectName = "Player";
+        if (itemOptionCard.GetComponent<PlayerItemOption_Script>().OptionActive)
+            itemOptionCard.GetComponent<PlayerItemOption_Script>().ObjectName = "Player";
+        if (BattleCard != null && BattleCard.GetComponent<ItemCard_Script>().Battle_Active)
+            BattleCard.GetComponent<ItemCard_Script>().itemBoxName = "Player";
 
         if (targetPlayerCard && targetGuide == null ||
-            itemOption.GetComponent<PlayerItemOption_Script>().OptionActive && targetGuide == null)
+            itemOptionCard.GetComponent<PlayerItemOption_Script>().OptionActive && targetGuide == null ||
+            BattleCard != null && BattleCard.GetComponent<ItemCard_Script>().Battle_Active && targetGuide == null)
         {
             Vector3 player_offset = new Vector3(transform.position.x, 6, 5);
             targetGuide = Instantiate(PlayerTarget_prefab, player_offset, Quaternion.identity); // 해당 오브젝트의 복제본을 생성
             EnemyTargetBar_Script guide = targetGuide.GetComponent<EnemyTargetBar_Script>(); // 복제본에 스크립트파일 대입하기
             guide.target = this.transform; // 복제된 오브젝트의 위치
-            guide.offset[0] = new Vector3(-1.3f, 5f, 0);
-            guide.offset[1] = new Vector3(0.7f, 5f, 0);
-            guide.offset[2] = new Vector3(-1.3f, 0f, 0);
-            guide.offset[3] = new Vector3(0.7f, 0f, 0);
+            guide.offset[0] = new Vector3(-1f, 2f, 0);
+            guide.offset[1] = new Vector3(1f, 2f, 0);
+            guide.offset[2] = new Vector3(-1f, -3f, 0);
+            guide.offset[3] = new Vector3(1f, -3f, 0);
         }
 
     }
@@ -167,8 +172,10 @@ public class Player_Script : MonoBehaviour
     {
         Player_cardUse = false;
         if (targetPlayerCard) deckField.Click_Card.Object_name = "";
-        if (itemOption.GetComponent<PlayerItemOption_Script>().OptionActive)
-            itemOption.GetComponent<PlayerItemOption_Script>().ObjectName = "";
+        if (itemOptionCard.GetComponent<PlayerItemOption_Script>().OptionActive)
+            itemOptionCard.GetComponent<PlayerItemOption_Script>().ObjectName = "";
+        if (BattleCard != null && BattleCard.GetComponent<ItemCard_Script>().Battle_Active)
+            BattleCard.GetComponent<ItemCard_Script>().itemBoxName = "";
         if (!Arrow && targetArrow == null) Arrow = true;
         if (targetGuide != null) Destroy(targetGuide);
     }
@@ -185,10 +192,10 @@ public class Player_Script : MonoBehaviour
             deckField.cardHide = false;
             targetPlayerCard = false;
         }
-        if(Player_cardUse && itemOption.GetComponent<PlayerItemOption_Script>().ObjectName == "Player")
-        {
-            CardName_inStatus(itemOption.GetComponent<PlayerItemOption_Script>().CardName);
-        }
+        if(Player_cardUse && itemOptionCard.GetComponent<PlayerItemOption_Script>().ObjectName == "Player")
+            CardName_inStatus(itemOptionCard.GetComponent<PlayerItemOption_Script>().CardName);
+        if (BattleCard != null && BattleCard.GetComponent<ItemCard_Script>().itemBoxName == "Player")
+            CardName_inStatus(BattleCard.GetComponent<ItemCard_Script>().itemname);
     }
     void HIT_percent()
     {
@@ -334,17 +341,21 @@ public class Player_Script : MonoBehaviour
                 break;
 
             case "전장으로":
-                itemOption_Page.SetActive(false);
-                itemOption.SetActive(true);
+                itemOption_Page.GetComponent<ItemOption_Script>().CardFieldActive = true;
+                itemOption_Page.GetComponent<ItemOption_Script>().itemCard_ActiveAndTransform();
+                BattleCard.GetComponent<ItemCard_Script>().itemBoxName = "";
+                BattleCard.GetComponent<ItemCard_Script>().Battle_Active = false;
+                //itemOption_Page.SetActive(false);
+                itemOptionCard.gameObject.GetComponent<BoxCollider2D>().enabled = true;
                 break;
             case "장비설정":
                 itemOption_Page.SetActive(true);
-                itemOption.transform.position = itemOption.GetComponent<PlayerItemOption_Script>().baseTrasnform;
-                itemOption.gameObject.GetComponent<BoxCollider2D>().enabled = true;
-                itemOption.GetComponent<PlayerItemOption_Script>().OptionActive = false;
-                itemOption.GetComponent<PlayerItemOption_Script>().OptionOn = false;
-                itemOption.GetComponent<PlayerItemOption_Script>().Player_target(false);
-                itemOption.gameObject.SetActive(false);
+                itemOption_Page.GetComponent<ItemOption_Script>().CardFieldActive = true;
+                itemOptionCard.transform.position = itemOptionCard.GetComponent<PlayerItemOption_Script>().baseTrasnform;
+                itemOptionCard.GetComponent<PlayerItemOption_Script>().OptionActive = false;
+                itemOptionCard.GetComponent<PlayerItemOption_Script>().OptionOn = false;
+                itemOptionCard.GetComponent<PlayerItemOption_Script>().ObjectName = "";
+                itemOptionCard.GetComponent<PlayerItemOption_Script>().Player_target(false);
                 break;
             default:
                 break;

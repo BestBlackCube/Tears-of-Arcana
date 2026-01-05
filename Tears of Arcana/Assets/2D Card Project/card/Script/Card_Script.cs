@@ -3476,7 +3476,7 @@ public class Card_Script : MonoBehaviour
         switch (Object_name)
         {
             case "Player": // 플레이어 일 경우
-                Vector3 playerPosition = new Vector3(player.transform.position.x, player.transform.position.y + 10, 0);
+                Vector3 playerPosition = new Vector3(player.transform.position.x, player.transform.position.y + 6, 0);
                 transform.position = Vector3.Lerp(transform.position, playerPosition, 5 * Time.deltaTime);
                 break;
 

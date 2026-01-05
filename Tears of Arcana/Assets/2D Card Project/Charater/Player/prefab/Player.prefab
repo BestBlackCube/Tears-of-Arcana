@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2941813183561502551}
   - component: {fileID: 6954228523003513859}
   - component: {fileID: 8431351944696111}
-  - component: {fileID: 3071242711528298698}
+  - component: {fileID: 3224883345481237339}
   - component: {fileID: 4104663444431250751}
   m_Layer: 6
   m_Name: Player
@@ -97,18 +97,18 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ae297123f091bbf4e8f1835eb98fb293, type: 3}
+  m_Sprite: {fileID: 1346394622, guid: ab8ed1cdb6a3a284e8bde817eff3e394, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 12.5, y: 6.875}
+  m_Size: {x: 3.5333333, y: 6.6666665}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &3071242711528298698
+--- !u!61 &3224883345481237339
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,18 +140,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.194, y: 2.75}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 12.5, y: 6.875}
-    newSize: {x: 12.5, y: 6.875}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.5333333, y: 6.6666665}
+    newSize: {x: 3.5333333, y: 6.6666665}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.4, y: 5.05}
+  m_Size: {x: 2, y: 6.6}
   m_EdgeRadius: 0
 --- !u!114 &4104663444431250751
 MonoBehaviour:
@@ -171,6 +171,9 @@ MonoBehaviour:
   BlackScreen_prefab: {fileID: 0}
   PlayerTarget_prefab: {fileID: 3995674418800772722, guid: 59d10f30307a76542b94123450d455b1, type: 3}
   TargetArrow_prefab: {fileID: 3987096337707469404, guid: b3ff725bc508aee4ab082db4ccb49c96, type: 3}
+  itemOptionCard: {fileID: 0}
+  itemOption_Page: {fileID: 0}
+  BattleCard: {fileID: 0}
   Arrow: 0
   unitname: 0
   nowHp: 0
