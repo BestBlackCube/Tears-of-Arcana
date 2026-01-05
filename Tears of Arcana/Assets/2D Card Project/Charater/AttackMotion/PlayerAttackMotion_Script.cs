@@ -5,217 +5,245 @@ using UnityEngine;
 public class PlayerAttackMotion_Script : MonoBehaviour
 {
     public GameObject[] AttackMotion_Object;
-    Player_Script player;
-    private void Start()
+    [SerializeField] Player_Script player;
+    public void FieldAttack_Motion()
     {
-        player = FindObjectOfType<Player_Script>();
-    }
-    public void FieldAttack00_Motion()
-    {
-        switch(player.Skill_name)
+        switch(player.Field_name)
         {
-            case "¿œπ›∏∂π˝":
-                if (!AttackMotion_Object[0].GetComponent<Animator>().GetBool("nomalMagic"))
-                    AttackMotion_Object[0].GetComponent<Animator>().SetBool("nomalMagic", true);
-                else AttackMotion_Object[0].GetComponent<Animator>().SetBool("nomalMagic", false);
-                break;
-            case "πŸ∂˜¿«√¢":
-                if (!AttackMotion_Object[0].GetComponent<Animator>().GetBool("windSpear"))
-                    AttackMotion_Object[0].GetComponent<Animator>().SetBool("windSpear", true);
-                else AttackMotion_Object[0].GetComponent<Animator>().SetBool("windSpear", false);
-                break;
-            case "µππ´¥ı±‚":
-                if (!AttackMotion_Object[0].GetComponent<Animator>().GetBool("stoneRain"))
-                    AttackMotion_Object[0].GetComponent<Animator>().SetBool("stoneRain", true);
-                else AttackMotion_Object[0].GetComponent<Animator>().SetBool("stoneRain", false);
-                break;
-            case "∫“»≠ªÏ":
-                if (!AttackMotion_Object[0].GetComponent<Animator>().GetBool("FireArrow"))
-                    AttackMotion_Object[0].GetComponent<Animator>().SetBool("FireArrow", true);
-                else AttackMotion_Object[0].GetComponent<Animator>().SetBool("FireArrow", false);
-                break;
-            case "¿¸∞›":
-                if (!AttackMotion_Object[0].GetComponent<Animator>().GetBool("Lighting"))
-                    AttackMotion_Object[0].GetComponent<Animator>().SetBool("Lighting", true);
-                else AttackMotion_Object[0].GetComponent<Animator>().SetBool("Lighting", false);
-                break;
-            case "∞ÌµÂ∏ß":
-                if (!AttackMotion_Object[0].GetComponent<Animator>().GetBool("iceBolt"))
-                    AttackMotion_Object[0].GetComponent<Animator>().SetBool("iceBolt", true);
-                else AttackMotion_Object[0].GetComponent<Animator>().SetBool("iceBolt", false);
-                break;
-
-            case "¿˝∏¡¿« ±’ø≠":
-                if (!AttackMotion_Object[0].GetComponent<Animator>().GetBool("abyssCrevice"))
-                    AttackMotion_Object[0].GetComponent<Animator>().SetBool("abyssCrevice", true);
-                else AttackMotion_Object[0].GetComponent<Animator>().SetBool("abyssCrevice", false);
-                break;
-
-            default:
-                break;
-        }
-        player.Field_name = "";
-        player.Skill_name = "";
-    }
-    public void FieldAttack01_Motion()
-    {
-        switch (player.Skill_name)
-        {
-            case "¿œπ›∏∂π˝":
-                if (!AttackMotion_Object[1].GetComponent<Animator>().GetBool("nomalMagic"))
-                    AttackMotion_Object[1].GetComponent<Animator>().SetBool("nomalMagic", true);
-                else AttackMotion_Object[1].GetComponent<Animator>().SetBool("nomalMagic", false);
-                break;
-            case "πŸ∂˜¿«√¢":
-                if (!AttackMotion_Object[1].GetComponent<Animator>().GetBool("windSpear"))
-                    AttackMotion_Object[1].GetComponent<Animator>().SetBool("windSpear", true);
-                else AttackMotion_Object[1].GetComponent<Animator>().SetBool("windSpear", false);
-                break;
-            case "µππ´¥ı±‚":
-                if (!AttackMotion_Object[1].GetComponent<Animator>().GetBool("stoneRain"))
-                    AttackMotion_Object[1].GetComponent<Animator>().SetBool("stoneRain", true);
-                else AttackMotion_Object[1].GetComponent<Animator>().SetBool("stoneRain", false);
-                break;
-            case "∫“»≠ªÏ":
-                if (!AttackMotion_Object[1].GetComponent<Animator>().GetBool("FireArrow"))
-                    AttackMotion_Object[1].GetComponent<Animator>().SetBool("FireArrow", true);
-                else AttackMotion_Object[1].GetComponent<Animator>().SetBool("FireArrow", false);
-                break;
-            case "¿¸∞›":
-                if (!AttackMotion_Object[1].GetComponent<Animator>().GetBool("Lighting"))
-                    AttackMotion_Object[1].GetComponent<Animator>().SetBool("Lighting", true);
-                else AttackMotion_Object[1].GetComponent<Animator>().SetBool("Lighting", false);
-                break;
-            case "∞ÌµÂ∏ß":
-                if (!AttackMotion_Object[1].GetComponent<Animator>().GetBool("iceBolt"))
-                    AttackMotion_Object[1].GetComponent<Animator>().SetBool("iceBolt", true);
-                else AttackMotion_Object[1].GetComponent<Animator>().SetBool("iceBolt", false);
-                break;
-
-            case "¿˝∏¡¿« ±’ø≠":
-                if (!AttackMotion_Object[1].GetComponent<Animator>().GetBool("abyssCrevice"))
-                    AttackMotion_Object[1].GetComponent<Animator>().SetBool("abyssCrevice", true);
-                else AttackMotion_Object[1].GetComponent<Animator>().SetBool("abyssCrevice", false);
-                break;
-
-            default:
-                break;
-        }
-        player.Field_name = "";
-        player.Skill_name = "";
-    }
-    public void FieldAttack02_Motion()
-    {
-        switch (player.Skill_name)
-        {
-            case "¿œπ›∏∂π˝":
-                if (!AttackMotion_Object[2].GetComponent<Animator>().GetBool("nomalMagic"))
-                    AttackMotion_Object[2].GetComponent<Animator>().SetBool("nomalMagic", true);
-                else AttackMotion_Object[2].GetComponent<Animator>().SetBool("nomalMagic", false);
-                break;
-            case "πŸ∂˜¿«√¢":
-                if (!AttackMotion_Object[2].GetComponent<Animator>().GetBool("windSpear"))
-                    AttackMotion_Object[2].GetComponent<Animator>().SetBool("windSpear", true);
-                else AttackMotion_Object[2].GetComponent<Animator>().SetBool("windSpear", false);
-                break;
-            case "µππ´¥ı±‚":
-                if (!AttackMotion_Object[2].GetComponent<Animator>().GetBool("stoneRain"))
-                    AttackMotion_Object[2].GetComponent<Animator>().SetBool("stoneRain", true);
-                else AttackMotion_Object[2].GetComponent<Animator>().SetBool("stoneRain", false);
-                break;
-            case "∫“»≠ªÏ":
-                if (!AttackMotion_Object[2].GetComponent<Animator>().GetBool("FireArrow"))
-                    AttackMotion_Object[2].GetComponent<Animator>().SetBool("FireArrow", true);
-                else AttackMotion_Object[2].GetComponent<Animator>().SetBool("FireArrow", false);
-                break;
-            case "¿¸∞›":
-                if (!AttackMotion_Object[2].GetComponent<Animator>().GetBool("Lighting"))
-                    AttackMotion_Object[2].GetComponent<Animator>().SetBool("Lighting", true);
-                else AttackMotion_Object[2].GetComponent<Animator>().SetBool("Lighting", false);
-                break;
-            case "∞ÌµÂ∏ß":
-                if (!AttackMotion_Object[2].GetComponent<Animator>().GetBool("iceBolt"))
-                    AttackMotion_Object[2].GetComponent<Animator>().SetBool("iceBolt", true);
-                else AttackMotion_Object[2].GetComponent<Animator>().SetBool("iceBolt", false);
-                break;
-
-            case "¿˝∏¡¿« ±’ø≠":
-                if (!AttackMotion_Object[2].GetComponent<Animator>().GetBool("abyssCrevice"))
-                    AttackMotion_Object[2].GetComponent<Animator>().SetBool("abyssCrevice", true);
-                else AttackMotion_Object[2].GetComponent<Animator>().SetBool("abyssCrevice", false);
-                break;
-
-            default:
-                break;
-        }
-        player.Field_name = "";
-        player.Skill_name = "";
-    }
-    public void FieldAttack03_Motion()
-    {
-        switch (player.Skill_name)
-        {
-            case "¿œπ›∏∂π˝":
-                if (!AttackMotion_Object[3].GetComponent<Animator>().GetBool("nomalMagic"))
-                    AttackMotion_Object[3].GetComponent<Animator>().SetBool("nomalMagic", true);
-                else AttackMotion_Object[3].GetComponent<Animator>().SetBool("nomalMagic", false);
-                break;
-            case "πŸ∂˜¿«√¢":
-                if (!AttackMotion_Object[3].GetComponent<Animator>().GetBool("windSpear"))
-                    AttackMotion_Object[3].GetComponent<Animator>().SetBool("windSpear", true);
-                else AttackMotion_Object[3].GetComponent<Animator>().SetBool("windSpear", false);
-                break;
-            case "µππ´¥ı±‚":
-                if (!AttackMotion_Object[3].GetComponent<Animator>().GetBool("stoneRain"))
-                    AttackMotion_Object[3].GetComponent<Animator>().SetBool("stoneRain", true);
-                else AttackMotion_Object[3].GetComponent<Animator>().SetBool("stoneRain", false);
-                break;
-            case "∫“»≠ªÏ":
-                if (!AttackMotion_Object[3].GetComponent<Animator>().GetBool("FireArrow"))
-                    AttackMotion_Object[3].GetComponent<Animator>().SetBool("FireArrow", true);
-                else AttackMotion_Object[3].GetComponent<Animator>().SetBool("FireArrow", false);
-                break;
-            case "¿¸∞›":
-                if (!AttackMotion_Object[3].GetComponent<Animator>().GetBool("Lighting"))
-                    AttackMotion_Object[3].GetComponent<Animator>().SetBool("Lighting", true);
-                else AttackMotion_Object[3].GetComponent<Animator>().SetBool("Lighting", false);
-                break;
-            case "∞ÌµÂ∏ß":
-                if (!AttackMotion_Object[3].GetComponent<Animator>().GetBool("iceBolt"))
-                    AttackMotion_Object[3].GetComponent<Animator>().SetBool("iceBolt", true);
-                else AttackMotion_Object[3].GetComponent<Animator>().SetBool("iceBolt", false);
-                break;
-
-            case "¿˝∏¡¿« ±’ø≠":
-                if (!AttackMotion_Object[3].GetComponent<Animator>().GetBool("abyssCrevice"))
-                    AttackMotion_Object[3].GetComponent<Animator>().SetBool("abyssCrevice", true);
-                else AttackMotion_Object[3].GetComponent<Animator>().SetBool("abyssCrevice", false);
-                break;
-
-            default:
-                break;
-        }
-        player.Field_name = "";
-        player.Skill_name = "";
-    }
-    public void AllFieldAttack()
-    {
-        switch(player.Skill_name)
-        {
-            case "»≠ø∞¿Â∆«":
-                for(int i = 0; i < 3; i++)
+            case "FieldAll":
+                if(player.Skill_name == "ÌôîÏóºÏû•Ìåê")
                 {
-                    if (!AttackMotion_Object[i].GetComponent<Animator>().GetBool("FireGround"))
-                        AttackMotion_Object[i].GetComponent<Animator>().SetBool("FireGround", true);
-                    else AttackMotion_Object[i].GetComponent<Animator>().SetBool("FireGround", false);
+                    if (!AttackMotion_Object[0].GetComponent<Animator>().GetBool("FireGround"))
+                        AttackMotion_Object[0].GetComponent<Animator>().SetBool("FireGround", true);
+                    else AttackMotion_Object[0].GetComponent<Animator>().SetBool("FireGround", false);
+                    if (!AttackMotion_Object[1].GetComponent<Animator>().GetBool("FireGround"))
+                        AttackMotion_Object[1].GetComponent<Animator>().SetBool("FireGround", true);
+                    else AttackMotion_Object[1].GetComponent<Animator>().SetBool("FireGround", false);
+                    if (!AttackMotion_Object[2].GetComponent<Animator>().GetBool("FireGround"))
+                        AttackMotion_Object[2].GetComponent<Animator>().SetBool("FireGround", true);
+                    else AttackMotion_Object[2].GetComponent<Animator>().SetBool("FireGround", false);
+                    if (!AttackMotion_Object[3].GetComponent<Animator>().GetBool("FireGround"))
+                        AttackMotion_Object[3].GetComponent<Animator>().SetBool("FireGround", true);
+                    else AttackMotion_Object[3].GetComponent<Animator>().SetBool("FireGround", false);
+                }
+                else
+                {
+                    if (!AttackMotion_Object[0].GetComponent<Animator>().GetBool("iceFog"))
+                        AttackMotion_Object[0].GetComponent<Animator>().SetBool("iceFog", true);
+                    else AttackMotion_Object[0].GetComponent<Animator>().SetBool("iceFog", false);
+                    if (!AttackMotion_Object[1].GetComponent<Animator>().GetBool("iceFog"))
+                        AttackMotion_Object[1].GetComponent<Animator>().SetBool("iceFog", true);
+                    else AttackMotion_Object[1].GetComponent<Animator>().SetBool("iceFog", false);
+                    if (!AttackMotion_Object[2].GetComponent<Animator>().GetBool("iceFog"))
+                        AttackMotion_Object[2].GetComponent<Animator>().SetBool("iceFog", true);
+                    else AttackMotion_Object[2].GetComponent<Animator>().SetBool("iceFog", false);
+                    if (!AttackMotion_Object[3].GetComponent<Animator>().GetBool("iceFog"))
+                        AttackMotion_Object[3].GetComponent<Animator>().SetBool("iceFog", true);
+                    else AttackMotion_Object[3].GetComponent<Animator>().SetBool("iceFog", false);
                 }
                 break;
-            case "æÛ¿Ωæ»∞≥":
-                for(int i = 0; i < 3; i++)
+            case "Field00":
+                switch (player.Skill_name)
                 {
-                    if (!AttackMotion_Object[i].GetComponent<Animator>().GetBool("iceFog"))
-                        AttackMotion_Object[i].GetComponent<Animator>().SetBool("iceFog", true);
-                    else AttackMotion_Object[i].GetComponent<Animator>().SetBool("iceFog", false);
+                    case "ÏùºÎ∞òÎßàÎ≤ï":
+                        if (!AttackMotion_Object[0].GetComponent<Animator>().GetBool("nomalMagic"))
+                            AttackMotion_Object[0].GetComponent<Animator>().SetBool("nomalMagic", true);
+                        else AttackMotion_Object[0].GetComponent<Animator>().SetBool("nomalMagic", false);
+                        break;
+                    case "Î∞îÎûåÏùòÏ∞Ω":
+                        if (!AttackMotion_Object[0].GetComponent<Animator>().GetBool("windSpear"))
+                        {
+                            AttackMotion_Object[0].transform.localScale = new Vector3(-1, 1, 1);
+                            AttackMotion_Object[0].GetComponent<Animator>().SetBool("windSpear", true);
+                        }
+                        else
+                        {
+                            AttackMotion_Object[0].transform.localScale = new Vector3(1, 1, 1);
+                            AttackMotion_Object[0].GetComponent<Animator>().SetBool("windSpear", false);
+                        }
+                        break;
+                    case "ÎèåÎ¨¥ÎçîÍ∏∞":
+                        if (!AttackMotion_Object[0].GetComponent<Animator>().GetBool("stoneRain"))
+                            AttackMotion_Object[0].GetComponent<Animator>().SetBool("stoneRain", true);
+                        else AttackMotion_Object[0].GetComponent<Animator>().SetBool("stoneRain", false);
+                        break;
+                    case "Î∂àÌôîÏÇ¥":
+                        if (!AttackMotion_Object[0].GetComponent<Animator>().GetBool("FireArrow"))
+                            AttackMotion_Object[0].GetComponent<Animator>().SetBool("FireArrow", true);
+                        else AttackMotion_Object[0].GetComponent<Animator>().SetBool("FireArrow", false);
+                        break;
+                    case "Ï†ÑÍ≤©":
+                        if (!AttackMotion_Object[0].GetComponent<Animator>().GetBool("Lighting"))
+                            AttackMotion_Object[0].GetComponent<Animator>().SetBool("Lighting", true);
+                        else AttackMotion_Object[0].GetComponent<Animator>().SetBool("Lighting", false);
+                        break;
+                    case "Í≥†ÎìúÎ¶Ñ":
+                        if (!AttackMotion_Object[0].GetComponent<Animator>().GetBool("iceBolt"))
+                            AttackMotion_Object[0].GetComponent<Animator>().SetBool("iceBolt", true);
+                        else AttackMotion_Object[0].GetComponent<Animator>().SetBool("iceBolt", false);
+                        break;
+
+                    case "Ï†àÎßùÏùòÍ∑†Ïó¥":
+                        if (!AttackMotion_Object[0].GetComponent<Animator>().GetBool("abyssCrevice"))
+                            AttackMotion_Object[0].GetComponent<Animator>().SetBool("abyssCrevice", true);
+                        else AttackMotion_Object[0].GetComponent<Animator>().SetBool("abyssCrevice", false);
+                        break;
+
+                    default:
+                        break;
+                }
+                break;
+            case "Field01":
+                switch (player.Skill_name)
+                {
+                    case "ÏùºÎ∞òÎßàÎ≤ï":
+                        if (!AttackMotion_Object[1].GetComponent<Animator>().GetBool("nomalMagic"))
+                            AttackMotion_Object[1].GetComponent<Animator>().SetBool("nomalMagic", true);
+                        else AttackMotion_Object[1].GetComponent<Animator>().SetBool("nomalMagic", false);
+                        break;
+                    case "Î∞îÎûåÏùòÏ∞Ω":
+                        if (!AttackMotion_Object[1].GetComponent<Animator>().GetBool("windSpear"))
+                        {
+                            AttackMotion_Object[1].transform.localScale = new Vector3(-1, 1, 1);
+                            AttackMotion_Object[1].GetComponent<Animator>().SetBool("windSpear", true);
+                        }
+                        else
+                        {
+                            AttackMotion_Object[1].transform.localScale = new Vector3(1, 1, 1);
+                            AttackMotion_Object[1].GetComponent<Animator>().SetBool("windSpear", false);
+                        }
+                        break;
+                    case "ÎèåÎ¨¥ÎçîÍ∏∞":
+                        if (!AttackMotion_Object[1].GetComponent<Animator>().GetBool("stoneRain"))
+                            AttackMotion_Object[1].GetComponent<Animator>().SetBool("stoneRain", true);
+                        else AttackMotion_Object[1].GetComponent<Animator>().SetBool("stoneRain", false);
+                        break;
+                    case "Î∂àÌôîÏÇ¥":
+                        if (!AttackMotion_Object[1].GetComponent<Animator>().GetBool("FireArrow"))
+                            AttackMotion_Object[1].GetComponent<Animator>().SetBool("FireArrow", true);
+                        else AttackMotion_Object[1].GetComponent<Animator>().SetBool("FireArrow", false);
+                        break;
+                    case "Ï†ÑÍ≤©":
+                        if (!AttackMotion_Object[1].GetComponent<Animator>().GetBool("Lighting"))
+                            AttackMotion_Object[1].GetComponent<Animator>().SetBool("Lighting", true);
+                        else AttackMotion_Object[1].GetComponent<Animator>().SetBool("Lighting", false);
+                        break;
+                    case "Í≥†ÎìúÎ¶Ñ":
+                        if (!AttackMotion_Object[1].GetComponent<Animator>().GetBool("iceBolt"))
+                            AttackMotion_Object[1].GetComponent<Animator>().SetBool("iceBolt", true);
+                        else AttackMotion_Object[1].GetComponent<Animator>().SetBool("iceBolt", false);
+                        break;
+
+                    case "Ï†àÎßùÏùòÍ∑†Ïó¥":
+                        if (!AttackMotion_Object[1].GetComponent<Animator>().GetBool("abyssCrevice"))
+                            AttackMotion_Object[1].GetComponent<Animator>().SetBool("abyssCrevice", true);
+                        else AttackMotion_Object[1].GetComponent<Animator>().SetBool("abyssCrevice", false);
+                        break;
+
+                    default:
+                        break;
+                }
+                break;
+            case "Field02":
+                switch (player.Skill_name)
+                {
+                    case "ÏùºÎ∞òÎßàÎ≤ï":
+                        if (!AttackMotion_Object[2].GetComponent<Animator>().GetBool("nomalMagic"))
+                            AttackMotion_Object[2].GetComponent<Animator>().SetBool("nomalMagic", true);
+                        else AttackMotion_Object[2].GetComponent<Animator>().SetBool("nomalMagic", false);
+                        break;
+                    case "Î∞îÎûåÏùòÏ∞Ω":
+                        if (!AttackMotion_Object[2].GetComponent<Animator>().GetBool("windSpear"))
+                        {
+                            AttackMotion_Object[2].transform.localScale = new Vector3(-1, 1, 1);
+                            AttackMotion_Object[2].GetComponent<Animator>().SetBool("windSpear", true);
+                        }
+                        else
+                        {
+                            AttackMotion_Object[2].transform.localScale = new Vector3(1, 1, 1);
+                            AttackMotion_Object[2].GetComponent<Animator>().SetBool("windSpear", false);
+                        }
+                        break;
+                    case "ÎèåÎ¨¥ÎçîÍ∏∞":
+                        if (!AttackMotion_Object[2].GetComponent<Animator>().GetBool("stoneRain"))
+                            AttackMotion_Object[2].GetComponent<Animator>().SetBool("stoneRain", true);
+                        else AttackMotion_Object[2].GetComponent<Animator>().SetBool("stoneRain", false);
+                        break;
+                    case "Î∂àÌôîÏÇ¥":
+                        if (!AttackMotion_Object[2].GetComponent<Animator>().GetBool("FireArrow"))
+                            AttackMotion_Object[2].GetComponent<Animator>().SetBool("FireArrow", true);
+                        else AttackMotion_Object[2].GetComponent<Animator>().SetBool("FireArrow", false);
+                        break;
+                    case "Ï†ÑÍ≤©":
+                        if (!AttackMotion_Object[2].GetComponent<Animator>().GetBool("Lighting"))
+                            AttackMotion_Object[2].GetComponent<Animator>().SetBool("Lighting", true);
+                        else AttackMotion_Object[2].GetComponent<Animator>().SetBool("Lighting", false);
+                        break;
+                    case "Í≥†ÎìúÎ¶Ñ":
+                        if (!AttackMotion_Object[2].GetComponent<Animator>().GetBool("iceBolt"))
+                            AttackMotion_Object[2].GetComponent<Animator>().SetBool("iceBolt", true);
+                        else AttackMotion_Object[2].GetComponent<Animator>().SetBool("iceBolt", false);
+                        break;
+
+                    case "Ï†àÎßùÏùòÍ∑†Ïó¥":
+                        if (!AttackMotion_Object[2].GetComponent<Animator>().GetBool("abyssCrevice"))
+                            AttackMotion_Object[2].GetComponent<Animator>().SetBool("abyssCrevice", true);
+                        else AttackMotion_Object[2].GetComponent<Animator>().SetBool("abyssCrevice", false);
+                        break;
+
+                    default:
+                        break;
+                }
+                break;
+            case "Field03":
+                switch (player.Skill_name)
+                {
+                    case "ÏùºÎ∞òÎßàÎ≤ï":
+                        if (!AttackMotion_Object[3].GetComponent<Animator>().GetBool("nomalMagic"))
+                            AttackMotion_Object[3].GetComponent<Animator>().SetBool("nomalMagic", true);
+                        else AttackMotion_Object[3].GetComponent<Animator>().SetBool("nomalMagic", false);
+                        break;
+                    case "Î∞îÎûåÏùòÏ∞Ω":
+                        if (!AttackMotion_Object[3].GetComponent<Animator>().GetBool("windSpear"))
+                        {
+                            AttackMotion_Object[3].transform.localScale = new Vector3(-1, 1, 1);
+                            AttackMotion_Object[3].GetComponent<Animator>().SetBool("windSpear", true);
+                        }
+                        else
+                        {
+                            AttackMotion_Object[3].transform.localScale = new Vector3(1, 1, 1);
+                            AttackMotion_Object[3].GetComponent<Animator>().SetBool("windSpear", false);
+                        }
+                        break;
+                    case "ÎèåÎ¨¥ÎçîÍ∏∞":
+                        if (!AttackMotion_Object[3].GetComponent<Animator>().GetBool("stoneRain"))
+                            AttackMotion_Object[3].GetComponent<Animator>().SetBool("stoneRain", true);
+                        else AttackMotion_Object[3].GetComponent<Animator>().SetBool("stoneRain", false);
+                        break;
+                    case "Î∂àÌôîÏÇ¥":
+                        if (!AttackMotion_Object[3].GetComponent<Animator>().GetBool("FireArrow"))
+                            AttackMotion_Object[3].GetComponent<Animator>().SetBool("FireArrow", true);
+                        else AttackMotion_Object[3].GetComponent<Animator>().SetBool("FireArrow", false);
+                        break;
+                    case "Ï†ÑÍ≤©":
+                        if (!AttackMotion_Object[3].GetComponent<Animator>().GetBool("Lighting"))
+                            AttackMotion_Object[3].GetComponent<Animator>().SetBool("Lighting", true);
+                        else AttackMotion_Object[3].GetComponent<Animator>().SetBool("Lighting", false);
+                        break;
+                    case "Í≥†ÎìúÎ¶Ñ":
+                        if (!AttackMotion_Object[3].GetComponent<Animator>().GetBool("iceBolt"))
+                            AttackMotion_Object[3].GetComponent<Animator>().SetBool("iceBolt", true);
+                        else AttackMotion_Object[3].GetComponent<Animator>().SetBool("iceBolt", false);
+                        break;
+
+                    case "Ï†àÎßùÏùòÍ∑†Ïó¥":
+                        if (!AttackMotion_Object[3].GetComponent<Animator>().GetBool("abyssCrevice"))
+                            AttackMotion_Object[3].GetComponent<Animator>().SetBool("abyssCrevice", true);
+                        else AttackMotion_Object[3].GetComponent<Animator>().SetBool("abyssCrevice", false);
+                        break;
+
+                    default:
+                        break;
                 }
                 break;
 
@@ -224,5 +252,10 @@ public class PlayerAttackMotion_Script : MonoBehaviour
         }
         player.Field_name = "";
         player.Skill_name = "";
+    }
+    void EnemyAttack()
+    {
+        Debug.Log("Í±∞Î∂Ä");
+        player.PlayerAttack_Enemy = false;
     }
 }

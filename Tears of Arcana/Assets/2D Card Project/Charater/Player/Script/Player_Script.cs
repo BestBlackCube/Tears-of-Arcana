@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Transactions;
 using Unity.Burst.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -273,7 +274,6 @@ public class Player_Script : MonoBehaviour
             {
                 animator.SetBool("PlayerMove", false);
                 animator.SetBool("PlayerAttack", true);
-                PlayerAttack_Enemy = true; // !+ 적캐릭터 피격 활성화
             }
         }
         if (animator.GetBool("PlayerAttack"))
@@ -284,10 +284,8 @@ public class Player_Script : MonoBehaviour
             }
             else
             {
-                //AttackMotion();
                 animator.SetBool("PlayerAttack", false);
                 animator.SetBool("PlayerBackMove", true);
-                PlayerAttack_Enemy = false; // !+ 적캐릭터 피격 비활성화
                 PlayerAttack_timer = 0f;
             }
         }
@@ -370,12 +368,68 @@ public class Player_Script : MonoBehaviour
     {
         switch(Field_name)
         {
+            case "FieldAll":
+                if(Skill_name == "화염장판")
+                {
+                    AttackMotion_Object.GetComponent<PlayerAttackMotion_Script>().
+                        AttackMotion_Object[0].GetComponent<Animator>().SetBool("FireGround", true);
+                    AttackMotion_Object.GetComponent<PlayerAttackMotion_Script>().
+                        AttackMotion_Object[1].GetComponent<Animator>().SetBool("FireGround", true);
+                    AttackMotion_Object.GetComponent<PlayerAttackMotion_Script>().
+                        AttackMotion_Object[2].GetComponent<Animator>().SetBool("FireGround", true);
+                    AttackMotion_Object.GetComponent<PlayerAttackMotion_Script>().
+                        AttackMotion_Object[3].GetComponent<Animator>().SetBool("FireGround", true);
+                }
+                else
+                {
+                    AttackMotion_Object.GetComponent<PlayerAttackMotion_Script>().
+                        AttackMotion_Object[0].GetComponent<Animator>().SetBool("iceFog", true);
+                    AttackMotion_Object.GetComponent<PlayerAttackMotion_Script>().
+                        AttackMotion_Object[1].GetComponent<Animator>().SetBool("iceFog", true);
+                    AttackMotion_Object.GetComponent<PlayerAttackMotion_Script>().
+                        AttackMotion_Object[2].GetComponent<Animator>().SetBool("iceFog", true);
+                    AttackMotion_Object.GetComponent<PlayerAttackMotion_Script>().
+                        AttackMotion_Object[3].GetComponent<Animator>().SetBool("iceFog", true);
+                }
+                PlayerAttack_Enemy = true;
+                break;
             case "Field00":
                 switch (Skill_name)
                 {
                     case "일반마법":
                         AttackMotion_Object.GetComponent<PlayerAttackMotion_Script>().
                             AttackMotion_Object[0].GetComponent<Animator>().SetBool("nomalMagic", true);
+                        PlayerAttack_Enemy = true;
+                        break;
+                    case "바람의창":
+                        AttackMotion_Object.GetComponent<PlayerAttackMotion_Script>().
+                            AttackMotion_Object[0].GetComponent<Animator>().SetBool("windSpear", true);
+                        PlayerAttack_Enemy = true;
+                        break;
+                    case "돌무더기":
+                        AttackMotion_Object.GetComponent<PlayerAttackMotion_Script>().
+                            AttackMotion_Object[0].GetComponent<Animator>().SetBool("stoneRain", true);
+                        PlayerAttack_Enemy = true;
+                        break;
+                    case "불화살":
+                        AttackMotion_Object.GetComponent<PlayerAttackMotion_Script>().
+                            AttackMotion_Object[0].GetComponent<Animator>().SetBool("FireArrow", true);
+                        PlayerAttack_Enemy = true;
+                        break;
+                    case "전격":
+                        AttackMotion_Object.GetComponent<PlayerAttackMotion_Script>().
+                            AttackMotion_Object[0].GetComponent<Animator>().SetBool("Lighting", true);
+                        PlayerAttack_Enemy = true;
+                        break;
+                    case "고드름":
+                        AttackMotion_Object.GetComponent<PlayerAttackMotion_Script>().
+                            AttackMotion_Object[0].GetComponent<Animator>().SetBool("iceBolt", true);
+                        PlayerAttack_Enemy = true;
+                        break;
+                    case "절망의균열":
+                        AttackMotion_Object.GetComponent<PlayerAttackMotion_Script>().
+                            AttackMotion_Object[0].GetComponent<Animator>().SetBool("abyssCrevice", true);
+                        PlayerAttack_Enemy = true;
                         break;
 
                     default:
@@ -386,7 +440,39 @@ public class Player_Script : MonoBehaviour
                 switch (Skill_name)
                 {
                     case "일반마법":
-                        animator.SetBool("nomalMagic", true);
+                        AttackMotion_Object.GetComponent<PlayerAttackMotion_Script>().
+                            AttackMotion_Object[1].GetComponent<Animator>().SetBool("nomalMagic", true);
+                        PlayerAttack_Enemy = true;
+                        break;
+                    case "바람의창":
+                        AttackMotion_Object.GetComponent<PlayerAttackMotion_Script>().
+                            AttackMotion_Object[1].GetComponent<Animator>().SetBool("windSpear", true);
+                        PlayerAttack_Enemy = true;
+                        break;
+                    case "돌무더기":
+                        AttackMotion_Object.GetComponent<PlayerAttackMotion_Script>().
+                            AttackMotion_Object[1].GetComponent<Animator>().SetBool("stoneRain", true);
+                        PlayerAttack_Enemy = true;
+                        break;
+                    case "불화살":
+                        AttackMotion_Object.GetComponent<PlayerAttackMotion_Script>().
+                            AttackMotion_Object[1].GetComponent<Animator>().SetBool("FireArrow", true);
+                        PlayerAttack_Enemy = true;
+                        break;
+                    case "전격":
+                        AttackMotion_Object.GetComponent<PlayerAttackMotion_Script>().
+                            AttackMotion_Object[1].GetComponent<Animator>().SetBool("Lighting", true);
+                        PlayerAttack_Enemy = true;
+                        break;
+                    case "고드름":
+                        AttackMotion_Object.GetComponent<PlayerAttackMotion_Script>().
+                            AttackMotion_Object[1].GetComponent<Animator>().SetBool("iceBolt", true);
+                        PlayerAttack_Enemy = true;
+                        break;
+                    case "절망의균열":
+                        AttackMotion_Object.GetComponent<PlayerAttackMotion_Script>().
+                            AttackMotion_Object[1].GetComponent<Animator>().SetBool("abyssCrevice", true);
+                        PlayerAttack_Enemy = true;
                         break;
 
                     default:
@@ -397,7 +483,39 @@ public class Player_Script : MonoBehaviour
                 switch (Skill_name)
                 {
                     case "일반마법":
-                        animator.SetBool("nomalMagic", true);
+                        AttackMotion_Object.GetComponent<PlayerAttackMotion_Script>().
+                            AttackMotion_Object[2].GetComponent<Animator>().SetBool("nomalMagic", true);
+                        PlayerAttack_Enemy = true;
+                        break;
+                    case "바람의창":
+                        AttackMotion_Object.GetComponent<PlayerAttackMotion_Script>().
+                            AttackMotion_Object[2].GetComponent<Animator>().SetBool("windSpear", true);
+                        PlayerAttack_Enemy = true;
+                        break;
+                    case "돌무더기":
+                        AttackMotion_Object.GetComponent<PlayerAttackMotion_Script>().
+                            AttackMotion_Object[2].GetComponent<Animator>().SetBool("stoneRain", true);
+                        PlayerAttack_Enemy = true;
+                        break;
+                    case "불화살":
+                        AttackMotion_Object.GetComponent<PlayerAttackMotion_Script>().
+                            AttackMotion_Object[2].GetComponent<Animator>().SetBool("FireArrow", true);
+                        PlayerAttack_Enemy = true;
+                        break;
+                    case "전격":
+                        AttackMotion_Object.GetComponent<PlayerAttackMotion_Script>().
+                            AttackMotion_Object[2].GetComponent<Animator>().SetBool("Lighting", true);
+                        PlayerAttack_Enemy = true;
+                        break;
+                    case "고드름":
+                        AttackMotion_Object.GetComponent<PlayerAttackMotion_Script>().
+                            AttackMotion_Object[2].GetComponent<Animator>().SetBool("iceBolt", true);
+                        PlayerAttack_Enemy = true;
+                        break;
+                    case "절망의균열":
+                        AttackMotion_Object.GetComponent<PlayerAttackMotion_Script>().
+                            AttackMotion_Object[2].GetComponent<Animator>().SetBool("abyssCrevice", true);
+                        PlayerAttack_Enemy = true;
                         break;
 
                     default:
@@ -408,16 +526,45 @@ public class Player_Script : MonoBehaviour
                 switch (Skill_name)
                 {
                     case "일반마법":
-                        animator.SetBool("nomalMagic", true);
+                        AttackMotion_Object.GetComponent<PlayerAttackMotion_Script>().
+                            AttackMotion_Object[3].GetComponent<Animator>().SetBool("nomalMagic", true);
+                        PlayerAttack_Enemy = true;
+                        break;
+                    case "바람의창":
+                        AttackMotion_Object.GetComponent<PlayerAttackMotion_Script>().
+                            AttackMotion_Object[3].GetComponent<Animator>().SetBool("windSpear", true);
+                        PlayerAttack_Enemy = true;
+                        break;
+                    case "돌무더기":
+                        AttackMotion_Object.GetComponent<PlayerAttackMotion_Script>().
+                            AttackMotion_Object[3].GetComponent<Animator>().SetBool("stoneRain", true);
+                        PlayerAttack_Enemy = true;
+                        break;
+                    case "불화살":
+                        AttackMotion_Object.GetComponent<PlayerAttackMotion_Script>().
+                            AttackMotion_Object[3].GetComponent<Animator>().SetBool("FireArrow", true);
+                        PlayerAttack_Enemy = true;
+                        break;
+                    case "전격":
+                        AttackMotion_Object.GetComponent<PlayerAttackMotion_Script>().
+                            AttackMotion_Object[3].GetComponent<Animator>().SetBool("Lighting", true);
+                        PlayerAttack_Enemy = true;
+                        break;
+                    case "고드름":
+                        AttackMotion_Object.GetComponent<PlayerAttackMotion_Script>().
+                            AttackMotion_Object[3].GetComponent<Animator>().SetBool("iceBolt", true);
+                        PlayerAttack_Enemy = true;
+                        break;
+                    case "절망의균열":
+                        AttackMotion_Object.GetComponent<PlayerAttackMotion_Script>().
+                            AttackMotion_Object[3].GetComponent<Animator>().SetBool("abyssCrevice", true);
+                        PlayerAttack_Enemy = true;
                         break;
 
                     default:
                         break;
                 }
                 break;
-            case "FieldAll":
-                break;
-
             default:
                 break;
         }

@@ -80,7 +80,8 @@ public class CardDeck_Script : MonoBehaviour
                 if (Cardinput_timer < 1.2f) Cardinput_timer += Time.deltaTime; // 1.2초 마다 카드가 생성
                 else
                 {
-                    int number = Random.Range(4, 6); // 테스트용 코드
+                    int number = Random.Range(4, 7); // 테스트용 코드
+                    if (deckField.DeckField_nowCard == 4) number = 11;
                     if (number == 1)
                     {
                         Card_Data = Instantiate(CardData[0], this.transform.position, Quaternion.identity); // 복제한 오브젝트

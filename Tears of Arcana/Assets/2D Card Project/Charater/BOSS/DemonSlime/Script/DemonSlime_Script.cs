@@ -204,6 +204,10 @@ public class DemonSlime_Script : MonoBehaviour
             }
         }
     }
+    void PlayerAttack()
+    {
+        player.PlayerAttack_Enemy = false;
+    }
     void animationPosition(int Range)
     {
         if (Range == 1)
@@ -235,6 +239,8 @@ public class DemonSlime_Script : MonoBehaviour
                 this.gameObject == ObjectSet.Field_inMonster[2] && ObjectSet.TargetGuide[2] == null && ObjectSet.Enemy_Name[2] == "DemonSlime" ||
                 this.gameObject == ObjectSet.Field_inMonster[3] && ObjectSet.TargetGuide[3] == null && ObjectSet.Enemy_Name[3] == "DemonSlime")
             {
+                if (player.Skill_name == "화염장판" || player.Skill_name == "얼음안개") player.Field_name = "FieldAll";
+                else player.Field_name = "Field02";
                 ObjectSet.TargetGuide[2] = Instantiate(ObjectSet.TargetGuide_prefab, guide_offset, Quaternion.identity);
                 EnemyTargetBar_Script guide = ObjectSet.TargetGuide[2].GetComponent<EnemyTargetBar_Script>();
                 guide.target = ObjectSet.Field_inMonster[2].transform;

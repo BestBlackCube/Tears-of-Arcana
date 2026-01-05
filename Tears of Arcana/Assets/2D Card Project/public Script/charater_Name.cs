@@ -27,7 +27,17 @@ public enum Charater_namedata
     GhostWarrior01,
     GhostWarrior02,
     GhostWarrior03,
-    GhostWarrior04
+    GhostWarrior04,
+    Goblin_Nomal,
+    Goblin_Assassin,
+    Goblin_Mage,
+    Goblin_Soldier,
+    Goblin_Spear,
+    CastleKnight00,
+    CastleKnight01,
+    BlueSlime,
+    GreenSlime,
+    RedSlime
 }
 
 public class charater_Name : MonoBehaviour

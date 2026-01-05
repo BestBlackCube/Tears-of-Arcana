@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -82,7 +83,7 @@ public class base_Script : MonoBehaviour
         cardUse = true;
         if (targetCard && deckField.Click_Card != null)
         {
-            deckField.Click_Card.Object_name = "Bat";
+            deckField.Click_Card.Object_name = "base";
             Arrow = false;
         }
         if (targetCard && deckField.Click_Card != null)
@@ -102,7 +103,7 @@ public class base_Script : MonoBehaviour
     void OnMouseDown()
     {
         if (deckField.Click_Card != null)
-            if (cardUse && deckField.Click_Card.Object_name == "Bat")
+            if (cardUse && deckField.Click_Card.Object_name == "base")
             {
                 deckField.Click_Card.Card_MouseClick = false;
                 deckField.Click_Card.Target_Card(false);
@@ -155,14 +156,14 @@ public class base_Script : MonoBehaviour
         {
             if (transform.position.x < animation_position.x)
             {
-                transform.localScale = new Vector3(-1, 1, 1);
+                transform.localScale = new Vector3(1, 1, 1);
                 transform.position = new Vector3(transform.position.x + 15f * Time.deltaTime, transform.position.y, 0);
             }
             else
             {
                 animator.SetBool("BackMove", false);
                 animator.SetBool("Idle", true);
-                transform.localScale = new Vector3(1, 1, 1);
+                transform.localScale = new Vector3(-1, 1, 1);
                 transform.position = animation_position;
                 animation_Attack = true;
             }
@@ -192,7 +193,7 @@ public class base_Script : MonoBehaviour
         if (nowHp <= 0f)
         {
             animator.SetTrigger("Die");
-            if (Dead_timer < 1f) Dead_timer += Time.deltaTime;
+            if (Dead_timer < 0.8f) Dead_timer += Time.deltaTime;
             else
             {
                 hpbar.gameObject.SetActive(false);
@@ -202,11 +203,15 @@ public class base_Script : MonoBehaviour
             }
         }
     }
+    void PlayerAttack()
+    {
+        player.PlayerAttack_Enemy = false;
+    }
     void animationPosition(int Range)
     {
         if (Range == 1)
         {
-            if (this.gameObject == ObjectSet.Field_inMonster[0] && ObjectSet.Enemy_Name[0] == "Bat")
+            if (this.gameObject == ObjectSet.Field_inMonster[0] && ObjectSet.Enemy_Name[0] == "base")
             {
                 if (ObjectSet.EnemyHpbar[0] != null)
                 {
@@ -221,7 +226,7 @@ public class base_Script : MonoBehaviour
                     animation_position = ObjectSet.Field_transform[0];
                 }
             }
-            if (this.gameObject == ObjectSet.Field_inMonster[1] && ObjectSet.Enemy_Name[1] == "Bat")
+            if (this.gameObject == ObjectSet.Field_inMonster[1] && ObjectSet.Enemy_Name[1] == "base")
             {
                 if (ObjectSet.EnemyHpbar[1] != null)
                 {
@@ -236,7 +241,7 @@ public class base_Script : MonoBehaviour
                     animation_position = ObjectSet.Field_transform[1];
                 }
             }
-            if (this.gameObject == ObjectSet.Field_inMonster[2] && ObjectSet.Enemy_Name[2] == "Bat")
+            if (this.gameObject == ObjectSet.Field_inMonster[2] && ObjectSet.Enemy_Name[2] == "base")
             {
                 if (ObjectSet.EnemyHpbar[2] != null)
                 {
@@ -251,7 +256,7 @@ public class base_Script : MonoBehaviour
                     animation_position = ObjectSet.Field_transform[2];
                 }
             }
-            if (this.gameObject == ObjectSet.Field_inMonster[3] && ObjectSet.Enemy_Name[3] == "Bat")
+            if (this.gameObject == ObjectSet.Field_inMonster[3] && ObjectSet.Enemy_Name[3] == "base")
             {
                 if (ObjectSet.EnemyHpbar[3] != null)
                 {
@@ -270,8 +275,10 @@ public class base_Script : MonoBehaviour
         if (Range == 2)
         {
             Vector3 guide_offset = new Vector3(0, 0, 0);
-            if (this.gameObject == ObjectSet.Field_inMonster[0] && ObjectSet.TargetGuide[0] == null && ObjectSet.Enemy_Name[0] == "Bat")
+            if (this.gameObject == ObjectSet.Field_inMonster[0] && ObjectSet.TargetGuide[0] == null && ObjectSet.Enemy_Name[0] == "base")
             {
+                if (player.Skill_name == "화염장판" || player.Skill_name == "얼음안개") player.Field_name = "FieldAll";
+                else player.Field_name = "Field00";
                 ObjectSet.TargetGuide[0] = Instantiate(ObjectSet.TargetGuide_prefab, guide_offset, Quaternion.identity);
                 EnemyTargetBar_Script guide = ObjectSet.TargetGuide[0].GetComponent<EnemyTargetBar_Script>();
                 guide.target = ObjectSet.Field_inMonster[0].transform;
@@ -286,10 +293,10 @@ public class base_Script : MonoBehaviour
                     case "불화살":
                     case "전격":
                     case "고드름":
-                        guide.offset[0] = new Vector3(-1.1f, 1.8f, 0);
-                        guide.offset[1] = new Vector3(1.1f, 1.8f, 0);
-                        guide.offset[2] = new Vector3(-1.1f, -2f, 0);
-                        guide.offset[3] = new Vector3(1.1f, -2f, 0);
+                        guide.offset[0] = new Vector3(-1.3f, 2.5f, 0);
+                        guide.offset[1] = new Vector3(0.7f, 2.5f, 0);
+                        guide.offset[2] = new Vector3(-1.3f, -2.5f, 0);
+                        guide.offset[3] = new Vector3(0.7f, -2.5f, 0);
                         break;
 
                     case "화염장판":
@@ -304,8 +311,10 @@ public class base_Script : MonoBehaviour
                         break;
                 }
             }
-            if (this.gameObject == ObjectSet.Field_inMonster[1] && ObjectSet.TargetGuide[1] == null && ObjectSet.Enemy_Name[1] == "Bat")
+            if (this.gameObject == ObjectSet.Field_inMonster[1] && ObjectSet.TargetGuide[1] == null && ObjectSet.Enemy_Name[1] == "base")
             {
+                if (player.Skill_name == "화염장판" || player.Skill_name == "얼음안개") player.Field_name = "FieldAll";
+                else player.Field_name = "Field01";
                 ObjectSet.TargetGuide[1] = Instantiate(ObjectSet.TargetGuide_prefab, guide_offset, Quaternion.identity);
                 EnemyTargetBar_Script guide = ObjectSet.TargetGuide[1].GetComponent<EnemyTargetBar_Script>();
                 guide.target = ObjectSet.Field_inMonster[1].transform;
@@ -320,10 +329,10 @@ public class base_Script : MonoBehaviour
                     case "불화살":
                     case "전격":
                     case "고드름":
-                        guide.offset[0] = new Vector3(-1.1f, 1.8f, 0);
-                        guide.offset[1] = new Vector3(1.1f, 1.8f, 0);
-                        guide.offset[2] = new Vector3(-1.1f, -2f, 0);
-                        guide.offset[3] = new Vector3(1.1f, -2f, 0);
+                        guide.offset[0] = new Vector3(-1.3f, 2.5f, 0);
+                        guide.offset[1] = new Vector3(0.7f, 2.5f, 0);
+                        guide.offset[2] = new Vector3(-1.3f, -2.5f, 0);
+                        guide.offset[3] = new Vector3(0.7f, -2.5f, 0);
                         break;
 
                     case "화염장판":
@@ -338,8 +347,10 @@ public class base_Script : MonoBehaviour
                         break;
                 }
             }
-            if (this.gameObject == ObjectSet.Field_inMonster[2] && ObjectSet.TargetGuide[2] == null && ObjectSet.Enemy_Name[2] == "Bat")
+            if (this.gameObject == ObjectSet.Field_inMonster[2] && ObjectSet.TargetGuide[2] == null && ObjectSet.Enemy_Name[2] == "base")
             {
+                if (player.Skill_name == "화염장판" || player.Skill_name == "얼음안개") player.Field_name = "FieldAll";
+                else player.Field_name = "Field02";
                 ObjectSet.TargetGuide[2] = Instantiate(ObjectSet.TargetGuide_prefab, guide_offset, Quaternion.identity);
                 EnemyTargetBar_Script guide = ObjectSet.TargetGuide[2].GetComponent<EnemyTargetBar_Script>();
                 guide.target = ObjectSet.Field_inMonster[2].transform;
@@ -354,10 +365,10 @@ public class base_Script : MonoBehaviour
                     case "불화살":
                     case "전격":
                     case "고드름":
-                        guide.offset[0] = new Vector3(-1.1f, 1.8f, 0);
-                        guide.offset[1] = new Vector3(1.1f, 1.8f, 0);
-                        guide.offset[2] = new Vector3(-1.1f, -2f, 0);
-                        guide.offset[3] = new Vector3(1.1f, -2f, 0);
+                        guide.offset[0] = new Vector3(-1.3f, 2.5f, 0);
+                        guide.offset[1] = new Vector3(0.7f, 2.5f, 0);
+                        guide.offset[2] = new Vector3(-1.3f, -2.5f, 0);
+                        guide.offset[3] = new Vector3(0.7f, -2.5f, 0);
                         break;
 
                     case "화염장판":
@@ -372,8 +383,10 @@ public class base_Script : MonoBehaviour
                         break;
                 }
             }
-            if (this.gameObject == ObjectSet.Field_inMonster[3] && ObjectSet.TargetGuide[3] == null && ObjectSet.Enemy_Name[3] == "Bat")
+            if (this.gameObject == ObjectSet.Field_inMonster[3] && ObjectSet.TargetGuide[3] == null && ObjectSet.Enemy_Name[3] == "base")
             {
+                if (player.Skill_name == "화염장판" || player.Skill_name == "얼음안개") player.Field_name = "FieldAll";
+                else player.Field_name = "Field03";
                 ObjectSet.TargetGuide[3] = Instantiate(ObjectSet.TargetGuide_prefab, guide_offset, Quaternion.identity);
                 EnemyTargetBar_Script guide = ObjectSet.TargetGuide[3].GetComponent<EnemyTargetBar_Script>();
                 guide.target = ObjectSet.Field_inMonster[3].transform;
@@ -388,10 +401,10 @@ public class base_Script : MonoBehaviour
                     case "불화살":
                     case "전격":
                     case "고드름":
-                        guide.offset[0] = new Vector3(-1.1f, 1.8f, 0);
-                        guide.offset[1] = new Vector3(1.1f, 1.8f, 0);
-                        guide.offset[2] = new Vector3(-1.1f, -2f, 0);
-                        guide.offset[3] = new Vector3(1.1f, -2f, 0);
+                        guide.offset[0] = new Vector3(-1.3f, 2.5f, 0);
+                        guide.offset[1] = new Vector3(0.7f, 2.5f, 0);
+                        guide.offset[2] = new Vector3(-1.3f, -2.5f, 0);
+                        guide.offset[3] = new Vector3(0.7f, -2.5f, 0);
                         break;
 
                     case "화염장판":
@@ -409,19 +422,19 @@ public class base_Script : MonoBehaviour
         }
         if (Range == 3)
         {
-            if (this.gameObject == ObjectSet.Field_inMonster[0] && ObjectSet.TargetGuide[0] != null && ObjectSet.Enemy_Name[0] == "Bat")
+            if (this.gameObject == ObjectSet.Field_inMonster[0] && ObjectSet.TargetGuide[0] != null && ObjectSet.Enemy_Name[0] == "base")
             {
                 Destroy(ObjectSet.TargetGuide[0]);
             }
-            if (this.gameObject == ObjectSet.Field_inMonster[1] && ObjectSet.TargetGuide[1] != null && ObjectSet.Enemy_Name[1] == "Bat")
+            if (this.gameObject == ObjectSet.Field_inMonster[1] && ObjectSet.TargetGuide[1] != null && ObjectSet.Enemy_Name[1] == "base")
             {
                 Destroy(ObjectSet.TargetGuide[1]);
             }
-            if (this.gameObject == ObjectSet.Field_inMonster[2] && ObjectSet.TargetGuide[2] != null && ObjectSet.Enemy_Name[2] == "Bat")
+            if (this.gameObject == ObjectSet.Field_inMonster[2] && ObjectSet.TargetGuide[2] != null && ObjectSet.Enemy_Name[2] == "base")
             {
                 Destroy(ObjectSet.TargetGuide[2]);
             }
-            if (this.gameObject == ObjectSet.Field_inMonster[3] && ObjectSet.TargetGuide[3] != null && ObjectSet.Enemy_Name[3] == "Bat")
+            if (this.gameObject == ObjectSet.Field_inMonster[3] && ObjectSet.TargetGuide[3] != null && ObjectSet.Enemy_Name[3] == "base")
             {
                 Destroy(ObjectSet.TargetGuide[3]);
             }
@@ -432,28 +445,28 @@ public class base_Script : MonoBehaviour
     {
         if (Range == 1)
         {
-            if (this.gameObject == ObjectSet.Field_inMonster[0] && ObjectSet.TargetArrow[0] == null && ObjectSet.Enemy_Name[0] == "Bat")
+            if (this.gameObject == ObjectSet.Field_inMonster[0] && ObjectSet.TargetArrow[0] == null && ObjectSet.Enemy_Name[0] == "base")
             {
                 Vector3 player_offset = new Vector3(animation_position.x, 6, 0);
                 ObjectSet.TargetArrow[0] = Instantiate(ObjectSet.TargetArrow_prefab, player_offset, Quaternion.identity);
                 TargetArrow_Script arrow = ObjectSet.TargetArrow[0].GetComponent<TargetArrow_Script>();
                 arrow.offset = player_offset;
             }
-            if (this.gameObject == ObjectSet.Field_inMonster[1] && ObjectSet.TargetArrow[1] == null && ObjectSet.Enemy_Name[1] == "Bat")
+            if (this.gameObject == ObjectSet.Field_inMonster[1] && ObjectSet.TargetArrow[1] == null && ObjectSet.Enemy_Name[1] == "base")
             {
                 Vector3 player_offset = new Vector3(animation_position.x, 6, 0);
                 ObjectSet.TargetArrow[1] = Instantiate(ObjectSet.TargetArrow_prefab, player_offset, Quaternion.identity);
                 TargetArrow_Script arrow = ObjectSet.TargetArrow[1].GetComponent<TargetArrow_Script>();
                 arrow.offset = player_offset;
             }
-            if (this.gameObject == ObjectSet.Field_inMonster[2] && ObjectSet.TargetArrow[2] == null && ObjectSet.Enemy_Name[2] == "Bat")
+            if (this.gameObject == ObjectSet.Field_inMonster[2] && ObjectSet.TargetArrow[2] == null && ObjectSet.Enemy_Name[2] == "base")
             {
                 Vector3 player_offset = new Vector3(animation_position.x, 6, 0);
                 ObjectSet.TargetArrow[2] = Instantiate(ObjectSet.TargetArrow_prefab, player_offset, Quaternion.identity);
                 TargetArrow_Script arrow = ObjectSet.TargetArrow[2].GetComponent<TargetArrow_Script>();
                 arrow.offset = player_offset;
             }
-            if (this.gameObject == ObjectSet.Field_inMonster[3] && ObjectSet.TargetArrow[3] == null && ObjectSet.Enemy_Name[3] == "Bat")
+            if (this.gameObject == ObjectSet.Field_inMonster[3] && ObjectSet.TargetArrow[3] == null && ObjectSet.Enemy_Name[3] == "base")
             {
                 Vector3 player_offset = new Vector3(animation_position.x, 6, 0);
                 ObjectSet.TargetArrow[3] = Instantiate(ObjectSet.TargetArrow_prefab, player_offset, Quaternion.identity);
@@ -463,19 +476,19 @@ public class base_Script : MonoBehaviour
         }
         if (Range == 2)
         {
-            if (this.gameObject == ObjectSet.Field_inMonster[0] && ObjectSet.TargetArrow[0] != null && ObjectSet.Enemy_Name[0] == "Bat")
+            if (this.gameObject == ObjectSet.Field_inMonster[0] && ObjectSet.TargetArrow[0] != null && ObjectSet.Enemy_Name[0] == "base")
             {
                 Destroy(ObjectSet.TargetArrow[0]);
             }
-            if (this.gameObject == ObjectSet.Field_inMonster[1] && ObjectSet.TargetArrow[1] != null && ObjectSet.Enemy_Name[1] == "Bat")
+            if (this.gameObject == ObjectSet.Field_inMonster[1] && ObjectSet.TargetArrow[1] != null && ObjectSet.Enemy_Name[1] == "base")
             {
                 Destroy(ObjectSet.TargetArrow[1]);
             }
-            if (this.gameObject == ObjectSet.Field_inMonster[2] && ObjectSet.TargetArrow[2] != null && ObjectSet.Enemy_Name[2] == "Bat")
+            if (this.gameObject == ObjectSet.Field_inMonster[2] && ObjectSet.TargetArrow[2] != null && ObjectSet.Enemy_Name[2] == "base")
             {
                 Destroy(ObjectSet.TargetArrow[2]);
             }
-            if (this.gameObject == ObjectSet.Field_inMonster[3] && ObjectSet.TargetArrow[3] != null && ObjectSet.Enemy_Name[3] == "Bat")
+            if (this.gameObject == ObjectSet.Field_inMonster[3] && ObjectSet.TargetArrow[3] != null && ObjectSet.Enemy_Name[3] == "base")
             {
                 Destroy(ObjectSet.TargetArrow[3]);
             }
@@ -486,7 +499,7 @@ public class base_Script : MonoBehaviour
     {
         if (stun_count != 0)
         {
-            if (this.gameObject == ObjectSet.Field_inMonster[0] && ObjectSet.Enemy_Name[0] == "Bat" && attack_order.Order_1)
+            if (this.gameObject == ObjectSet.Field_inMonster[0] && ObjectSet.Enemy_Name[0] == "base" && attack_order.Order_1)
             {
                 stun_countDown = true;
                 if (stun_countDown)
@@ -499,7 +512,7 @@ public class base_Script : MonoBehaviour
                     else { attack_order.CardAdd = true; stun_countDown = false; }
                 }
             }
-            if (this.gameObject == ObjectSet.Field_inMonster[1] && ObjectSet.Enemy_Name[1] == "Bat" && attack_order.Order_2)
+            if (this.gameObject == ObjectSet.Field_inMonster[1] && ObjectSet.Enemy_Name[1] == "base" && attack_order.Order_2)
             {
                 stun_countDown = true;
                 if (stun_countDown)
@@ -511,7 +524,7 @@ public class base_Script : MonoBehaviour
                     else { attack_order.CardAdd = true; stun_countDown = false; }
                 }
             }
-            if (this.gameObject == ObjectSet.Field_inMonster[2] && ObjectSet.Enemy_Name[2] == "Bat" && attack_order.Order_3)
+            if (this.gameObject == ObjectSet.Field_inMonster[2] && ObjectSet.Enemy_Name[2] == "base" && attack_order.Order_3)
             {
                 stun_countDown = true;
                 if (stun_countDown)
@@ -522,7 +535,7 @@ public class base_Script : MonoBehaviour
                     else { attack_order.CardAdd = true; stun_countDown = false; }
                 }
             }
-            if (this.gameObject == ObjectSet.Field_inMonster[3] && ObjectSet.Enemy_Name[3] == "Bat" && attack_order.Order_4)
+            if (this.gameObject == ObjectSet.Field_inMonster[3] && ObjectSet.Enemy_Name[3] == "base" && attack_order.Order_4)
             {
                 stun_countDown = true;
                 if (stun_countDown)
@@ -536,7 +549,7 @@ public class base_Script : MonoBehaviour
         }
         else
         {
-            if (this.gameObject == ObjectSet.Field_inMonster[0] && ObjectSet.Enemy_Name[0] == "Bat" && attack_order.Order_1)
+            if (this.gameObject == ObjectSet.Field_inMonster[0] && ObjectSet.Enemy_Name[0] == "base" && attack_order.Order_1)
             {
                 EnemyAttack = true;
                 if (animation_Attack)
@@ -550,7 +563,7 @@ public class base_Script : MonoBehaviour
                     animation_Attack = false;
                 }
             }
-            if (this.gameObject == ObjectSet.Field_inMonster[1] && ObjectSet.Enemy_Name[1] == "Bat" && attack_order.Order_2)
+            if (this.gameObject == ObjectSet.Field_inMonster[1] && ObjectSet.Enemy_Name[1] == "base" && attack_order.Order_2)
             {
                 EnemyAttack = true;
                 if (animation_Attack)
@@ -563,7 +576,7 @@ public class base_Script : MonoBehaviour
                     animation_Attack = false;
                 }
             }
-            if (this.gameObject == ObjectSet.Field_inMonster[2] && ObjectSet.Enemy_Name[2] == "Bat" && attack_order.Order_3)
+            if (this.gameObject == ObjectSet.Field_inMonster[2] && ObjectSet.Enemy_Name[2] == "base" && attack_order.Order_3)
             {
                 EnemyAttack = true;
                 if (animation_Attack)
@@ -575,7 +588,7 @@ public class base_Script : MonoBehaviour
                     animation_Attack = false;
                 }
             }
-            if (this.gameObject == ObjectSet.Field_inMonster[3] && ObjectSet.Enemy_Name[3] == "Bat" && attack_order.Order_4)
+            if (this.gameObject == ObjectSet.Field_inMonster[3] && ObjectSet.Enemy_Name[3] == "base" && attack_order.Order_4)
             {
                 EnemyAttack = true;
                 if (animation_Attack)
@@ -590,10 +603,10 @@ public class base_Script : MonoBehaviour
     }
     void Enemy_NameLess()
     {
-        if (this.gameObject == ObjectSet.Field_inMonster[0] && ObjectSet.Enemy_Name[0] == "Bat") ObjectSet.Enemy_Name[0] = null;
-        if (this.gameObject == ObjectSet.Field_inMonster[1] && ObjectSet.Enemy_Name[1] == "Bat") ObjectSet.Enemy_Name[1] = null;
-        if (this.gameObject == ObjectSet.Field_inMonster[2] && ObjectSet.Enemy_Name[2] == "Bat") ObjectSet.Enemy_Name[2] = null;
-        if (this.gameObject == ObjectSet.Field_inMonster[3] && ObjectSet.Enemy_Name[3] == "Bat") ObjectSet.Enemy_Name[3] = null;
+        if (this.gameObject == ObjectSet.Field_inMonster[0] && ObjectSet.Enemy_Name[0] == "base") ObjectSet.Enemy_Name[0] = null;
+        if (this.gameObject == ObjectSet.Field_inMonster[1] && ObjectSet.Enemy_Name[1] == "base") ObjectSet.Enemy_Name[1] = null;
+        if (this.gameObject == ObjectSet.Field_inMonster[2] && ObjectSet.Enemy_Name[2] == "base") ObjectSet.Enemy_Name[2] = null;
+        if (this.gameObject == ObjectSet.Field_inMonster[3] && ObjectSet.Enemy_Name[3] == "base") ObjectSet.Enemy_Name[3] = null;
     }
     void CardData_inEnemy(string name)
     {

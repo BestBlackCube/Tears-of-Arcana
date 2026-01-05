@@ -199,6 +199,13 @@ public class Titan_Script : MonoBehaviour
             }
         }
     }
+    void PlayerAttack()
+    {
+        if (this.gameObject.GetComponent<Titan_Script>().stun_count != 0)
+            if (this.gameObject == ObjectSet.Field_inMonster[2] && ObjectSet.Enemy_Name[2] == "Titan")
+            ObjectSet.EnemyStun[2].gameObject.SetActive(true);
+        player.PlayerAttack_Enemy = false;
+    }
     void animationPosition(int Range)
     {
         if (Range == 1)
@@ -217,6 +224,8 @@ public class Titan_Script : MonoBehaviour
                     }
                     Vector3 HpBarPos = new Vector3(transform.position.x - 7.5f, transform.position.y - 8f, 0);
                     ObjectSet.EnemyBossHpbar.position = HpBarPos;
+                    HpBarPos = new Vector3(transform.position.x, transform.position.y + 4f, 0);
+                    ObjectSet.EnemyStun[2].position = HpBarPos;
                     hpbar = ObjectSet.EnemyBossHpbar;
                     animation_position = ObjectSet.Field_transform[2];
                 }
@@ -230,6 +239,8 @@ public class Titan_Script : MonoBehaviour
                 this.gameObject == ObjectSet.Field_inMonster[2] && ObjectSet.TargetGuide[2] == null && ObjectSet.Enemy_Name[2] == "Titan" ||
                 this.gameObject == ObjectSet.Field_inMonster[3] && ObjectSet.TargetGuide[3] == null && ObjectSet.Enemy_Name[3] == "Titan")
             {
+                if (player.Skill_name == "화염장판" || player.Skill_name == "얼음안개") player.Field_name = "FieldAll";
+                else player.Field_name = "Field02";
                 ObjectSet.TargetGuide[2] = Instantiate(ObjectSet.TargetGuide_prefab, guide_offset, Quaternion.identity);
                 EnemyTargetBar_Script guide = ObjectSet.TargetGuide[2].GetComponent<EnemyTargetBar_Script>();
                 guide.target = ObjectSet.Field_inMonster[2].transform;
@@ -298,6 +309,7 @@ public class Titan_Script : MonoBehaviour
                 if (stun_countDown)
                 {
                     stun_count--;
+                    if(stun_count == 0) ObjectSet.EnemyStun[2].gameObject.SetActive(false);
                     attack_order.Order_1 = false;
                     if (ObjectSet.Field_inMonster[1] != null) { attack_order.Order_2 = true; stun_countDown = false; }
                     else if (ObjectSet.Field_inMonster[2] != null) { attack_order.Order_3 = true; stun_countDown = false; }
@@ -311,6 +323,7 @@ public class Titan_Script : MonoBehaviour
                 if (stun_countDown)
                 {
                     stun_count--;
+                    if (stun_count == 0) ObjectSet.EnemyStun[2].gameObject.SetActive(false);
                     attack_order.Order_2 = false;
                     if (ObjectSet.Field_inMonster[2] != null) { attack_order.Order_3 = true; stun_countDown = false; }
                     else if (ObjectSet.Field_inMonster[3] != null) { attack_order.Order_4 = true; stun_countDown = false; }
@@ -323,6 +336,7 @@ public class Titan_Script : MonoBehaviour
                 if (stun_countDown)
                 {
                     stun_count--;
+                    if (stun_count == 0) ObjectSet.EnemyStun[2].gameObject.SetActive(false);
                     attack_order.Order_3 = false;
                     if (ObjectSet.Field_inMonster[3] != null) { attack_order.Order_4 = true; stun_countDown = false; }
                     else { attack_order.CardAdd = true; stun_countDown = false; }
@@ -334,6 +348,7 @@ public class Titan_Script : MonoBehaviour
                 if (stun_countDown)
                 {
                     stun_count--;
+                    if (stun_count == 0) ObjectSet.EnemyStun[2].gameObject.SetActive(false);
                     attack_order.Order_4 = false;
                     attack_order.CardAdd = true;
                     stun_countDown = false;
@@ -426,8 +441,11 @@ public class Titan_Script : MonoBehaviour
                 player.nowMp += deckField.Click_Card.mana;
                 break;
             case "절망의균열":
-                stun_count += deckField.Click_Card.count;
-                player.nowMp += deckField.Click_Card.mana;
+                if (stun_count < 1)
+                {
+                    stun_count += 1;
+                    player.nowMp += deckField.Click_Card.mana;
+                }
                 break;
             case "불화살":
                 Card_Damage = deckField.Click_Card.single_damage;

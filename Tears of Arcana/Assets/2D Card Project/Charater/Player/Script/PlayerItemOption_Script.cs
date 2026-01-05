@@ -16,7 +16,7 @@ public class PlayerItemOption_Script : MonoBehaviour
     public bool OptionOn = false;
     public bool OptionActive = false;
 
-    public Vector3 baseTrasnform = new Vector3(19.3f, -6.2f, 5);
+    public Vector3 baseTrasnform = new Vector3(-19.2f, -8.2f, 4);
     // Start is called before the first frame update
     void Start()
     {
@@ -42,12 +42,12 @@ public class PlayerItemOption_Script : MonoBehaviour
     private void OnMouseOver()
     {
         OptionOn = true;
-        this.transform.position = new Vector3(19.3f, -4.2f, 6);
+        this.transform.position = new Vector3(-19.2f, -8.2f, 4);
     }
     private void OnMouseExit()
     {
         OptionOn = false;
-        this.transform.position = new Vector3(19.3f, -6.2f, 6);
+        this.transform.position = new Vector3(-19.2f, -8.2f, 4);
     }
     private void OnMouseDown()
     {

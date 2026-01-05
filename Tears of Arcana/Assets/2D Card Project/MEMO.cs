@@ -446,5 +446,28 @@ public class MEMO
     해당 하는 카드의 애니메이터에서 트리를 만들어 갈래를 통해 애니메이션 진행
     애니메이션 bool 컨트롤러 만들어 제어
 
+    @죽음 타이머
+    Skeleton       : 0.4s
+    Eye            : 0.3s
+    Goblin         : 0.4s
+    Mushroom       : 0.6s
+    BlackSlime     : 0.4s
+    DeathBringer   : 0.8s
+    FireWizard     : 0.5s
+    Necromancer    : 0.8s
+    FireWorm       : 0.6s
+    FlyDemon       : 0.6s
+    miniMushroom   : 0.8s
+    Bat            : 1.0s
+    BlueGolem      : 1.0s
+    OrangeGolem    : 1.0s
+    GhostWarrior01 : 0.8s
+    GhostWarrior02 : 1.0s
+    GhostWarrior03 : 1.5s
+    GhostWarrior04 : 1.2s
+    CastleKnight00 : 2.0s
+    CastleKnight01 : 2.0s
+
+
      */
 }

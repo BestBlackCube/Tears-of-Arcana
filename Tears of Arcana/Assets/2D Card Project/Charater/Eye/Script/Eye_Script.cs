@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Security.Cryptography;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -138,7 +138,7 @@ public class Eye_Script : MonoBehaviour
         }
         if (animator.GetBool("Attack"))
         {
-            if (Attack_timer < 0.9f)
+            if (Attack_timer < 1f)
             {
                 Attack_timer += Time.deltaTime;
             }
@@ -193,15 +193,42 @@ public class Eye_Script : MonoBehaviour
         if (nowHp <= 0f)
         {
             animator.SetTrigger("Die");
-            if (Dead_timer < 0.3f) Dead_timer += Time.deltaTime;
+            if (Dead_timer < 0.8f) Dead_timer += Time.deltaTime;
             else
             {
+                if (this.gameObject.GetComponent<Eye_Script>().stun_count != 0 ||
+                    this.gameObject.GetComponent<Eye_Script>().stun_count == 0)
+                {
+                    if (this.gameObject == ObjectSet.Field_inMonster[0] && ObjectSet.Enemy_Name[0] == "Eye")
+                        ObjectSet.EnemyStun[0].gameObject.SetActive(false);
+                    if (this.gameObject == ObjectSet.Field_inMonster[1] && ObjectSet.Enemy_Name[1] == "Eye")
+                        ObjectSet.EnemyStun[1].gameObject.SetActive(false);
+                    if (this.gameObject == ObjectSet.Field_inMonster[2] && ObjectSet.Enemy_Name[2] == "Eye")
+                        ObjectSet.EnemyStun[2].gameObject.SetActive(false);
+                    if (this.gameObject == ObjectSet.Field_inMonster[3] && ObjectSet.Enemy_Name[3] == "Eye")
+                        ObjectSet.EnemyStun[3].gameObject.SetActive(false);
+                }
                 hpbar.gameObject.SetActive(false);
                 ObjectSet.MonsterDeadCount++;
                 Enemy_NameLess();
                 Destroy(gameObject);
             }
         }
+    }
+    void PlayerAttack()
+    {
+        if (this.gameObject.GetComponent<Eye_Script>().stun_count != 0)
+        {
+            if (this.gameObject == ObjectSet.Field_inMonster[0] && ObjectSet.Enemy_Name[0] == "Eye")
+                ObjectSet.EnemyStun[0].gameObject.SetActive(true);
+            if (this.gameObject == ObjectSet.Field_inMonster[1] && ObjectSet.Enemy_Name[1] == "Eye")
+                ObjectSet.EnemyStun[1].gameObject.SetActive(true);
+            if (this.gameObject == ObjectSet.Field_inMonster[2] && ObjectSet.Enemy_Name[2] == "Eye")
+                ObjectSet.EnemyStun[2].gameObject.SetActive(true);
+            if (this.gameObject == ObjectSet.Field_inMonster[3] && ObjectSet.Enemy_Name[3] == "Eye")
+                ObjectSet.EnemyStun[3].gameObject.SetActive(true);
+        }
+        player.PlayerAttack_Enemy = false;
     }
     void animationPosition(int Range)
     {
@@ -218,6 +245,8 @@ public class Eye_Script : MonoBehaviour
                     }
                     Vector3 HpBarPos = new Vector3(transform.position.x - 5f, transform.position.y - 3.5f, 0);
                     ObjectSet.EnemyHpbar[0].position = HpBarPos;
+                    HpBarPos = new Vector3(transform.position.x, transform.position.y + 2f, 0);
+                    ObjectSet.EnemyStun[0].position = HpBarPos;
                     hpbar = ObjectSet.EnemyHpbar[0];
                     animation_position = ObjectSet.Field_transform[0];
                 }
@@ -233,6 +262,8 @@ public class Eye_Script : MonoBehaviour
                     }
                     Vector3 HpBarPos = new Vector3(transform.position.x - 5f, transform.position.y - 5f, 0);
                     ObjectSet.EnemyHpbar[1].position = HpBarPos;
+                    HpBarPos = new Vector3(transform.position.x, transform.position.y + 2f, 0);
+                    ObjectSet.EnemyStun[1].position = HpBarPos;
                     hpbar = ObjectSet.EnemyHpbar[1];
                     animation_position = ObjectSet.Field_transform[1];
                 }
@@ -248,6 +279,8 @@ public class Eye_Script : MonoBehaviour
                     }
                     Vector3 HpBarPos = new Vector3(transform.position.x - 5f, transform.position.y - 3.5f, 0);
                     ObjectSet.EnemyHpbar[2].position = HpBarPos;
+                    HpBarPos = new Vector3(transform.position.x, transform.position.y + 2f, 0);
+                    ObjectSet.EnemyStun[2].position = HpBarPos;
                     hpbar = ObjectSet.EnemyHpbar[2];
                     animation_position = ObjectSet.Field_transform[2];
                 }
@@ -263,6 +296,8 @@ public class Eye_Script : MonoBehaviour
                     }
                     Vector3 HpBarPos = new Vector3(transform.position.x - 5f, transform.position.y - 5f, 0);
                     ObjectSet.EnemyHpbar[3].position = HpBarPos;
+                    HpBarPos = new Vector3(transform.position.x, transform.position.y + 2f, 0);
+                    ObjectSet.EnemyStun[3].position = HpBarPos;
                     hpbar = ObjectSet.EnemyHpbar[3];
                     animation_position = ObjectSet.Field_transform[3];
                 }
@@ -273,6 +308,8 @@ public class Eye_Script : MonoBehaviour
             Vector3 guide_offset = new Vector3(0, 0, 0);
             if (this.gameObject == ObjectSet.Field_inMonster[0] && ObjectSet.TargetGuide[0] == null && ObjectSet.Enemy_Name[0] == "Eye")
             {
+                if (player.Skill_name == "화염장판" || player.Skill_name == "얼음안개") player.Field_name = "FieldAll";
+                else player.Field_name = "Field00";
                 ObjectSet.TargetGuide[0] = Instantiate(ObjectSet.TargetGuide_prefab, guide_offset, Quaternion.identity);
                 EnemyTargetBar_Script guide = ObjectSet.TargetGuide[0].GetComponent<EnemyTargetBar_Script>();
                 guide.target = ObjectSet.Field_inMonster[0].transform;
@@ -287,10 +324,10 @@ public class Eye_Script : MonoBehaviour
                     case "불화살":
                     case "전격":
                     case "고드름":
-                        guide.offset[0] = new Vector3(-1.3f, 1.3f, 0);
-                        guide.offset[1] = new Vector3(0.7f, 1.3f, 0);
-                        guide.offset[2] = new Vector3(-1.3f, -1.3f, 0);
-                        guide.offset[3] = new Vector3(0.7f, -1.3f, 0);
+                        guide.offset[0] = new Vector3(-3f, 2.5f, 0);
+                        guide.offset[1] = new Vector3(3f, 2.5f, 0);
+                        guide.offset[2] = new Vector3(-3f, -2.5f, 0);
+                        guide.offset[3] = new Vector3(3f, -2.5f, 0);
                         break;
 
                     case "화염장판":
@@ -307,6 +344,8 @@ public class Eye_Script : MonoBehaviour
             }
             if (this.gameObject == ObjectSet.Field_inMonster[1] && ObjectSet.TargetGuide[1] == null && ObjectSet.Enemy_Name[1] == "Eye")
             {
+                if (player.Skill_name == "화염장판" || player.Skill_name == "얼음안개") player.Field_name = "FieldAll";
+                else player.Field_name = "Field01";
                 ObjectSet.TargetGuide[1] = Instantiate(ObjectSet.TargetGuide_prefab, guide_offset, Quaternion.identity);
                 EnemyTargetBar_Script guide = ObjectSet.TargetGuide[1].GetComponent<EnemyTargetBar_Script>();
                 guide.target = ObjectSet.Field_inMonster[1].transform;
@@ -321,10 +360,10 @@ public class Eye_Script : MonoBehaviour
                     case "불화살":
                     case "전격":
                     case "고드름":
-                        guide.offset[0] = new Vector3(-1.3f, 1.3f, 0);
-                        guide.offset[1] = new Vector3(0.7f, 1.3f, 0);
-                        guide.offset[2] = new Vector3(-1.3f, -1.3f, 0);
-                        guide.offset[3] = new Vector3(0.7f, -1.3f, 0);
+                        guide.offset[0] = new Vector3(-3f, 2.5f, 0);
+                        guide.offset[1] = new Vector3(3f, 2.5f, 0);
+                        guide.offset[2] = new Vector3(-3f, -2.5f, 0);
+                        guide.offset[3] = new Vector3(3f, -2.5f, 0);
                         break;
 
                     case "화염장판":
@@ -341,6 +380,8 @@ public class Eye_Script : MonoBehaviour
             }
             if (this.gameObject == ObjectSet.Field_inMonster[2] && ObjectSet.TargetGuide[2] == null && ObjectSet.Enemy_Name[2] == "Eye")
             {
+                if (player.Skill_name == "화염장판" || player.Skill_name == "얼음안개") player.Field_name = "FieldAll";
+                else player.Field_name = "Field02";
                 ObjectSet.TargetGuide[2] = Instantiate(ObjectSet.TargetGuide_prefab, guide_offset, Quaternion.identity);
                 EnemyTargetBar_Script guide = ObjectSet.TargetGuide[2].GetComponent<EnemyTargetBar_Script>();
                 guide.target = ObjectSet.Field_inMonster[2].transform;
@@ -355,10 +396,10 @@ public class Eye_Script : MonoBehaviour
                     case "불화살":
                     case "전격":
                     case "고드름":
-                        guide.offset[0] = new Vector3(-1.3f, 1.3f, 0);
-                        guide.offset[1] = new Vector3(0.7f, 1.3f, 0);
-                        guide.offset[2] = new Vector3(-1.3f, -1.3f, 0);
-                        guide.offset[3] = new Vector3(0.7f, -1.3f, 0);
+                        guide.offset[0] = new Vector3(-3f, 2.5f, 0);
+                        guide.offset[1] = new Vector3(3f, 2.5f, 0);
+                        guide.offset[2] = new Vector3(-3f, -2.5f, 0);
+                        guide.offset[3] = new Vector3(3f, -2.5f, 0);
                         break;
 
                     case "화염장판":
@@ -375,6 +416,8 @@ public class Eye_Script : MonoBehaviour
             }
             if (this.gameObject == ObjectSet.Field_inMonster[3] && ObjectSet.TargetGuide[3] == null && ObjectSet.Enemy_Name[3] == "Eye")
             {
+                if (player.Skill_name == "화염장판" || player.Skill_name == "얼음안개") player.Field_name = "FieldAll";
+                else player.Field_name = "Field03";
                 ObjectSet.TargetGuide[3] = Instantiate(ObjectSet.TargetGuide_prefab, guide_offset, Quaternion.identity);
                 EnemyTargetBar_Script guide = ObjectSet.TargetGuide[3].GetComponent<EnemyTargetBar_Script>();
                 guide.target = ObjectSet.Field_inMonster[3].transform;
@@ -389,10 +432,10 @@ public class Eye_Script : MonoBehaviour
                     case "불화살":
                     case "전격":
                     case "고드름":
-                        guide.offset[0] = new Vector3(-1.3f, 1.3f, 0);
-                        guide.offset[1] = new Vector3(0.7f, 1.3f, 0);
-                        guide.offset[2] = new Vector3(-1.3f, -1.3f, 0);
-                        guide.offset[3] = new Vector3(0.7f, -1.3f, 0);
+                        guide.offset[0] = new Vector3(-3f, 2.5f, 0);
+                        guide.offset[1] = new Vector3(3f, 2.5f, 0);
+                        guide.offset[2] = new Vector3(-3f, -2.5f, 0);
+                        guide.offset[3] = new Vector3(3f, -2.5f, 0);
                         break;
 
                     case "화염장판":
@@ -493,6 +536,7 @@ public class Eye_Script : MonoBehaviour
                 if (stun_countDown)
                 {
                     stun_count--;
+                    if (stun_count == 0) ObjectSet.EnemyStun[0].gameObject.SetActive(false);
                     attack_order.Order_1 = false;
                     if (ObjectSet.Field_inMonster[1] != null) { attack_order.Order_2 = true; stun_countDown = false; }
                     else if (ObjectSet.Field_inMonster[2] != null) { attack_order.Order_3 = true; stun_countDown = false; }
@@ -506,6 +550,7 @@ public class Eye_Script : MonoBehaviour
                 if (stun_countDown)
                 {
                     stun_count--;
+                    if (stun_count == 0) ObjectSet.EnemyStun[1].gameObject.SetActive(false);
                     attack_order.Order_2 = false;
                     if (ObjectSet.Field_inMonster[2] != null) { attack_order.Order_3 = true; stun_countDown = false; }
                     else if (ObjectSet.Field_inMonster[3] != null) { attack_order.Order_4 = true; stun_countDown = false; }
@@ -518,6 +563,7 @@ public class Eye_Script : MonoBehaviour
                 if (stun_countDown)
                 {
                     stun_count--;
+                    if (stun_count == 0) ObjectSet.EnemyStun[2].gameObject.SetActive(false);
                     attack_order.Order_3 = false;
                     if (ObjectSet.Field_inMonster[3] != null) { attack_order.Order_4 = true; stun_countDown = false; }
                     else { attack_order.CardAdd = true; stun_countDown = false; }
@@ -529,6 +575,7 @@ public class Eye_Script : MonoBehaviour
                 if (stun_countDown)
                 {
                     stun_count--;
+                    if (stun_count == 0) ObjectSet.EnemyStun[3].gameObject.SetActive(false);
                     attack_order.Order_4 = false;
                     attack_order.CardAdd = true;
                     stun_countDown = false;
