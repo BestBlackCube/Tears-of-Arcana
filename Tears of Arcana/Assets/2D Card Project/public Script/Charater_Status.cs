@@ -60,6 +60,33 @@ public class Charater_Status
             case Charater_namedata.Necromancer:
                 status = new Charater_Status(Charater_name, "죽음술사", 100, 0, 0, 20);
                 break;
+            case Charater_namedata.FireWorm:
+                status = new Charater_Status(Charater_name, "화염구렁이", 150, 0, 0, 20);
+                break;
+            case Charater_namedata.FlyDemon:
+                status = new Charater_Status(Charater_name, "하급악마", 200, 0, 0, 20);
+                break;
+            case Charater_namedata.miniMushroom:
+                status = new Charater_Status(Charater_name, "작은버섯괴물", 30, 0, 0, 10);
+                break;
+            case Charater_namedata.Bat:
+                status = new Charater_Status(Charater_name, "동굴박쥐", 50, 0, 0, 10);
+                break;
+            case Charater_namedata.OrangeGolem:
+                status = new Charater_Status(Charater_name, "토파즈골렘", 300, 0, 0, 10);
+                break;
+            case Charater_namedata.BlueGolem:
+                status = new Charater_Status(Charater_name, "미스릴골렘", 300, 0, 0, 10);
+                break;
+            case Charater_namedata.Titan:
+                status = new Charater_Status(Charater_name, "타이탄", 300, 0, 0, 10);
+                break;
+            case Charater_namedata.DemonSlime:
+                status = new Charater_Status(Charater_name, "액체악마", 300, 0, 0, 10);
+                break;
+            case Charater_namedata.Argon:
+                status = new Charater_Status(Charater_name, "아르곤", 300, 0, 0, 10);
+                break;
 
             default:
                 break;

@@ -12,7 +12,16 @@ public enum Charater_namedata
     BlackSlime,
     DeathBringer,
     FireWizard,
-    Necromancer
+    Necromancer,
+    FireWorm,
+    FlyDemon,
+    miniMushroom,
+    Bat,
+    OrangeGolem,
+    BlueGolem,
+    Titan,
+    DemonSlime,
+    Argon
 }
 
 public class charater_Name : MonoBehaviour
