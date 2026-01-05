@@ -20,4 +20,13 @@ public class Setting_Script : MonoBehaviour
     {
         Setting = false;
     }
+    public void ExitButton()
+    {
+        SceneManager.LoadScene("mainMenuScene");
+    }
+    public void ReStartButton()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("battleScene");
+    }
 }

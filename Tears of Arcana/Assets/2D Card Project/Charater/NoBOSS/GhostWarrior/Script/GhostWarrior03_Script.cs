@@ -138,7 +138,7 @@ public class GhostWarrior03_Script : MonoBehaviour
         }
         if (animator.GetBool("Attack"))
         {
-            if (Attack_timer < 1f)
+            if (Attack_timer < 3f)
             {
                 Attack_timer += Time.deltaTime;
             }
@@ -243,7 +243,7 @@ public class GhostWarrior03_Script : MonoBehaviour
                         ObjectSet.EnemyHpbar[0].gameObject.SetActive(true);
                         ObjectSet.EnemyHpbar[0].Find("Hp_bar").GetComponent<Image>().fillAmount = 1f;
                     }
-                    Vector3 HpBarPos = new Vector3(transform.position.x - 5f, transform.position.y - 4.5f, 0);
+                    Vector3 HpBarPos = new Vector3(transform.position.x - 5f, transform.position.y - 4f, 0);
                     ObjectSet.EnemyHpbar[0].position = HpBarPos;
                     HpBarPos = new Vector3(transform.position.x, transform.position.y + 3.5f, 0);
                     ObjectSet.EnemyStun[0].position = HpBarPos;
@@ -260,7 +260,7 @@ public class GhostWarrior03_Script : MonoBehaviour
                         ObjectSet.EnemyHpbar[1].gameObject.SetActive(true);
                         ObjectSet.EnemyHpbar[1].Find("Hp_bar").GetComponent<Image>().fillAmount = 1f;
                     }
-                    Vector3 HpBarPos = new Vector3(transform.position.x - 5f, transform.position.y - 6f, 0);
+                    Vector3 HpBarPos = new Vector3(transform.position.x - 5f, transform.position.y - 5.5f, 0);
                     ObjectSet.EnemyHpbar[1].position = HpBarPos;
                     HpBarPos = new Vector3(transform.position.x, transform.position.y + 3.5f, 0);
                     ObjectSet.EnemyStun[1].position = HpBarPos;
@@ -277,7 +277,7 @@ public class GhostWarrior03_Script : MonoBehaviour
                         ObjectSet.EnemyHpbar[2].gameObject.SetActive(true);
                         ObjectSet.EnemyHpbar[2].Find("Hp_bar").GetComponent<Image>().fillAmount = 1f;
                     }
-                    Vector3 HpBarPos = new Vector3(transform.position.x - 5f, transform.position.y - 4.5f, 0);
+                    Vector3 HpBarPos = new Vector3(transform.position.x - 5f, transform.position.y - 4f, 0);
                     ObjectSet.EnemyHpbar[2].position = HpBarPos;
                     HpBarPos = new Vector3(transform.position.x, transform.position.y + 3.5f, 0);
                     ObjectSet.EnemyStun[2].position = HpBarPos;
@@ -294,7 +294,7 @@ public class GhostWarrior03_Script : MonoBehaviour
                         ObjectSet.EnemyHpbar[3].gameObject.SetActive(true);
                         ObjectSet.EnemyHpbar[3].Find("Hp_bar").GetComponent<Image>().fillAmount = 1f;
                     }
-                    Vector3 HpBarPos = new Vector3(transform.position.x - 5f, transform.position.y - 6f, 0);
+                    Vector3 HpBarPos = new Vector3(transform.position.x - 5f, transform.position.y - 5.5f, 0);
                     ObjectSet.EnemyHpbar[3].position = HpBarPos;
                     HpBarPos = new Vector3(transform.position.x, transform.position.y + 3.5f, 0);
                     ObjectSet.EnemyStun[3].position = HpBarPos;

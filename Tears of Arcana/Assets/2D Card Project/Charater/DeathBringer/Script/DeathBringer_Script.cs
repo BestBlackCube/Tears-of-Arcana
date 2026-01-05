@@ -156,14 +156,14 @@ public class DeathBringer_Script : MonoBehaviour
         {
             if (transform.position.x < animation_position.x)
             {
-                transform.localScale = new Vector3(1, 1, 1);
+                transform.localScale = new Vector3(-1, 1, 1);
                 transform.position = new Vector3(transform.position.x + 15f * Time.deltaTime, transform.position.y, 0);
             }
             else
             {
                 animator.SetBool("BackMove", false);
                 animator.SetBool("Idle", true);
-                transform.localScale = new Vector3(-1, 1, 1);
+                transform.localScale = new Vector3(1, 1, 1);
                 transform.position = animation_position;
                 animation_Attack = true;
             }

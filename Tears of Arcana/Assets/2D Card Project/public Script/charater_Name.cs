@@ -37,7 +37,8 @@ public enum Charater_namedata
     CastleKnight01,
     BlueSlime,
     GreenSlime,
-    RedSlime
+    RedSlime,
+    ArgonDommy
 }
 
 public class charater_Name : MonoBehaviour

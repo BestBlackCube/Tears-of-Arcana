@@ -46,6 +46,8 @@ public class Argon_Script : MonoBehaviour
     public bool EnemyAttack = false;
     bool cardUse = false;
     public bool HIT_Enemy = false;
+    bool DommyOnline = true;
+    float Dommytimer = 0f;
 
     public Vector3 animation_position;
 
@@ -82,7 +84,28 @@ public class Argon_Script : MonoBehaviour
         if (HIT_Enemy) Hit_Enemy();    // 맞기
         if (targetCard && !Arrow || !targetCard && !Arrow) targetArrow_inField(2);
         if (targetCard && Arrow) targetArrow_inField(1);
+        if (DommyOnline)
+        {
+            if (Dommytimer < 7f) Dommytimer += Time.deltaTime;
+            else animator.SetBool("Dommy", true);
+        }
     }
+    void DommySpawn()
+    {
+        ObjectSet.Field_transform[0] = new Vector3(-5, ObjectSet.Monster_Object[30].transform.position.y, 5);
+        ObjectSet.Field_transform[1] = new Vector3(2, ObjectSet.Monster_Object[30].transform.position.y, 5);
+        ObjectSet.Field_transform[3] = new Vector3(16, ObjectSet.Monster_Object[30].transform.position.y, 5);
+
+        ObjectSet.Field_inMonster[0] = Instantiate(ObjectSet.Monster_Object[30], ObjectSet.Field_transform[0], Quaternion.identity);
+        ObjectSet.Field_inMonster[1] = Instantiate(ObjectSet.Monster_Object[30], ObjectSet.Field_transform[1], Quaternion.identity);
+        ObjectSet.Field_inMonster[3] = Instantiate(ObjectSet.Monster_Object[30], ObjectSet.Field_transform[3], Quaternion.identity);
+
+        ObjectSet.Enemy_Name[0] = ObjectSet.Monster_Object[30].name;
+        ObjectSet.Enemy_Name[1] = ObjectSet.Monster_Object[30].name;
+        ObjectSet.Enemy_Name[3] = ObjectSet.Monster_Object[30].name;
+        DommyOnline = false;
+    }
+    void aniamtorBool() { animator.SetBool("Dommy", false); }
     void OnMouseOver()
     {
         cardUse = true;
@@ -214,6 +237,7 @@ public class Argon_Script : MonoBehaviour
                 else
                 {
                     hpbar.gameObject.SetActive(false);
+                    if (ObjectSet.EnemyStun[2].gameObject.activeSelf) ObjectSet.EnemyStun[2].gameObject.SetActive(false);
                     ObjectSet.MonsterDeadCount++;
                     Enemy_NameLess();
                     Destroy(gameObject);
@@ -247,7 +271,7 @@ public class Argon_Script : MonoBehaviour
                         ObjectSet.EnemyBossHpbar.gameObject.SetActive(true);
                         ObjectSet.EnemyBossHpbar.Find("Hp_bar").GetComponent<Image>().fillAmount = 1f;
                     }
-                    Vector3 HpBarPos = new Vector3(transform.position.x - 7.5f, transform.position.y - 4.5f, 0);
+                    Vector3 HpBarPos = new Vector3(transform.position.x - 7.5f, transform.position.y - 1.5f, 0);
                     ObjectSet.EnemyBossHpbar.position = HpBarPos;
                     hpbar = ObjectSet.EnemyBossHpbar;
                     animation_position = ObjectSet.Field_transform[0];
@@ -262,7 +286,7 @@ public class Argon_Script : MonoBehaviour
                         ObjectSet.EnemyBossHpbar.gameObject.SetActive(true);
                         ObjectSet.EnemyBossHpbar.Find("Hp_bar").GetComponent<Image>().fillAmount = 1f;
                     }
-                    Vector3 HpBarPos = new Vector3(transform.position.x - 7.5f, transform.position.y - 4.5f, 0);
+                    Vector3 HpBarPos = new Vector3(transform.position.x - 7.5f, transform.position.y - 1.5f, 0);
                     ObjectSet.EnemyBossHpbar.position = HpBarPos;
                     hpbar = ObjectSet.EnemyBossHpbar;
                     animation_position = ObjectSet.Field_transform[1];
@@ -277,7 +301,7 @@ public class Argon_Script : MonoBehaviour
                         ObjectSet.EnemyBossHpbar.gameObject.SetActive(true);
                         ObjectSet.EnemyBossHpbar.Find("Hp_bar").GetComponent<Image>().fillAmount = 1f;
                     }
-                    Vector3 HpBarPos = new Vector3(transform.position.x - 7.5f, transform.position.y - 4.5f, 0);
+                    Vector3 HpBarPos = new Vector3(transform.position.x - 7.5f, transform.position.y - 1.5f, 0);
                     ObjectSet.EnemyBossHpbar.position = HpBarPos;
                     hpbar = ObjectSet.EnemyBossHpbar;
                     animation_position = ObjectSet.Field_transform[2];
@@ -292,7 +316,7 @@ public class Argon_Script : MonoBehaviour
                         ObjectSet.EnemyBossHpbar.gameObject.SetActive(true);
                         ObjectSet.EnemyBossHpbar.Find("Hp_bar").GetComponent<Image>().fillAmount = 1f;
                     }
-                    Vector3 HpBarPos = new Vector3(transform.position.x - 7.5f, transform.position.y - 4.5f, 0);
+                    Vector3 HpBarPos = new Vector3(transform.position.x - 7.5f, transform.position.y - 1.5f, 0);
                     ObjectSet.EnemyBossHpbar.position = HpBarPos;
                     hpbar = ObjectSet.EnemyBossHpbar;
                     animation_position = ObjectSet.Field_transform[3];
@@ -660,8 +684,11 @@ public class Argon_Script : MonoBehaviour
                 player.nowMp += deckField.Click_Card.mana;
                 break;
             case "절망의균열":
-                stun_count += deckField.Click_Card.count;
-                player.nowMp += deckField.Click_Card.mana;
+                if (stun_count < 1)
+                {
+                    stun_count += 1;
+                    player.nowMp += deckField.Click_Card.mana;
+                }
                 break;
             case "불화살":
                 Card_Damage = deckField.Click_Card.single_damage;

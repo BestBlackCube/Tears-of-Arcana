@@ -255,7 +255,6 @@ public class PlayerAttackMotion_Script : MonoBehaviour
     }
     void EnemyAttack()
     {
-        Debug.Log("거부");
         player.PlayerAttack_Enemy = false;
     }
 }

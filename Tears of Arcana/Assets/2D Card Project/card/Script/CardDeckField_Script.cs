@@ -114,6 +114,14 @@ public class CardDeckField_Script : MonoBehaviour
         CardStatus[i] = 0;
         New_deckField();
     }
+    public void deckField_Reset(int i) // Missing 상태를 None상태로 바꾸기
+    {
+        Destroy(Card_inField[i]); // 카드를 파괴하면 None상태가 아닌 missing상태이므로 None상태로 초기화
+        Card_inField_Script[i] = null; // <-
+        CardCode[i] = null;
+        CardStatus[i] = 0;
+        DeckField_nowCard = 0;
+    }
     void New_deckField() // 빈 배열 채우기
     {
         for (int i = 0; i < Card_inField.Length; i++)

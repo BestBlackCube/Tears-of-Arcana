@@ -42,12 +42,12 @@ public class PlayerItemOption_Script : MonoBehaviour
     private void OnMouseOver()
     {
         OptionOn = true;
-        this.transform.position = new Vector3(-19.2f, -8.2f, 4);
+        this.transform.position = new Vector3(-19f, -8.25f, 4);
     }
     private void OnMouseExit()
     {
         OptionOn = false;
-        this.transform.position = new Vector3(-19.2f, -8.2f, 4);
+        this.transform.position = new Vector3(-19f, -8.25f, 4);
     }
     private void OnMouseDown()
     {

@@ -1402,6 +1402,42 @@ public class Card_Script : MonoBehaviour
                         ObjectSet.Field_inMonster[3].GetComponent<Argon_Script>().HIT_Enemy = true;
                 }
             }
+            if (ObjectSet.Enemy_Name[0] == "ArgonDommy" || ObjectSet.Enemy_Name[1] == "ArgonDommy" ||
+                ObjectSet.Enemy_Name[2] == "ArgonDommy" || ObjectSet.Enemy_Name[3] == "ArgonDommy")
+            {
+                if (ObjectSet.Field_inMonster[0] != null && ObjectSet.Enemy_Name[0] == "ArgonDommy")
+                {
+                    ObjectSet.Field_inMonster[0].GetComponent<ArgonDommy_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[0].GetComponent<ArgonDommy_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[0].GetComponent<ArgonDommy_Script>().targetCard = true;
+                    if (!ObjectSet.Field_inMonster[0].GetComponent<ArgonDommy_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[0].GetComponent<ArgonDommy_Script>().HIT_Enemy = true;
+                }
+                if (ObjectSet.Field_inMonster[1] != null && ObjectSet.Enemy_Name[1] == "ArgonDommy")
+                {
+                    ObjectSet.Field_inMonster[1].GetComponent<ArgonDommy_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[1].GetComponent<ArgonDommy_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[1].GetComponent<ArgonDommy_Script>().targetCard = true;
+                    if (!ObjectSet.Field_inMonster[1].GetComponent<ArgonDommy_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[1].GetComponent<ArgonDommy_Script>().HIT_Enemy = true;
+                }
+                if (ObjectSet.Field_inMonster[2] != null && ObjectSet.Enemy_Name[2] == "ArgonDommy")
+                {
+                    ObjectSet.Field_inMonster[2].GetComponent<ArgonDommy_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[2].GetComponent<ArgonDommy_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[2].GetComponent<ArgonDommy_Script>().targetCard = true;
+                    if (!ObjectSet.Field_inMonster[2].GetComponent<ArgonDommy_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[2].GetComponent<ArgonDommy_Script>().HIT_Enemy = true;
+                }
+                if (ObjectSet.Field_inMonster[3] != null && ObjectSet.Enemy_Name[3] == "ArgonDommy")
+                {
+                    ObjectSet.Field_inMonster[3].GetComponent<ArgonDommy_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[3].GetComponent<ArgonDommy_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[3].GetComponent<ArgonDommy_Script>().targetCard = true;
+                    if (!ObjectSet.Field_inMonster[3].GetComponent<ArgonDommy_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[3].GetComponent<ArgonDommy_Script>().HIT_Enemy = true;
+                }
+            }
         }
         else
         {
@@ -2630,6 +2666,42 @@ public class Card_Script : MonoBehaviour
                     ObjectSet.Field_inMonster[3].GetComponent<Argon_Script>().targetCard = false;
                     if (ObjectSet.Field_inMonster[3].GetComponent<Argon_Script>().HIT_Enemy)
                         ObjectSet.Field_inMonster[3].GetComponent<Argon_Script>().HIT_Enemy = false;
+                }
+            }
+            if (ObjectSet.Enemy_Name[0] == "ArgonDommy" || ObjectSet.Enemy_Name[1] == "ArgonDommy" ||
+               ObjectSet.Enemy_Name[2] == "ArgonDommy" || ObjectSet.Enemy_Name[3] == "ArgonDommy")
+            {
+                if (ObjectSet.Field_inMonster[0] != null && ObjectSet.Enemy_Name[0] == "ArgonDommy")
+                {
+                    ObjectSet.Field_inMonster[0].GetComponent<ArgonDommy_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[0].GetComponent<ArgonDommy_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[0].GetComponent<ArgonDommy_Script>().targetCard = false;
+                    if (ObjectSet.Field_inMonster[0].GetComponent<ArgonDommy_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[0].GetComponent<ArgonDommy_Script>().HIT_Enemy = false;
+                }
+                if (ObjectSet.Field_inMonster[1] != null && ObjectSet.Enemy_Name[1] == "ArgonDommy")
+                {
+                    ObjectSet.Field_inMonster[1].GetComponent<ArgonDommy_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[1].GetComponent<ArgonDommy_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[1].GetComponent<ArgonDommy_Script>().targetCard = false;
+                    if (ObjectSet.Field_inMonster[1].GetComponent<ArgonDommy_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[1].GetComponent<ArgonDommy_Script>().HIT_Enemy = false;
+                }
+                if (ObjectSet.Field_inMonster[2] != null && ObjectSet.Enemy_Name[2] == "ArgonDommy")
+                {
+                    ObjectSet.Field_inMonster[2].GetComponent<ArgonDommy_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[2].GetComponent<ArgonDommy_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[2].GetComponent<ArgonDommy_Script>().targetCard = false;
+                    if (ObjectSet.Field_inMonster[2].GetComponent<ArgonDommy_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[2].GetComponent<ArgonDommy_Script>().HIT_Enemy = false;
+                }
+                if (ObjectSet.Field_inMonster[3] != null && ObjectSet.Enemy_Name[3] == "ArgonDommy")
+                {
+                    ObjectSet.Field_inMonster[3].GetComponent<ArgonDommy_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[3].GetComponent<ArgonDommy_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[3].GetComponent<ArgonDommy_Script>().targetCard = false;
+                    if (ObjectSet.Field_inMonster[3].GetComponent<ArgonDommy_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[3].GetComponent<ArgonDommy_Script>().HIT_Enemy = false;
                 }
             }
         }
@@ -3990,6 +4062,47 @@ public class Card_Script : MonoBehaviour
                         ObjectSet.Field_inMonster[3].GetComponent<Argon_Script>().HIT_Enemy = true;
                 }
             }
+            if (ObjectSet.Enemy_Name[0] == "ArgonDommy" || ObjectSet.Enemy_Name[1] == "ArgonDommy" ||
+                ObjectSet.Enemy_Name[2] == "ArgonDommy" || ObjectSet.Enemy_Name[3] == "ArgonDommy")
+            {
+                if (ObjectSet.Field_inMonster[0] != null && ObjectSet.Enemy_Name[0] == "ArgonDommy")
+                {
+                    ObjectSet.Field_inMonster[0].GetComponent<ArgonDommy_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[0].GetComponent<ArgonDommy_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[0].GetComponent<ArgonDommy_Script>().targetCard = true;
+                    ObjectSet.Field_inMonster[0].GetComponent<ArgonDommy_Script>().Card_Damage = deckField.Click_Card.multiple_damage;
+                    if (!ObjectSet.Field_inMonster[0].GetComponent<ArgonDommy_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[0].GetComponent<ArgonDommy_Script>().HIT_Enemy = true;
+
+                }
+                if (ObjectSet.Field_inMonster[1] != null && ObjectSet.Enemy_Name[1] == "ArgonDommy")
+                {
+                    ObjectSet.Field_inMonster[1].GetComponent<ArgonDommy_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[1].GetComponent<ArgonDommy_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[1].GetComponent<ArgonDommy_Script>().targetCard = true;
+                    ObjectSet.Field_inMonster[1].GetComponent<ArgonDommy_Script>().Card_Damage = deckField.Click_Card.multiple_damage;
+                    if (!ObjectSet.Field_inMonster[1].GetComponent<ArgonDommy_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[1].GetComponent<ArgonDommy_Script>().HIT_Enemy = true;
+                }
+                if (ObjectSet.Field_inMonster[2] != null && ObjectSet.Enemy_Name[2] == "ArgonDommy")
+                {
+                    ObjectSet.Field_inMonster[2].GetComponent<ArgonDommy_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[2].GetComponent<ArgonDommy_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[2].GetComponent<ArgonDommy_Script>().targetCard = true;
+                    ObjectSet.Field_inMonster[2].GetComponent<ArgonDommy_Script>().Card_Damage = deckField.Click_Card.multiple_damage;
+                    if (!ObjectSet.Field_inMonster[2].GetComponent<ArgonDommy_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[2].GetComponent<ArgonDommy_Script>().HIT_Enemy = true;
+                }
+                if (ObjectSet.Field_inMonster[3] != null && ObjectSet.Enemy_Name[3] == "ArgonDommy")
+                {
+                    ObjectSet.Field_inMonster[3].GetComponent<ArgonDommy_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[3].GetComponent<ArgonDommy_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[3].GetComponent<ArgonDommy_Script>().targetCard = true;
+                    ObjectSet.Field_inMonster[3].GetComponent<ArgonDommy_Script>().Card_Damage = deckField.Click_Card.multiple_damage;
+                    if (!ObjectSet.Field_inMonster[3].GetComponent<ArgonDommy_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[3].GetComponent<ArgonDommy_Script>().HIT_Enemy = true;
+                }
+            }
         }
         else
         {
@@ -4927,6 +5040,34 @@ public class Card_Script : MonoBehaviour
                     ObjectSet.Field_inMonster[3].GetComponent<Argon_Script>().targetCard = false;
                 }
             }
+            if (ObjectSet.Enemy_Name[0] == "ArgonDommy" || ObjectSet.Enemy_Name[1] == "ArgonDommy" ||
+                ObjectSet.Enemy_Name[2] == "ArgonDommy" || ObjectSet.Enemy_Name[3] == "ArgonDommy")
+            {
+                if (ObjectSet.Field_inMonster[0] != null && ObjectSet.Enemy_Name[0] == "ArgonDommy")
+                {
+                    ObjectSet.Field_inMonster[0].GetComponent<ArgonDommy_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[0].GetComponent<ArgonDommy_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[0].GetComponent<ArgonDommy_Script>().targetCard = false;
+                }
+                if (ObjectSet.Field_inMonster[1] != null && ObjectSet.Enemy_Name[1] == "ArgonDommy")
+                {
+                    ObjectSet.Field_inMonster[1].GetComponent<ArgonDommy_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[1].GetComponent<ArgonDommy_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[1].GetComponent<ArgonDommy_Script>().targetCard = false;
+                }
+                if (ObjectSet.Field_inMonster[2] != null && ObjectSet.Enemy_Name[2] == "ArgonDommy")
+                {
+                    ObjectSet.Field_inMonster[2].GetComponent<ArgonDommy_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[2].GetComponent<ArgonDommy_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[2].GetComponent<ArgonDommy_Script>().targetCard = false;
+                }
+                if (ObjectSet.Field_inMonster[3] != null && ObjectSet.Enemy_Name[3] == "ArgonDommy")
+                {
+                    ObjectSet.Field_inMonster[3].GetComponent<ArgonDommy_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[3].GetComponent<ArgonDommy_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[3].GetComponent<ArgonDommy_Script>().targetCard = false;
+                }
+            }
         }
     }
 
@@ -4968,6 +5109,7 @@ public class Card_Script : MonoBehaviour
             case "GreenSlime":
             case "RedSlime":
             case "Argon":
+            case "ArgonDommy":
                 switch (Card_name)
                 {
                     case "일반마법":

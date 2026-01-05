@@ -467,6 +467,14 @@ public class MEMO
     GhostWarrior04 : 1.2s
     CastleKnight00 : 2.0s
     CastleKnight01 : 2.0s
+    GoblinNomal    : 2.0s
+    GoblinAssassin : 2.0s
+    GoblinMage     : 2.0s
+    GoblinSoldier  : 2.0s
+    GoblinSpear    : 2.0s
+    BlueSlime      : 2.0s
+    GreenSlime     : 2.0s
+    RedSlime       : 2.0s
 
 
      */

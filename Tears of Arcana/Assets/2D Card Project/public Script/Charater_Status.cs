@@ -34,7 +34,7 @@ public class Charater_Status
         switch(name)
         {
             case Charater_namedata.Player:
-                status = new Charater_Status(Charater_name, "플레이어", 10, 100, 0, 0);
+                status = new Charater_Status(Charater_name, "플레이어", 10000, 100, 0, 0);
                 break;
             case Charater_namedata.Skeleton:
                 status = new Charater_Status(Charater_name, "스켈레톤", 70, 0, 0, 10);
@@ -85,7 +85,7 @@ public class Charater_Status
                 status = new Charater_Status(Charater_name, "액체악마", 700, 0, 0, 50);
                 break;
             case Charater_namedata.Argon:
-                status = new Charater_Status(Charater_name, "아르곤", 500, 0, 0, 15);
+                status = new Charater_Status(Charater_name, "아르곤", 350, 0, 0, 15);
                 break;
             case Charater_namedata.AxeCastleGuardian:
                 status = new Charater_Status(Charater_name, "성수호자01", 700, 0, 0, 10);
@@ -134,6 +134,9 @@ public class Charater_Status
                 break;
             case Charater_namedata.RedSlime:
                 status = new Charater_Status(Charater_name, "붉은액체", 20, 0, 0, 5);
+                break;
+            case Charater_namedata.ArgonDommy:
+                status = new Charater_Status(Charater_name, "아르곤분신", 70, 0, 0, 5);
                 break;
 
             default:

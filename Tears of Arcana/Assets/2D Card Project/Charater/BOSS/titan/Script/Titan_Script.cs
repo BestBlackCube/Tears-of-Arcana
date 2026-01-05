@@ -193,6 +193,7 @@ public class Titan_Script : MonoBehaviour
             else
             {
                 hpbar.gameObject.SetActive(false);
+                if (ObjectSet.EnemyStun[2].gameObject.activeSelf) ObjectSet.EnemyStun[2].gameObject.SetActive(false);
                 ObjectSet.MonsterDeadCount++;
                 Enemy_NameLess();
                 Destroy(gameObject);

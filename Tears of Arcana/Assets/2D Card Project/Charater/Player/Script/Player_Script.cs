@@ -25,6 +25,7 @@ public class Player_Script : MonoBehaviour
     [SerializeField] GameObject itemOption_Page;
     public GameObject BattleCard;
     [SerializeField] GameObject AttackMotion_Object;
+    [SerializeField] GameObject GameSet;
 
     public bool Arrow = false;
 
@@ -258,6 +259,11 @@ public class Player_Script : MonoBehaviour
                 PlayerDamage = false;
             }
         }
+    }
+    void GameOver()
+    {
+        GameSet.SetActive(true);
+        Time.timeScale = 0;
     }
     void Player_AttackStart()
     {

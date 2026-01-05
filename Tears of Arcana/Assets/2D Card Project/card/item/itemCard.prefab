@@ -280,8 +280,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9f313c0715926d49ac6bd74ee47fda3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: 2
+  itemName: 0
   itemOption: {fileID: 0}
+  player: {fileID: 0}
+  Card_Use: 0
+  Battle_Use: 0
+  Status00: 0
+  Status01: 0
+  Status02: 0
+  Card_Active: 0
+  Battle_Active: 0
+  Card_transformMouse: 0
   itemBoxName: 
   itemname: 
   itemHp: 0
@@ -353,7 +362,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC544\uC774\uD15C\n"
+  m_text: "\uC7A5\uBE44\uBCC0\uACBD\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 41b0ce325ed2ddd4aba8023c0666cd65, type: 2}
   m_sharedMaterial: {fileID: 4819111884075125886, guid: 41b0ce325ed2ddd4aba8023c0666cd65, type: 2}

@@ -31,6 +31,13 @@ public enum Item_Carddata
     old_SpellBook,
     old_Bracelet,
     old_MagicStone,
+    Nomal_SpellBook,
+    Nomal_Bracelet,
+    Nomal_MagicStone,
+    Epic_SpellBook,
+    Epic_Bracelet,
+    Epic_MagicStone,
+
 }
 
 public class card_Name : MonoBehaviour

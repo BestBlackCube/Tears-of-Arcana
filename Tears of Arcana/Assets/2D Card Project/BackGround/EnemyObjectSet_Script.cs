@@ -25,6 +25,7 @@ public class EnemyObjectSet_Script : MonoBehaviour
     public GameObject EnemyBossHpbar_prefab;
     public RectTransform EnemyBossHpbar;
     GameObject canvas;
+    public GameObject BlackScreen;
 
     [SerializeField] Sprite[] BackGround_Image;
 
@@ -72,7 +73,7 @@ public class EnemyObjectSet_Script : MonoBehaviour
             if (deckField.DeckField_nowCard == 5) turn = true;
             if (turn)
             {
-                if (deckField.DeckField_nowCard == 0)
+                if (deckField.DeckField_nowCard == 1)
                 {
                     turnEnd_prefab.SetActive(enabled);
                     turn = false;
@@ -258,9 +259,6 @@ public class EnemyObjectSet_Script : MonoBehaviour
                 nullAndinput = true;
                 break;
             case 7: // 깊은 숲
-                Field_transform[2] = new Vector3(9, Monster_Object[16].transform.position.y, 5);
-                Field_inMonster[2] = Instantiate(Monster_Object[16], Field_transform[2], Quaternion.identity);
-                Enemy_Name[2] = "Argon";
 
                 MonsterCount = 1;
                 MonsterDeadCount = 0;
@@ -291,6 +289,10 @@ public class EnemyObjectSet_Script : MonoBehaviour
             case 12: // 어디론가 연결된 다리
                 break;
             case 13: // 다리의 끝
+                Field_transform[2] = new Vector3(9, Monster_Object[29].transform.position.y, 5);
+                Field_inMonster[2] = Instantiate(Monster_Object[29], Field_transform[2], Quaternion.identity);
+
+                Enemy_Name[2] = Monster_Object[29].name;
                 break;
             case 14: // 성 외곽
                 break;

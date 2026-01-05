@@ -37,6 +37,12 @@ public class turnEnd_Script : MonoBehaviour
         if (endButton)
         {
             Order.Order = true;
+            for(int i = 0; i < 5; i++)
+            {
+                if(ObjectSet.deckField.Card_inField != null)
+                    ObjectSet.deckField.deckField_Reset(i);
+            }
+            GameObject.Find("BlackCavas").GetComponent<BlackScreen_Script>().blackScreen.gameObject.SetActive(true);
             gameObject.SetActive(false);
         }
     }
