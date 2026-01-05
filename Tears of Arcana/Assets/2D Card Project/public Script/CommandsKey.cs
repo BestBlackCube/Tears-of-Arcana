@@ -1,10 +1,12 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CommandsKey : MonoBehaviour
 {
     [SerializeField] GameObject TurnButton;
+    [SerializeField] GameObject StatusOption;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +22,16 @@ public class CommandsKey : MonoBehaviour
             {
                 TurnButton.SetActive(true);
             }
+            if(Input.GetKeyDown(KeyCode.R)) // 재시삭 버튼 생성
+            {
+                SceneManager.LoadScene("battleScene");
+            }
+            if(Input.GetKeyDown(KeyCode.Q)) // 재시삭 버튼 생성
+            {
+                if (!StatusOption.activeSelf) StatusOption.SetActive(true);
+                else StatusOption.SetActive(false);
+            }
+            
             if(Input.GetKeyDown(KeyCode.S)) // 현재 스테이지 값 로그값
             {
                 int Count = PlayerPrefs.GetInt("Stage");

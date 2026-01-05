@@ -24,6 +24,13 @@ public enum Card_namedata
     IceBolt
 }
 
+public enum Item_Carddata
+{ 
+    itemOption,
+    battle,
+    item
+}
+
 public class card_Name : MonoBehaviour
 {
     // Start is called before the first frame update

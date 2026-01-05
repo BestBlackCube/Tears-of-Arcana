@@ -12,6 +12,7 @@ public class CardDeckField_Script : MonoBehaviour
 {
     public int DeckField_nowCard = 0;
 
+    [SerializeField] GameObject itemOption_prefab;
 
     public Card_Script Click_Card;
     public GameObject[] Card_inField;
@@ -43,6 +44,9 @@ public class CardDeckField_Script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Click_Card != null) itemOption_prefab.SetActive(false);
+        else itemOption_prefab.SetActive(true);
+
         if (cardHide) // 카드 숨기기
         {
             for (int i = 0; i < Card_inField.Length; i++) // 배열에 든 모든 카드를 화면 밖으로 이동시킨다

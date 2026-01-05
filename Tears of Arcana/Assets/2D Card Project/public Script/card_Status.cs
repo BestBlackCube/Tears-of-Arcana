@@ -87,4 +87,25 @@ public class card_Status
         }
         return status;
     }
+    public card_Status item_Card(Item_Carddata data)
+    {
+        card_Status status = null;
+
+        switch (data)
+        {
+            case Item_Carddata.itemOption:
+                status = new card_Status(Card_name, "장비설정", 0, 0, 0, 0, 0);
+                break;
+            case Item_Carddata.battle:
+                status = new card_Status(Card_name, "전장으로", 0, 0, 0, 0, 0);
+                break;
+            case Item_Carddata.item:
+                status = new card_Status(Card_name, "아이템", 10, 10, 10, 10, 0);
+                break;
+
+            default:
+                break;
+        }
+        return status;
+    }
 }

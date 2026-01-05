@@ -41,7 +41,7 @@ public class EnemyObjectSet_Script : MonoBehaviour
     {
         canvas = GameObject.Find("HPCanvas");
         Hpbar_transform();
-        PlayerPrefs.SetInt("Stage", 1);
+        PlayerPrefs.SetInt("Stage", 100);
         //if (PlayerPrefs.GetInt("Stage") == 1) PlayerPrefs.SetInt("Stage", 1);
     }
 
@@ -120,7 +120,7 @@ public class EnemyObjectSet_Script : MonoBehaviour
         {
             
             case 100:
-                int a = 15;
+                int a = 21;
                 //Field_transform[0] = new Vector3(-5, Monster_Object[a].transform.position.y, 5);
                 //Field_transform[1] = new Vector3(2, Monster_Object[a].transform.position.y, 5);
                 //Field_transform[2] = new Vector3(9, Monster_Object[a].transform.position.y, 5);
