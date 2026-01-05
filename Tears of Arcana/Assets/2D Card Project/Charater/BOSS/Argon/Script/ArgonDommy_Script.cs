@@ -669,6 +669,7 @@ public class ArgonDommy_Script : MonoBehaviour
                 break;
             case "Àý¸ÁÀÇ±Õ¿­":
                 stun_count += deckField.Click_Card.count;
+                Card_Damage = 0;
                 player.nowMp += deckField.Click_Card.mana;
                 break;
             case "ºÒÈ­»ì":

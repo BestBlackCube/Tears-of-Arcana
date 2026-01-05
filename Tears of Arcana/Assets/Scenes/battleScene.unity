@@ -424,7 +424,7 @@ PrefabInstance:
     - target: {fileID: 4042670412017841010, guid: 29a064d3daac6bc4f8870db50aefc1cf, type: 3}
       propertyPath: CardSprite.Array.data[6]
       value: 
-      objectReference: {fileID: 21300000, guid: 187c6aedd0729c440b8d038eab6605b1, type: 3}
+      objectReference: {fileID: 21300000, guid: 73e0f1db3ed430241ac170da99609005, type: 3}
     - target: {fileID: 4042670412017841010, guid: 29a064d3daac6bc4f8870db50aefc1cf, type: 3}
       propertyPath: CardSprite.Array.data[7]
       value: 
@@ -448,15 +448,15 @@ PrefabInstance:
     - target: {fileID: 4042670412017841010, guid: 29a064d3daac6bc4f8870db50aefc1cf, type: 3}
       propertyPath: CardSprite.Array.data[12]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 21300000, guid: d7d80bf365872124185e4bda29c452fb, type: 3}
     - target: {fileID: 4042670412017841010, guid: 29a064d3daac6bc4f8870db50aefc1cf, type: 3}
       propertyPath: CardSprite.Array.data[13]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 21300000, guid: 1a1ba98706fe1a345850b6351e7a8d3f, type: 3}
     - target: {fileID: 4042670412017841010, guid: 29a064d3daac6bc4f8870db50aefc1cf, type: 3}
       propertyPath: CardSprite.Array.data[14]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 21300000, guid: ba22b0cbd859fac43b0785ac583a0eb2, type: 3}
     - target: {fileID: 6164687084119257438, guid: 29a064d3daac6bc4f8870db50aefc1cf, type: 3}
       propertyPath: m_Name
       value: cardDeck
@@ -2164,6 +2164,14 @@ PrefabInstance:
       propertyPath: baseTrasnform.y
       value: -8.25
       objectReference: {fileID: 0}
+    - target: {fileID: 678673240820890722, guid: 12a602f22ebc8c548b15f28ef35a6490, type: 3}
+      propertyPath: baseTrasnform.z
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4580378135600801764, guid: 12a602f22ebc8c548b15f28ef35a6490, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7299400517702832648, guid: 12a602f22ebc8c548b15f28ef35a6490, type: 3}
       propertyPath: m_LocalPosition.x
       value: -19
@@ -2513,7 +2521,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  EnemyHpbar_prefab: {fileID: 206260871083471628, guid: 7cbb647b46d507341b2b38a3169696f7, type: 3}
+  EnemyHpbar_prefab: {fileID: 206260871083471628, guid: 2ddd489768f2aea459b1945e7fb69a59, type: 3}
   EnemyHpbar:
   - {fileID: 0}
   - {fileID: 0}

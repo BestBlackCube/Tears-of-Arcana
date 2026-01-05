@@ -484,6 +484,7 @@ public class SpearCastleGuardian_Script : MonoBehaviour
                 if (stun_count < 1)
                 {
                     stun_count += 1;
+                    Card_Damage = 0;
                     player.nowMp += deckField.Click_Card.mana;
                 }
                 break;

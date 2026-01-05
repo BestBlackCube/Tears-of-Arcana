@@ -45,7 +45,7 @@ public class EnemyObjectSet_Script : MonoBehaviour
     {
         canvas = GameObject.Find("HPCanvas");
         HpbarAndStun_transform();
-        PlayerPrefs.SetInt("Stage", 1);
+        PlayerPrefs.SetInt("Stage", 100);
         //if (PlayerPrefs.GetInt("Stage") == 1) PlayerPrefs.SetInt("Stage", 1);
     }
 
@@ -73,15 +73,16 @@ public class EnemyObjectSet_Script : MonoBehaviour
             if (deckField.DeckField_nowCard == 5)
             {
                 turn = true;
+                Player_Script player = GameObject.Find("Player").GetComponent<Player_Script>();
+                int i = Random.Range(1, 4) * 5;
+                player.nowMp -= i;
+                if (player.nowMp < 0) player.nowMp = 0;
                 boxBlock.SetActive(false);
             }
-            if (turn)
+            if (deckField.DeckField_nowCard == 1 && turn)
             {
-                if (deckField.DeckField_nowCard == 1)
-                {
-                    turnEnd_prefab.SetActive(true);
-                    turn = false;
-                }
+                turnEnd_prefab.SetActive(true);
+                turn = false;
             }
         }
     }

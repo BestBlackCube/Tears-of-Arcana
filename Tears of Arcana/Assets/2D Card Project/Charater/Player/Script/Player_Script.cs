@@ -92,6 +92,11 @@ public class Player_Script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(nowMp >= 100)
+        {
+            nowHp = 0;
+             animator.SetTrigger("PlayerDie");
+        }
         HIT_percent();
         if (animation_Attack) Player_AttackStart();
         if (!Arrow && targetArrow != null) Destroy(targetArrow);

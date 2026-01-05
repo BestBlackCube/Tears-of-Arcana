@@ -634,6 +634,7 @@ public class base_Script : MonoBehaviour
                 break;
             case "절망의균열":
                 stun_count += deckField.Click_Card.count;
+                Card_Damage = 0;
                 player.nowMp += deckField.Click_Card.mana;
                 break;
             case "불화살":

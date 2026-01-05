@@ -80,8 +80,112 @@ public class CardDeck_Script : MonoBehaviour
                 if (Cardinput_timer < 1.2f) Cardinput_timer += Time.deltaTime; // 1.2초 마다 카드가 생성
                 else
                 {
-                    int number = Random.Range(4, 7); // 테스트용 코드
-                    if (deckField.DeckField_nowCard >= 3) number = 11;
+                    //int number = Random.Range(4, 7); // 테스트용 코드
+                    int number = 0;
+                    if(deckField.DeckField_nowCard == 0)
+                    {
+                        int singleMagic = Random.Range(0, 101);
+                        if (singleMagic >= 60) number = 4;
+                        else if (60 > singleMagic)
+                        {
+                            int ElementalMagic = Random.Range(0, 101);
+                            if (ElementalMagic >= 80) number = 5;
+                            else if (80 > ElementalMagic && ElementalMagic >= 60) number = 6;
+                            else if (60 > ElementalMagic && ElementalMagic >= 40) number = 7;
+                            else if (40 > ElementalMagic && ElementalMagic >= 20) number = 8;
+                            else if (20 > ElementalMagic && ElementalMagic >= 0)  number = 9;
+                        }    
+                    }
+                    if(deckField.DeckField_nowCard == 1)
+                    {
+                        int singleMagic = Random.Range(0, 101);
+                        if (singleMagic >= 60) number = 4;
+                        else if (60 > singleMagic && singleMagic >= 10)
+                        {
+                            int ElementalMagic = Random.Range(0, 101);
+                            if (ElementalMagic >= 80) number = 5;
+                            else if (80 > ElementalMagic && ElementalMagic >= 60) number = 6;
+                            else if (60 > ElementalMagic && ElementalMagic >= 40) number = 7;
+                            else if (40 > ElementalMagic && ElementalMagic >= 20) number = 8;
+                            else if (20 > ElementalMagic && ElementalMagic >= 0)  number = 9;
+                        }
+                        else if(10 > singleMagic)
+                        {
+                            int multipleMagic = Random.Range(0, 101);
+                            if (multipleMagic >= 50) number = 10;
+                            else number = 11;
+                        }
+                    }
+                    if(deckField.DeckField_nowCard == 2)
+                    {
+                        int singleMagic = Random.Range(0, 101);
+                        if (singleMagic >= 60) number = 4;
+                        else if (60 > singleMagic && singleMagic >= 10)
+                        {
+                            int ElementalMagic = Random.Range(0, 101);
+                            if (ElementalMagic >= 80) number = 5;
+                            else if (80 > ElementalMagic && ElementalMagic >= 60) number = 6;
+                            else if (60 > ElementalMagic && ElementalMagic >= 40) number = 7;
+                            else if (40 > ElementalMagic && ElementalMagic >= 20) number = 8;
+                            else if (20 > ElementalMagic && ElementalMagic >= 0)  number = 9;
+                        }
+                        else if(10 > singleMagic)
+                        {
+                            int multipleMagic = Random.Range(0, 101);
+                            if (multipleMagic >= 50) number = 10;
+                            else number = 11;
+                        }
+                    }
+                    if(deckField.DeckField_nowCard == 3)
+                    {
+                        int HealthMagic = Random.Range(0, 101);
+                        if (HealthMagic >= 50) number = 1;
+                        else if (50 > HealthMagic && HealthMagic >= 20) number = 2;
+                        else if (20 > HealthMagic) number = 3;
+                    }
+                    if(deckField.DeckField_nowCard == 4)
+                    {
+                        int Magic = Random.Range(0, 101);
+                        if(Magic >= 60)
+                        {
+                            int HealthMagic = Random.Range(0, 101);
+                            if (HealthMagic >= 50) number = 1;
+                            else if (50 > HealthMagic && HealthMagic >= 20) number = 2;
+                            else if (20 > HealthMagic) number = 3;
+                        }
+                        else if(60 > Magic && Magic >= 10)
+                        {
+                            int singleMagic = Random.Range(0, 101);
+                            if (singleMagic >= 60) number = 4;
+                            else if (60 > singleMagic && singleMagic >= 10)
+                            {
+                                int ElementalMagic = Random.Range(0, 101);
+                                if (ElementalMagic >= 80) number = 5;
+                                else if (80 > ElementalMagic && ElementalMagic >= 60) number = 6;
+                                else if (60 > ElementalMagic && ElementalMagic >= 40) number = 7;
+                                else if (40 > ElementalMagic && ElementalMagic >= 20) number = 8;
+                                else if (20 > ElementalMagic && ElementalMagic >= 0) number = 9;
+                            }
+                            else if (10 > singleMagic)
+                            {
+                                int multipleMagic = Random.Range(0, 101);
+                                if (multipleMagic >= 50) number = 10;
+                                else number = 11;
+                            }
+                        }
+                        else if(10 > Magic)
+                        {
+                            int DevilMagic = Random.Range(0, 101);
+                            if (DevilMagic >= 67) number = 13;
+                            else if (67 > DevilMagic && DevilMagic >= 37) number = 14;
+                            else if (37 > DevilMagic) number = 15;
+                        }
+                    }
+                    //if (deckField.DeckField_nowCard == 0) number = 13;
+                    //if (deckField.DeckField_nowCard == 1) number = 14;
+                    //if (deckField.DeckField_nowCard == 2) number = 15;
+                    //if (deckField.DeckField_nowCard == 3) number = 11;
+                    //if (deckField.DeckField_nowCard == 4) number = 11;
                     if (number == 1)
                     {
                         Card_Data = Instantiate(CardData[0], this.transform.position, Quaternion.identity); // 복제한 오브젝트
@@ -104,58 +208,58 @@ public class CardDeck_Script : MonoBehaviour
                     }
                     if (number == 5)
                     {
-                        Card_Data = Instantiate(CardData[4], this.transform.position, Quaternion.identity); // 복제한 오브젝트
-                        Public_Card_inputData("화염장판");
-                    }
-                    if (number == 6)
-                    {
-                        Card_Data = Instantiate(CardData[5], this.transform.position, Quaternion.identity); // 복제한 오브젝트
-                        Public_Card_inputData("얼음안개");
-                    }
-                    if (number == 7)
-                    {
                         Card_Data = Instantiate(CardData[6], this.transform.position, Quaternion.identity); // 복제한 오브젝트
                         Public_Card_inputData("바람의창");
                     }
-                    if (number == 8)
+                    if (number == 6)
                     {
                         Card_Data = Instantiate(CardData[7], this.transform.position, Quaternion.identity); // 복제한 오브젝트
                         Public_Card_inputData("돌무더기");
                     }
-                    if (number == 9)
-                    {
-                        Card_Data = Instantiate(CardData[8], this.transform.position, Quaternion.identity); // 복제한 오브젝트
-                        Public_Card_inputData("생명의잔불");
-                    }
-                    if (number == 10)
-                    {
-                        Card_Data = Instantiate(CardData[9], this.transform.position, Quaternion.identity); // 복제한 오브젝트
-                        Public_Card_inputData("고요한안식");
-                    }
-                    if (number == 11)
-                    {
-                        Card_Data = Instantiate(CardData[10], this.transform.position, Quaternion.identity); // 복제한 오브젝트
-                        Public_Card_inputData("절망의균열");
-                    }
-                    if (number == 12)
-                    {
-                        Card_Data = Instantiate(CardData[11], this.transform.position, Quaternion.identity); // 복제한 오브젝트
-                        Public_Card_inputData("잔혹한계약");
-                    }
-                    if (number == 13)
+                    if (number == 7)
                     {
                         Card_Data = Instantiate(CardData[12], this.transform.position, Quaternion.identity); // 복제한 오브젝트
                         Public_Card_inputData("불화살");
                     }
-                    if (number == 14)
+                    if (number == 8)
                     {
                         Card_Data = Instantiate(CardData[13], this.transform.position, Quaternion.identity); // 복제한 오브젝트
                         Public_Card_inputData("전격");
                     }
-                    if (number == 15)
+                    if (number == 9)
                     {
                         Card_Data = Instantiate(CardData[14], this.transform.position, Quaternion.identity); // 복제한 오브젝트
                         Public_Card_inputData("고드름");
+                    }
+                    if (number == 10)
+                    {
+                        Card_Data = Instantiate(CardData[4], this.transform.position, Quaternion.identity); // 복제한 오브젝트
+                        Public_Card_inputData("화염장판");
+                    }
+                    if (number == 11)
+                    {
+                        Card_Data = Instantiate(CardData[5], this.transform.position, Quaternion.identity); // 복제한 오브젝트
+                        Public_Card_inputData("얼음안개");
+                    }
+                    if (number == 12)
+                    {
+                        Card_Data = Instantiate(CardData[8], this.transform.position, Quaternion.identity); // 복제한 오브젝트
+                        Public_Card_inputData("생명의잔불");
+                    }
+                    if (number == 13)
+                    {
+                        Card_Data = Instantiate(CardData[9], this.transform.position, Quaternion.identity); // 복제한 오브젝트
+                        Public_Card_inputData("고요한안식");
+                    }
+                    if (number == 14)
+                    {
+                        Card_Data = Instantiate(CardData[10], this.transform.position, Quaternion.identity); // 복제한 오브젝트
+                        Public_Card_inputData("절망의균열");
+                    }
+                    if (number == 15)
+                    {
+                        Card_Data = Instantiate(CardData[11], this.transform.position, Quaternion.identity); // 복제한 오브젝트
+                        Public_Card_inputData("잔혹한계약");
                     }
                     deckField.rolling = true;
                     CardCount++; // 뽑을수 있는 카드 인덱스 증가

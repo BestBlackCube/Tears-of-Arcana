@@ -50,10 +50,10 @@ public class card_Status
                 status = new card_Status(Card_name, "일반마법", 10, 0, 0, 5, 0);
                 break;
             case Card_namedata.Fire:
-                status = new card_Status(Card_name, "화염장판", 0, 200, 0, 10, 0);
+                status = new card_Status(Card_name, "화염장판", 0, 20, 0, 10, 0);
                 break;
             case Card_namedata.Water:
-                status = new card_Status(Card_name, "얼음안개", 0, 200, 0, 10, 0);
+                status = new card_Status(Card_name, "얼음안개", 0, 20, 0, 10, 0);
                 break;
             case Card_namedata.Wind:
                 status = new card_Status(Card_name, "바람의창", 20, 0, 0, 5, 0);
@@ -74,13 +74,13 @@ public class card_Status
                 status = new card_Status(Card_name, "잔혹한계약", 0, 0, 0, 30, 3);
                 break;
             case Card_namedata.FireArrow:
-                status = new card_Status(Card_name, "불화살", 0, 10, 0, 5, 0);
+                status = new card_Status(Card_name, "불화살", 10, 0, 0, 5, 0);
                 break;
             case Card_namedata.Lighting:
-                status = new card_Status(Card_name, "전격", 0, 15, 0, 5, 0);
+                status = new card_Status(Card_name, "전격", 15, 0, 0, 5, 0);
                 break;
             case Card_namedata.IceBolt:
-                status = new card_Status(Card_name, "고드름", 0, 10, 0, 5, 0);
+                status = new card_Status(Card_name, "고드름", 10, 0, 0, 5, 0);
                 break;
 
             default:
@@ -101,31 +101,31 @@ public class card_Status
                 status = new card_Status(Card_name, "전장으로", 0, 0, 0, 0, 0);
                 break;
             case Item_Carddata.old_SpellBook:
-                status = new card_Status(Card_name, "오래된책", 30, 10, 10, 10, 0);
+                status = new card_Status(Card_name, "오래된책", 0, 10, 0, 0, 0);
                 break;
             case Item_Carddata.old_Bracelet:
-                status = new card_Status(Card_name, "오래된팔찌", 10, 10, 10, 10, 0);
+                status = new card_Status(Card_name, "오래된팔찌", 0, 0, 0, 5, 5);
                 break;
             case Item_Carddata.old_MagicStone:
-                status = new card_Status(Card_name, "오래된마법석", 20, 10, 10, 10, 0);
+                status = new card_Status(Card_name, "오래된마법석", 10, 0, 0, 0, 0);
                 break;
             case Item_Carddata.Nomal_SpellBook:
-                status = new card_Status(Card_name, "평범한책", 30, 10, 10, 10, 0);
+                status = new card_Status(Card_name, "평범한책", 0, 20, 0, 0, 0);
                 break;
             case Item_Carddata.Nomal_Bracelet:
-                status = new card_Status(Card_name, "평범한팔찌", 10, 10, 10, 10, 0);
+                status = new card_Status(Card_name, "평범한팔찌", 0, 0, 0, 10, 10);
                 break;
             case Item_Carddata.Nomal_MagicStone:
-                status = new card_Status(Card_name, "평범한마법석", 20, 10, 10, 10, 0);
+                status = new card_Status(Card_name, "평범한마법석", 20, 0, 0, 0, 0);
                 break;
                  case Item_Carddata.Epic_SpellBook:
-                status = new card_Status(Card_name, "특출난책", 30, 10, 10, 10, 0);
+                status = new card_Status(Card_name, "특출난책", 0, 30, 0, 0, 0);
                 break;
             case Item_Carddata.Epic_Bracelet:
-                status = new card_Status(Card_name, "특출난팔찌", 10, 10, 10, 10, 0);
+                status = new card_Status(Card_name, "특출난팔찌", 0, 0, 0, 20, 20);
                 break;
             case Item_Carddata.Epic_MagicStone:
-                status = new card_Status(Card_name, "특출난마법석", 20, 10, 10, 10, 0);
+                status = new card_Status(Card_name, "특출난마법석", 30, 0, 0, 0, 0);
                 break;
 
             default:

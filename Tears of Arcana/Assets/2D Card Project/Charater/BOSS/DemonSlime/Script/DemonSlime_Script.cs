@@ -437,8 +437,12 @@ public class DemonSlime_Script : MonoBehaviour
                 player.nowMp += deckField.Click_Card.mana;
                 break;
             case "절망의균열":
-                stun_count += deckField.Click_Card.count;
-                player.nowMp += deckField.Click_Card.mana;
+                if(stun_count < 1)
+                {
+                    stun_count += deckField.Click_Card.count;
+                    Card_Damage = 0;
+                    player.nowMp += deckField.Click_Card.mana;
+                }                
                 break;
             case "불화살":
                 Card_Damage = deckField.Click_Card.single_damage;

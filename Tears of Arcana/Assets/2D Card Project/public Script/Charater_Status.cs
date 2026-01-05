@@ -34,7 +34,7 @@ public class Charater_Status
         switch(name)
         {
             case Charater_namedata.Player:
-                status = new Charater_Status(Charater_name, "플레이어", 10000, 100, 0, 0);
+                status = new Charater_Status(Charater_name, "플레이어", 100, 100, 0, 0);
                 break;
             case Charater_namedata.Skeleton:
                 status = new Charater_Status(Charater_name, "스켈레톤", 70, 0, 0, 10);
