@@ -1,0 +1,884 @@
+fileFormatVersion: 2
+guid: cdbcadc4844ddf641b4bdae65bbf3855
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 25
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SPEARCastleGuardian_attack_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2925
+        width: 730
+        height: 585
+      alignment: 9
+      pivot: {x: 0.4, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91ed9ad5bd704444abffbf1565ae73f4
+      internalID: -1020707494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARCastleGuardian_attack_1
+      rect:
+        serializedVersion: 2
+        x: 730
+        y: 2925
+        width: 730
+        height: 585
+      alignment: 9
+      pivot: {x: 0.4, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 384fbc23a89c4c045a1b007ef8fc2849
+      internalID: 1492366195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARCastleGuardian_attack_2
+      rect:
+        serializedVersion: 2
+        x: 1460
+        y: 2925
+        width: 730
+        height: 585
+      alignment: 9
+      pivot: {x: 0.4, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c060e1f50a2f0d429eaf3ba2dd7b58f
+      internalID: -708764367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARCastleGuardian_attack_3
+      rect:
+        serializedVersion: 2
+        x: 2190
+        y: 2925
+        width: 730
+        height: 585
+      alignment: 9
+      pivot: {x: 0.4, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ceb3e9d333819004aaada6c7cd541aca
+      internalID: -1050362679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARCastleGuardian_attack_4
+      rect:
+        serializedVersion: 2
+        x: 2920
+        y: 2925
+        width: 730
+        height: 585
+      alignment: 9
+      pivot: {x: 0.4, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fde0c71f492936441be6bc05c25705cc
+      internalID: 1157433742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARCastleGuardian_attack_5
+      rect:
+        serializedVersion: 2
+        x: 3650
+        y: 2925
+        width: 730
+        height: 585
+      alignment: 9
+      pivot: {x: 0.4, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6632e6100b40101488b6ff028c6feb55
+      internalID: 1292150782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARCastleGuardian_attack_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2340
+        width: 730
+        height: 585
+      alignment: 9
+      pivot: {x: 0.4, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d10bf333fa26434b8630f44c750f330
+      internalID: 1133691909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARCastleGuardian_attack_7
+      rect:
+        serializedVersion: 2
+        x: 730
+        y: 2340
+        width: 730
+        height: 585
+      alignment: 9
+      pivot: {x: 0.4, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db172831e3036984a994df34a77e91e4
+      internalID: 884070551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARCastleGuardian_attack_8
+      rect:
+        serializedVersion: 2
+        x: 1460
+        y: 2340
+        width: 730
+        height: 585
+      alignment: 9
+      pivot: {x: 0.4, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c627a9b2bcb19794bb60bb60c25f53b4
+      internalID: -2003920484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARCastleGuardian_attack_9
+      rect:
+        serializedVersion: 2
+        x: 2190
+        y: 2340
+        width: 730
+        height: 585
+      alignment: 9
+      pivot: {x: 0.4, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a3f0804b16811146b271771e6d3fe01
+      internalID: 619727536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARCastleGuardian_attack_10
+      rect:
+        serializedVersion: 2
+        x: 2920
+        y: 2340
+        width: 730
+        height: 585
+      alignment: 9
+      pivot: {x: 0.4, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 879be3df2dc366d4a882fe0d0eedcff4
+      internalID: 1042145480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARCastleGuardian_attack_11
+      rect:
+        serializedVersion: 2
+        x: 3650
+        y: 2340
+        width: 730
+        height: 585
+      alignment: 9
+      pivot: {x: 0.4, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f53358a7558986b4ab09c4dd5b82f376
+      internalID: -1759245871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARCastleGuardian_attack_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1755
+        width: 730
+        height: 585
+      alignment: 9
+      pivot: {x: 0.4, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 131e2196562b35f46a3b6b90cf8aa4b6
+      internalID: -834184070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARCastleGuardian_attack_13
+      rect:
+        serializedVersion: 2
+        x: 730
+        y: 1755
+        width: 730
+        height: 585
+      alignment: 9
+      pivot: {x: 0.4, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f250e2ee2c3277418066dc11a6bc6c6
+      internalID: -589672865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARCastleGuardian_attack_14
+      rect:
+        serializedVersion: 2
+        x: 1460
+        y: 1755
+        width: 730
+        height: 585
+      alignment: 9
+      pivot: {x: 0.4, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a384b138648c63640abe86678874b018
+      internalID: -186318788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARCastleGuardian_attack_15
+      rect:
+        serializedVersion: 2
+        x: 2190
+        y: 1755
+        width: 730
+        height: 585
+      alignment: 9
+      pivot: {x: 0.4, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9108ad81c50e0f4baa32b026bdea2ff
+      internalID: 428298316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARCastleGuardian_attack_16
+      rect:
+        serializedVersion: 2
+        x: 2920
+        y: 1755
+        width: 730
+        height: 585
+      alignment: 9
+      pivot: {x: 0.4, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79604cc2339ea8b4eb7f2f9bd2125cd1
+      internalID: 1391370723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARCastleGuardian_attack_17
+      rect:
+        serializedVersion: 2
+        x: 3650
+        y: 1755
+        width: 730
+        height: 585
+      alignment: 9
+      pivot: {x: 0.4, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92ce394a02e38264eb8332b2e36efce5
+      internalID: 323543677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARCastleGuardian_attack_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1170
+        width: 730
+        height: 585
+      alignment: 9
+      pivot: {x: 0.4, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88797d20c9ba493458d993c9abaf31aa
+      internalID: 1403537623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARCastleGuardian_attack_19
+      rect:
+        serializedVersion: 2
+        x: 730
+        y: 1170
+        width: 730
+        height: 585
+      alignment: 9
+      pivot: {x: 0.4, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9aff4528aaa73c7458996c1701b1ef95
+      internalID: 1057383214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARCastleGuardian_attack_20
+      rect:
+        serializedVersion: 2
+        x: 1460
+        y: 1170
+        width: 730
+        height: 585
+      alignment: 9
+      pivot: {x: 0.4, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59f4a3cef3168c946b59b9392b93fa0e
+      internalID: 1370225618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARCastleGuardian_attack_21
+      rect:
+        serializedVersion: 2
+        x: 2190
+        y: 1170
+        width: 730
+        height: 585
+      alignment: 9
+      pivot: {x: 0.4, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5452f22c4ce249849a201aa584315b34
+      internalID: -385793984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARCastleGuardian_attack_22
+      rect:
+        serializedVersion: 2
+        x: 2920
+        y: 1170
+        width: 730
+        height: 585
+      alignment: 9
+      pivot: {x: 0.4, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 608d599e4d03fbc44b4c8b9aded488a6
+      internalID: 1137495235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARCastleGuardian_attack_23
+      rect:
+        serializedVersion: 2
+        x: 3650
+        y: 1170
+        width: 730
+        height: 585
+      alignment: 9
+      pivot: {x: 0.4, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58db26731752b38499d5fd5ff50386b5
+      internalID: 40582666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARCastleGuardian_attack_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 585
+        width: 730
+        height: 585
+      alignment: 9
+      pivot: {x: 0.4, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ae7e133863b9d94baf23c32ef22b0f6
+      internalID: 2133151065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARCastleGuardian_attack_25
+      rect:
+        serializedVersion: 2
+        x: 730
+        y: 585
+        width: 730
+        height: 585
+      alignment: 9
+      pivot: {x: 0.4, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8f42df7873e6c34897ed0a64a64220a
+      internalID: -103274312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARCastleGuardian_attack_26
+      rect:
+        serializedVersion: 2
+        x: 1460
+        y: 585
+        width: 730
+        height: 585
+      alignment: 9
+      pivot: {x: 0.4, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4f83ede88e5f464b94aed042eab07c7
+      internalID: -407571486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARCastleGuardian_attack_27
+      rect:
+        serializedVersion: 2
+        x: 2190
+        y: 585
+        width: 730
+        height: 585
+      alignment: 9
+      pivot: {x: 0.4, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fea8e0850a12b241a6588ef2ddbcc80
+      internalID: 936267662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARCastleGuardian_attack_28
+      rect:
+        serializedVersion: 2
+        x: 2920
+        y: 585
+        width: 730
+        height: 585
+      alignment: 9
+      pivot: {x: 0.4, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2ed87bcd8c639c408e94de258c6f828
+      internalID: 1751392988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARCastleGuardian_attack_29
+      rect:
+        serializedVersion: 2
+        x: 3650
+        y: 585
+        width: 730
+        height: 585
+      alignment: 9
+      pivot: {x: 0.4, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0b7cbff024683145b390f13022384d7
+      internalID: -1483169309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARCastleGuardian_attack_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 730
+        height: 585
+      alignment: 9
+      pivot: {x: 0.4, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f7235d82c77c61458bfd221f9cce56b
+      internalID: 1269268720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARCastleGuardian_attack_31
+      rect:
+        serializedVersion: 2
+        x: 730
+        y: 0
+        width: 730
+        height: 585
+      alignment: 9
+      pivot: {x: 0.4, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 904a3789635f95d4b8ecbb12d24fe111
+      internalID: -398963247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARCastleGuardian_attack_32
+      rect:
+        serializedVersion: 2
+        x: 1460
+        y: 0
+        width: 730
+        height: 585
+      alignment: 9
+      pivot: {x: 0.4, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0303177fa0934b4d8e93eca01c4d8b3
+      internalID: 1132110893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARCastleGuardian_attack_33
+      rect:
+        serializedVersion: 2
+        x: 2190
+        y: 0
+        width: 730
+        height: 585
+      alignment: 9
+      pivot: {x: 0.4, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dd0954e3b980d840a2bf7d14c95a18b
+      internalID: -332036420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPEARCastleGuardian_attack_34
+      rect:
+        serializedVersion: 2
+        x: 2920
+        y: 0
+        width: 730
+        height: 585
+      alignment: 9
+      pivot: {x: 0.4, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 820108038850e1749ba70f6862a9480c
+      internalID: 444539203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      SPEARCastleGuardian_attack_0: -1020707494
+      SPEARCastleGuardian_attack_1: 1492366195
+      SPEARCastleGuardian_attack_10: 1042145480
+      SPEARCastleGuardian_attack_11: -1759245871
+      SPEARCastleGuardian_attack_12: -834184070
+      SPEARCastleGuardian_attack_13: -589672865
+      SPEARCastleGuardian_attack_14: -186318788
+      SPEARCastleGuardian_attack_15: 428298316
+      SPEARCastleGuardian_attack_16: 1391370723
+      SPEARCastleGuardian_attack_17: 323543677
+      SPEARCastleGuardian_attack_18: 1403537623
+      SPEARCastleGuardian_attack_19: 1057383214
+      SPEARCastleGuardian_attack_2: -708764367
+      SPEARCastleGuardian_attack_20: 1370225618
+      SPEARCastleGuardian_attack_21: -385793984
+      SPEARCastleGuardian_attack_22: 1137495235
+      SPEARCastleGuardian_attack_23: 40582666
+      SPEARCastleGuardian_attack_24: 2133151065
+      SPEARCastleGuardian_attack_25: -103274312
+      SPEARCastleGuardian_attack_26: -407571486
+      SPEARCastleGuardian_attack_27: 936267662
+      SPEARCastleGuardian_attack_28: 1751392988
+      SPEARCastleGuardian_attack_29: -1483169309
+      SPEARCastleGuardian_attack_3: -1050362679
+      SPEARCastleGuardian_attack_30: 1269268720
+      SPEARCastleGuardian_attack_31: -398963247
+      SPEARCastleGuardian_attack_32: 1132110893
+      SPEARCastleGuardian_attack_33: -332036420
+      SPEARCastleGuardian_attack_34: 444539203
+      SPEARCastleGuardian_attack_4: 1157433742
+      SPEARCastleGuardian_attack_5: 1292150782
+      SPEARCastleGuardian_attack_6: 1133691909
+      SPEARCastleGuardian_attack_7: 884070551
+      SPEARCastleGuardian_attack_8: -2003920484
+      SPEARCastleGuardian_attack_9: 619727536
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

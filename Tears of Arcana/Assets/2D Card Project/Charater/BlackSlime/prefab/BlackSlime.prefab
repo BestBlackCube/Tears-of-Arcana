@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1535074629016725163}
   - component: {fileID: 2634686832247433204}
   - component: {fileID: 3019968697436130484}
+  - component: {fileID: 4595716545981068064}
   m_Layer: 0
   m_Name: BlackSlime
   m_TagString: Untagged
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 6419234611337577061}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 2, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -122,8 +123,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Guide: 0
   Arrow: 0
-  HpBar_prefab: {fileID: 1836967969422863673, guid: 83d25bab892d0bd4696ebe7cce2d7e5b, type: 3}
-  canvas: {fileID: 0}
   unitname: 5
   Card_Damage: 0
   nowHp: 0
@@ -184,3 +183,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 6, y: 4.5}
   m_EdgeRadius: 0
+--- !u!114 &4595716545981068064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6419234611337577061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e865de8a7aa18c4886d6b16a0f3b91c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attack_Object: {fileID: 0}

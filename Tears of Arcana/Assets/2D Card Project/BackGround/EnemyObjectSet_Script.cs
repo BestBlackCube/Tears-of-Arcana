@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor.SceneManagement;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyObjectSet_Script : MonoBehaviour
 {
@@ -17,6 +18,11 @@ public class EnemyObjectSet_Script : MonoBehaviour
     public GameObject[] TargetArrow;
     public GameObject TargetGuide_prefab;
     public GameObject[] TargetGuide;
+    public GameObject EnemyHpbar_prefab;
+    public RectTransform[] EnemyHpbar;
+    public GameObject EnemyBossHpbar_prefab;
+    public RectTransform EnemyBossHpbar;
+    GameObject canvas;
 
 
     public string[] Enemy_Name;
@@ -31,8 +37,10 @@ public class EnemyObjectSet_Script : MonoBehaviour
 
     public Vector3[] Field_transform;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
+        canvas = GameObject.Find("HPCanvas");
+        Hpbar_transform();
         PlayerPrefs.SetInt("Stage", 1);
         //if (PlayerPrefs.GetInt("Stage") == 1) PlayerPrefs.SetInt("Stage", 1);
     }
@@ -78,6 +86,8 @@ public class EnemyObjectSet_Script : MonoBehaviour
             case 3:
             case 4:
             case 5:
+            case 6:
+            case 7:
                 deckField.DeckField_nowCard++;
                 deckField.rolling = true;
                 card = Instantiate(StageCard[0], deck.transform.position, Quaternion.identity);
@@ -108,29 +118,57 @@ public class EnemyObjectSet_Script : MonoBehaviour
     {
         switch(Stage)
         {
-            case 1:
+            
+            case 100:
+                int a = 15;
+                //Field_transform[0] = new Vector3(-5, Monster_Object[a].transform.position.y, 5);
+                //Field_transform[1] = new Vector3(2, Monster_Object[a].transform.position.y, 5);
+                //Field_transform[2] = new Vector3(9, Monster_Object[a].transform.position.y, 5);
+                //Field_transform[3] = new Vector3(16, Monster_Object[a].transform.position.y, 5);
 
-                //Field_transform[0] = new Vector3(-5, Monster_Object[0].transform.position.y, 5);
-                //Field_transform[1] = new Vector3(2, Monster_Object[1].transform.position.y, 5);
-                //Field_transform[2] = new Vector3(9, Monster_Object[2].transform.position.y, 5);
-                //Field_transform[3] = new Vector3(16, Monster_Object[3].transform.position.y, 5);
+                //Field_inMonster[0] = Instantiate(Monster_Object[a], Field_transform[0], Quaternion.identity);
+                //Field_inMonster[1] = Instantiate(Monster_Object[a], Field_transform[1], Quaternion.identity);
+                //Field_inMonster[2] = Instantiate(Monster_Object[a], Field_transform[2], Quaternion.identity);
+                //Field_inMonster[3] = Instantiate(Monster_Object[a], Field_transform[3], Quaternion.identity);
 
-                //Field_inMonster[0] = Instantiate(Monster_Object[0], Field_transform[0], Quaternion.identity);
-                //Field_inMonster[1] = Instantiate(Monster_Object[1], Field_transform[1], Quaternion.identity);
-                //Field_inMonster[2] = Instantiate(Monster_Object[2], Field_transform[2], Quaternion.identity);
-                //Field_inMonster[3] = Instantiate(Monster_Object[3], Field_transform[3], Quaternion.identity);
-
-                //Enemy_Name[0] = "Skeleton";
-                //Enemy_Name[1] = "Eye";
-                //Enemy_Name[2] = "Goblin";
-                //Enemy_Name[3] = "Mushroom";
+                //Enemy_Name[0] = "GhostWarrior04";
+                //Enemy_Name[1] = "GhostWarrior04";
+                //Enemy_Name[2] = "GhostWarrior04";
+                //Enemy_Name[3] = "GhostWarrior04";
 
                 //MonsterCount = 4;
+                //MonsterDeadCount = 0;
+                //nullAndinput = true;
 
-                Field_transform[3] = new Vector3(16, Monster_Object[16].transform.position.y, 5);
-                Field_inMonster[3] = Instantiate(Monster_Object[16], Field_transform[3], Quaternion.identity);
-                Enemy_Name[3] = "Argon";
+                Field_transform[2] = new Vector3(9, Monster_Object[a].transform.position.y, 5);
+                Field_inMonster[2] = Instantiate(Monster_Object[a], Field_transform[2], Quaternion.identity);
+                Enemy_Name[2] = "AxeCastleGuardian";
+
                 MonsterCount = 1;
+                MonsterDeadCount = 0;
+                nullAndinput = true;
+                break;
+
+            case 1:
+
+                Field_transform[0] = new Vector3(-5, Monster_Object[0].transform.position.y, 5);
+                Field_transform[1] = new Vector3(2, Monster_Object[1].transform.position.y, 5);
+                Field_transform[2] = new Vector3(9, Monster_Object[2].transform.position.y, 5);
+                Field_transform[3] = new Vector3(16, Monster_Object[3].transform.position.y, 5);
+
+                Field_inMonster[0] = Instantiate(Monster_Object[0], Field_transform[0], Quaternion.identity);
+                Field_inMonster[1] = Instantiate(Monster_Object[1], Field_transform[1], Quaternion.identity);
+                Field_inMonster[2] = Instantiate(Monster_Object[2], Field_transform[2], Quaternion.identity);
+                Field_inMonster[3] = Instantiate(Monster_Object[3], Field_transform[3], Quaternion.identity);
+
+                Enemy_Name[0] = "Skeleton";
+                Enemy_Name[1] = "Eye";
+                Enemy_Name[2] = "Goblin";
+                Enemy_Name[3] = "Mushroom";
+
+                MonsterCount = 4;
+                MonsterDeadCount = 0;
+                nullAndinput = true;
                 break;
             case 2:
 
@@ -197,29 +235,69 @@ public class EnemyObjectSet_Script : MonoBehaviour
                 break;
             case 5:
 
-                Field_transform[0] = new Vector3(-5, Monster_Object[14].transform.position.y, 5);
-                Field_transform[1] = new Vector3(2, Monster_Object[16].transform.position.y, 5);
-                Field_transform[2] = new Vector3(9, Monster_Object[15].transform.position.y, 5);
-                //Field_transform[3] = new Vector3(16, Monster_Object[3].transform.position.y, 5);
-
-                Field_inMonster[0] = Instantiate(Monster_Object[14], Field_transform[0], Quaternion.identity);
-                Field_inMonster[1] = Instantiate(Monster_Object[16], Field_transform[1], Quaternion.identity);
-                Field_inMonster[2] = Instantiate(Monster_Object[15], Field_transform[2], Quaternion.identity);
-                //Field_inMonster[3] = Instantiate(Monster_Object[3], Field_transform[3], Quaternion.identity);
-
-                Enemy_Name[0] = "Titan";
-                Enemy_Name[1] = "Argon";
-                Enemy_Name[2] = "DemonSlime";
-                //Enemy_Name[3] = "Mushroom";
-
-                MonsterCount = 3;
+                Field_transform[2] = new Vector3(9, Monster_Object[14].transform.position.y, 5);
+                Field_inMonster[2] = Instantiate(Monster_Object[14], Field_transform[2], Quaternion.identity);
+                Enemy_Name[2] = "Titan";
+                
+                MonsterCount = 1;
                 MonsterDeadCount = 0;
                 nullAndinput = true;
                 break;
+            case 6:
+                Field_transform[2] = new Vector3(9, Monster_Object[15].transform.position.y, 5);
+                Field_inMonster[2] = Instantiate(Monster_Object[15], Field_transform[2], Quaternion.identity);
+                Enemy_Name[2] = "DemonSlime";
+
+                MonsterCount = 1;
+                MonsterDeadCount = 0;
+                nullAndinput = true;
+                break;
+            case 7:
+                Field_transform[2] = new Vector3(9, Monster_Object[16].transform.position.y, 5);
+                Field_inMonster[2] = Instantiate(Monster_Object[16], Field_transform[2], Quaternion.identity);
+                Enemy_Name[2] = "Argon";
+
+                MonsterCount = 1;
+                MonsterDeadCount = 0;
+                nullAndinput = true;
+                break;
+            case 8:
+                Field_transform[2] = new Vector3(9, Monster_Object[17].transform.position.y, 5);
+                Field_inMonster[2] = Instantiate(Monster_Object[17], Field_transform[2], Quaternion.identity);
+                Enemy_Name[2] = "AxeCastleGuardian";
+
+                MonsterCount = 1;
+                MonsterDeadCount = 0;
+                nullAndinput = true;
+                break;
+            case 9:
+                Field_transform[2] = new Vector3(9, Monster_Object[18].transform.position.y, 5);
+                Field_inMonster[2] = Instantiate(Monster_Object[18], Field_transform[2], Quaternion.identity);
+                Enemy_Name[2] = "SpearCastleGuardian";
+
+                MonsterCount = 1;
+                MonsterDeadCount = 0;
+                nullAndinput = true;
+                break;
+
             default:
                 break;
         }
         NextStage = false;
+    }
+    void Hpbar_transform()
+    {
+        for(int i = 0; i < 4; i++) if (EnemyHpbar[i] == null)
+            {
+                EnemyHpbar[i] = Instantiate(EnemyHpbar_prefab, canvas.transform).GetComponent<RectTransform>();
+                EnemyHpbar[i].gameObject.SetActive(false);
+            }
+
+        if (EnemyBossHpbar == null)
+        {
+            EnemyBossHpbar = Instantiate(EnemyBossHpbar_prefab, canvas.transform).GetComponent<RectTransform>();
+            EnemyBossHpbar.gameObject.SetActive(false);
+        }
     }
     public void NextStageInput()
     {

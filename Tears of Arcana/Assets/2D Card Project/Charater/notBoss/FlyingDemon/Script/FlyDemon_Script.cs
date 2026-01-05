@@ -8,8 +8,7 @@ public class FlyDemon_Script : MonoBehaviour
     public bool Guide = false;
     public bool Arrow = false;
 
-    public GameObject HpBar_prefab;
-    public GameObject canvas;
+    GameObject Attack_Object;
 
     public Charater_namedata unitname;
     public Charater_Status status;
@@ -54,7 +53,7 @@ public class FlyDemon_Script : MonoBehaviour
         nowHp = status.NowHp;
         maxHp = status.MaxHp;
         Dmg = status.Damage;
-        canvas = GameObject.Find("HPCanvas");
+        Attack_Object = GameObject.Find("Public_AttackObject");
 
         ObjectSet = FindObjectOfType<EnemyObjectSet_Script>();
         attack_order = FindObjectOfType<ObjectSet_Script>();
@@ -73,8 +72,8 @@ public class FlyDemon_Script : MonoBehaviour
     void Update()
     {
         Attack_Order();
-        if (EnemyAttack) Attack();  // °ø°İ
-        if (HIT_Enemy) Hit_Enemy();    // ¸Â±â
+        if (EnemyAttack) Attack();  // ê³µê²©
+        if (HIT_Enemy) Hit_Enemy();    // ë§ê¸°
         if (targetCard && !Arrow || !targetCard && !Arrow) targetArrow_inField(2);
         if (targetCard && Arrow) targetArrow_inField(1);
     }
@@ -116,7 +115,7 @@ public class FlyDemon_Script : MonoBehaviour
                 HIT_Enemy = true;
             }
     }
-    void Attack() // °ø°İ ¾Ö´Ï¸ŞÀÌ¼Ç ÄÚµå
+    void Attack() // ê³µê²© ì• ë‹ˆë©”ì´ì…˜ ì½”ë“œ
     {
         if (animator.GetBool("Idle"))
         {
@@ -125,7 +124,7 @@ public class FlyDemon_Script : MonoBehaviour
         }
         if (animator.GetBool("Move"))
         {
-            if (transform.position.x > -10)
+            if (transform.position.x > -8)
             {
                 transform.position = new Vector3(transform.position.x - 15f * Time.deltaTime, transform.position.y, 0);
             }
@@ -133,12 +132,12 @@ public class FlyDemon_Script : MonoBehaviour
             {
                 animator.SetBool("Move", false);
                 animator.SetBool("Attack", true);
-                player.EnemyAttack_Player = true; // !+ ÇÃ·¹ÀÌ¾î ÇÇ°İ ¾Ö´Ï¸ŞÀÌ¼Ç È°¼ºÈ­
+                player.EnemyAttack_Player = true; // !+ í”Œë ˆì´ì–´ í”¼ê²© ì• ë‹ˆë©”ì´ì…˜ í™œì„±í™”
             }
         }
         if (animator.GetBool("Attack"))
         {
-            if (Attack_timer < 1f)
+            if (Attack_timer < 0.9f)
             {
                 Attack_timer += Time.deltaTime;
             }
@@ -146,9 +145,9 @@ public class FlyDemon_Script : MonoBehaviour
             {
                 animator.SetBool("Attack", false);
                 animator.SetBool("BackMove", true);
-                player.EnemyAttack_Player = false; // !+ ÇÃ·¹ÀÌ¾î ÇÇ°İ ¾Ö´Ï¸ŞÀÌ¼Ç ºñÈ°¼ºÈ­
+                player.EnemyAttack_Player = false; // !+ í”Œë ˆì´ì–´ í”¼ê²© ì• ë‹ˆë©”ì´ì…˜ ë¹„í™œì„±í™”
                 player.HitDamage = Dmg;
-                player.PlayerDamage = true;        // ÇÃ·¹ÀÌ¾îHP ÁÙÀÌ±â
+                player.PlayerDamage = true;        // í”Œë ˆì´ì–´HP ì¤„ì´ê¸°
                 Attack_timer = 0f;
             }
         }
@@ -169,7 +168,7 @@ public class FlyDemon_Script : MonoBehaviour
             }
         }
     }
-    void Hit_Enemy() // ÇÃ·¹ÀÌ¾î¿¡°Ô °ø°İ ¹Ş¾ÒÀ»¶§ ½ÇÇà µÇ´Â ¾Ö´Ï¸ŞÀÌ¼Ç
+    void Hit_Enemy() // í”Œë ˆì´ì–´ì—ê²Œ ê³µê²© ë°›ì•˜ì„ë•Œ ì‹¤í–‰ ë˜ëŠ” ì• ë‹ˆë©”ì´ì…˜
     {
         nowHpbar.fillAmount = (float)nowHp / (float)maxHp;
         if (player.PlayerAttack_Enemy)
@@ -193,13 +192,13 @@ public class FlyDemon_Script : MonoBehaviour
         if (nowHp <= 0f)
         {
             animator.SetTrigger("Die");
-            if (Dead_timer < 0.4f) Dead_timer += Time.deltaTime;
+            if (Dead_timer < 0.6f) Dead_timer += Time.deltaTime;
             else
             {
+                hpbar.gameObject.SetActive(false);
                 ObjectSet.MonsterDeadCount++;
                 Enemy_NameLess();
                 Destroy(gameObject);
-                Destroy(hpbar.gameObject);
             }
         }
     }
@@ -209,41 +208,61 @@ public class FlyDemon_Script : MonoBehaviour
         {
             if (this.gameObject == ObjectSet.Field_inMonster[0] && ObjectSet.Enemy_Name[0] == "FlyDemon")
             {
-                if (hpbar == null)
+                if (ObjectSet.EnemyHpbar[0] != null)
                 {
-                    hpbar = Instantiate(HpBar_prefab, canvas.transform).GetComponent<RectTransform>();
-                    Vector3 HpBarPos = new Vector3(transform.position.x, transform.position.y - 3.5f, 0);
-                    hpbar.position = HpBarPos;
+                    if (!ObjectSet.EnemyHpbar[0].gameObject.activeSelf)
+                    {
+                        ObjectSet.EnemyHpbar[0].gameObject.SetActive(true);
+                        ObjectSet.EnemyHpbar[0].Find("Hp_bar").GetComponent<Image>().fillAmount = 1f;
+                    }
+                    Vector3 HpBarPos = new Vector3(transform.position.x - 5f, transform.position.y - 3.5f, 0);
+                    ObjectSet.EnemyHpbar[0].position = HpBarPos;
+                    hpbar = ObjectSet.EnemyHpbar[0];
                     animation_position = ObjectSet.Field_transform[0];
                 }
             }
             if (this.gameObject == ObjectSet.Field_inMonster[1] && ObjectSet.Enemy_Name[1] == "FlyDemon")
             {
-                if (hpbar == null)
+                if (ObjectSet.EnemyHpbar[1] != null)
                 {
-                    hpbar = Instantiate(HpBar_prefab, canvas.transform).GetComponent<RectTransform>();
-                    Vector3 HpBarPos = new Vector3(transform.position.x, transform.position.y - 5f, 0);
-                    hpbar.position = HpBarPos;
+                    if (!ObjectSet.EnemyHpbar[1].gameObject.activeSelf)
+                    {
+                        ObjectSet.EnemyHpbar[1].gameObject.SetActive(true);
+                        ObjectSet.EnemyHpbar[1].Find("Hp_bar").GetComponent<Image>().fillAmount = 1f;
+                    }
+                    Vector3 HpBarPos = new Vector3(transform.position.x - 5f, transform.position.y - 5f, 0);
+                    ObjectSet.EnemyHpbar[1].position = HpBarPos;
+                    hpbar = ObjectSet.EnemyHpbar[1];
                     animation_position = ObjectSet.Field_transform[1];
                 }
             }
             if (this.gameObject == ObjectSet.Field_inMonster[2] && ObjectSet.Enemy_Name[2] == "FlyDemon")
             {
-                if (hpbar == null)
+                if (ObjectSet.EnemyHpbar[2] != null)
                 {
-                    hpbar = Instantiate(HpBar_prefab, canvas.transform).GetComponent<RectTransform>();
-                    Vector3 HpBarPos = new Vector3(transform.position.x, transform.position.y - 3.5f, 0);
-                    hpbar.position = HpBarPos;
+                    if (!ObjectSet.EnemyHpbar[2].gameObject.activeSelf)
+                    {
+                        ObjectSet.EnemyHpbar[2].gameObject.SetActive(true);
+                        ObjectSet.EnemyHpbar[2].Find("Hp_bar").GetComponent<Image>().fillAmount = 1f;
+                    }
+                    Vector3 HpBarPos = new Vector3(transform.position.x - 5f, transform.position.y - 3.5f, 0);
+                    ObjectSet.EnemyHpbar[2].position = HpBarPos;
+                    hpbar = ObjectSet.EnemyHpbar[2];
                     animation_position = ObjectSet.Field_transform[2];
                 }
             }
             if (this.gameObject == ObjectSet.Field_inMonster[3] && ObjectSet.Enemy_Name[3] == "FlyDemon")
             {
-                if (hpbar == null)
+                if (ObjectSet.EnemyHpbar[3] != null)
                 {
-                    hpbar = Instantiate(HpBar_prefab, canvas.transform).GetComponent<RectTransform>();
-                    Vector3 HpBarPos = new Vector3(transform.position.x, transform.position.y - 5f, 0);
-                    hpbar.position = HpBarPos;
+                    if (!ObjectSet.EnemyHpbar[3].gameObject.activeSelf)
+                    {
+                        ObjectSet.EnemyHpbar[3].gameObject.SetActive(true);
+                        ObjectSet.EnemyHpbar[3].Find("Hp_bar").GetComponent<Image>().fillAmount = 1f;
+                    }
+                    Vector3 HpBarPos = new Vector3(transform.position.x - 5f, transform.position.y - 5f, 0);
+                    ObjectSet.EnemyHpbar[3].position = HpBarPos;
+                    hpbar = ObjectSet.EnemyHpbar[3];
                     animation_position = ObjectSet.Field_transform[3];
                 }
             }
@@ -260,21 +279,21 @@ public class FlyDemon_Script : MonoBehaviour
                 deckField.Click_Card.Card_upNumber = 0;
                 switch (deckField.Click_Card.Card_name)
                 {
-                    case "ÀÏ¹İ¸¶¹ı":
-                    case "¹Ù¶÷ÀÇÃ¢":
-                    case "µ¹¹«´õ±â":
-                    case "Àı¸ÁÀÇ±Õ¿­":
-                    case "ºÒÈ­»ì":
-                    case "Àü°İ":
-                    case "°íµå¸§":
+                    case "ì¼ë°˜ë§ˆë²•":
+                    case "ë°”ëŒì˜ì°½":
+                    case "ëŒë¬´ë”ê¸°":
+                    case "ì ˆë§ì˜ê· ì—´":
+                    case "ë¶ˆí™”ì‚´":
+                    case "ì „ê²©":
+                    case "ê³ ë“œë¦„":
                         guide.offset[0] = new Vector3(-2f, 2f, 0);
                         guide.offset[1] = new Vector3(2f, 2f, 0);
                         guide.offset[2] = new Vector3(-2f, -2f, 0);
                         guide.offset[3] = new Vector3(2f, -2f, 0);
                         break;
 
-                    case "È­¿°ÀåÆÇ":
-                    case "¾óÀ½¾È°³":
+                    case "í™”ì—¼ì¥íŒ":
+                    case "ì–¼ìŒì•ˆê°œ":
                         guide.offset[0] = new Vector3(-1.5f, 3f, 0);
                         guide.offset[1] = new Vector3(23f, 3f, 0);
                         guide.offset[2] = new Vector3(-1.5f, -3f, 0);
@@ -294,21 +313,21 @@ public class FlyDemon_Script : MonoBehaviour
                 deckField.Click_Card.Card_upNumber = 1;
                 switch (deckField.Click_Card.Card_name)
                 {
-                    case "ÀÏ¹İ¸¶¹ı":
-                    case "¹Ù¶÷ÀÇÃ¢":
-                    case "µ¹¹«´õ±â":
-                    case "Àı¸ÁÀÇ±Õ¿­":
-                    case "ºÒÈ­»ì":
-                    case "Àü°İ":
-                    case "°íµå¸§":
+                    case "ì¼ë°˜ë§ˆë²•":
+                    case "ë°”ëŒì˜ì°½":
+                    case "ëŒë¬´ë”ê¸°":
+                    case "ì ˆë§ì˜ê· ì—´":
+                    case "ë¶ˆí™”ì‚´":
+                    case "ì „ê²©":
+                    case "ê³ ë“œë¦„":
                         guide.offset[0] = new Vector3(-2f, 2f, 0);
                         guide.offset[1] = new Vector3(2f, 2f, 0);
                         guide.offset[2] = new Vector3(-2f, -2f, 0);
                         guide.offset[3] = new Vector3(2f, -2f, 0);
                         break;
 
-                    case "È­¿°ÀåÆÇ":
-                    case "¾óÀ½¾È°³":
+                    case "í™”ì—¼ì¥íŒ":
+                    case "ì–¼ìŒì•ˆê°œ":
                         guide.offset[0] = new Vector3(-8.5f, 3f, 0);
                         guide.offset[1] = new Vector3(16f, 3f, 0);
                         guide.offset[2] = new Vector3(-8.5f, -3f, 0);
@@ -328,21 +347,21 @@ public class FlyDemon_Script : MonoBehaviour
                 deckField.Click_Card.Card_upNumber = 2;
                 switch (deckField.Click_Card.Card_name)
                 {
-                    case "ÀÏ¹İ¸¶¹ı":
-                    case "¹Ù¶÷ÀÇÃ¢":
-                    case "µ¹¹«´õ±â":
-                    case "Àı¸ÁÀÇ±Õ¿­":
-                    case "ºÒÈ­»ì":
-                    case "Àü°İ":
-                    case "°íµå¸§":
+                    case "ì¼ë°˜ë§ˆë²•":
+                    case "ë°”ëŒì˜ì°½":
+                    case "ëŒë¬´ë”ê¸°":
+                    case "ì ˆë§ì˜ê· ì—´":
+                    case "ë¶ˆí™”ì‚´":
+                    case "ì „ê²©":
+                    case "ê³ ë“œë¦„":
                         guide.offset[0] = new Vector3(-2f, 2f, 0);
                         guide.offset[1] = new Vector3(2f, 2f, 0);
                         guide.offset[2] = new Vector3(-2f, -2f, 0);
                         guide.offset[3] = new Vector3(2f, -2f, 0);
                         break;
 
-                    case "È­¿°ÀåÆÇ":
-                    case "¾óÀ½¾È°³":
+                    case "í™”ì—¼ì¥íŒ":
+                    case "ì–¼ìŒì•ˆê°œ":
                         guide.offset[0] = new Vector3(-15.5f, 3f, 0);
                         guide.offset[1] = new Vector3(9f, 3f, 0);
                         guide.offset[2] = new Vector3(-15.5f, -3f, 0);
@@ -362,21 +381,21 @@ public class FlyDemon_Script : MonoBehaviour
                 deckField.Click_Card.Card_upNumber = 3;
                 switch (deckField.Click_Card.Card_name)
                 {
-                    case "ÀÏ¹İ¸¶¹ı":
-                    case "¹Ù¶÷ÀÇÃ¢":
-                    case "µ¹¹«´õ±â":
-                    case "Àı¸ÁÀÇ±Õ¿­":
-                    case "ºÒÈ­»ì":
-                    case "Àü°İ":
-                    case "°íµå¸§":
+                    case "ì¼ë°˜ë§ˆë²•":
+                    case "ë°”ëŒì˜ì°½":
+                    case "ëŒë¬´ë”ê¸°":
+                    case "ì ˆë§ì˜ê· ì—´":
+                    case "ë¶ˆí™”ì‚´":
+                    case "ì „ê²©":
+                    case "ê³ ë“œë¦„":
                         guide.offset[0] = new Vector3(-2f, 2f, 0);
                         guide.offset[1] = new Vector3(2f, 2f, 0);
                         guide.offset[2] = new Vector3(-2f, -2f, 0);
                         guide.offset[3] = new Vector3(2f, -2f, 0);
                         break;
 
-                    case "È­¿°ÀåÆÇ":
-                    case "¾óÀ½¾È°³":
+                    case "í™”ì—¼ì¥íŒ":
+                    case "ì–¼ìŒì•ˆê°œ":
                         guide.offset[0] = new Vector3(-22.5f, 3f, 0);
                         guide.offset[1] = new Vector3(2f, 3f, 0);
                         guide.offset[2] = new Vector3(-22.5f, -3f, 0);
@@ -580,39 +599,39 @@ public class FlyDemon_Script : MonoBehaviour
     {
         switch (name)
         {
-            case "ÀÏ¹İ¸¶¹ı":
+            case "ì¼ë°˜ë§ˆë²•":
                 Card_Damage = deckField.Click_Card.single_damage;
                 player.nowMp += deckField.Click_Card.mana;
                 break;
-            case "È­¿°ÀåÆÇ":
+            case "í™”ì—¼ì¥íŒ":
                 Card_Damage = deckField.Click_Card.multiple_damage;
                 player.nowMp += deckField.Click_Card.mana;
                 break;
-            case "¾óÀ½¾È°³":
+            case "ì–¼ìŒì•ˆê°œ":
                 Card_Damage = deckField.Click_Card.multiple_damage;
                 player.nowMp += deckField.Click_Card.mana;
                 break;
-            case "¹Ù¶÷ÀÇÃ¢":
+            case "ë°”ëŒì˜ì°½":
                 Card_Damage = deckField.Click_Card.single_damage;
                 player.nowMp += deckField.Click_Card.mana;
                 break;
-            case "µ¹¹«´õ±â":
+            case "ëŒë¬´ë”ê¸°":
                 Card_Damage = deckField.Click_Card.single_damage;
                 player.nowMp += deckField.Click_Card.mana;
                 break;
-            case "Àı¸ÁÀÇ±Õ¿­":
+            case "ì ˆë§ì˜ê· ì—´":
                 stun_count += deckField.Click_Card.count;
                 player.nowMp += deckField.Click_Card.mana;
                 break;
-            case "ºÒÈ­»ì":
+            case "ë¶ˆí™”ì‚´":
                 Card_Damage = deckField.Click_Card.single_damage;
                 player.nowMp += deckField.Click_Card.mana;
                 break;
-            case "Àü°İ":
+            case "ì „ê²©":
                 Card_Damage = deckField.Click_Card.single_damage;
                 player.nowMp += deckField.Click_Card.mana;
                 break;
-            case "°íµå¸§":
+            case "ê³ ë“œë¦„":
                 Card_Damage = deckField.Click_Card.single_damage;
                 player.nowMp += deckField.Click_Card.mana;
                 break;

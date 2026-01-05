@@ -38,6 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1485,6 +1486,14 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  EnemyHpbar_prefab: {fileID: 206260871083471628, guid: 04b15202856e9914cb829ff34237de89, type: 3}
+  EnemyHpbar:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  EnemyBossHpbar_prefab: {fileID: 206260871083471628, guid: 2ddd489768f2aea459b1945e7fb69a59, type: 3}
+  EnemyBossHpbar: {fileID: 0}
   Enemy_Name:
   - 
   - 

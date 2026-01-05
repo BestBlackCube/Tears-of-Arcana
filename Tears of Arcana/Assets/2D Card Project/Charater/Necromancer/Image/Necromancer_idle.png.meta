@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c6db4d28f35dd124a98e66d470eda4f0
+guid: 84365abd5ad40bc4a9303f7b6da57d9f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -93,32 +93,6 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Windows Store Apps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -137,8 +111,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6955ee7095e09a649a4bdcbcc96d2f10
-      internalID: 1319651862
+      spriteID: cefa21e09c246d24488f6f56014e6a10
+      internalID: -1718327135
       vertices: []
       indices: 
       edges: []
@@ -158,8 +132,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2d469a2e3dcf3bc4898f291bdae822d5
-      internalID: -1381893068
+      spriteID: f4c2222cebdb7af4baa2669abcce56da
+      internalID: 964396097
       vertices: []
       indices: 
       edges: []
@@ -179,8 +153,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ad448b7ae212b2409133ad9bcd1ad08
-      internalID: -1573049140
+      spriteID: f3a6b831b92cda543a34ab37d0c1e95d
+      internalID: -1938625246
       vertices: []
       indices: 
       edges: []
@@ -200,8 +174,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 72fbc469972658f499df729a5a777159
-      internalID: 1954914178
+      spriteID: 969cda87eb25056438e4abbb0f9031db
+      internalID: 465741452
       vertices: []
       indices: 
       edges: []
@@ -221,8 +195,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 43054ce4dd9ecf04880790fed77b50c6
-      internalID: 620638900
+      spriteID: 448d53fd9bb79244cb9f4f87320c85aa
+      internalID: -73317902
       vertices: []
       indices: 
       edges: []
@@ -242,8 +216,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6cca6e259ac1b2d4080cf5cabf892eb2
-      internalID: -1420747964
+      spriteID: 7f3968be57e724e42a4594ec6059cd0b
+      internalID: -1489913870
       vertices: []
       indices: 
       edges: []
@@ -263,8 +237,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2817ddb25b1cc164da46062413bd024c
-      internalID: -1838020409
+      spriteID: 462e02ab58ce814439388bf65f44a156
+      internalID: -150732285
       vertices: []
       indices: 
       edges: []
@@ -284,8 +258,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8fd9711d4b975544f82120277347743c
-      internalID: 1183418272
+      spriteID: 57b36cd214aedf34d9d6e85d6c426d46
+      internalID: -2140869553
       vertices: []
       indices: 
       edges: []
@@ -301,14 +275,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Necromancer_idle_0: 1319651862
-      Necromancer_idle_1: -1381893068
-      Necromancer_idle_2: -1573049140
-      Necromancer_idle_3: 1954914178
-      Necromancer_idle_4: 620638900
-      Necromancer_idle_5: -1420747964
-      Necromancer_idle_6: -1838020409
-      Necromancer_idle_7: 1183418272
+      Necromancer_idle_0: -1718327135
+      Necromancer_idle_1: 964396097
+      Necromancer_idle_2: -1938625246
+      Necromancer_idle_3: 465741452
+      Necromancer_idle_4: -73317902
+      Necromancer_idle_5: -1489913870
+      Necromancer_idle_6: -150732285
+      Necromancer_idle_7: -2140869553
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

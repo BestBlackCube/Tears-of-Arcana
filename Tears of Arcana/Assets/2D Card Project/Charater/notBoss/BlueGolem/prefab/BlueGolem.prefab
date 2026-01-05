@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 38788041403201928}
   - component: {fileID: 2504848320163607792}
   - component: {fileID: 7908014092789403245}
+  - component: {fileID: 4844029585202678694}
   m_Layer: 0
   m_Name: BlueGolem
   m_TagString: Untagged
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 433159989767991218}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.5, z: 0}
+  m_LocalPosition: {x: 0, y: 2.5, z: 5}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -119,10 +120,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -3}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0.25}
     oldSize: {x: 15, y: 10.666667}
     newSize: {x: 0.9, y: 0.64}
     adaptiveTilingThreshold: 0.5
@@ -167,8 +168,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Guide: 0
   Arrow: 0
-  HpBar_prefab: {fileID: 492615422835567300, guid: 1979e2e91fba24d4998b4ab79f71d7c1, type: 3}
-  canvas: {fileID: 0}
   unitname: 14
   Card_Damage: 0
   nowHp: 0
@@ -184,3 +183,16 @@ MonoBehaviour:
   EnemyAttack: 0
   HIT_Enemy: 0
   animation_position: {x: 0, y: 0, z: 0}
+--- !u!114 &4844029585202678694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 433159989767991218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e865de8a7aa18c4886d6b16a0f3b91c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attack_Object: {fileID: 0}

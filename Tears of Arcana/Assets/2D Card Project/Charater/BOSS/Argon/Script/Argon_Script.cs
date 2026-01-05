@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +10,7 @@ public class Argon_Script : MonoBehaviour
     public bool Guide = false;
     public bool Arrow = false;
 
+    public GameObject Attack_Object;
     public GameObject HpBar_prefab;
     public GameObject canvas;
 
@@ -27,6 +30,7 @@ public class Argon_Script : MonoBehaviour
 
     public float Dead_timer = 0f;
     public float Attack_timer = 0f;
+    float Delay_timer = 0f;
 
     EnemyObjectSet_Script ObjectSet;
     ObjectSet_Script attack_order;
@@ -58,6 +62,7 @@ public class Argon_Script : MonoBehaviour
 
         ObjectSet = FindObjectOfType<EnemyObjectSet_Script>();
         attack_order = FindObjectOfType<ObjectSet_Script>();
+        Attack_Object = GameObject.Find("Public_AttackObject");
 
         animationPosition(1);
 
@@ -118,210 +123,174 @@ public class Argon_Script : MonoBehaviour
     }
     void Attack() // 공격 애니메이션 코드
     {
-        if(animator.GetLayerName(0) == "Aromr")
+        if (animator.GetBool("Idle"))
         {
-            if (animator.GetBool("Idle"))
+            animator.SetBool("Idle", false);
+            animator.SetBool("Move", true);
+        }
+        if (animator.GetBool("Move"))
+        {
+            if (transform.position.x > 7)
             {
-                animator.SetBool("Idle", false);
-                animator.SetBool("Move", true);
+                transform.position = new Vector3(transform.position.x - 15f * Time.deltaTime, transform.position.y, 0);
             }
-            if (animator.GetBool("Move"))
+            else
             {
-                if (transform.position.x > 14)
-                {
-                    transform.position = new Vector3(transform.position.x - 15f * Time.deltaTime, transform.position.y, 0);
-                }
-                else
-                {
-                    animator.SetBool("Move", false);
-                    animator.SetBool("Attack", true);
-                    player.EnemyAttack_Player = true; // !+ 플레이어 피격 애니메이션 활성화
-                }
-            }
-            if (animator.GetBool("Attack"))
-            {
-                if (Attack_timer < 1f)
-                {
-                    Attack_timer += Time.deltaTime;
-                }
-                else
-                {
-                    animator.SetBool("Attack", false);
-                    animator.SetBool("BackMove", true);
-                    player.EnemyAttack_Player = false; // !+ 플레이어 피격 애니메이션 비활성화
-                    player.HitDamage = Dmg;
-                    player.PlayerDamage = true;        // 플레이어HP 줄이기
-                    Attack_timer = 0f;
-                }
-            }
-            if (animator.GetBool("BackMove"))
-            {
-                if (transform.position.x < animation_position.x)
-                {
-                    transform.localScale = new Vector3(1, 1, 1);
-                    transform.position = new Vector3(transform.position.x + 15f * Time.deltaTime, transform.position.y, 0);
-                }
-                else
-                {
-                    animator.SetBool("BackMove", false);
-                    animator.SetBool("Idle", true);
-                    transform.localScale = new Vector3(-1, 1, 1);
-                    transform.position = animation_position;
-                    animation_Attack = true;
-                }
+                animator.SetBool("Move", false);
+                animator.SetBool("Attack", true);
+                player.EnemyAttack_Player = true; // !+ 플레이어 피격 애니메이션 활성화
             }
         }
-        else
+        if (animator.GetBool("Attack"))
         {
-            if (animator.GetBool("Idle"))
+            if (Attack_timer < 1f) Attack_timer += Time.deltaTime;
+            else
             {
-                animator.SetBool("Idle", false);
-                animator.SetBool("Move", true);
+                animator.SetBool("Attack", false);
+                animator.SetBool("BackMove", true);
+                player.EnemyAttack_Player = false; // !+ 플레이어 피격 애니메이션 비활성화
+                player.HitDamage = Dmg;
+                player.PlayerDamage = true;        // 플레이어HP 줄이기
+                Attack_timer = 0f;
             }
-            if (animator.GetBool("Move"))
+        }
+        if (animator.GetBool("BackMove"))
+        {
+            if (transform.position.x < animation_position.x)
             {
-                if (transform.position.x > 14)
-                {
-                    transform.position = new Vector3(transform.position.x - 15f * Time.deltaTime, transform.position.y, 0);
-                }
-                else
-                {
-                    animator.SetBool("Move", false);
-                    animator.SetBool("Attack", true);
-                    player.EnemyAttack_Player = true; // !+ 플레이어 피격 애니메이션 활성화
-                }
+                transform.localScale = new Vector3(1, 1, 1);
+                transform.position = new Vector3(transform.position.x + 15f * Time.deltaTime, transform.position.y, 0);
             }
-            if (animator.GetBool("Attack"))
+            else
             {
-                if (Attack_timer < 1f)
-                {
-                    Attack_timer += Time.deltaTime;
-                }
-                else
-                {
-                    animator.SetBool("Attack", false);
-                    animator.SetBool("BackMove", true);
-                    player.EnemyAttack_Player = false; // !+ 플레이어 피격 애니메이션 비활성화
-                    player.HitDamage = Dmg;
-                    player.PlayerDamage = true;        // 플레이어HP 줄이기
-                    Attack_timer = 0f;
-                }
-            }
-            if (animator.GetBool("BackMove"))
-            {
-                if (transform.position.x < animation_position.x)
-                {
-                    transform.localScale = new Vector3(1, 1, 1);
-                    transform.position = new Vector3(transform.position.x + 15f * Time.deltaTime, transform.position.y, 0);
-                }
-                else
-                {
-                    animator.SetBool("BackMove", false);
-                    animator.SetBool("Idle", true);
-                    transform.localScale = new Vector3(-1, 1, 1);
-                    transform.position = animation_position;
-                    animation_Attack = true;
-                }
+                animator.SetBool("BackMove", false);
+                animator.SetBool("Idle", true);
+                transform.localScale = new Vector3(-1, 1, 1);
+                transform.position = animation_position;
+                animation_Attack = true;
             }
         }
     }
     void Hit_Enemy() // 플레이어에게 공격 받았을때 실행 되는 애니메이션
     {
+        nowHpbar.fillAmount = (float)nowHp / (float)maxHp;
         if (player.PlayerAttack_Enemy)
         {
             animator.SetBool("Hit", true);
             if (player.PlayerAttack_timer > 1f) EnemyDamage = true;
         }
-        else
-        {
-            animator.SetBool("Hit", false);
-        }
+        else animator.SetBool("Hit", false);
 
         if (EnemyDamage)
         {
             deckField.cardHide = false;
             nowHp -= Card_Damage;
-            nowHpbar.fillAmount = (float)nowHp / (float)maxHp;
             Card_Damage = 0;
             EnemyDamage = false;
         }
-
         if (nowHp <= 0f)
         {
-            if (animator.GetLayerName(0) == "Armor") animator.SetTrigger("Break");
-            else animator.SetTrigger("Die");
-            if (Dead_timer < 1f) Dead_timer += Time.deltaTime;
-            else
+            if (animator.GetLayerWeight(0) > 0) animator.SetBool("Break", true);
+            if (animator.GetLayerWeight(1) > 0) animator.SetBool("Die", true);
+
+            if (animator.GetBool("Delay"))
             {
-                if(animator.GetLayerName(0) == "Armor")
+                if (Delay_timer < 5f)
                 {
                     nowHpbar.fillAmount = 0f;
-                    nowHp = maxHp;
-
-                    time += Time.deltaTime;
-                    nowHpbar.fillAmount = Mathf.Lerp(0.0f, 1.0f, time / 2f);
-
-                    animator.SetLayerWeight(0, 0);
-                    animator.SetLayerWeight(1, 1);
-
-                    if (nowHpbar.fillAmount >= 1f)
-                    {
-                        Dead_timer = 0;
-                        HIT_Enemy = false;
-                    }
+                    Delay_timer += Time.deltaTime;
+                    nowHpbar.fillAmount = Mathf.Lerp(0.0f, 1.0f, Delay_timer / 5f);
                 }
                 else
                 {
+                    nowHp = maxHp;
+                    animator.SetBool("Up", true);
+                    Delay_timer = 0f;
+                }
+            }
+            if(animator.GetBool("Die"))
+            {
+                if (Dead_timer < 1f) Dead_timer += Time.deltaTime;
+                else
+                {
+                    hpbar.gameObject.SetActive(false);
                     ObjectSet.MonsterDeadCount++;
                     Enemy_NameLess();
                     Destroy(gameObject);
-                    Destroy(hpbar.gameObject);
                 }
             }
         }
     }
-    public float time = 0f;
+    void animationDelay()
+    {
+        animator.SetBool("Delay", true);
+    }
+    void animationLayerChange()
+    {
+        animator.SetLayerWeight(0, 0);
+        animator.SetLayerWeight(1, 1);
+    }
     void animationPosition(int Range)
     {
         if (Range == 1)
         {
             if (this.gameObject == ObjectSet.Field_inMonster[0] && ObjectSet.Enemy_Name[0] == "Argon")
             {
-                if (hpbar == null)
+                if (ObjectSet.EnemyBossHpbar != null)
                 {
-                    hpbar = Instantiate(HpBar_prefab, canvas.transform).GetComponent<RectTransform>();
-                    Vector3 HpBarPos = new Vector3(transform.position.x - 2, transform.position.y - 4f, 0);
-                    hpbar.position = HpBarPos;
+                    if (!ObjectSet.EnemyBossHpbar.gameObject.activeSelf)
+                    {
+                        ObjectSet.EnemyBossHpbar.gameObject.SetActive(true);
+                        ObjectSet.EnemyBossHpbar.Find("Hp_bar").GetComponent<Image>().fillAmount = 1f;
+                    }
+                    Vector3 HpBarPos = new Vector3(transform.position.x - 7.5f, transform.position.y - 4.5f, 0);
+                    ObjectSet.EnemyBossHpbar.position = HpBarPos;
+                    hpbar = ObjectSet.EnemyBossHpbar;
                     animation_position = ObjectSet.Field_transform[0];
                 }
             }
             if (this.gameObject == ObjectSet.Field_inMonster[1] && ObjectSet.Enemy_Name[1] == "Argon")
             {
-                if (hpbar == null)
+                if (ObjectSet.EnemyBossHpbar != null)
                 {
-                    hpbar = Instantiate(HpBar_prefab, canvas.transform).GetComponent<RectTransform>();
-                    Vector3 HpBarPos = new Vector3(transform.position.x - 2, transform.position.y - 4f, 0);
-                    hpbar.position = HpBarPos;
+                    if (!ObjectSet.EnemyBossHpbar.gameObject.activeSelf)
+                    {
+                        ObjectSet.EnemyBossHpbar.gameObject.SetActive(true);
+                        ObjectSet.EnemyBossHpbar.Find("Hp_bar").GetComponent<Image>().fillAmount = 1f;
+                    }
+                    Vector3 HpBarPos = new Vector3(transform.position.x - 7.5f, transform.position.y - 4.5f, 0);
+                    ObjectSet.EnemyBossHpbar.position = HpBarPos;
+                    hpbar = ObjectSet.EnemyBossHpbar;
                     animation_position = ObjectSet.Field_transform[1];
                 }
             }
             if (this.gameObject == ObjectSet.Field_inMonster[2] && ObjectSet.Enemy_Name[2] == "Argon")
             {
-                if (hpbar == null)
+                if (ObjectSet.EnemyBossHpbar != null)
                 {
-                    hpbar = Instantiate(HpBar_prefab, canvas.transform).GetComponent<RectTransform>();
-                    Vector3 HpBarPos = new Vector3(transform.position.x - 2, transform.position.y - 4f, 0);
-                    hpbar.position = HpBarPos;
+                    if (!ObjectSet.EnemyBossHpbar.gameObject.activeSelf)
+                    {
+                        ObjectSet.EnemyBossHpbar.gameObject.SetActive(true);
+                        ObjectSet.EnemyBossHpbar.Find("Hp_bar").GetComponent<Image>().fillAmount = 1f;
+                    }
+                    Vector3 HpBarPos = new Vector3(transform.position.x - 7.5f, transform.position.y - 4.5f, 0);
+                    ObjectSet.EnemyBossHpbar.position = HpBarPos;
+                    hpbar = ObjectSet.EnemyBossHpbar;
                     animation_position = ObjectSet.Field_transform[2];
                 }
             }
             if (this.gameObject == ObjectSet.Field_inMonster[3] && ObjectSet.Enemy_Name[3] == "Argon")
             {
-                if (hpbar == null)
+                if (ObjectSet.EnemyBossHpbar != null)
                 {
-                    hpbar = Instantiate(HpBar_prefab, canvas.transform).GetComponent<RectTransform>();
-                    Vector3 HpBarPos = new Vector3(transform.position.x - 2, transform.position.y - 4f, 0);
-                    hpbar.position = HpBarPos;
+                    if (!ObjectSet.EnemyBossHpbar.gameObject.activeSelf)
+                    {
+                        ObjectSet.EnemyBossHpbar.gameObject.SetActive(true);
+                        ObjectSet.EnemyBossHpbar.Find("Hp_bar").GetComponent<Image>().fillAmount = 1f;
+                    }
+                    Vector3 HpBarPos = new Vector3(transform.position.x - 7.5f, transform.position.y - 4.5f, 0);
+                    ObjectSet.EnemyBossHpbar.position = HpBarPos;
+                    hpbar = ObjectSet.EnemyBossHpbar;
                     animation_position = ObjectSet.Field_transform[3];
                 }
             }

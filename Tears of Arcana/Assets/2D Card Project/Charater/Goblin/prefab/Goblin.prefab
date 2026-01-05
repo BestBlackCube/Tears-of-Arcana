@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6891447517321818095}
   - component: {fileID: 6044231477874236816}
   - component: {fileID: -6104797658866159610}
+  - component: {fileID: 1299812993972942981}
   m_Layer: 0
   m_Name: Goblin
   m_TagString: Untagged
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 1620471229787752939}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalPosition: {x: 0, y: 2, z: 5}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -122,8 +123,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Guide: 0
   Arrow: 0
-  HpBar_prefab: {fileID: 3052410248697706107, guid: ce02e9b6d66b20749b2c7231ff2f0d1c, type: 3}
-  canvas: {fileID: 0}
   unitname: 3
   Card_Damage: 0
   nowHp: 0
@@ -184,3 +183,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.5, y: 3.8}
   m_EdgeRadius: 0
+--- !u!114 &1299812993972942981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1620471229787752939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e865de8a7aa18c4886d6b16a0f3b91c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attack_Object: {fileID: 0}

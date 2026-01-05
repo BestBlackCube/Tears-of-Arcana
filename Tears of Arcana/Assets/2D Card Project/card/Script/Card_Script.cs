@@ -706,9 +706,225 @@ public class Card_Script : MonoBehaviour
                         ObjectSet.Field_inMonster[3].GetComponent<BlueGolem_Script>().HIT_Enemy = true;
                 }
             }
+            if (ObjectSet.Enemy_Name[0] == "GhostWarrior01" || ObjectSet.Enemy_Name[1] == "GhostWarrior01" ||
+                ObjectSet.Enemy_Name[2] == "GhostWarrior01" || ObjectSet.Enemy_Name[3] == "GhostWarrior01")
+            {
+                if (ObjectSet.Field_inMonster[0] != null && ObjectSet.Enemy_Name[0] == "GhostWarrior01")
+                {
+                    ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior01_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior01_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior01_Script>().targetCard = true;
+                    if (!ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior01_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior01_Script>().HIT_Enemy = true;
+                }
+                if (ObjectSet.Field_inMonster[1] != null && ObjectSet.Enemy_Name[1] == "GhostWarrior01")
+                {
+                    ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior01_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior01_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior01_Script>().targetCard = true;
+                    if (!ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior01_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior01_Script>().HIT_Enemy = true;
+                }
+                if (ObjectSet.Field_inMonster[2] != null && ObjectSet.Enemy_Name[2] == "GhostWarrior01")
+                {
+                    ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior01_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior01_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior01_Script>().targetCard = true;
+                    if (!ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior01_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior01_Script>().HIT_Enemy = true;
+                }
+                if (ObjectSet.Field_inMonster[3] != null && ObjectSet.Enemy_Name[3] == "GhostWarrior01")
+                {
+                    ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior01_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior01_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior01_Script>().targetCard = true;
+                    if (!ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior01_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior01_Script>().HIT_Enemy = true;
+                }
+            }
+            if (ObjectSet.Enemy_Name[0] == "GhostWarrior02" || ObjectSet.Enemy_Name[1] == "GhostWarrior02" ||
+                ObjectSet.Enemy_Name[2] == "GhostWarrior02" || ObjectSet.Enemy_Name[3] == "GhostWarrior02")
+            {
+                if (ObjectSet.Field_inMonster[0] != null && ObjectSet.Enemy_Name[0] == "GhostWarrior02")
+                {
+                    ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior02_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior02_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior02_Script>().targetCard = true;
+                    if (!ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior02_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior02_Script>().HIT_Enemy = true;
+                }
+                if (ObjectSet.Field_inMonster[1] != null && ObjectSet.Enemy_Name[1] == "GhostWarrior02")
+                {
+                    ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior02_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior02_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior02_Script>().targetCard = true;
+                    if (!ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior02_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior02_Script>().HIT_Enemy = true;
+                }
+                if (ObjectSet.Field_inMonster[2] != null && ObjectSet.Enemy_Name[2] == "GhostWarrior02")
+                {
+                    ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior02_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior02_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior02_Script>().targetCard = true;
+                    if (!ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior02_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior02_Script>().HIT_Enemy = true;
+                }
+                if (ObjectSet.Field_inMonster[3] != null && ObjectSet.Enemy_Name[3] == "GhostWarrior02")
+                {
+                    ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior02_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior02_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior02_Script>().targetCard = true;
+                    if (!ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior02_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior02_Script>().HIT_Enemy = true;
+                }
+            }
+            if (ObjectSet.Enemy_Name[0] == "GhostWarrior03" || ObjectSet.Enemy_Name[1] == "GhostWarrior03" ||
+                ObjectSet.Enemy_Name[2] == "GhostWarrior03" || ObjectSet.Enemy_Name[3] == "GhostWarrior03")
+            {
+                if (ObjectSet.Field_inMonster[0] != null && ObjectSet.Enemy_Name[0] == "GhostWarrior03")
+                {
+                    ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior03_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior03_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior03_Script>().targetCard = true;
+                    if (!ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior03_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior03_Script>().HIT_Enemy = true;
+                }
+                if (ObjectSet.Field_inMonster[1] != null && ObjectSet.Enemy_Name[1] == "GhostWarrior03")
+                {
+                    ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior03_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior03_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior03_Script>().targetCard = true;
+                    if (!ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior03_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior03_Script>().HIT_Enemy = true;
+                }
+                if (ObjectSet.Field_inMonster[2] != null && ObjectSet.Enemy_Name[2] == "GhostWarrior03")
+                {
+                    ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior03_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior03_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior03_Script>().targetCard = true;
+                    if (!ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior03_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior03_Script>().HIT_Enemy = true;
+                }
+                if (ObjectSet.Field_inMonster[3] != null && ObjectSet.Enemy_Name[3] == "GhostWarrior03")
+                {
+                    ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior03_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior03_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior03_Script>().targetCard = true;
+                    if (!ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior03_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior03_Script>().HIT_Enemy = true;
+                }
+            }
+            if (ObjectSet.Enemy_Name[0] == "GhostWarrior04" || ObjectSet.Enemy_Name[1] == "GhostWarrior04" ||
+                ObjectSet.Enemy_Name[2] == "GhostWarrior04" || ObjectSet.Enemy_Name[3] == "GhostWarrior04")
+            {
+                if (ObjectSet.Field_inMonster[0] != null && ObjectSet.Enemy_Name[0] == "GhostWarrior04")
+                {
+                    ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior04_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior04_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior04_Script>().targetCard = true;
+                    if (!ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior04_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior04_Script>().HIT_Enemy = true;
+                }
+                if (ObjectSet.Field_inMonster[1] != null && ObjectSet.Enemy_Name[1] == "GhostWarrior04")
+                {
+                    ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior04_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior04_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior04_Script>().targetCard = true;
+                    if (!ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior04_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior04_Script>().HIT_Enemy = true;
+                }
+                if (ObjectSet.Field_inMonster[2] != null && ObjectSet.Enemy_Name[2] == "GhostWarrior04")
+                {
+                    ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior04_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior04_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior04_Script>().targetCard = true;
+                    if (!ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior04_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior04_Script>().HIT_Enemy = true;
+                }
+                if (ObjectSet.Field_inMonster[3] != null && ObjectSet.Enemy_Name[3] == "GhostWarrior04")
+                {
+                    ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior04_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior04_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior04_Script>().targetCard = true;
+                    if (!ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior04_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior04_Script>().HIT_Enemy = true;
+                }
+            }
 
             // BOSS
 
+            if (ObjectSet.Enemy_Name[0] == "AxeCastleGuardian" || ObjectSet.Enemy_Name[1] == "AxeCastleGuardian" ||
+                ObjectSet.Enemy_Name[2] == "AxeCastleGuardian" || ObjectSet.Enemy_Name[3] == "AxeCastleGuardian")
+            {
+                if (ObjectSet.Field_inMonster[0] != null && ObjectSet.Enemy_Name[0] == "AxeCastleGuardian")
+                {
+                    ObjectSet.Field_inMonster[0].GetComponent<AxeCastleGuardian_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[0].GetComponent<AxeCastleGuardian_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[0].GetComponent<AxeCastleGuardian_Script>().targetCard = true;
+                    if (!ObjectSet.Field_inMonster[0].GetComponent<AxeCastleGuardian_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[0].GetComponent<AxeCastleGuardian_Script>().HIT_Enemy = true;
+                }
+                if (ObjectSet.Field_inMonster[1] != null && ObjectSet.Enemy_Name[1] == "AxeCastleGuardian")
+                {
+                    ObjectSet.Field_inMonster[1].GetComponent<AxeCastleGuardian_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[1].GetComponent<AxeCastleGuardian_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[1].GetComponent<AxeCastleGuardian_Script>().targetCard = true;
+                    if (!ObjectSet.Field_inMonster[1].GetComponent<AxeCastleGuardian_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[1].GetComponent<AxeCastleGuardian_Script>().HIT_Enemy = true;
+                }
+                if (ObjectSet.Field_inMonster[2] != null && ObjectSet.Enemy_Name[2] == "AxeCastleGuardian")
+                {
+                    ObjectSet.Field_inMonster[2].GetComponent<AxeCastleGuardian_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[2].GetComponent<AxeCastleGuardian_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[2].GetComponent<AxeCastleGuardian_Script>().targetCard = true;
+                    if (!ObjectSet.Field_inMonster[2].GetComponent<AxeCastleGuardian_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[2].GetComponent<AxeCastleGuardian_Script>().HIT_Enemy = true;
+                }
+                if (ObjectSet.Field_inMonster[3] != null && ObjectSet.Enemy_Name[3] == "AxeCastleGuardian")
+                {
+                    ObjectSet.Field_inMonster[3].GetComponent<AxeCastleGuardian_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[3].GetComponent<AxeCastleGuardian_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[3].GetComponent<AxeCastleGuardian_Script>().targetCard = true;
+                    if (!ObjectSet.Field_inMonster[3].GetComponent<AxeCastleGuardian_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[3].GetComponent<AxeCastleGuardian_Script>().HIT_Enemy = true;
+                }
+            }
+            if (ObjectSet.Enemy_Name[0] == "SpearCastleGuardian" || ObjectSet.Enemy_Name[1] == "SpearCastleGuardian" ||
+                ObjectSet.Enemy_Name[2] == "SpearCastleGuardian" || ObjectSet.Enemy_Name[3] == "SpearCastleGuardian")
+            {
+                if (ObjectSet.Field_inMonster[0] != null && ObjectSet.Enemy_Name[0] == "SpearCastleGuardian")
+                {
+                    ObjectSet.Field_inMonster[0].GetComponent<SpearCastleGuardian_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[0].GetComponent<SpearCastleGuardian_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[0].GetComponent<SpearCastleGuardian_Script>().targetCard = true;
+                    if (!ObjectSet.Field_inMonster[0].GetComponent<SpearCastleGuardian_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[0].GetComponent<SpearCastleGuardian_Script>().HIT_Enemy = true;
+                }
+                if (ObjectSet.Field_inMonster[1] != null && ObjectSet.Enemy_Name[1] == "SpearCastleGuardian")
+                {
+                    ObjectSet.Field_inMonster[1].GetComponent<SpearCastleGuardian_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[1].GetComponent<SpearCastleGuardian_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[1].GetComponent<SpearCastleGuardian_Script>().targetCard = true;
+                    if (!ObjectSet.Field_inMonster[1].GetComponent<SpearCastleGuardian_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[1].GetComponent<SpearCastleGuardian_Script>().HIT_Enemy = true;
+                }
+                if (ObjectSet.Field_inMonster[2] != null && ObjectSet.Enemy_Name[2] == "SpearCastleGuardian")
+                {
+                    ObjectSet.Field_inMonster[2].GetComponent<SpearCastleGuardian_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[2].GetComponent<SpearCastleGuardian_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[2].GetComponent<SpearCastleGuardian_Script>().targetCard = true;
+                    if (!ObjectSet.Field_inMonster[2].GetComponent<SpearCastleGuardian_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[2].GetComponent<SpearCastleGuardian_Script>().HIT_Enemy = true;
+                }
+                if (ObjectSet.Field_inMonster[3] != null && ObjectSet.Enemy_Name[3] == "SpearCastleGuardian")
+                {
+                    ObjectSet.Field_inMonster[3].GetComponent<SpearCastleGuardian_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[3].GetComponent<SpearCastleGuardian_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[3].GetComponent<SpearCastleGuardian_Script>().targetCard = true;
+                    if (!ObjectSet.Field_inMonster[3].GetComponent<SpearCastleGuardian_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[3].GetComponent<SpearCastleGuardian_Script>().HIT_Enemy = true;
+                }
+            }
             if (ObjectSet.Enemy_Name[0] == "Titan" || ObjectSet.Enemy_Name[1] == "Titan" ||
                 ObjectSet.Enemy_Name[2] == "Titan" || ObjectSet.Enemy_Name[3] == "Titan")
             {
@@ -1324,9 +1540,225 @@ public class Card_Script : MonoBehaviour
                         ObjectSet.Field_inMonster[3].GetComponent<BlueGolem_Script>().HIT_Enemy = false;
                 }
             }
+            if (ObjectSet.Enemy_Name[0] == "GhostWarrior01" || ObjectSet.Enemy_Name[1] == "GhostWarrior01" ||
+                ObjectSet.Enemy_Name[2] == "GhostWarrior01" || ObjectSet.Enemy_Name[3] == "GhostWarrior01")
+            {
+                if (ObjectSet.Field_inMonster[0] != null && ObjectSet.Enemy_Name[0] == "GhostWarrior01")
+                {
+                    ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior01_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior01_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior01_Script>().targetCard = false;
+                    if (ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior01_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior01_Script>().HIT_Enemy = false;
+                }
+                if (ObjectSet.Field_inMonster[1] != null && ObjectSet.Enemy_Name[1] == "GhostWarrior01")
+                {
+                    ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior01_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior01_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior01_Script>().targetCard = false;
+                    if (ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior01_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior01_Script>().HIT_Enemy = false;
+                }
+                if (ObjectSet.Field_inMonster[2] != null && ObjectSet.Enemy_Name[2] == "GhostWarrior01")
+                {
+                    ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior01_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior01_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior01_Script>().targetCard = false;
+                    if (ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior01_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior01_Script>().HIT_Enemy = false;
+                }
+                if (ObjectSet.Field_inMonster[3] != null && ObjectSet.Enemy_Name[3] == "GhostWarrior01")
+                {
+                    ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior01_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior01_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior01_Script>().targetCard = false;
+                    if (ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior01_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior01_Script>().HIT_Enemy = false;
+                }
+            }
+            if (ObjectSet.Enemy_Name[0] == "GhostWarrior02" || ObjectSet.Enemy_Name[1] == "GhostWarrior02" ||
+                ObjectSet.Enemy_Name[2] == "GhostWarrior02" || ObjectSet.Enemy_Name[3] == "GhostWarrior02")
+            {
+                if (ObjectSet.Field_inMonster[0] != null && ObjectSet.Enemy_Name[0] == "GhostWarrior02")
+                {
+                    ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior02_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior02_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior02_Script>().targetCard = false;
+                    if (ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior02_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior02_Script>().HIT_Enemy = false;
+                }
+                if (ObjectSet.Field_inMonster[1] != null && ObjectSet.Enemy_Name[1] == "GhostWarrior02")
+                {
+                    ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior02_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior02_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior02_Script>().targetCard = false;
+                    if (ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior02_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior02_Script>().HIT_Enemy = false;
+                }
+                if (ObjectSet.Field_inMonster[2] != null && ObjectSet.Enemy_Name[2] == "GhostWarrior02")
+                {
+                    ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior02_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior02_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior02_Script>().targetCard = false;
+                    if (ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior02_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior02_Script>().HIT_Enemy = false;
+                }
+                if (ObjectSet.Field_inMonster[3] != null && ObjectSet.Enemy_Name[3] == "GhostWarrior02")
+                {
+                    ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior02_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior02_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior02_Script>().targetCard = false;
+                    if (ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior02_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior02_Script>().HIT_Enemy = false;
+                }
+            }
+            if (ObjectSet.Enemy_Name[0] == "GhostWarrior03" || ObjectSet.Enemy_Name[1] == "GhostWarrior03" ||
+                ObjectSet.Enemy_Name[2] == "GhostWarrior03" || ObjectSet.Enemy_Name[3] == "GhostWarrior03")
+            {
+                if (ObjectSet.Field_inMonster[0] != null && ObjectSet.Enemy_Name[0] == "GhostWarrior03")
+                {
+                    ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior03_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior03_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior03_Script>().targetCard = false;
+                    if (ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior03_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior03_Script>().HIT_Enemy = false;
+                }
+                if (ObjectSet.Field_inMonster[1] != null && ObjectSet.Enemy_Name[1] == "GhostWarrior03")
+                {
+                    ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior03_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior03_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior03_Script>().targetCard = false;
+                    if (ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior03_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior03_Script>().HIT_Enemy = false;
+                }
+                if (ObjectSet.Field_inMonster[2] != null && ObjectSet.Enemy_Name[2] == "GhostWarrior03")
+                {
+                    ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior03_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior03_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior03_Script>().targetCard = false;
+                    if (ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior03_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior03_Script>().HIT_Enemy = false;
+                }
+                if (ObjectSet.Field_inMonster[3] != null && ObjectSet.Enemy_Name[3] == "GhostWarrior03")
+                {
+                    ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior03_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior03_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior03_Script>().targetCard = false;
+                    if (ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior03_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior03_Script>().HIT_Enemy = false;
+                }
+            }
+            if (ObjectSet.Enemy_Name[0] == "GhostWarrior04" || ObjectSet.Enemy_Name[1] == "GhostWarrior04" ||
+                ObjectSet.Enemy_Name[2] == "GhostWarrior04" || ObjectSet.Enemy_Name[3] == "GhostWarrior04")
+            {
+                if (ObjectSet.Field_inMonster[0] != null && ObjectSet.Enemy_Name[0] == "GhostWarrior04")
+                {
+                    ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior04_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior04_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior04_Script>().targetCard = false;
+                    if (ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior04_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior04_Script>().HIT_Enemy = false;
+                }
+                if (ObjectSet.Field_inMonster[1] != null && ObjectSet.Enemy_Name[1] == "GhostWarrior04")
+                {
+                    ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior04_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior04_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior04_Script>().targetCard = false;
+                    if (ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior04_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior04_Script>().HIT_Enemy = false;
+                }
+                if (ObjectSet.Field_inMonster[2] != null && ObjectSet.Enemy_Name[2] == "GhostWarrior04")
+                {
+                    ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior04_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior04_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior04_Script>().targetCard = false;
+                    if (ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior04_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior04_Script>().HIT_Enemy = false;
+                }
+                if (ObjectSet.Field_inMonster[3] != null && ObjectSet.Enemy_Name[3] == "GhostWarrior04")
+                {
+                    ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior04_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior04_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior04_Script>().targetCard = false;
+                    if (ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior04_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior04_Script>().HIT_Enemy = false;
+                }
+            }
 
             // BOSS
 
+            if (ObjectSet.Enemy_Name[0] == "AxeCastleGuardian" || ObjectSet.Enemy_Name[1] == "AxeCastleGuardian" ||
+                ObjectSet.Enemy_Name[2] == "AxeCastleGuardian" || ObjectSet.Enemy_Name[3] == "AxeCastleGuardian")
+            {
+                if (ObjectSet.Field_inMonster[0] != null && ObjectSet.Enemy_Name[0] == "AxeCastleGuardian")
+                {
+                    ObjectSet.Field_inMonster[0].GetComponent<AxeCastleGuardian_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[0].GetComponent<AxeCastleGuardian_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[0].GetComponent<AxeCastleGuardian_Script>().targetCard = false;
+                    if (ObjectSet.Field_inMonster[0].GetComponent<AxeCastleGuardian_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[0].GetComponent<AxeCastleGuardian_Script>().HIT_Enemy = false;
+                }
+                if (ObjectSet.Field_inMonster[1] != null && ObjectSet.Enemy_Name[1] == "AxeCastleGuardian")
+                {
+                    ObjectSet.Field_inMonster[1].GetComponent<AxeCastleGuardian_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[1].GetComponent<AxeCastleGuardian_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[1].GetComponent<AxeCastleGuardian_Script>().targetCard = false;
+                    if (ObjectSet.Field_inMonster[1].GetComponent<AxeCastleGuardian_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[1].GetComponent<AxeCastleGuardian_Script>().HIT_Enemy = false;
+                }
+                if (ObjectSet.Field_inMonster[2] != null && ObjectSet.Enemy_Name[2] == "AxeCastleGuardian")
+                {
+                    ObjectSet.Field_inMonster[2].GetComponent<AxeCastleGuardian_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[2].GetComponent<AxeCastleGuardian_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[2].GetComponent<AxeCastleGuardian_Script>().targetCard = false;
+                    if (ObjectSet.Field_inMonster[2].GetComponent<AxeCastleGuardian_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[2].GetComponent<AxeCastleGuardian_Script>().HIT_Enemy = false;
+                }
+                if (ObjectSet.Field_inMonster[3] != null && ObjectSet.Enemy_Name[3] == "AxeCastleGuardian")
+                {
+                    ObjectSet.Field_inMonster[3].GetComponent<AxeCastleGuardian_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[3].GetComponent<AxeCastleGuardian_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[3].GetComponent<AxeCastleGuardian_Script>().targetCard = false;
+                    if (ObjectSet.Field_inMonster[3].GetComponent<AxeCastleGuardian_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[3].GetComponent<AxeCastleGuardian_Script>().HIT_Enemy = false;
+                }
+            }
+            if (ObjectSet.Enemy_Name[0] == "SpearCastleGuardian" || ObjectSet.Enemy_Name[1] == "SpearCastleGuardian" ||
+                ObjectSet.Enemy_Name[2] == "SpearCastleGuardian" || ObjectSet.Enemy_Name[3] == "SpearCastleGuardian")
+            {
+                if (ObjectSet.Field_inMonster[0] != null && ObjectSet.Enemy_Name[0] == "SpearCastleGuardian")
+                {
+                    ObjectSet.Field_inMonster[0].GetComponent<SpearCastleGuardian_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[0].GetComponent<SpearCastleGuardian_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[0].GetComponent<SpearCastleGuardian_Script>().targetCard = false;
+                    if (ObjectSet.Field_inMonster[0].GetComponent<SpearCastleGuardian_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[0].GetComponent<SpearCastleGuardian_Script>().HIT_Enemy = false;
+                }
+                if (ObjectSet.Field_inMonster[1] != null && ObjectSet.Enemy_Name[1] == "SpearCastleGuardian")
+                {
+                    ObjectSet.Field_inMonster[1].GetComponent<SpearCastleGuardian_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[1].GetComponent<SpearCastleGuardian_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[1].GetComponent<SpearCastleGuardian_Script>().targetCard = false;
+                    if (ObjectSet.Field_inMonster[1].GetComponent<SpearCastleGuardian_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[1].GetComponent<SpearCastleGuardian_Script>().HIT_Enemy = false;
+                }
+                if (ObjectSet.Field_inMonster[2] != null && ObjectSet.Enemy_Name[2] == "SpearCastleGuardian")
+                {
+                    ObjectSet.Field_inMonster[2].GetComponent<SpearCastleGuardian_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[2].GetComponent<SpearCastleGuardian_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[2].GetComponent<SpearCastleGuardian_Script>().targetCard = false;
+                    if (ObjectSet.Field_inMonster[2].GetComponent<SpearCastleGuardian_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[2].GetComponent<SpearCastleGuardian_Script>().HIT_Enemy = false;
+                }
+                if (ObjectSet.Field_inMonster[3] != null && ObjectSet.Enemy_Name[3] == "SpearCastleGuardian")
+                {
+                    ObjectSet.Field_inMonster[3].GetComponent<SpearCastleGuardian_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[3].GetComponent<SpearCastleGuardian_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[3].GetComponent<SpearCastleGuardian_Script>().targetCard = false;
+                    if (ObjectSet.Field_inMonster[3].GetComponent<SpearCastleGuardian_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[3].GetComponent<SpearCastleGuardian_Script>().HIT_Enemy = false;
+                }
+            }
             if (ObjectSet.Enemy_Name[0] == "Titan" || ObjectSet.Enemy_Name[1] == "Titan" ||
                 ObjectSet.Enemy_Name[2] == "Titan" || ObjectSet.Enemy_Name[3] == "Titan")
             {
@@ -2010,9 +2442,254 @@ public class Card_Script : MonoBehaviour
                         ObjectSet.Field_inMonster[3].GetComponent<BlueGolem_Script>().HIT_Enemy = true;
                 }
             }
+            if (ObjectSet.Enemy_Name[0] == "GhostWarrior01" || ObjectSet.Enemy_Name[1] == "GhostWarrior01" ||
+                ObjectSet.Enemy_Name[2] == "GhostWarrior01" || ObjectSet.Enemy_Name[3] == "GhostWarrior01")
+            {
+                if (ObjectSet.Field_inMonster[0] != null && ObjectSet.Enemy_Name[0] == "GhostWarrior01")
+                {
+                    ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior01_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior01_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior01_Script>().targetCard = true;
+                    ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior01_Script>().Card_Damage = deckField.Click_Card.multiple_damage;
+                    if (!ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior01_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior01_Script>().HIT_Enemy = true;
 
+                }
+                if (ObjectSet.Field_inMonster[1] != null && ObjectSet.Enemy_Name[1] == "GhostWarrior01")
+                {
+                    ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior01_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior01_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior01_Script>().targetCard = true;
+                    ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior01_Script>().Card_Damage = deckField.Click_Card.multiple_damage;
+                    if (!ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior01_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior01_Script>().HIT_Enemy = true;
+                }
+                if (ObjectSet.Field_inMonster[2] != null && ObjectSet.Enemy_Name[2] == "GhostWarrior01")
+                {
+                    ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior01_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior01_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior01_Script>().targetCard = true;
+                    ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior01_Script>().Card_Damage = deckField.Click_Card.multiple_damage;
+                    if (!ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior01_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior01_Script>().HIT_Enemy = true;
+                }
+                if (ObjectSet.Field_inMonster[3] != null && ObjectSet.Enemy_Name[3] == "GhostWarrior01")
+                {
+                    ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior01_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior01_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior01_Script>().targetCard = true;
+                    ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior01_Script>().Card_Damage = deckField.Click_Card.multiple_damage;
+                    if (!ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior01_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior01_Script>().HIT_Enemy = true;
+                }
+            }
+            if (ObjectSet.Enemy_Name[0] == "GhostWarrior02" || ObjectSet.Enemy_Name[1] == "GhostWarrior02" ||
+                ObjectSet.Enemy_Name[2] == "GhostWarrior02" || ObjectSet.Enemy_Name[3] == "GhostWarrior02")
+            {
+                if (ObjectSet.Field_inMonster[0] != null && ObjectSet.Enemy_Name[0] == "GhostWarrior02")
+                {
+                    ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior02_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior02_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior02_Script>().targetCard = true;
+                    ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior02_Script>().Card_Damage = deckField.Click_Card.multiple_damage;
+                    if (!ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior02_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior02_Script>().HIT_Enemy = true;
+
+                }
+                if (ObjectSet.Field_inMonster[1] != null && ObjectSet.Enemy_Name[1] == "GhostWarrior02")
+                {
+                    ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior02_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior02_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior02_Script>().targetCard = true;
+                    ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior02_Script>().Card_Damage = deckField.Click_Card.multiple_damage;
+                    if (!ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior02_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior02_Script>().HIT_Enemy = true;
+                }
+                if (ObjectSet.Field_inMonster[2] != null && ObjectSet.Enemy_Name[2] == "GhostWarrior02")
+                {
+                    ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior02_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior02_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior02_Script>().targetCard = true;
+                    ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior02_Script>().Card_Damage = deckField.Click_Card.multiple_damage;
+                    if (!ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior02_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior02_Script>().HIT_Enemy = true;
+                }
+                if (ObjectSet.Field_inMonster[3] != null && ObjectSet.Enemy_Name[3] == "GhostWarrior02")
+                {
+                    ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior02_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior02_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior02_Script>().targetCard = true;
+                    ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior02_Script>().Card_Damage = deckField.Click_Card.multiple_damage;
+                    if (!ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior02_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior02_Script>().HIT_Enemy = true;
+                }
+            }
+            if (ObjectSet.Enemy_Name[0] == "GhostWarrior03" || ObjectSet.Enemy_Name[1] == "GhostWarrior03" ||
+                ObjectSet.Enemy_Name[2] == "GhostWarrior03" || ObjectSet.Enemy_Name[3] == "GhostWarrior03")
+            {
+                if (ObjectSet.Field_inMonster[0] != null && ObjectSet.Enemy_Name[0] == "GhostWarrior03")
+                {
+                    ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior03_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior03_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior03_Script>().targetCard = true;
+                    ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior03_Script>().Card_Damage = deckField.Click_Card.multiple_damage;
+                    if (!ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior03_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior03_Script>().HIT_Enemy = true;
+
+                }
+                if (ObjectSet.Field_inMonster[1] != null && ObjectSet.Enemy_Name[1] == "GhostWarrior03")
+                {
+                    ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior03_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior03_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior03_Script>().targetCard = true;
+                    ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior03_Script>().Card_Damage = deckField.Click_Card.multiple_damage;
+                    if (!ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior03_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior03_Script>().HIT_Enemy = true;
+                }
+                if (ObjectSet.Field_inMonster[2] != null && ObjectSet.Enemy_Name[2] == "GhostWarrior03")
+                {
+                    ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior03_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior03_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior03_Script>().targetCard = true;
+                    ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior03_Script>().Card_Damage = deckField.Click_Card.multiple_damage;
+                    if (!ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior03_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior03_Script>().HIT_Enemy = true;
+                }
+                if (ObjectSet.Field_inMonster[3] != null && ObjectSet.Enemy_Name[3] == "GhostWarrior03")
+                {
+                    ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior03_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior03_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior03_Script>().targetCard = true;
+                    ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior03_Script>().Card_Damage = deckField.Click_Card.multiple_damage;
+                    if (!ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior03_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior03_Script>().HIT_Enemy = true;
+                }
+            }
+            if (ObjectSet.Enemy_Name[0] == "GhostWarrior04" || ObjectSet.Enemy_Name[1] == "GhostWarrior04" ||
+                ObjectSet.Enemy_Name[2] == "GhostWarrior04" || ObjectSet.Enemy_Name[3] == "GhostWarrior04")
+            {
+                if (ObjectSet.Field_inMonster[0] != null && ObjectSet.Enemy_Name[0] == "GhostWarrior04")
+                {
+                    ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior04_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior04_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior04_Script>().targetCard = true;
+                    ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior04_Script>().Card_Damage = deckField.Click_Card.multiple_damage;
+                    if (!ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior04_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior04_Script>().HIT_Enemy = true;
+
+                }
+                if (ObjectSet.Field_inMonster[1] != null && ObjectSet.Enemy_Name[1] == "GhostWarrior04")
+                {
+                    ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior04_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior04_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior04_Script>().targetCard = true;
+                    ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior04_Script>().Card_Damage = deckField.Click_Card.multiple_damage;
+                    if (!ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior04_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior04_Script>().HIT_Enemy = true;
+                }
+                if (ObjectSet.Field_inMonster[2] != null && ObjectSet.Enemy_Name[2] == "GhostWarrior04")
+                {
+                    ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior04_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior04_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior04_Script>().targetCard = true;
+                    ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior04_Script>().Card_Damage = deckField.Click_Card.multiple_damage;
+                    if (!ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior04_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior04_Script>().HIT_Enemy = true;
+                }
+                if (ObjectSet.Field_inMonster[3] != null && ObjectSet.Enemy_Name[3] == "GhostWarrior04")
+                {
+                    ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior04_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior04_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior04_Script>().targetCard = true;
+                    ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior04_Script>().Card_Damage = deckField.Click_Card.multiple_damage;
+                    if (!ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior04_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior04_Script>().HIT_Enemy = true;
+                }
+            }
             // BOSS
 
+            if (ObjectSet.Enemy_Name[0] == "AxeCastleGuardian" || ObjectSet.Enemy_Name[1] == "AxeCastleGuardian" ||
+                ObjectSet.Enemy_Name[2] == "AxeCastleGuardian" || ObjectSet.Enemy_Name[3] == "AxeCastleGuardian")
+            {
+                if (ObjectSet.Field_inMonster[0] != null && ObjectSet.Enemy_Name[0] == "AxeCastleGuardian")
+                {
+                    ObjectSet.Field_inMonster[0].GetComponent<AxeCastleGuardian_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[0].GetComponent<AxeCastleGuardian_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[0].GetComponent<AxeCastleGuardian_Script>().targetCard = true;
+                    ObjectSet.Field_inMonster[0].GetComponent<AxeCastleGuardian_Script>().Card_Damage = deckField.Click_Card.multiple_damage;
+                    if (!ObjectSet.Field_inMonster[0].GetComponent<AxeCastleGuardian_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[0].GetComponent<AxeCastleGuardian_Script>().HIT_Enemy = true;
+
+                }
+                if (ObjectSet.Field_inMonster[1] != null && ObjectSet.Enemy_Name[1] == "AxeCastleGuardian")
+                {
+                    ObjectSet.Field_inMonster[1].GetComponent<AxeCastleGuardian_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[1].GetComponent<AxeCastleGuardian_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[1].GetComponent<AxeCastleGuardian_Script>().targetCard = true;
+                    ObjectSet.Field_inMonster[1].GetComponent<AxeCastleGuardian_Script>().Card_Damage = deckField.Click_Card.multiple_damage;
+                    if (!ObjectSet.Field_inMonster[1].GetComponent<AxeCastleGuardian_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[1].GetComponent<AxeCastleGuardian_Script>().HIT_Enemy = true;
+                }
+                if (ObjectSet.Field_inMonster[2] != null && ObjectSet.Enemy_Name[2] == "AxeCastleGuardian")
+                {
+                    ObjectSet.Field_inMonster[2].GetComponent<AxeCastleGuardian_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[2].GetComponent<AxeCastleGuardian_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[2].GetComponent<AxeCastleGuardian_Script>().targetCard = true;
+                    ObjectSet.Field_inMonster[2].GetComponent<AxeCastleGuardian_Script>().Card_Damage = deckField.Click_Card.multiple_damage;
+                    if (!ObjectSet.Field_inMonster[2].GetComponent<AxeCastleGuardian_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[2].GetComponent<AxeCastleGuardian_Script>().HIT_Enemy = true;
+                }
+                if (ObjectSet.Field_inMonster[3] != null && ObjectSet.Enemy_Name[3] == "AxeCastleGuardian")
+                {
+                    ObjectSet.Field_inMonster[3].GetComponent<AxeCastleGuardian_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[3].GetComponent<AxeCastleGuardian_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[3].GetComponent<AxeCastleGuardian_Script>().targetCard = true;
+                    ObjectSet.Field_inMonster[3].GetComponent<AxeCastleGuardian_Script>().Card_Damage = deckField.Click_Card.multiple_damage;
+                    if (!ObjectSet.Field_inMonster[3].GetComponent<AxeCastleGuardian_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[3].GetComponent<AxeCastleGuardian_Script>().HIT_Enemy = true;
+                }
+            }
+            if (ObjectSet.Enemy_Name[0] == "SpearCastleGuardian" || ObjectSet.Enemy_Name[1] == "SpearCastleGuardian" ||
+                ObjectSet.Enemy_Name[2] == "SpearCastleGuardian" || ObjectSet.Enemy_Name[3] == "SpearCastleGuardian")
+            {
+                if (ObjectSet.Field_inMonster[0] != null && ObjectSet.Enemy_Name[0] == "SpearCastleGuardian")
+                {
+                    ObjectSet.Field_inMonster[0].GetComponent<SpearCastleGuardian_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[0].GetComponent<SpearCastleGuardian_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[0].GetComponent<SpearCastleGuardian_Script>().targetCard = true;
+                    ObjectSet.Field_inMonster[0].GetComponent<SpearCastleGuardian_Script>().Card_Damage = deckField.Click_Card.multiple_damage;
+                    if (!ObjectSet.Field_inMonster[0].GetComponent<SpearCastleGuardian_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[0].GetComponent<SpearCastleGuardian_Script>().HIT_Enemy = true;
+
+                }
+                if (ObjectSet.Field_inMonster[1] != null && ObjectSet.Enemy_Name[1] == "SpearCastleGuardian")
+                {
+                    ObjectSet.Field_inMonster[1].GetComponent<SpearCastleGuardian_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[1].GetComponent<SpearCastleGuardian_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[1].GetComponent<SpearCastleGuardian_Script>().targetCard = true;
+                    ObjectSet.Field_inMonster[1].GetComponent<SpearCastleGuardian_Script>().Card_Damage = deckField.Click_Card.multiple_damage;
+                    if (!ObjectSet.Field_inMonster[1].GetComponent<SpearCastleGuardian_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[1].GetComponent<SpearCastleGuardian_Script>().HIT_Enemy = true;
+                }
+                if (ObjectSet.Field_inMonster[2] != null && ObjectSet.Enemy_Name[2] == "SpearCastleGuardian")
+                {
+                    ObjectSet.Field_inMonster[2].GetComponent<SpearCastleGuardian_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[2].GetComponent<SpearCastleGuardian_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[2].GetComponent<SpearCastleGuardian_Script>().targetCard = true;
+                    ObjectSet.Field_inMonster[2].GetComponent<SpearCastleGuardian_Script>().Card_Damage = deckField.Click_Card.multiple_damage;
+                    if (!ObjectSet.Field_inMonster[2].GetComponent<SpearCastleGuardian_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[2].GetComponent<SpearCastleGuardian_Script>().HIT_Enemy = true;
+                }
+                if (ObjectSet.Field_inMonster[3] != null && ObjectSet.Enemy_Name[3] == "SpearCastleGuardian")
+                {
+                    ObjectSet.Field_inMonster[3].GetComponent<SpearCastleGuardian_Script>().Arrow = true;
+                    ObjectSet.Field_inMonster[3].GetComponent<SpearCastleGuardian_Script>().Guide = true;
+                    ObjectSet.Field_inMonster[3].GetComponent<SpearCastleGuardian_Script>().targetCard = true;
+                    ObjectSet.Field_inMonster[3].GetComponent<SpearCastleGuardian_Script>().Card_Damage = deckField.Click_Card.multiple_damage;
+                    if (!ObjectSet.Field_inMonster[3].GetComponent<SpearCastleGuardian_Script>().HIT_Enemy)
+                        ObjectSet.Field_inMonster[3].GetComponent<SpearCastleGuardian_Script>().HIT_Enemy = true;
+                }
+            }
             if (ObjectSet.Enemy_Name[0] == "Titan" || ObjectSet.Enemy_Name[1] == "Titan" ||
                 ObjectSet.Enemy_Name[2] == "Titan" || ObjectSet.Enemy_Name[3] == "Titan")
             {
@@ -2537,9 +3214,176 @@ public class Card_Script : MonoBehaviour
                     ObjectSet.Field_inMonster[3].GetComponent<BlueGolem_Script>().targetCard = false;
                 }
             }
-
+            if (ObjectSet.Enemy_Name[0] == "GhostWarrior01" || ObjectSet.Enemy_Name[1] == "GhostWarrior01" ||
+                ObjectSet.Enemy_Name[2] == "GhostWarrior01" || ObjectSet.Enemy_Name[3] == "GhostWarrior01")
+            {
+                if (ObjectSet.Field_inMonster[0] != null && ObjectSet.Enemy_Name[0] == "GhostWarrior01")
+                {
+                    ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior01_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior01_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior01_Script>().targetCard = false;
+                }
+                if (ObjectSet.Field_inMonster[1] != null && ObjectSet.Enemy_Name[1] == "GhostWarrior01")
+                {
+                    ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior01_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior01_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior01_Script>().targetCard = false;
+                }
+                if (ObjectSet.Field_inMonster[2] != null && ObjectSet.Enemy_Name[2] == "GhostWarrior01")
+                {
+                    ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior01_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior01_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior01_Script>().targetCard = false;
+                }
+                if (ObjectSet.Field_inMonster[3] != null && ObjectSet.Enemy_Name[3] == "GhostWarrior01")
+                {
+                    ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior01_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior01_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior01_Script>().targetCard = false;
+                }
+            }
+            if (ObjectSet.Enemy_Name[0] == "GhostWarrior02" || ObjectSet.Enemy_Name[1] == "GhostWarrior02" ||
+                ObjectSet.Enemy_Name[2] == "GhostWarrior02" || ObjectSet.Enemy_Name[3] == "GhostWarrior02")
+            {
+                if (ObjectSet.Field_inMonster[0] != null && ObjectSet.Enemy_Name[0] == "GhostWarrior02")
+                {
+                    ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior02_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior02_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior02_Script>().targetCard = false;
+                }
+                if (ObjectSet.Field_inMonster[1] != null && ObjectSet.Enemy_Name[1] == "GhostWarrior02")
+                {
+                    ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior02_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior02_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior02_Script>().targetCard = false;
+                }
+                if (ObjectSet.Field_inMonster[2] != null && ObjectSet.Enemy_Name[2] == "GhostWarrior02")
+                {
+                    ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior02_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior02_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior02_Script>().targetCard = false;
+                }
+                if (ObjectSet.Field_inMonster[3] != null && ObjectSet.Enemy_Name[3] == "GhostWarrior02")
+                {
+                    ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior02_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior02_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior02_Script>().targetCard = false;
+                }
+            }
+            if (ObjectSet.Enemy_Name[0] == "GhostWarrior03" || ObjectSet.Enemy_Name[1] == "GhostWarrior03" ||
+                ObjectSet.Enemy_Name[2] == "GhostWarrior03" || ObjectSet.Enemy_Name[3] == "GhostWarrior03")
+            {
+                if (ObjectSet.Field_inMonster[0] != null && ObjectSet.Enemy_Name[0] == "GhostWarrior03")
+                {
+                    ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior03_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior03_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior03_Script>().targetCard = false;
+                }
+                if (ObjectSet.Field_inMonster[1] != null && ObjectSet.Enemy_Name[1] == "GhostWarrior03")
+                {
+                    ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior03_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior03_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior03_Script>().targetCard = false;
+                }
+                if (ObjectSet.Field_inMonster[2] != null && ObjectSet.Enemy_Name[2] == "GhostWarrior03")
+                {
+                    ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior03_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior03_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior03_Script>().targetCard = false;
+                }
+                if (ObjectSet.Field_inMonster[3] != null && ObjectSet.Enemy_Name[3] == "GhostWarrior03")
+                {
+                    ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior03_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior03_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior03_Script>().targetCard = false;
+                }
+            }
+            if (ObjectSet.Enemy_Name[0] == "GhostWarrior04" || ObjectSet.Enemy_Name[1] == "GhostWarrior04" ||
+                ObjectSet.Enemy_Name[2] == "GhostWarrior04" || ObjectSet.Enemy_Name[3] == "GhostWarrior04")
+            {
+                if (ObjectSet.Field_inMonster[0] != null && ObjectSet.Enemy_Name[0] == "GhostWarrior04")
+                {
+                    ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior04_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior04_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[0].GetComponent<GhostWarrior04_Script>().targetCard = false;
+                }
+                if (ObjectSet.Field_inMonster[1] != null && ObjectSet.Enemy_Name[1] == "GhostWarrior04")
+                {
+                    ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior04_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior04_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[1].GetComponent<GhostWarrior04_Script>().targetCard = false;
+                }
+                if (ObjectSet.Field_inMonster[2] != null && ObjectSet.Enemy_Name[2] == "GhostWarrior04")
+                {
+                    ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior04_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior04_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[2].GetComponent<GhostWarrior04_Script>().targetCard = false;
+                }
+                if (ObjectSet.Field_inMonster[3] != null && ObjectSet.Enemy_Name[3] == "GhostWarrior04")
+                {
+                    ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior04_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior04_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[3].GetComponent<GhostWarrior04_Script>().targetCard = false;
+                }
+            }
             // BOSS
 
+            if (ObjectSet.Enemy_Name[0] == "AxeCastleGuardian" || ObjectSet.Enemy_Name[1] == "AxeCastleGuardian" ||
+                ObjectSet.Enemy_Name[2] == "AxeCastleGuardian" || ObjectSet.Enemy_Name[3] == "AxeCastleGuardian")
+            {
+                if (ObjectSet.Field_inMonster[0] != null && ObjectSet.Enemy_Name[0] == "AxeCastleGuardian")
+                {
+                    ObjectSet.Field_inMonster[0].GetComponent<AxeCastleGuardian_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[0].GetComponent<AxeCastleGuardian_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[0].GetComponent<AxeCastleGuardian_Script>().targetCard = false;
+                }
+                if (ObjectSet.Field_inMonster[1] != null && ObjectSet.Enemy_Name[1] == "AxeCastleGuardian")
+                {
+                    ObjectSet.Field_inMonster[1].GetComponent<AxeCastleGuardian_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[1].GetComponent<AxeCastleGuardian_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[1].GetComponent<AxeCastleGuardian_Script>().targetCard = false;
+                }
+                if (ObjectSet.Field_inMonster[2] != null && ObjectSet.Enemy_Name[2] == "AxeCastleGuardian")
+                {
+                    ObjectSet.Field_inMonster[2].GetComponent<AxeCastleGuardian_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[2].GetComponent<AxeCastleGuardian_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[2].GetComponent<AxeCastleGuardian_Script>().targetCard = false;
+                }
+                if (ObjectSet.Field_inMonster[3] != null && ObjectSet.Enemy_Name[3] == "AxeCastleGuardian")
+                {
+                    ObjectSet.Field_inMonster[3].GetComponent<AxeCastleGuardian_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[3].GetComponent<AxeCastleGuardian_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[3].GetComponent<AxeCastleGuardian_Script>().targetCard = false;
+                }
+            }
+            if (ObjectSet.Enemy_Name[0] == "SpearCastleGuardian" || ObjectSet.Enemy_Name[1] == "SpearCastleGuardian" ||
+                ObjectSet.Enemy_Name[2] == "SpearCastleGuardian" || ObjectSet.Enemy_Name[3] == "SpearCastleGuardian")
+            {
+                if (ObjectSet.Field_inMonster[0] != null && ObjectSet.Enemy_Name[0] == "SpearCastleGuardian")
+                {
+                    ObjectSet.Field_inMonster[0].GetComponent<SpearCastleGuardian_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[0].GetComponent<SpearCastleGuardian_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[0].GetComponent<SpearCastleGuardian_Script>().targetCard = false;
+                }
+                if (ObjectSet.Field_inMonster[1] != null && ObjectSet.Enemy_Name[1] == "SpearCastleGuardian")
+                {
+                    ObjectSet.Field_inMonster[1].GetComponent<SpearCastleGuardian_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[1].GetComponent<SpearCastleGuardian_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[1].GetComponent<SpearCastleGuardian_Script>().targetCard = false;
+                }
+                if (ObjectSet.Field_inMonster[2] != null && ObjectSet.Enemy_Name[2] == "SpearCastleGuardian")
+                {
+                    ObjectSet.Field_inMonster[2].GetComponent<SpearCastleGuardian_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[2].GetComponent<SpearCastleGuardian_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[2].GetComponent<SpearCastleGuardian_Script>().targetCard = false;
+                }
+                if (ObjectSet.Field_inMonster[3] != null && ObjectSet.Enemy_Name[3] == "SpearCastleGuardian")
+                {
+                    ObjectSet.Field_inMonster[3].GetComponent<SpearCastleGuardian_Script>().Arrow = false;
+                    ObjectSet.Field_inMonster[3].GetComponent<SpearCastleGuardian_Script>().Guide = false;
+                    ObjectSet.Field_inMonster[3].GetComponent<SpearCastleGuardian_Script>().targetCard = false;
+                }
+            }
             if (ObjectSet.Enemy_Name[0] == "Titan" || ObjectSet.Enemy_Name[1] == "Titan" ||
                 ObjectSet.Enemy_Name[2] == "Titan" || ObjectSet.Enemy_Name[3] == "Titan")
             {
@@ -2646,10 +3490,14 @@ public class Card_Script : MonoBehaviour
             case "Necromancer":
             case "FireWorm":
             case "FlyDemon":
-            case "miniMushrrom":
+            case "miniMushroom":
             case "Bat":
             case "OrangeGolem":
             case "BlueGolem":
+            case "GhostWarrior01":
+            case "GhostWarrior02":
+            case "GhostWarrior03":
+            case "GhostWarrior04":
             case "Argon":
                 switch (Card_name)
                 {
@@ -2690,6 +3538,8 @@ public class Card_Script : MonoBehaviour
                 }
                 break;
 
+            case "AxeCastleGuardian":
+            case "SpearCastleGuardian":
             case "Titan":
             case "DemonSlime":
                 switch(Card_name)
@@ -2700,7 +3550,7 @@ public class Card_Script : MonoBehaviour
                     case "절망의균열":
                     case "화염장판":
                     case "얼음안개":
-                        Vector3 SinglePositon = new Vector3(Card_transform.x - 6.5f, Card_transform.y, 0);
+                        Vector3 SinglePositon = new Vector3(Card_transform.x - 8f, Card_transform.y, 0);
                         transform.position = Vector3.Lerp(transform.position, SinglePositon, 5 * Time.deltaTime);
                         break;
                     default:

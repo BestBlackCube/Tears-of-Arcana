@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2218639017502290194}
   - component: {fileID: 2219022382270464801}
   - component: {fileID: 4925068222941426124}
+  - component: {fileID: 8600940148749671622}
   m_Layer: 0
   m_Name: Eye
   m_TagString: Untagged
@@ -184,3 +185,16 @@ MonoBehaviour:
   EnemyAttack: 0
   HIT_Enemy: 0
   animation_position: {x: 0, y: 0, z: 0}
+--- !u!114 &8600940148749671622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059204501786189995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e865de8a7aa18c4886d6b16a0f3b91c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attack_Object: {fileID: 0}

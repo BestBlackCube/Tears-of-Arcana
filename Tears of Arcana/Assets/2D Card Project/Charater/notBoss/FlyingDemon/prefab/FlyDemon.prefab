@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2643619641557233721}
   - component: {fileID: 1054183969028079288}
   - component: {fileID: 3310297433096267269}
+  - component: {fileID: 5446458995087700484}
   m_Layer: 0
   m_Name: FlyDemon
   m_TagString: Untagged
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 8139546102289673151}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalPosition: {x: 0, y: 2, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -167,8 +168,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Guide: 0
   Arrow: 0
-  HpBar_prefab: {fileID: 5042130997851473891, guid: 0b91efd540d5fa542984e212d6227e4c, type: 3}
-  canvas: {fileID: 0}
   unitname: 10
   Card_Damage: 0
   nowHp: 0
@@ -184,3 +183,16 @@ MonoBehaviour:
   EnemyAttack: 0
   HIT_Enemy: 0
   animation_position: {x: 0, y: 0, z: 0}
+--- !u!114 &5446458995087700484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8139546102289673151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e865de8a7aa18c4886d6b16a0f3b91c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attack_Object: {fileID: 0}

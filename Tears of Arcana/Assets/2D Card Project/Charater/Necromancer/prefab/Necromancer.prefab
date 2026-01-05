@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4930144573251052411}
   - component: {fileID: 4563159037304307213}
   - component: {fileID: 6878188239660905069}
+  - component: {fileID: 2627056220214414418}
   m_Layer: 0
   m_Name: Necromancer
   m_TagString: Untagged
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 6489879925942904003}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalPosition: {x: 0, y: 2, z: 5}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -76,12 +77,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1319651862, guid: c6db4d28f35dd124a98e66d470eda4f0, type: 3}
+  m_Sprite: {fileID: -1718327135, guid: 84365abd5ad40bc4a9303f7b6da57d9f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.69, y: 0.97}
+  m_Size: {x: 6.9, y: 9.7}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -145,7 +146,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.3, y: 0.3}
     oldSize: {x: 6.9, y: 9.7}
-    newSize: {x: 0.69, y: 0.97}
+    newSize: {x: 6.9, y: 9.7}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -167,8 +168,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Guide: 0
   Arrow: 0
-  HpBar_prefab: {fileID: 3581349032078039506, guid: 2247a53ffaab1f940b8be6f4ee65c7f7, type: 3}
-  canvas: {fileID: 0}
   unitname: 8
   Card_Damage: 0
   nowHp: 0
@@ -184,3 +183,16 @@ MonoBehaviour:
   EnemyAttack: 0
   HIT_Enemy: 0
   animation_position: {x: 0, y: 0, z: 0}
+--- !u!114 &2627056220214414418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6489879925942904003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e865de8a7aa18c4886d6b16a0f3b91c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attack_Object: {fileID: 0}

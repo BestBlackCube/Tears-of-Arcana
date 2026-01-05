@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7611254167325440309}
   - component: {fileID: 165154817379309796}
   - component: {fileID: 270713248658094175}
+  - component: {fileID: 4570755303808477969}
   m_Layer: 8
   m_Name: Skeleton
   m_TagString: Untagged
@@ -76,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 4723107735738678597, guid: 1018b0ba13578bf459bd254ae1a2be99, type: 3}
+  m_Sprite: {fileID: 4723107735738678597, guid: 224ebde199572864b9575f3302a21f2b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -184,3 +185,16 @@ MonoBehaviour:
   EnemyAttack: 0
   HIT_Enemy: 0
   animation_position: {x: 0, y: 0, z: 0}
+--- !u!114 &4570755303808477969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2653627544822697513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e865de8a7aa18c4886d6b16a0f3b91c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attack_Object: {fileID: 0}

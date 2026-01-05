@@ -87,7 +87,7 @@ public class Player_Script : MonoBehaviour
         if (!Arrow && targetArrow != null) Destroy(targetArrow);
         if (targetPlayerCard && Arrow && targetArrow == null)
         {
-            Vector3 player_offset = new Vector3(transform.position.x, 6, 0);
+            Vector3 player_offset = new Vector3(transform.position.x, 6, 5);
             targetArrow = Instantiate(TargetArrow_prefab, player_offset, Quaternion.identity);
             TargetArrow_Script arrow = targetArrow.GetComponent<TargetArrow_Script>();
             arrow.offset = player_offset;
@@ -145,7 +145,7 @@ public class Player_Script : MonoBehaviour
 
         if (targetPlayerCard && targetGuide == null)
         {
-            Vector3 player_offset = new Vector3(transform.position.x, 6, 0);
+            Vector3 player_offset = new Vector3(transform.position.x, 6, 5);
             targetGuide = Instantiate(PlayerTarget_prefab, player_offset, Quaternion.identity); // 해당 오브젝트의 복제본을 생성
             EnemyTargetBar_Script guide = targetGuide.GetComponent<EnemyTargetBar_Script>(); // 복제본에 스크립트파일 대입하기
             guide.target = this.transform; // 복제된 오브젝트의 위치
@@ -201,7 +201,7 @@ public class Player_Script : MonoBehaviour
 
                 if (EnemyAttack_Player) animator.SetBool("PlayerAvoid", true);
                 transform.localScale = new Vector3(-1, 1, 1);
-                transform.position = new Vector3(transform.position.x - 15 * Time.deltaTime, transform.position.y, 0);
+                transform.position = new Vector3(transform.position.x - 15 * Time.deltaTime, transform.position.y, 5);
                 Avoid = true;
             }
         }
@@ -219,7 +219,7 @@ public class Player_Script : MonoBehaviour
                 }
                 else
                 {
-                    transform.position = new Vector3(-15, -1, 0);
+                    transform.position = new Vector3(-15, -1, 5);
                     if (animator.GetBool("PlayerAvoid")) animator.SetBool("PlayerAvoid", false);
                     Avoid = false;
                 }
@@ -278,7 +278,7 @@ public class Player_Script : MonoBehaviour
                 animator.SetBool("PlayerBackMove", false);
                 animator.SetBool("PlayerIdle", true);
                 transform.localScale = new Vector3(1, 1, 1);
-                transform.position = new Vector3(-15, -1, 0);
+                transform.position = new Vector3(-15, -1, 5);
                 animation_Attack = false;
             }
         }

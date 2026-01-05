@@ -21,7 +21,13 @@ public enum Charater_namedata
     BlueGolem,
     Titan,
     DemonSlime,
-    Argon
+    Argon,
+    AxeCastleGuardian,
+    SpearCastleGuardian,
+    GhostWarrior01,
+    GhostWarrior02,
+    GhostWarrior03,
+    GhostWarrior04
 }
 
 public class charater_Name : MonoBehaviour

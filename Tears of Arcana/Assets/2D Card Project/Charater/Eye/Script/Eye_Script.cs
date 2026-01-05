@@ -9,8 +9,7 @@ public class Eye_Script : MonoBehaviour
     public bool Guide = false;
     public bool Arrow = false;
 
-    public GameObject HpBar_prefab;
-    public GameObject canvas;
+    GameObject Attack_Object;
 
     public Charater_namedata unitname;
     public Charater_Status status;
@@ -55,7 +54,7 @@ public class Eye_Script : MonoBehaviour
         nowHp = status.NowHp;
         maxHp = status.MaxHp;
         Dmg = status.Damage;
-        canvas = GameObject.Find("HPCanvas");
+        Attack_Object = GameObject.Find("Public_AttackObject");
 
         ObjectSet = FindObjectOfType<EnemyObjectSet_Script>();
         attack_order = FindObjectOfType<ObjectSet_Script>();
@@ -139,7 +138,7 @@ public class Eye_Script : MonoBehaviour
         }
         if (animator.GetBool("Attack"))
         {
-            if (Attack_timer < 1f)
+            if (Attack_timer < 0.9f)
             {
                 Attack_timer += Time.deltaTime;
             }
@@ -197,10 +196,10 @@ public class Eye_Script : MonoBehaviour
             if (Dead_timer < 0.3f) Dead_timer += Time.deltaTime;
             else
             {
+                hpbar.gameObject.SetActive(false);
                 ObjectSet.MonsterDeadCount++;
                 Enemy_NameLess();
                 Destroy(gameObject);
-                Destroy(hpbar.gameObject);
             }
         }
     }
@@ -210,41 +209,61 @@ public class Eye_Script : MonoBehaviour
         {
             if (this.gameObject == ObjectSet.Field_inMonster[0] && ObjectSet.Enemy_Name[0] == "Eye")
             {
-                if (hpbar == null)
+                if (ObjectSet.EnemyHpbar[0] != null)
                 {
-                    hpbar = Instantiate(HpBar_prefab, canvas.transform).GetComponent<RectTransform>();
-                    Vector3 HpBarPos = new Vector3(transform.position.x, transform.position.y - 3.5f, 0);
-                    hpbar.position = HpBarPos;
+                    if (!ObjectSet.EnemyHpbar[0].gameObject.activeSelf)
+                    {
+                        ObjectSet.EnemyHpbar[0].gameObject.SetActive(true);
+                        ObjectSet.EnemyHpbar[0].Find("Hp_bar").GetComponent<Image>().fillAmount = 1f;
+                    }
+                    Vector3 HpBarPos = new Vector3(transform.position.x - 5f, transform.position.y - 3.5f, 0);
+                    ObjectSet.EnemyHpbar[0].position = HpBarPos;
+                    hpbar = ObjectSet.EnemyHpbar[0];
                     animation_position = ObjectSet.Field_transform[0];
                 }
             }
             if (this.gameObject == ObjectSet.Field_inMonster[1] && ObjectSet.Enemy_Name[1] == "Eye")
             {
-                if (hpbar == null)
+                if (ObjectSet.EnemyHpbar[1] != null)
                 {
-                    hpbar = Instantiate(HpBar_prefab, canvas.transform).GetComponent<RectTransform>();
-                    Vector3 HpBarPos = new Vector3(transform.position.x, transform.position.y - 5f, 0);
-                    hpbar.position = HpBarPos;
+                    if (!ObjectSet.EnemyHpbar[1].gameObject.activeSelf)
+                    {
+                        ObjectSet.EnemyHpbar[1].gameObject.SetActive(true);
+                        ObjectSet.EnemyHpbar[1].Find("Hp_bar").GetComponent<Image>().fillAmount = 1f;
+                    }
+                    Vector3 HpBarPos = new Vector3(transform.position.x - 5f, transform.position.y - 5f, 0);
+                    ObjectSet.EnemyHpbar[1].position = HpBarPos;
+                    hpbar = ObjectSet.EnemyHpbar[1];
                     animation_position = ObjectSet.Field_transform[1];
                 }
             }
             if (this.gameObject == ObjectSet.Field_inMonster[2] && ObjectSet.Enemy_Name[2] == "Eye")
             {
-                if (hpbar == null)
+                if (ObjectSet.EnemyHpbar[2] != null)
                 {
-                    hpbar = Instantiate(HpBar_prefab, canvas.transform).GetComponent<RectTransform>();
-                    Vector3 HpBarPos = new Vector3(transform.position.x, transform.position.y - 3.5f, 0);
-                    hpbar.position = HpBarPos;
+                    if (!ObjectSet.EnemyHpbar[2].gameObject.activeSelf)
+                    {
+                        ObjectSet.EnemyHpbar[2].gameObject.SetActive(true);
+                        ObjectSet.EnemyHpbar[2].Find("Hp_bar").GetComponent<Image>().fillAmount = 1f;
+                    }
+                    Vector3 HpBarPos = new Vector3(transform.position.x - 5f, transform.position.y - 3.5f, 0);
+                    ObjectSet.EnemyHpbar[2].position = HpBarPos;
+                    hpbar = ObjectSet.EnemyHpbar[2];
                     animation_position = ObjectSet.Field_transform[2];
                 }
             }
             if (this.gameObject == ObjectSet.Field_inMonster[3] && ObjectSet.Enemy_Name[3] == "Eye")
             {
-                if (hpbar == null)
+                if (ObjectSet.EnemyHpbar[3] != null)
                 {
-                    hpbar = Instantiate(HpBar_prefab, canvas.transform).GetComponent<RectTransform>();
-                    Vector3 HpBarPos = new Vector3(transform.position.x, transform.position.y - 5f, 0);
-                    hpbar.position = HpBarPos;
+                    if (!ObjectSet.EnemyHpbar[3].gameObject.activeSelf)
+                    {
+                        ObjectSet.EnemyHpbar[3].gameObject.SetActive(true);
+                        ObjectSet.EnemyHpbar[3].Find("Hp_bar").GetComponent<Image>().fillAmount = 1f;
+                    }
+                    Vector3 HpBarPos = new Vector3(transform.position.x - 5f, transform.position.y - 5f, 0);
+                    ObjectSet.EnemyHpbar[3].position = HpBarPos;
+                    hpbar = ObjectSet.EnemyHpbar[3];
                     animation_position = ObjectSet.Field_transform[3];
                 }
             }

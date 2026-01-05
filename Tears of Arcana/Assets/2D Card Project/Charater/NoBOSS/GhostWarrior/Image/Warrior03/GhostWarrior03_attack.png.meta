@@ -1,0 +1,1038 @@
+fileFormatVersion: 2
+guid: af7a0296b2fcb754c871c2a943d23172
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 45
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: GhostWarrior03_attack_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3100
+        width: 665
+        height: 620
+      alignment: 9
+      pivot: {x: 0.4, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df6aa08675219a74d8966c0c6e26e25d
+      internalID: -1811383911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostWarrior03_attack_1
+      rect:
+        serializedVersion: 2
+        x: 665
+        y: 3100
+        width: 665
+        height: 620
+      alignment: 9
+      pivot: {x: 0.4, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81407e2af2d955f46b9056ac1b8777f8
+      internalID: -37959096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostWarrior03_attack_2
+      rect:
+        serializedVersion: 2
+        x: 1330
+        y: 3100
+        width: 665
+        height: 620
+      alignment: 9
+      pivot: {x: 0.4, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fe6752449d2d714583a221cf3b815ad
+      internalID: 895208939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostWarrior03_attack_3
+      rect:
+        serializedVersion: 2
+        x: 1995
+        y: 3100
+        width: 665
+        height: 620
+      alignment: 9
+      pivot: {x: 0.4, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 102b640738372db47af95ee2a101dc3e
+      internalID: 2065314887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostWarrior03_attack_4
+      rect:
+        serializedVersion: 2
+        x: 2660
+        y: 3100
+        width: 665
+        height: 620
+      alignment: 9
+      pivot: {x: 0.4, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 861cfb13182b7a94db353b5b34e6acdd
+      internalID: 102863403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostWarrior03_attack_5
+      rect:
+        serializedVersion: 2
+        x: 3325
+        y: 3100
+        width: 665
+        height: 620
+      alignment: 9
+      pivot: {x: 0.4, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b34cd156e32492240afc949b95cc2898
+      internalID: -383594672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostWarrior03_attack_6
+      rect:
+        serializedVersion: 2
+        x: 3990
+        y: 3100
+        width: 665
+        height: 620
+      alignment: 9
+      pivot: {x: 0.4, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6946485b8efef54ea7cc21ebd35436e
+      internalID: 286897722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostWarrior03_attack_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2480
+        width: 665
+        height: 620
+      alignment: 9
+      pivot: {x: 0.4, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 888c13a743cd65e4aa5ff8c1ce912b45
+      internalID: -1778969566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostWarrior03_attack_8
+      rect:
+        serializedVersion: 2
+        x: 665
+        y: 2480
+        width: 665
+        height: 620
+      alignment: 9
+      pivot: {x: 0.4, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0825cb4628f4ccd4b974fbc81887d7f4
+      internalID: -1384022644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostWarrior03_attack_9
+      rect:
+        serializedVersion: 2
+        x: 1330
+        y: 2480
+        width: 665
+        height: 620
+      alignment: 9
+      pivot: {x: 0.4, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d50724c6e4adb374ba179aa74da4feb4
+      internalID: 487012980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostWarrior03_attack_10
+      rect:
+        serializedVersion: 2
+        x: 1995
+        y: 2480
+        width: 665
+        height: 620
+      alignment: 9
+      pivot: {x: 0.4, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f1a23bb6fa58194fa5d55702069b81f
+      internalID: 1969058885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostWarrior03_attack_11
+      rect:
+        serializedVersion: 2
+        x: 2660
+        y: 2480
+        width: 665
+        height: 620
+      alignment: 9
+      pivot: {x: 0.4, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89656c8dc8a34394b95dcabefda047f9
+      internalID: 375595372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostWarrior03_attack_12
+      rect:
+        serializedVersion: 2
+        x: 3325
+        y: 2480
+        width: 665
+        height: 620
+      alignment: 9
+      pivot: {x: 0.4, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d60bb9c2abf36464599a78546e63cc19
+      internalID: 764417020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostWarrior03_attack_13
+      rect:
+        serializedVersion: 2
+        x: 3990
+        y: 2480
+        width: 665
+        height: 620
+      alignment: 9
+      pivot: {x: 0.4, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0893924657402d24db80bc6456e57e20
+      internalID: -1122398791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostWarrior03_attack_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1860
+        width: 665
+        height: 620
+      alignment: 9
+      pivot: {x: 0.4, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0f823059ef19fc48bb9414b7368c001
+      internalID: -1645110440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostWarrior03_attack_15
+      rect:
+        serializedVersion: 2
+        x: 665
+        y: 1860
+        width: 665
+        height: 620
+      alignment: 9
+      pivot: {x: 0.4, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd7dc2a2243c9f94698eb9799abd1de5
+      internalID: -1852819382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostWarrior03_attack_16
+      rect:
+        serializedVersion: 2
+        x: 1330
+        y: 1860
+        width: 665
+        height: 620
+      alignment: 9
+      pivot: {x: 0.4, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6e15bfe2d17d6f4cb2f5ded2efb7d21
+      internalID: 1311394944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostWarrior03_attack_17
+      rect:
+        serializedVersion: 2
+        x: 1995
+        y: 1860
+        width: 665
+        height: 620
+      alignment: 9
+      pivot: {x: 0.4, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a6a97cac71d1a340a1fb05e3a07dcc8
+      internalID: -1229209360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostWarrior03_attack_18
+      rect:
+        serializedVersion: 2
+        x: 2660
+        y: 1860
+        width: 665
+        height: 620
+      alignment: 9
+      pivot: {x: 0.4, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bafc7b6967370e458c6bf4e81145798
+      internalID: 836678658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostWarrior03_attack_19
+      rect:
+        serializedVersion: 2
+        x: 3325
+        y: 1860
+        width: 665
+        height: 620
+      alignment: 9
+      pivot: {x: 0.4, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b41d8f9e248340b40adc53e735afd7f7
+      internalID: 88904230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostWarrior03_attack_20
+      rect:
+        serializedVersion: 2
+        x: 3990
+        y: 1860
+        width: 665
+        height: 620
+      alignment: 9
+      pivot: {x: 0.4, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5654a702fa5b2ea478f3ec105311d9c0
+      internalID: -1003154232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostWarrior03_attack_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1240
+        width: 665
+        height: 620
+      alignment: 9
+      pivot: {x: 0.4, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f538d91b560f96c498f8cf265cc2cf2d
+      internalID: -1856828530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostWarrior03_attack_22
+      rect:
+        serializedVersion: 2
+        x: 665
+        y: 1240
+        width: 665
+        height: 620
+      alignment: 9
+      pivot: {x: 0.4, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14678240e47a0884eaaf76e898dcd7a5
+      internalID: -2033655812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostWarrior03_attack_23
+      rect:
+        serializedVersion: 2
+        x: 1330
+        y: 1240
+        width: 665
+        height: 620
+      alignment: 9
+      pivot: {x: 0.4, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1a7bdddb75c19b45835f9eeff97f2a3
+      internalID: 1440956115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostWarrior03_attack_24
+      rect:
+        serializedVersion: 2
+        x: 1995
+        y: 1240
+        width: 665
+        height: 620
+      alignment: 9
+      pivot: {x: 0.4, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9feeede257324d842a4ed9998e6e9550
+      internalID: 851919330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostWarrior03_attack_25
+      rect:
+        serializedVersion: 2
+        x: 2660
+        y: 1240
+        width: 665
+        height: 620
+      alignment: 9
+      pivot: {x: 0.4, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13c73f66b9b2db74bbf4e99b0efd3491
+      internalID: 936794097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostWarrior03_attack_26
+      rect:
+        serializedVersion: 2
+        x: 3325
+        y: 1240
+        width: 665
+        height: 620
+      alignment: 9
+      pivot: {x: 0.4, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b35629f62bef5ac4ea27ec4b8510c1d1
+      internalID: -1796813245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostWarrior03_attack_27
+      rect:
+        serializedVersion: 2
+        x: 3990
+        y: 1240
+        width: 665
+        height: 620
+      alignment: 9
+      pivot: {x: 0.4, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5799ebb96a4cfd43ad8375de4ff3fd0
+      internalID: -592321886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostWarrior03_attack_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 620
+        width: 665
+        height: 620
+      alignment: 9
+      pivot: {x: 0.4, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59f0515269e83214bae6c2aba6418a5f
+      internalID: -90777766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostWarrior03_attack_29
+      rect:
+        serializedVersion: 2
+        x: 665
+        y: 620
+        width: 665
+        height: 620
+      alignment: 9
+      pivot: {x: 0.4, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 724a6992044539547bf7c76fe42b8e68
+      internalID: 40244326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostWarrior03_attack_30
+      rect:
+        serializedVersion: 2
+        x: 1330
+        y: 620
+        width: 665
+        height: 620
+      alignment: 9
+      pivot: {x: 0.4, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 469005f6a8bdc3b4495f4deb261e21fb
+      internalID: 507559432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostWarrior03_attack_31
+      rect:
+        serializedVersion: 2
+        x: 1995
+        y: 620
+        width: 665
+        height: 620
+      alignment: 9
+      pivot: {x: 0.4, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d01e49ee3eed424487c86e6328b69aa
+      internalID: 401397208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostWarrior03_attack_32
+      rect:
+        serializedVersion: 2
+        x: 2660
+        y: 620
+        width: 665
+        height: 620
+      alignment: 9
+      pivot: {x: 0.4, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ae2eb316459a17489de9fe5194d1e3d
+      internalID: 1664787098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostWarrior03_attack_33
+      rect:
+        serializedVersion: 2
+        x: 3325
+        y: 620
+        width: 665
+        height: 620
+      alignment: 9
+      pivot: {x: 0.4, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2a0254edb6e27b448e4e597cd8b7c58
+      internalID: -1067826765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostWarrior03_attack_34
+      rect:
+        serializedVersion: 2
+        x: 3990
+        y: 620
+        width: 665
+        height: 620
+      alignment: 9
+      pivot: {x: 0.4, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1dceff2980081834ebf37590d9464b7e
+      internalID: 639729534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostWarrior03_attack_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 665
+        height: 620
+      alignment: 9
+      pivot: {x: 0.4, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9efdd2057ba2ef84096abdfe95f30f81
+      internalID: 1821983675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostWarrior03_attack_36
+      rect:
+        serializedVersion: 2
+        x: 665
+        y: 0
+        width: 665
+        height: 620
+      alignment: 9
+      pivot: {x: 0.4, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 298048bb9ad6e914bb86a1ab034f4e14
+      internalID: -70625764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostWarrior03_attack_37
+      rect:
+        serializedVersion: 2
+        x: 1330
+        y: 0
+        width: 665
+        height: 620
+      alignment: 9
+      pivot: {x: 0.4, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6783154b8debb4f44a030ce1db3d8812
+      internalID: -411003009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostWarrior03_attack_38
+      rect:
+        serializedVersion: 2
+        x: 1995
+        y: 0
+        width: 665
+        height: 620
+      alignment: 9
+      pivot: {x: 0.4, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e76863bab3ecc04b9783de587c5a781
+      internalID: 678097893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostWarrior03_attack_39
+      rect:
+        serializedVersion: 2
+        x: 2660
+        y: 0
+        width: 665
+        height: 620
+      alignment: 9
+      pivot: {x: 0.4, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 840f0123df5695a42b86879a5b924e6b
+      internalID: 666237746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostWarrior03_attack_40
+      rect:
+        serializedVersion: 2
+        x: 3325
+        y: 0
+        width: 665
+        height: 620
+      alignment: 9
+      pivot: {x: 0.4, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99a0c467491729c4da86dee79d9a1db0
+      internalID: 684057385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostWarrior03_attack_41
+      rect:
+        serializedVersion: 2
+        x: 3990
+        y: 0
+        width: 665
+        height: 620
+      alignment: 9
+      pivot: {x: 0.4, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e8c5ed3143e03547b5f5a7182ce49da
+      internalID: 562624451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      GhostWarrior03_attack_0: -1811383911
+      GhostWarrior03_attack_1: -37959096
+      GhostWarrior03_attack_10: 1969058885
+      GhostWarrior03_attack_11: 375595372
+      GhostWarrior03_attack_12: 764417020
+      GhostWarrior03_attack_13: -1122398791
+      GhostWarrior03_attack_14: -1645110440
+      GhostWarrior03_attack_15: -1852819382
+      GhostWarrior03_attack_16: 1311394944
+      GhostWarrior03_attack_17: -1229209360
+      GhostWarrior03_attack_18: 836678658
+      GhostWarrior03_attack_19: 88904230
+      GhostWarrior03_attack_2: 895208939
+      GhostWarrior03_attack_20: -1003154232
+      GhostWarrior03_attack_21: -1856828530
+      GhostWarrior03_attack_22: -2033655812
+      GhostWarrior03_attack_23: 1440956115
+      GhostWarrior03_attack_24: 851919330
+      GhostWarrior03_attack_25: 936794097
+      GhostWarrior03_attack_26: -1796813245
+      GhostWarrior03_attack_27: -592321886
+      GhostWarrior03_attack_28: -90777766
+      GhostWarrior03_attack_29: 40244326
+      GhostWarrior03_attack_3: 2065314887
+      GhostWarrior03_attack_30: 507559432
+      GhostWarrior03_attack_31: 401397208
+      GhostWarrior03_attack_32: 1664787098
+      GhostWarrior03_attack_33: -1067826765
+      GhostWarrior03_attack_34: 639729534
+      GhostWarrior03_attack_35: 1821983675
+      GhostWarrior03_attack_36: -70625764
+      GhostWarrior03_attack_37: -411003009
+      GhostWarrior03_attack_38: 678097893
+      GhostWarrior03_attack_39: 666237746
+      GhostWarrior03_attack_4: 102863403
+      GhostWarrior03_attack_40: 684057385
+      GhostWarrior03_attack_41: 562624451
+      GhostWarrior03_attack_5: -383594672
+      GhostWarrior03_attack_6: 286897722
+      GhostWarrior03_attack_7: -1778969566
+      GhostWarrior03_attack_8: -1384022644
+      GhostWarrior03_attack_9: 487012980
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
