@@ -171,7 +171,7 @@ public class ItemOption_Script : MonoBehaviour
             player.nowHp + " / " + player.maxHp + " ( +" + HpPlus_Persent + " )\n" +
             player.nowMp + " / " + player.maxMp + " ( +" + MpPlus_Persent + " )\n" +
             "카드의 공격력" + Attack_Persent + "\n" +
-            "20% / " + (10 + player.Defence_percent) + "% ( " + Defence_Persent + "% )\n" +
-            "10% / " + (10 + player.Avoid_percent) + "% ( " + Avoid_Persent + "% )";
+            "20% / " + (player.Hit_percent - 10) + "% ( " + Defence_Persent + "% )\n" +
+            "10% / " + (player.Defence_percent) + "% ( " + Avoid_Persent + "% )";
     }
 }

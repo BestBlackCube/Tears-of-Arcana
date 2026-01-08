@@ -36,10 +36,10 @@ public class ItemCard_Script : MonoBehaviour
         item = new card_Status();
         item = item.item_Card(itemName);
         itemname = item.InputName;
-        itemHp = item.Health;
-        itemMp = item.Mana;
-        itemDp = item.Single_Damage;
-        itemAp = item.Multiple_Damage;
+        itemHp = item.Single_Damage;
+        itemMp = item.Multiple_Damage;
+        itemDp = item.Mana;
+        itemAp = item.Count;
     }
 
     // Update is called once per frame
@@ -161,8 +161,8 @@ public class ItemCard_Script : MonoBehaviour
         {
             player.maxHp -= itemOption.StatusCard_Object[0].GetComponent<StatusCard_Mouse>().PlusHp;
             player.maxMp -= itemOption.StatusCard_Object[0].GetComponent<StatusCard_Mouse>().PlusMp;
-            player.Defence_percent -= itemOption.StatusCard_Object[0].GetComponent<StatusCard_Mouse>().PlusDp;
-            player.Avoid_percent -= itemOption.StatusCard_Object[0].GetComponent<StatusCard_Mouse>().PlusAp;
+            player.Hit_percent -= itemOption.StatusCard_Object[0].GetComponent<StatusCard_Mouse>().PlusDp;
+            player.Defence_percent -= itemOption.StatusCard_Object[0].GetComponent<StatusCard_Mouse>().PlusAp;
 
             itemOption.HpPlus_Persent -= itemOption.StatusCard_Object[0].GetComponent<StatusCard_Mouse>().PlusHp;
             itemOption.MpPlus_Persent -= itemOption.StatusCard_Object[0].GetComponent<StatusCard_Mouse>().PlusMp;
@@ -181,8 +181,8 @@ public class ItemCard_Script : MonoBehaviour
         {
             player.maxHp -= itemOption.StatusCard_Object[1].GetComponent<StatusCard_Mouse>().PlusHp;
             player.maxMp -= itemOption.StatusCard_Object[1].GetComponent<StatusCard_Mouse>().PlusMp;
-            player.Defence_percent -= itemOption.StatusCard_Object[1].GetComponent<StatusCard_Mouse>().PlusDp;
-            player.Avoid_percent -= itemOption.StatusCard_Object[1].GetComponent<StatusCard_Mouse>().PlusAp;
+            player.Hit_percent -= itemOption.StatusCard_Object[1].GetComponent<StatusCard_Mouse>().PlusDp;
+            player.Defence_percent -= itemOption.StatusCard_Object[1].GetComponent<StatusCard_Mouse>().PlusAp;
 
             itemOption.HpPlus_Persent -= itemOption.StatusCard_Object[1].GetComponent<StatusCard_Mouse>().PlusHp;
             itemOption.MpPlus_Persent -= itemOption.StatusCard_Object[1].GetComponent<StatusCard_Mouse>().PlusMp;
@@ -201,8 +201,8 @@ public class ItemCard_Script : MonoBehaviour
         {
             player.maxHp -= itemOption.StatusCard_Object[2].GetComponent<StatusCard_Mouse>().PlusHp;
             player.maxMp -= itemOption.StatusCard_Object[2].GetComponent<StatusCard_Mouse>().PlusMp;
-            player.Defence_percent -= itemOption.StatusCard_Object[2].GetComponent<StatusCard_Mouse>().PlusDp;
-            player.Avoid_percent -= itemOption.StatusCard_Object[2].GetComponent<StatusCard_Mouse>().PlusAp;
+            player.Hit_percent -= itemOption.StatusCard_Object[2].GetComponent<StatusCard_Mouse>().PlusDp;
+            player.Defence_percent -= itemOption.StatusCard_Object[2].GetComponent<StatusCard_Mouse>().PlusAp;
 
             itemOption.HpPlus_Persent -= itemOption.StatusCard_Object[2].GetComponent<StatusCard_Mouse>().PlusHp;
             itemOption.MpPlus_Persent -= itemOption.StatusCard_Object[2].GetComponent<StatusCard_Mouse>().PlusMp;

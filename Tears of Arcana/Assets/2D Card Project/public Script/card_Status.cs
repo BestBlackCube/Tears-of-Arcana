@@ -47,19 +47,19 @@ public class card_Status
                 status = new card_Status(Card_name, "명상", 0, 0, 60, 10, 0);
                 break;
             case Card_namedata.idleMagic:
-                status = new card_Status(Card_name, "일반마법", 10, 0, 0, 5, 0);
+                status = new card_Status(Card_name, "일반마법", 10 * 3, 0, 0, 5, 0);
                 break;
             case Card_namedata.Fire:
-                status = new card_Status(Card_name, "화염장판", 0, 20, 0, 10, 0);
+                status = new card_Status(Card_name, "화염장판", 0, 20 * 5, 0, 10, 0);
                 break;
             case Card_namedata.Water:
-                status = new card_Status(Card_name, "얼음안개", 0, 20, 0, 10, 0);
+                status = new card_Status(Card_name, "얼음안개", 0, 20 * 3, 0, 10, 0);
                 break;
             case Card_namedata.Wind:
-                status = new card_Status(Card_name, "바람의창", 20, 0, 0, 5, 0);
+                status = new card_Status(Card_name, "바람의창", 20 * 3, 0, 0, 5, 0);
                 break;
             case Card_namedata.Soil:
-                status = new card_Status(Card_name, "돌무더기", 10, 0, 0, 5, 0);
+                status = new card_Status(Card_name, "돌무더기", 700, 0, 0, 5, 0);
                 break;
             case Card_namedata.FireOfvitality:
                 status = new card_Status(Card_name, "생명의잔불", 0, 0, -20, 0, 2);
@@ -74,13 +74,13 @@ public class card_Status
                 status = new card_Status(Card_name, "잔혹한계약", 0, 0, 0, 30, 3);
                 break;
             case Card_namedata.FireArrow:
-                status = new card_Status(Card_name, "불화살", 10, 0, 0, 5, 0);
+                status = new card_Status(Card_name, "불화살", 10 * 3, 0, 0, 5, 0);
                 break;
             case Card_namedata.Lighting:
-                status = new card_Status(Card_name, "전격", 15, 0, 0, 5, 0);
+                status = new card_Status(Card_name, "전격", 15 * 3, 0, 0, 5, 0);
                 break;
             case Card_namedata.IceBolt:
-                status = new card_Status(Card_name, "고드름", 10, 0, 0, 5, 0);
+                status = new card_Status(Card_name, "고드름", 10 * 3, 0, 0, 5, 0);
                 break;
 
             default:
@@ -118,7 +118,7 @@ public class card_Status
             case Item_Carddata.Nomal_MagicStone:
                 status = new card_Status(Card_name, "평범한마법석", 20, 0, 0, 0, 0);
                 break;
-                 case Item_Carddata.Epic_SpellBook:
+            case Item_Carddata.Epic_SpellBook:
                 status = new card_Status(Card_name, "특출난책", 0, 30, 0, 0, 0);
                 break;
             case Item_Carddata.Epic_Bracelet:

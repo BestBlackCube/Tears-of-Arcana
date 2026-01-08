@@ -26,6 +26,7 @@ public class Player_Script : MonoBehaviour
     public GameObject BattleCard;
     [SerializeField] GameObject AttackMotion_Object;
     [SerializeField] GameObject GameSet;
+    [SerializeField] GameObject Defence;
 
     public bool Arrow = false;
 
@@ -229,10 +230,7 @@ public class Player_Script : MonoBehaviour
             }
             if (Avoid_percent <= Percent && Percent < Defence_percent) // 기본값 0보다 크거나 같을 경우 그리고 10보다 작을경우 0 : 10%
             {
-
                 if (EnemyAttack_Player) animator.SetBool("PlayerAvoid", true);
-                transform.localScale = new Vector3(-1, 1, 1);
-                transform.position = new Vector3(transform.position.x - 15 * Time.deltaTime, transform.position.y, 5);
                 Avoid = true;
             }
         }
@@ -244,16 +242,8 @@ public class Player_Script : MonoBehaviour
             if (Avoid)
             {
                 transform.localScale = new Vector3(1, 1, 1);
-                if (transform.position.x <= -15)
-                {
-                    transform.position = new Vector3(transform.position.x + 15 * Time.deltaTime, transform.position.y, 0);
-                }
-                else
-                {
-                    transform.position = new Vector3(-15, 2, 5);
-                    if (animator.GetBool("PlayerAvoid")) animator.SetBool("PlayerAvoid", false);
-                    Avoid = false;
-                }
+                if (animator.GetBool("PlayerAvoid")) animator.SetBool("PlayerAvoid", false);
+                Avoid = false;
             }
             if (PlayerDamage)
             {
@@ -264,6 +254,20 @@ public class Player_Script : MonoBehaviour
                 PlayerDamage = false;
             }
         }
+    }
+    void DefenceMotion()
+    {
+        if (!Defence.GetComponent<Animator>().GetBool("PlayerDefence"))
+        {
+            Defence.SetActive(true);
+            Defence.GetComponent<Animator>().SetBool("PlayerDefence", true);
+        }
+        else
+        {
+            Defence.SetActive(false);
+            Defence.GetComponent<Animator>().SetBool("PlayerDefence", false);
+        }
+
     }
     void GameOver()
     {
@@ -390,6 +394,8 @@ public class Player_Script : MonoBehaviour
                         AttackMotion_Object[2].GetComponent<Animator>().SetBool("FireGround", true);
                     AttackMotion_Object.GetComponent<PlayerAttackMotion_Script>().
                         AttackMotion_Object[3].GetComponent<Animator>().SetBool("FireGround", true);
+                    this.gameObject.GetComponent<AudioSource>().clip = this.gameObject.GetComponent<Audio_Script>().audioClips[1];
+                    this.gameObject.GetComponent<AudioSource>().Play();
                 }
                 else
                 {
@@ -401,6 +407,8 @@ public class Player_Script : MonoBehaviour
                         AttackMotion_Object[2].GetComponent<Animator>().SetBool("iceFog", true);
                     AttackMotion_Object.GetComponent<PlayerAttackMotion_Script>().
                         AttackMotion_Object[3].GetComponent<Animator>().SetBool("iceFog", true);
+                    this.gameObject.GetComponent<AudioSource>().clip = this.gameObject.GetComponent<Audio_Script>().audioClips[2];
+                    this.gameObject.GetComponent<AudioSource>().Play();
                 }
                 PlayerAttack_Enemy = true;
                 break;
@@ -418,26 +426,36 @@ public class Player_Script : MonoBehaviour
                         PlayerAttack_Enemy = true;
                         break;
                     case "돌무더기":
+                        this.gameObject.GetComponent<AudioSource>().clip = this.gameObject.GetComponent<Audio_Script>().audioClips[4];
+                        this.gameObject.GetComponent<AudioSource>().Play();
                         AttackMotion_Object.GetComponent<PlayerAttackMotion_Script>().
                             AttackMotion_Object[0].GetComponent<Animator>().SetBool("stoneRain", true);
                         PlayerAttack_Enemy = true;
                         break;
                     case "불화살":
+                        this.gameObject.GetComponent<AudioSource>().clip = this.gameObject.GetComponent<Audio_Script>().audioClips[1];
+                        this.gameObject.GetComponent<AudioSource>().Play();
                         AttackMotion_Object.GetComponent<PlayerAttackMotion_Script>().
                             AttackMotion_Object[0].GetComponent<Animator>().SetBool("FireArrow", true);
                         PlayerAttack_Enemy = true;
                         break;
                     case "전격":
+                        this.gameObject.GetComponent<AudioSource>().clip = this.gameObject.GetComponent<Audio_Script>().audioClips[3];
+                        this.gameObject.GetComponent<AudioSource>().Play();
                         AttackMotion_Object.GetComponent<PlayerAttackMotion_Script>().
                             AttackMotion_Object[0].GetComponent<Animator>().SetBool("Lighting", true);
                         PlayerAttack_Enemy = true;
                         break;
                     case "고드름":
+                        this.gameObject.GetComponent<AudioSource>().clip = this.gameObject.GetComponent<Audio_Script>().audioClips[2];
+                        this.gameObject.GetComponent<AudioSource>().Play();
                         AttackMotion_Object.GetComponent<PlayerAttackMotion_Script>().
                             AttackMotion_Object[0].GetComponent<Animator>().SetBool("iceBolt", true);
                         PlayerAttack_Enemy = true;
                         break;
                     case "절망의균열":
+                        this.gameObject.GetComponent<AudioSource>().clip = this.gameObject.GetComponent<Audio_Script>().audioClips[5];
+                        this.gameObject.GetComponent<AudioSource>().Play();
                         AttackMotion_Object.GetComponent<PlayerAttackMotion_Script>().
                             AttackMotion_Object[0].GetComponent<Animator>().SetBool("abyssCrevice", true);
                         PlayerAttack_Enemy = true;
@@ -461,26 +479,36 @@ public class Player_Script : MonoBehaviour
                         PlayerAttack_Enemy = true;
                         break;
                     case "돌무더기":
+                        this.gameObject.GetComponent<AudioSource>().clip = this.gameObject.GetComponent<Audio_Script>().audioClips[4];
+                        this.gameObject.GetComponent<AudioSource>().Play();
                         AttackMotion_Object.GetComponent<PlayerAttackMotion_Script>().
                             AttackMotion_Object[1].GetComponent<Animator>().SetBool("stoneRain", true);
                         PlayerAttack_Enemy = true;
                         break;
                     case "불화살":
+                        this.gameObject.GetComponent<AudioSource>().clip = this.gameObject.GetComponent<Audio_Script>().audioClips[1];
+                        this.gameObject.GetComponent<AudioSource>().Play();
                         AttackMotion_Object.GetComponent<PlayerAttackMotion_Script>().
                             AttackMotion_Object[1].GetComponent<Animator>().SetBool("FireArrow", true);
                         PlayerAttack_Enemy = true;
                         break;
                     case "전격":
+                        this.gameObject.GetComponent<AudioSource>().clip = this.gameObject.GetComponent<Audio_Script>().audioClips[3];
+                        this.gameObject.GetComponent<AudioSource>().Play();
                         AttackMotion_Object.GetComponent<PlayerAttackMotion_Script>().
                             AttackMotion_Object[1].GetComponent<Animator>().SetBool("Lighting", true);
                         PlayerAttack_Enemy = true;
                         break;
                     case "고드름":
+                        this.gameObject.GetComponent<AudioSource>().clip = this.gameObject.GetComponent<Audio_Script>().audioClips[2];
+                        this.gameObject.GetComponent<AudioSource>().Play();
                         AttackMotion_Object.GetComponent<PlayerAttackMotion_Script>().
                             AttackMotion_Object[1].GetComponent<Animator>().SetBool("iceBolt", true);
                         PlayerAttack_Enemy = true;
                         break;
                     case "절망의균열":
+                        this.gameObject.GetComponent<AudioSource>().clip = this.gameObject.GetComponent<Audio_Script>().audioClips[5];
+                        this.gameObject.GetComponent<AudioSource>().Play();
                         AttackMotion_Object.GetComponent<PlayerAttackMotion_Script>().
                             AttackMotion_Object[1].GetComponent<Animator>().SetBool("abyssCrevice", true);
                         PlayerAttack_Enemy = true;
@@ -504,26 +532,36 @@ public class Player_Script : MonoBehaviour
                         PlayerAttack_Enemy = true;
                         break;
                     case "돌무더기":
+                        this.gameObject.GetComponent<AudioSource>().clip = this.gameObject.GetComponent<Audio_Script>().audioClips[4];
+                        this.gameObject.GetComponent<AudioSource>().Play();
                         AttackMotion_Object.GetComponent<PlayerAttackMotion_Script>().
                             AttackMotion_Object[2].GetComponent<Animator>().SetBool("stoneRain", true);
                         PlayerAttack_Enemy = true;
                         break;
                     case "불화살":
+                        this.gameObject.GetComponent<AudioSource>().clip = this.gameObject.GetComponent<Audio_Script>().audioClips[1];
+                        this.gameObject.GetComponent<AudioSource>().Play();
                         AttackMotion_Object.GetComponent<PlayerAttackMotion_Script>().
                             AttackMotion_Object[2].GetComponent<Animator>().SetBool("FireArrow", true);
                         PlayerAttack_Enemy = true;
                         break;
                     case "전격":
+                        this.gameObject.GetComponent<AudioSource>().clip = this.gameObject.GetComponent<Audio_Script>().audioClips[3];
+                        this.gameObject.GetComponent<AudioSource>().Play();
                         AttackMotion_Object.GetComponent<PlayerAttackMotion_Script>().
                             AttackMotion_Object[2].GetComponent<Animator>().SetBool("Lighting", true);
                         PlayerAttack_Enemy = true;
                         break;
                     case "고드름":
+                        this.gameObject.GetComponent<AudioSource>().clip = this.gameObject.GetComponent<Audio_Script>().audioClips[2];
+                        this.gameObject.GetComponent<AudioSource>().Play();
                         AttackMotion_Object.GetComponent<PlayerAttackMotion_Script>().
                             AttackMotion_Object[2].GetComponent<Animator>().SetBool("iceBolt", true);
                         PlayerAttack_Enemy = true;
                         break;
                     case "절망의균열":
+                        this.gameObject.GetComponent<AudioSource>().clip = this.gameObject.GetComponent<Audio_Script>().audioClips[5];
+                        this.gameObject.GetComponent<AudioSource>().Play();
                         AttackMotion_Object.GetComponent<PlayerAttackMotion_Script>().
                             AttackMotion_Object[2].GetComponent<Animator>().SetBool("abyssCrevice", true);
                         PlayerAttack_Enemy = true;
@@ -547,26 +585,36 @@ public class Player_Script : MonoBehaviour
                         PlayerAttack_Enemy = true;
                         break;
                     case "돌무더기":
+                        this.gameObject.GetComponent<AudioSource>().clip = this.gameObject.GetComponent<Audio_Script>().audioClips[4];
+                        this.gameObject.GetComponent<AudioSource>().Play();
                         AttackMotion_Object.GetComponent<PlayerAttackMotion_Script>().
                             AttackMotion_Object[3].GetComponent<Animator>().SetBool("stoneRain", true);
                         PlayerAttack_Enemy = true;
                         break;
                     case "불화살":
+                        this.gameObject.GetComponent<AudioSource>().clip = this.gameObject.GetComponent<Audio_Script>().audioClips[1];
+                        this.gameObject.GetComponent<AudioSource>().Play();
                         AttackMotion_Object.GetComponent<PlayerAttackMotion_Script>().
                             AttackMotion_Object[3].GetComponent<Animator>().SetBool("FireArrow", true);
                         PlayerAttack_Enemy = true;
                         break;
                     case "전격":
+                        this.gameObject.GetComponent<AudioSource>().clip = this.gameObject.GetComponent<Audio_Script>().audioClips[3];
+                        this.gameObject.GetComponent<AudioSource>().Play();
                         AttackMotion_Object.GetComponent<PlayerAttackMotion_Script>().
                             AttackMotion_Object[3].GetComponent<Animator>().SetBool("Lighting", true);
                         PlayerAttack_Enemy = true;
                         break;
                     case "고드름":
+                        this.gameObject.GetComponent<AudioSource>().clip = this.gameObject.GetComponent<Audio_Script>().audioClips[2];
+                        this.gameObject.GetComponent<AudioSource>().Play();
                         AttackMotion_Object.GetComponent<PlayerAttackMotion_Script>().
                             AttackMotion_Object[3].GetComponent<Animator>().SetBool("iceBolt", true);
                         PlayerAttack_Enemy = true;
                         break;
                     case "절망의균열":
+                        this.gameObject.GetComponent<AudioSource>().clip = this.gameObject.GetComponent<Audio_Script>().audioClips[5];
+                        this.gameObject.GetComponent<AudioSource>().Play();
                         AttackMotion_Object.GetComponent<PlayerAttackMotion_Script>().
                             AttackMotion_Object[3].GetComponent<Animator>().SetBool("abyssCrevice", true);
                         PlayerAttack_Enemy = true;

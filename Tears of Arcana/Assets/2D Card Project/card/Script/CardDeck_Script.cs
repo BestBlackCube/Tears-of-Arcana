@@ -80,112 +80,112 @@ public class CardDeck_Script : MonoBehaviour
                 if (Cardinput_timer < 1.2f) Cardinput_timer += Time.deltaTime; // 1.2초 마다 카드가 생성
                 else
                 {
-                    //int number = Random.Range(4, 7); // 테스트용 코드
+                    //int number = 0;
+                    //if(deckField.DeckField_nowCard == 0) // 1번 카드
+                    //{
+                    //    int singleMagic = Random.Range(0, 101); // 100%
+                    //    if (singleMagic >= 60) number = 4; // 40% = 일반공격카드
+                    //    else if (60 > singleMagic) // 60% = 단일 속성카드
+                    //    {
+                    //        int ElementalMagic = Random.Range(0, 101);
+                    //        if (ElementalMagic >= 80) number = 5; // 20% = 바람의창
+                    //        else if (80 > ElementalMagic && ElementalMagic >= 60) number = 6; // 20% = 돌무더기
+                    //        else if (60 > ElementalMagic && ElementalMagic >= 40) number = 7; // 20% = 불화살
+                    //        else if (40 > ElementalMagic && ElementalMagic >= 20) number = 8; // 20% = 전격
+                    //        else if (20 > ElementalMagic && ElementalMagic >= 0)  number = 9; // 20% = 고드름
+                    //    }    
+                    //}
+                    //if(deckField.DeckField_nowCard == 1) // 2번 카드
+                    //{
+                    //    int singleMagic = Random.Range(0, 101); // 100%
+                    //    if (singleMagic >= 60) number = 4; // 40% = 일반공격카드
+                    //    else if (60 > singleMagic && singleMagic >= 10) // 50% = 단일 속성카드
+                    //    {
+                    //        int ElementalMagic = Random.Range(0, 101);
+                    //        if (ElementalMagic >= 80) number = 5; // 20% = 바람의창
+                    //        else if (80 > ElementalMagic && ElementalMagic >= 60) number = 6; // 20% = 돌무더기
+                    //        else if (60 > ElementalMagic && ElementalMagic >= 40) number = 7; // 20% = 불화살
+                    //        else if (40 > ElementalMagic && ElementalMagic >= 20) number = 8; // 20% = 전격
+                    //        else if (20 > ElementalMagic && ElementalMagic >= 0)  number = 9; // 20% = 고드름
+                    //    }
+                    //    else if(10 > singleMagic) // 10% = 범위공겨카드
+                    //    {
+                    //        int multipleMagic = Random.Range(0, 101);
+                    //        if (multipleMagic >= 50) number = 10; // 50% / 50% 화염장판, 얼음안개
+                    //        else number = 11;
+                    //    }
+                    //}
+                    //if(deckField.DeckField_nowCard == 2) // 3번 카드
+                    //{
+                    //    int singleMagic = Random.Range(0, 101); // 100%
+                    //    if (singleMagic >= 60) number = 4; // 40% = 일반공격카드
+                    //    else if (60 > singleMagic && singleMagic >= 10) // 50% = 단일 속성카드
+                    //    {
+                    //        int ElementalMagic = Random.Range(0, 101);
+                    //        if (ElementalMagic >= 80) number = 5; // 20% = 바람의창
+                    //        else if (80 > ElementalMagic && ElementalMagic >= 60) number = 6; // 20% = 돌무더기
+                    //        else if (60 > ElementalMagic && ElementalMagic >= 40) number = 7; // 20% = 불화살
+                    //        else if (40 > ElementalMagic && ElementalMagic >= 20) number = 8; // 20% = 전격
+                    //        else if (20 > ElementalMagic && ElementalMagic >= 0) number = 9; // 20% = 고드름
+                    //    }
+                    //    else if (10 > singleMagic) // 10% = 범위공겨카드
+                    //    {
+                    //        int multipleMagic = Random.Range(0, 101);
+                    //        if (multipleMagic >= 50) number = 10; // 50% / 50% 화염장판, 얼음안개
+                    //        else number = 11;
+                    //    }
+                    //}
+                    //if(deckField.DeckField_nowCard == 3) // 4번 카드
+                    //{
+                    //    int HealthMagic = Random.Range(0, 101); // 100%
+                    //    if (HealthMagic >= 50) number = 1; // 50% = 일반회복
+                    //    else if (50 > HealthMagic && HealthMagic >= 20) number = 2; // 30% = 고급회복
+                    //    else if (20 > HealthMagic) number = 3; // 20% = 명상
+                    //}
+                    //if(deckField.DeckField_nowCard == 4) // 5번 카드
+                    //{
+                    //    int Magic = Random.Range(0, 101); // 100%
+                    //    if(Magic >= 60) // 40% = 회복카드
+                    //    {
+                    //        int HealthMagic = Random.Range(0, 101);
+                    //        if (HealthMagic >= 50) number = 1;
+                    //        else if (50 > HealthMagic && HealthMagic >= 20) number = 2;
+                    //        else if (20 > HealthMagic) number = 3;
+                    //    }
+                    //    else if(60 > Magic && Magic >= 10) // 50% = 공격카드
+                    //    {
+                    //        int singleMagic = Random.Range(0, 101); // 100%
+                    //        if (singleMagic >= 60) number = 4; // 40% = 일반공격카드
+                    //        else if (60 > singleMagic && singleMagic >= 10) // 50% = 속성카드
+                    //        {
+                    //            int ElementalMagic = Random.Range(0, 101);
+                    //            if (ElementalMagic >= 80) number = 5;
+                    //            else if (80 > ElementalMagic && ElementalMagic >= 60) number = 6;
+                    //            else if (60 > ElementalMagic && ElementalMagic >= 40) number = 7;
+                    //            else if (40 > ElementalMagic && ElementalMagic >= 20) number = 8;
+                    //            else if (20 > ElementalMagic && ElementalMagic >= 0) number = 9;
+                    //        }
+                    //        else if (10 > singleMagic) // 10% 범위카드
+                    //        {
+                    //            int multipleMagic = Random.Range(0, 101);
+                    //            if (multipleMagic >= 50) number = 10;
+                    //            else number = 11;
+                    //        }
+                    //    }
+                    //    else if(10 > Magic) // 10% = 악마카드
+                    //    {
+                    //        int DevilMagic = Random.Range(0, 101);
+                    //        if (DevilMagic >= 67) number = 13;
+                    //        else if (67 > DevilMagic && DevilMagic >= 37) number = 14;
+                    //        else if (37 > DevilMagic) number = 15;
+                    //    }
+                    //}
                     int number = 0;
-                    if(deckField.DeckField_nowCard == 0)
-                    {
-                        int singleMagic = Random.Range(0, 101);
-                        if (singleMagic >= 60) number = 4;
-                        else if (60 > singleMagic)
-                        {
-                            int ElementalMagic = Random.Range(0, 101);
-                            if (ElementalMagic >= 80) number = 5;
-                            else if (80 > ElementalMagic && ElementalMagic >= 60) number = 6;
-                            else if (60 > ElementalMagic && ElementalMagic >= 40) number = 7;
-                            else if (40 > ElementalMagic && ElementalMagic >= 20) number = 8;
-                            else if (20 > ElementalMagic && ElementalMagic >= 0)  number = 9;
-                        }    
-                    }
-                    if(deckField.DeckField_nowCard == 1)
-                    {
-                        int singleMagic = Random.Range(0, 101);
-                        if (singleMagic >= 60) number = 4;
-                        else if (60 > singleMagic && singleMagic >= 10)
-                        {
-                            int ElementalMagic = Random.Range(0, 101);
-                            if (ElementalMagic >= 80) number = 5;
-                            else if (80 > ElementalMagic && ElementalMagic >= 60) number = 6;
-                            else if (60 > ElementalMagic && ElementalMagic >= 40) number = 7;
-                            else if (40 > ElementalMagic && ElementalMagic >= 20) number = 8;
-                            else if (20 > ElementalMagic && ElementalMagic >= 0)  number = 9;
-                        }
-                        else if(10 > singleMagic)
-                        {
-                            int multipleMagic = Random.Range(0, 101);
-                            if (multipleMagic >= 50) number = 10;
-                            else number = 11;
-                        }
-                    }
-                    if(deckField.DeckField_nowCard == 2)
-                    {
-                        int singleMagic = Random.Range(0, 101);
-                        if (singleMagic >= 60) number = 4;
-                        else if (60 > singleMagic && singleMagic >= 10)
-                        {
-                            int ElementalMagic = Random.Range(0, 101);
-                            if (ElementalMagic >= 80) number = 5;
-                            else if (80 > ElementalMagic && ElementalMagic >= 60) number = 6;
-                            else if (60 > ElementalMagic && ElementalMagic >= 40) number = 7;
-                            else if (40 > ElementalMagic && ElementalMagic >= 20) number = 8;
-                            else if (20 > ElementalMagic && ElementalMagic >= 0)  number = 9;
-                        }
-                        else if(10 > singleMagic)
-                        {
-                            int multipleMagic = Random.Range(0, 101);
-                            if (multipleMagic >= 50) number = 10;
-                            else number = 11;
-                        }
-                    }
-                    if(deckField.DeckField_nowCard == 3)
-                    {
-                        int HealthMagic = Random.Range(0, 101);
-                        if (HealthMagic >= 50) number = 1;
-                        else if (50 > HealthMagic && HealthMagic >= 20) number = 2;
-                        else if (20 > HealthMagic) number = 3;
-                    }
-                    if(deckField.DeckField_nowCard == 4)
-                    {
-                        int Magic = Random.Range(0, 101);
-                        if(Magic >= 60)
-                        {
-                            int HealthMagic = Random.Range(0, 101);
-                            if (HealthMagic >= 50) number = 1;
-                            else if (50 > HealthMagic && HealthMagic >= 20) number = 2;
-                            else if (20 > HealthMagic) number = 3;
-                        }
-                        else if(60 > Magic && Magic >= 10)
-                        {
-                            int singleMagic = Random.Range(0, 101);
-                            if (singleMagic >= 60) number = 4;
-                            else if (60 > singleMagic && singleMagic >= 10)
-                            {
-                                int ElementalMagic = Random.Range(0, 101);
-                                if (ElementalMagic >= 80) number = 5;
-                                else if (80 > ElementalMagic && ElementalMagic >= 60) number = 6;
-                                else if (60 > ElementalMagic && ElementalMagic >= 40) number = 7;
-                                else if (40 > ElementalMagic && ElementalMagic >= 20) number = 8;
-                                else if (20 > ElementalMagic && ElementalMagic >= 0) number = 9;
-                            }
-                            else if (10 > singleMagic)
-                            {
-                                int multipleMagic = Random.Range(0, 101);
-                                if (multipleMagic >= 50) number = 10;
-                                else number = 11;
-                            }
-                        }
-                        else if(10 > Magic)
-                        {
-                            int DevilMagic = Random.Range(0, 101);
-                            if (DevilMagic >= 67) number = 13;
-                            else if (67 > DevilMagic && DevilMagic >= 37) number = 14;
-                            else if (37 > DevilMagic) number = 15;
-                        }
-                    }
-                    //if (deckField.DeckField_nowCard == 0) number = 13;
-                    //if (deckField.DeckField_nowCard == 1) number = 14;
-                    //if (deckField.DeckField_nowCard == 2) number = 15;
-                    //if (deckField.DeckField_nowCard == 3) number = 11;
-                    //if (deckField.DeckField_nowCard == 4) number = 11;
+                    if (deckField.DeckField_nowCard == 0) number = 6;
+                    if (deckField.DeckField_nowCard == 1) number = 8;
+                    if (deckField.DeckField_nowCard == 2) number = 10;
+                    if (deckField.DeckField_nowCard == 3) number = 3;
+                    if (deckField.DeckField_nowCard == 4) number = 14;
                     if (number == 1)
                     {
                         Card_Data = Instantiate(CardData[0], this.transform.position, Quaternion.identity); // 복제한 오브젝트

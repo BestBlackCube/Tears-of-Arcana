@@ -53,8 +53,8 @@ public class StatusCard_Mouse : MonoBehaviour
 
             player.maxHp += PlusHp;
             player.maxMp += PlusMp;
-            player.Defence_percent += PlusDp;
-            player.Avoid_percent += PlusAp;
+            player.Hit_percent += PlusDp;
+            player.Defence_percent += PlusAp;
 
             itemOption.HpPlus_Persent += PlusHp;
             itemOption.MpPlus_Persent += PlusMp;
@@ -84,8 +84,8 @@ public class StatusCard_Mouse : MonoBehaviour
 
             player.maxHp += PlusHp;
             player.maxMp += PlusMp;
-            player.Defence_percent += PlusDp;
-            player.Avoid_percent += PlusAp;
+            player.Hit_percent += PlusDp;
+            player.Defence_percent += PlusAp;
 
             itemOption.HpPlus_Persent += PlusHp;
             itemOption.MpPlus_Persent += PlusMp;
@@ -115,8 +115,8 @@ public class StatusCard_Mouse : MonoBehaviour
 
             player.maxHp += PlusHp;
             player.maxMp += PlusMp;
-            player.Defence_percent += PlusDp;
-            player.Avoid_percent += PlusAp;
+            player.Hit_percent += PlusDp;
+            player.Defence_percent += PlusAp;
 
             itemOption.HpPlus_Persent += PlusHp;
             itemOption.MpPlus_Persent += PlusMp;

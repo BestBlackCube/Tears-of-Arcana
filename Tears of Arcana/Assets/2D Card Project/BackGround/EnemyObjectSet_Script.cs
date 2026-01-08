@@ -33,19 +33,22 @@ public class EnemyObjectSet_Script : MonoBehaviour
     public bool NextStage = false;
     public bool StageCardInput = true;
     public bool nullAndinput = false;
-    bool turn = false;
+    [SerializeField] bool turn = false;
 
     public int StageCount = 0;
     public int MonsterCount = 0;
     public int MonsterDeadCount = 0;
 
     public Vector3[] Field_transform;
+
+    public AudioSource audioSource;
+    public AudioClip[] audioClip;
     // Start is called before the first frame update
     void Awake()
     {
         canvas = GameObject.Find("HPCanvas");
         HpbarAndStun_transform();
-        PlayerPrefs.SetInt("Stage", 100);
+        PlayerPrefs.SetInt("Stage", 1);
         //if (PlayerPrefs.GetInt("Stage") == 1) PlayerPrefs.SetInt("Stage", 1);
     }
 
@@ -161,70 +164,51 @@ public class EnemyObjectSet_Script : MonoBehaviour
                 break;
 
             case 1: // 마을 중앙
+                this.gameObject.GetComponent<SpriteRenderer>().sprite = BackGround_Image[2];
+                Field_transform[0] = new Vector3(-5, Monster_Object[18].transform.position.y, 5);
+                Field_transform[1] = new Vector3(2, Monster_Object[21].transform.position.y, 5);
+                Field_transform[2] = new Vector3(9, Monster_Object[22].transform.position.y, 5);
+                Field_transform[3] = new Vector3(16, Monster_Object[20].transform.position.y, 5);
 
-                Field_transform[0] = new Vector3(-5, Monster_Object[0].transform.position.y, 5);
-                Field_transform[1] = new Vector3(2, Monster_Object[1].transform.position.y, 5);
-                Field_transform[2] = new Vector3(9, Monster_Object[2].transform.position.y, 5);
-                Field_transform[3] = new Vector3(16, Monster_Object[3].transform.position.y, 5);
+                Field_inMonster[0] = Instantiate(Monster_Object[18], Field_transform[0], Quaternion.identity);
+                Field_inMonster[1] = Instantiate(Monster_Object[21], Field_transform[1], Quaternion.identity);
+                Field_inMonster[2] = Instantiate(Monster_Object[22], Field_transform[2], Quaternion.identity);
+                Field_inMonster[3] = Instantiate(Monster_Object[20], Field_transform[3], Quaternion.identity);
 
-                Field_inMonster[0] = Instantiate(Monster_Object[0], Field_transform[0], Quaternion.identity);
-                Field_inMonster[1] = Instantiate(Monster_Object[1], Field_transform[1], Quaternion.identity);
-                Field_inMonster[2] = Instantiate(Monster_Object[2], Field_transform[2], Quaternion.identity);
-                Field_inMonster[3] = Instantiate(Monster_Object[3], Field_transform[3], Quaternion.identity);
-
-                //Enemy_Name[0] = Monster_Object[a].name;
-                //Enemy_Name[1] = Monster_Object[a].name;
-                //Enemy_Name[2] = Monster_Object[a].name;
-                //Enemy_Name[3] = Monster_Object[a].name;
+                Enemy_Name[0] = Monster_Object[18].name;
+                Enemy_Name[1] = Monster_Object[21].name;
+                Enemy_Name[2] = Monster_Object[22].name;
+                Enemy_Name[3] = Monster_Object[20].name;
 
                 MonsterCount = 4;
                 MonsterDeadCount = 0;
                 nullAndinput = true;
                 break;
             case 2: // 마을 내곽
+                this.gameObject.GetComponent<SpriteRenderer>().sprite = BackGround_Image[7];
+                Field_transform[2] = new Vector3(9, Monster_Object[32].transform.position.y, 5);
 
-                Field_transform[0] = new Vector3(-5, Monster_Object[4].transform.position.y, 5);
-                Field_transform[1] = new Vector3(2, Monster_Object[5].transform.position.y, 5);
-                Field_transform[2] = new Vector3(9, Monster_Object[6].transform.position.y, 5);
-                Field_transform[3] = new Vector3(16, Monster_Object[7].transform.position.y, 5);
+                Field_inMonster[2] = Instantiate(Monster_Object[32], Field_transform[2], Quaternion.identity);
 
-                Field_inMonster[0] = Instantiate(Monster_Object[4], Field_transform[0], Quaternion.identity);
-                Field_inMonster[1] = Instantiate(Monster_Object[5], Field_transform[1], Quaternion.identity);
-                Field_inMonster[2] = Instantiate(Monster_Object[6], Field_transform[2], Quaternion.identity);
-                Field_inMonster[3] = Instantiate(Monster_Object[7], Field_transform[3], Quaternion.identity);
+                Enemy_Name[2] = Monster_Object[32].name;
 
-                Enemy_Name[0] = "BlackSlime";
-                Enemy_Name[1] = "DeathBringer";
-                Enemy_Name[2] = "FireWizard";
-                Enemy_Name[3] = "Necromancer";
-
-                MonsterCount = 4;
+                MonsterCount = 1;
                 MonsterDeadCount = 0;
                 nullAndinput = true;
                 break;
             case 3: // 마을 외곽
+                this.gameObject.GetComponent<SpriteRenderer>().sprite = BackGround_Image[7];
+                Field_transform[2] = new Vector3(9, Monster_Object[29].transform.position.y, 5);
 
-                Field_transform[0] = new Vector3(-5, Monster_Object[8].transform.position.y, 5);
-                Field_transform[1] = new Vector3(2, Monster_Object[9].transform.position.y, 5);
-                Field_transform[2] = new Vector3(9, Monster_Object[10].transform.position.y, 5);
-                Field_transform[3] = new Vector3(16, Monster_Object[11].transform.position.y, 5);
+                Field_inMonster[2] = Instantiate(Monster_Object[29], Field_transform[2], Quaternion.identity);
 
-                Field_inMonster[0] = Instantiate(Monster_Object[8], Field_transform[0], Quaternion.identity);
-                Field_inMonster[1] = Instantiate(Monster_Object[9], Field_transform[1], Quaternion.identity);
-                Field_inMonster[2] = Instantiate(Monster_Object[10], Field_transform[2], Quaternion.identity);
-                Field_inMonster[3] = Instantiate(Monster_Object[11], Field_transform[3], Quaternion.identity);
-
-                Enemy_Name[0] = "FireWorm";
-                Enemy_Name[1] = "FlyDemon";
-                Enemy_Name[2] = "miniMushroom";
-                Enemy_Name[3] = "Bat";
+                Enemy_Name[2] = Monster_Object[29].name;
 
                 MonsterCount = 4;
                 MonsterDeadCount = 0;
                 nullAndinput = true;
                 break;
             case 4: // 숲 외곽
-
                 Field_transform[0] = new Vector3(-5, Monster_Object[12].transform.position.y, 5);
                 Field_transform[1] = new Vector3(2, Monster_Object[13].transform.position.y, 5);
                 //Field_transform[2] = new Vector3(9, Monster_Object[14].transform.position.y, 5);
